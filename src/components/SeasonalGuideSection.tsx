@@ -47,6 +47,17 @@ export function SeasonalGuideSection() {
                   {item.title}
                 </p>
 
+                {"image" in item && Boolean((item as any).image) && (
+                  <div className="relative h-28 w-full rounded-2xl overflow-hidden mb-3">
+                    <img
+                      src={(item as any).image}
+                      alt={(item as any).imageAlt || item.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
                 <p className="text-xs text-[#5A6D63] font-light leading-relaxed mb-4">
                   {item.description}
                 </p>

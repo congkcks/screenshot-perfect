@@ -324,5 +324,80 @@
     "width": 1600,
     "height": 1068,
     "sizeKB": 284
+  },
+  {
+    "id": "am-thuc-01-de-nui-tai-chanh",
+    "file": "/images/12-dac-san-am-thuc/am-thuc-01-de-nui-tai-chanh.webp",
+    "place": "Ninh Bình",
+    "alt": "Món thịt dê núi đặc sản Ninh Bình bóp tương ghém đậm đà",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Th%E1%BB%8Bt_d%C3%AA_Ninh_B%C3%ACnh.JPG",
+    "author": "Nguyễn Thanh Quang",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "attributionRequired": true,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "visual"
+    ],
+    "width": 1600,
+    "height": 1067,
+    "sizeKB": 157
+  },
+  {
+    "id": "am-thuc-02-com-chay",
+    "file": "/images/12-dac-san-am-thuc/am-thuc-02-com-chay.webp",
+    "place": "Ninh Bình (Minh họa)",
+    "alt": "Cơm cháy chà bông chiên giòn rụm vàng óng đặc sản cố đô",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Freshippo_salted_egg_yolk_dried_meat_floss_glutinous_rice.jpg",
+    "author": "Interaccoonale",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": false,
+    "illustrative": true,
+    "verifiedBy": [
+      "visual"
+    ],
+    "width": 1600,
+    "height": 1200,
+    "sizeKB": 266
+  },
+  {
+    "id": "am-thuc-03-ca-chuoi-nuong",
+    "file": "/images/12-dac-san-am-thuc/am-thuc-03-ca-chuoi-nuong.webp",
+    "place": "Ninh Bình (Minh họa ẩm thực dân dã)",
+    "alt": "Cá chuối nướng trui cuộn bánh tráng và rau rừng",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:C%C3%A1_l%C3%B3c_n%C6%B0%E1%BB%9Bng_trui.JPG",
+    "author": "Memberofc1",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "attributionRequired": true,
+    "illustrative": true,
+    "verifiedBy": [
+      "visual"
+    ],
+    "width": 1600,
+    "height": 1200,
+    "sizeKB": 148
+  },
+  {
+    "id": "mua-01-lua-chin",
+    "file": "/images/14-bon-mua/mua-01-lua-chin.webp",
+    "place": "Tam Cốc, Ninh Bình",
+    "alt": "Mùa lúa chín vàng ươm bên dòng Ngô Đồng và núi đá vôi Tam Cốc",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tam_Coc_(85925447).jpeg",
+    "author": "Wolfgang B",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "attributionRequired": true,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "gps",
+      "visual"
+    ],
+    "width": 1600,
+    "height": 1066,
+    "sizeKB": 243
   }
 ]

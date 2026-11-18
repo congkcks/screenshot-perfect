@@ -64,8 +64,9 @@ export function FoodCultureSection() {
           >
             <img
               src={current.image}
-              alt={current.name}
+              alt={current.imageAlt || current.name}
               className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
               onError={(e) => {
                 e.currentTarget.src = current.fallbackImage;
               }}

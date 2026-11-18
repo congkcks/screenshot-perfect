@@ -44,13 +44,18 @@ export function FoodModal({ food, isOpen, onClose }: FoodModalProps) {
         <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-[#173428]">
           <img
             src={currentImage}
-            alt={food.name}
+            alt={food.imageAlt || food.name}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             onError={() => {
               setImgSrc(food.fallbackImage);
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#173428] via-[#173428]/40 to-transparent" />
+          {food.imageCredit && (
+            <span className="absolute top-4 right-16 text-[10px] text-white/80 bg-black/50 backdrop-blur-sm px-2.5 py-0.5 rounded-full z-10 font-mono">
+              Ảnh: {food.imageCredit}
+            </span>
+          )}
 
           {/* Tag */}
           <div className="absolute top-4 left-4">

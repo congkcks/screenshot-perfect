@@ -691,6 +691,8 @@ export type LocalFood = {
   signatureDish: string;
   recommendedPlaces: string[];
   image: string;
+  imageAlt?: string;
+  imageCredit?: string;
   fallbackImage: string;
   editorialQuote: string;
 };
@@ -714,7 +716,9 @@ export const localFoods: LocalFood[] = [
       "Nhà hàng Chính Thư — Thôn Khê Thượng, Ninh Xuân",
       "Nhà hàng Ba Cửa — Thôn Tràng An, Trường Yên"
     ],
-    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/12-dac-san-am-thuc/am-thuc-01-de-nui-tai-chanh.webp",
+    imageAlt: "Món thịt dê núi đặc sản Ninh Bình bóp tương ghém đậm đà",
+    imageCredit: "Nguyễn Thanh Quang (CC BY-SA 3.0)",
     fallbackImage: localFoodImage,
     editorialQuote: "Dê núi Ninh Bình không đơn thuần là món ăn, đó là sự kết tinh của đá vôi, ngàn lá rừng và nghệ thuật gia truyền của người đầu bếp cố đô.",
   },
@@ -736,7 +740,9 @@ export const localFoods: LocalFood[] = [
       "Cơm cháy Khải Lương — Đường Trần Hưng Đạo, TP. Ninh Bình",
       "Đặc sản Cơm cháy Nhật Quỳnh — Gia Viễn"
     ],
-    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/12-dac-san-am-thuc/am-thuc-02-com-chay.webp",
+    imageAlt: "Cơm cháy chà bông chiên giòn rụm vàng óng đặc sản cố đô",
+    imageCredit: "Interaccoonale (CC0 - Minh họa)",
     fallbackImage: localFoodImage,
     editorialQuote: "Món quà quen thuộc của mọi du khách: giòn tan nơi đầu lưỡi và đượm tình người đất cố đô mang về làm quà tặng người thân.",
   },
@@ -758,7 +764,9 @@ export const localFoods: LocalFood[] = [
       "Nhà hàng Vườn Dừa — Vùng Tam Cốc",
       "Nhà hàng Bến Thuyền Tam Cốc"
     ],
-    image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/12-dac-san-am-thuc/am-thuc-03-ca-chuoi-nuong.webp",
+    imageAlt: "Cá chuối nướng trui cuộn bánh tráng và rau rừng",
+    imageCredit: "Memberofc1 (CC BY-SA 3.0 - Minh họa)",
     fallbackImage: localFoodImage,
     editorialQuote: "Vị ngọt thanh của cá chuối nướng trui hòa quyện cùng rau rừng tạo nên khúc ca đồng quê mộc mạc khó quên.",
   },
@@ -1025,6 +1033,9 @@ export const seasonalGuide = [
     icon: "🪷",
     title: "Mùa Sen Nở Rộ & Sắc Xanh Tràn Đầy",
     description: "Những đầm sen bạt ngàn dưới chân núi Hang Múa và cổng Chùa Bích Động bung nở thơm ngát. Hoa phượng đỏ rực bên núi Non Nước, dòng nước sông Ngô Đồng xanh ngọc bích mát lạnh.",
+    image: "/images/14-bon-mua/mua-01-lua-chin.webp",
+    imageAlt: "Mùa lúa chín vàng ươm bên dòng Ngô Đồng và núi đá vôi Tam Cốc",
+    imageCredit: "Wolfgang B (CC BY-SA 3.0)",
     activities: ["Check-in tháp sen rực rỡ tại chân Hang Múa", "Chụp ảnh hoa phượng đỏ rực bên cầu đá sông Đáy", "Đi thuyền ngắm vẻ đẹp căng tràn sức sống của thiên nhiên"],
   },
   {
