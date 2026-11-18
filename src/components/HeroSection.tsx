@@ -26,7 +26,7 @@ const heroSlides = [
     title: "Tràng An",
     caption: "QUẦN THỂ DANH THẮNG TRÀNG AN",
     heritage: "DI SẢN VĂN HÓA & THIÊN NHIÊN THẾ GIỚI UNESCO",
-    image: "https://images.unsplash.com/photo-1528127269322-539801943592?q=85&w=1920&auto=format&fit=crop",
+    image: "/images/01-hero/hero-01-toan-canh.webp",
     fallback: trangAnImage,
     quote: "Ngồi thuyền nan, chui qua hang đá, nghe lịch sử nghìn năm thì thầm.",
   },

@@ -1,0 +1,60 @@
+[
+  {
+    "id": "hero-01-toan-canh",
+    "file": "/images/01-hero/hero-01-toan-canh.webp",
+    "place": "Tràng An, Ninh Bình",
+    "alt": "Toàn cảnh non nước Tràng An hùng vĩ nhìn từ trên cao, Ninh Bình",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vietnam,_Ninh_Binh,_Trang_An_Area.jpg",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "attributionRequired": true,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "visual"
+    ],
+    "width": 1920,
+    "height": 1280,
+    "sizeKB": 330
+  },
+  {
+    "id": "hero-02-binh-minh",
+    "file": "/images/01-hero/hero-02-binh-minh.webp",
+    "place": "Ninh Hải, Tam Cốc, Ninh Bình",
+    "alt": "Hoàng hôn buông trên rặng núi đá vôi Ninh Hải, Ninh Bình",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sunset_in_Ninh_H%E1%BA%A3i,_Ninh_Binh_province,_Vietnam,_20240202_1723_5411.jpg",
+    "author": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "attributionRequired": true,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "visual"
+    ],
+    "width": 1920,
+    "height": 1281,
+    "sizeKB": 228
+  },
+  {
+    "id": "hero-03-thuyen-nan",
+    "file": "/images/01-hero/hero-03-thuyen-nan.webp",
+    "place": "Tràng An, Ninh Bình",
+    "alt": "Đoàn thuyền nan lướt giữa thung nước ngọc bích Tràng An",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Trang_An_Landscape_Complex,_Ninh_Binh_Province,_Vietnam,_20240202_1456_5313.jpg",
+    "author": "Jakub Hałun",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "attributionRequired": true,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "gps",
+      "visual"
+    ],
+    "width": 1920,
+    "height": 1282,
+    "sizeKB": 393
+  }
+]
