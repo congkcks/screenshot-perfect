@@ -787,7 +787,9 @@ export const localFoods: LocalFood[] = [
       "Bún mọc Tố Như — Thị trấn Phát Diệm, Kim Sơn",
       "Bún mọc bà Phấn — Đường Trần Hưng Đạo, TP. Ninh Bình"
     ],
-    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/12-dac-san-am-thuc/am-thuc-04-bun-moc.webp",
+    imageAlt: "Bát bún mọc sườn viên thơm ngọt nước dùng thanh trong",
+    imageCredit: "Stu Spivack (CC BY 2.0 - Minh họa)",
     fallbackImage: localFoodImage,
     editorialQuote: "Một tô bún mọc Kim Sơn vào sớm mai sương mờ đủ làm ấm lòng bất kỳ lữ khách phương xa nào dừng chân.",
   },
@@ -850,7 +852,9 @@ export const localFoods: LocalFood[] = [
       "Cơ sở Nem chua Tuấn Mai — Xã Yên Mạc, Yên Mô",
       "Cơ sở Nem Yên Mạc Anh Quân — TP. Ninh Bình"
     ],
-    image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop",
+    image: "/images/12-dac-san-am-thuc/am-thuc-06-nem-chua-yen-mac.webp",
+    imageAlt: "Đặc sản nem chua Yên Mạc ăn kèm lá ổi lá sung nước mắm tỏi ớt",
+    imageCredit: "Stu Spivack (CC BY 2.0 - Minh họa)",
     fallbackImage: localFoodImage,
     editorialQuote: "Sợi nem chua Yên Mạc giòn ngọt gói trọn nét cầu kỳ, tao nhã của người nghệ nhân đất cố đô.",
   },
@@ -1008,6 +1012,7 @@ export const craftVillages = [
     location: "Bến thuyền Tam Cốc",
     heritage: "Kỹ nghệ bản địa độc nhất vô nhị",
     desc: "Hình ảnh người lái đò Tam Cốc dùng hai bàn chân chèo thuyền thoăn thoắt vừa điêu luyện vừa thảnh thơi kể chuyện lịch sử non nước là nét văn hóa dân gian ấn tượng bậc nhất.",
+    image: "/images/03-tam-coc-bich-dong/tam-coc-05-cheo-thuyen-bang-chan.webp",
   },
   {
     id: "le-hoi-co-do",
@@ -1015,6 +1020,7 @@ export const craftVillages = [
     location: "Đền Vua Đinh – Vua Lê",
     heritage: "Di sản văn hóa phi vật thể quốc gia",
     desc: "Lễ hội xuân tổ chức từ mùng 8 đến mùng 10 tháng 3 âm lịch, tái hiện lễ rước nước sông Hoàng Long, hội 'cờ lau tập trận' và các trò chơi dân gian cố đô đặc sắc.",
+    image: "/images/06-co-do-hoa-lu/hoa-lu-03-le-hoi-truong-yen.webp",
   },
 ];
 

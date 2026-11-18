@@ -1,5 +1,7 @@
+import { useState } from "react";
 import {
   ArrowUp,
+  Camera,
   Compass,
   Heart,
   Mail,
@@ -8,8 +10,11 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { ImageCreditsModal } from "./ImageCreditsModal";
 
 export function FooterSection() {
+  const [showCredits, setShowCredits] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -144,8 +149,15 @@ export function FooterSection() {
         {/* Bottom Footer Row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>© 2026 NinhBinhTravel. Bản quyền thuộc về Đội thi Mini App AI.</p>
-          <div className="flex items-center gap-6">
-            <span>Thiết kế theo chuẩn Luxury Editorial Travel</span>
+          <div className="flex flex-wrap items-center gap-6">
+            <button
+              onClick={() => setShowCredits(true)}
+              className="inline-flex items-center gap-1.5 text-white/80 hover:text-[#D6AD72] underline transition-colors cursor-pointer"
+            >
+              <Camera className="w-3.5 h-3.5 text-[#D6AD72]" />
+              <span>Ghi công bản quyền ảnh (Credits)</span>
+            </button>
+            <span className="hidden md:inline">Thiết kế theo chuẩn Luxury Editorial Travel</span>
             <button
               onClick={scrollToTop}
               className="p-2 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] text-white transition-all flex items-center gap-1.5"
@@ -156,6 +168,9 @@ export function FooterSection() {
             </button>
           </div>
         </div>
+
+        {/* Image Credits Modal */}
+        <ImageCreditsModal open={showCredits} onOpenChange={setShowCredits} />
       </div>
     </footer>
   );
