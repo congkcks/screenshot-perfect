@@ -58,13 +58,14 @@ async function processImage(inputBuffer, options = {}) {
     resizeWidth = targetWidth;
   }
 
-  let quality = 82;
+  let quality = 80;
+  let currentWidth = resizeWidth;
   let outputBuffer;
 
-  while (quality >= 50) {
+  while (quality >= 35) {
     let pipeline = sharp(inputBuffer);
-    if (metadata.width > targetWidth) {
-      pipeline = pipeline.resize({ width: targetWidth, withoutEnlargement: true });
+    if (metadata.width > currentWidth) {
+      pipeline = pipeline.resize({ width: Math.round(currentWidth), withoutEnlargement: true });
     }
     outputBuffer = await pipeline
       .webp({ quality, effort: 4 })
@@ -75,6 +76,9 @@ async function processImage(inputBuffer, options = {}) {
       break;
     }
     quality -= 5;
+    if (quality < 50 && sizeKB > maxKB && currentWidth > 1200) {
+      currentWidth *= 0.92;
+    }
   }
 
   const finalMeta = await sharp(outputBuffer).metadata();

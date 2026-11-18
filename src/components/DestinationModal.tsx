@@ -57,13 +57,18 @@ export function DestinationModal({
         <div className="relative h-72 sm:h-80 w-full overflow-hidden bg-[#173428]">
           <img
             src={currentImage}
-            alt={destination.name}
+            alt={destination.imageAlt || destination.name}
             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             onError={() => {
               setImgSrc(destination.fallbackImage);
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#173428] via-[#173428]/45 to-transparent" />
+          {destination.imageCredit && (
+            <span className="absolute bottom-3 right-4 text-[10px] text-white/75 bg-black/50 backdrop-blur-sm px-2.5 py-0.5 rounded-full z-10 font-mono">
+              Ảnh: {destination.imageCredit}
+            </span>
+          )}
 
           {/* Badges */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">

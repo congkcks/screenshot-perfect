@@ -192,7 +192,7 @@ export function DestinationSection({
                 <div className={`relative w-full ${heightClass} overflow-hidden`}>
                   <img
                     src={dest.image}
-                    alt={dest.name}
+                    alt={dest.imageAlt || dest.name}
                     className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-110"
                     loading="lazy"
                     onError={(e) => {
