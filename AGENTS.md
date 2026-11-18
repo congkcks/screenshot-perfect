@@ -28,3 +28,7 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Keep destination, local-food, and itinerary content in typed static data separate from the homepage UI so the MVP remains easy to curate without a backend.
