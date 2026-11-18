@@ -207,8 +207,8 @@ export function HeroSection({
             size="lg"
             className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm px-7 py-6 rounded-full shadow-xl shadow-[#D6AD72]/30 transition-all hover:scale-105"
           >
-            <a href="#dat-tour">
-              🎫 ĐẶT TOUR NGAY
+            <a href="#diem-den">
+              ✨ KHÁM PHÁ CÁC ĐỊA DANH
             </a>
           </Button>
 
@@ -218,8 +218,8 @@ export function HeroSection({
             size="lg"
             className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-semibold text-sm px-6 py-6 rounded-full transition-all"
           >
-            <a href="#dat-tour">
-              📞 NHẬN TƯ VẤN MIỄN PHÍ
+            <a href="#ban-do">
+              🗺️ BẢN ĐỒ 20 DANH THẮNG
             </a>
           </Button>
 
@@ -229,8 +229,8 @@ export function HeroSection({
             size="lg"
             className="text-white/80 hover:text-white hover:bg-white/10 text-sm px-5 py-6 rounded-full transition-all"
           >
-            <a href="#diem-den">
-              Khám Phá Danh Thắng
+            <a href="#kham-pha-ninh-binh">
+              Về Vùng Đất Cố Đô
               <ArrowDown className="w-4 h-4 ml-1.5" />
             </a>
           </Button>

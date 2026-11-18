@@ -29,8 +29,8 @@ export function SignatureExperiencesSection() {
             variant="outline"
             className="border-[#244B3B] text-[#244B3B] hover:bg-[#F5F1E8] text-xs gap-1.5 self-start md:self-auto"
           >
-            <a href="#dat-tour">
-              Đặt Tour Trải Nghiệm Này
+            <a href="#diem-den">
+              Khám Phá Các Địa Danh
               <ArrowRight className="w-3.5 h-3.5" />
             </a>
           </Button>

@@ -58,7 +58,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
     { label: "Ẩm Thực", href: "#am-thuc", icon: UtensilsCrossed },
     { label: "Lịch Trình", href: "#lich-trinh", icon: Calendar },
     { label: "Cẩm Nang", href: "#cam-nang", icon: Sparkles },
-    { label: "Đặt Tour", href: "#dat-tour", icon: ArrowRight },
+    { label: "Về Ninh Bình", href: "#kham-pha-ninh-binh", icon: Compass },
   ];
 
   return (
@@ -156,8 +156,8 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
               size="sm"
               className="hidden sm:inline-flex bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-xs tracking-wide px-4 rounded-full shadow-lg shadow-[#D6AD72]/20 transition-all hover:scale-105"
             >
-              <a href="#dat-tour">
-                Đặt Tour Ngay
+              <a href="#diem-den">
+                Khám Phá Ngay
                 <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </a>
             </Button>

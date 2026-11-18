@@ -118,8 +118,8 @@ function Index() {
     }
   };
 
-  const scrollToBooking = () => {
-    document.getElementById("dat-tour")?.scrollIntoView({ behavior: "smooth" });
+  const scrollToExplore = () => {
+    document.getElementById("diem-den")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -142,7 +142,7 @@ function Index() {
       <StatsCounterBar />
 
       {/* Why Choose Ninh Binh Section */}
-      <WhyChooseSection onOpenBooking={scrollToBooking} />
+      <WhyChooseSection onOpenBooking={scrollToExplore} />
 
       {/* 5 Signature Experiences Section */}
       <SignatureExperiencesSection />
@@ -182,8 +182,8 @@ function Index() {
       {/* Travel Tips & Transportation Section */}
       <TravelTipsTransportSection />
 
-      {/* Tour Booking & Free Consultation Form Section */}
-      <TourBookingSection />
+      {/* Heritage Introduction & Visual Showcase Section */}
+      <TourBookingSection onSelectDestination={handleOpenDestination} />
 
       {/* Footer Section */}
       <FooterSection />

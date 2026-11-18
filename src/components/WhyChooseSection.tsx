@@ -27,20 +27,22 @@ export function WhyChooseSection({ onOpenBooking }: WhyChooseSectionProps) {
 
           <div className="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
             <Button
-              onClick={onOpenBooking}
-              className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-xs sm:text-sm px-6 py-5 rounded-full shadow-lg shadow-[#D6AD72]/20 gap-2"
+              asChild
+              className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-xs sm:text-sm px-6 py-5 rounded-full shadow-lg shadow-[#D6AD72]/20 gap-2 cursor-pointer"
             >
-              <Ticket className="w-4 h-4" />
-              ĐẶT TOUR NGAY
+              <a href="#diem-den">
+                <Compass className="w-4 h-4" />
+                KHÁM PHÁ CÁC ĐỊA DANH
+              </a>
             </Button>
             <Button
               asChild
               variant="outline"
-              className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md text-xs sm:text-sm px-5 py-5 rounded-full gap-2"
+              className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md text-xs sm:text-sm px-5 py-5 rounded-full gap-2 cursor-pointer"
             >
-              <a href="#dat-tour">
-                <PhoneCall className="w-4 h-4 text-[#D6AD72]" />
-                NHẬN TƯ VẤN MIỄN PHÍ
+              <a href="#kham-pha-ninh-binh">
+                <Sparkles className="w-4 h-4 text-[#D6AD72]" />
+                VỀ VÙNG ĐẤT CỐ ĐÔ
               </a>
             </Button>
           </div>
