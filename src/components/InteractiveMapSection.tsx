@@ -7,7 +7,6 @@ import {
   Sparkles,
   Star,
   Info,
-  Key,
   Compass,
   CheckCircle2,
 } from "lucide-react";
@@ -91,8 +90,6 @@ export function InteractiveMapSection({
   const [activeCategory, setActiveCategory] = useState<string>("Tất cả");
   const [activeLocationId, setActiveLocationId] = useState<string>("trang-an");
   const [mapEngine, setMapEngine] = useState<"google" | "osm">("osm");
-  const [isApiKeySet, setIsApiKeySet] = useState<boolean>(false);
-  const [showKeyGuide, setShowKeyGuide] = useState<boolean>(false);
 
   // References for Google Maps
   const googleMapInstanceRef = useRef<google.maps.Map | null>(null);
@@ -123,7 +120,6 @@ export function InteractiveMapSection({
 
     // Check if a real Google Maps API key is configured
     const hasValidKey = !!apiKey && apiKey.length > 10 && !apiKey.includes("YOUR_");
-    setIsApiKeySet(hasValidKey);
 
     if (hasValidKey) {
       // Try to load Google Maps JS API dynamically
@@ -524,7 +520,7 @@ export function InteractiveMapSection({
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 self-start md:self-auto">
+          <div className="flex items-center gap-2 self-start md:self-auto">
             <Button
               asChild
               variant="outline"
@@ -540,54 +536,8 @@ export function InteractiveMapSection({
                 <ExternalLink className="w-3.5 h-3.5" />
               </a>
             </Button>
-
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => setShowKeyGuide(!showKeyGuide)}
-              className="text-xs text-[#5A6D63] hover:text-[#244B3B] gap-1"
-            >
-              <Key className="w-3.5 h-3.5 text-[#D6AD72]" />
-              {isApiKeySet ? "API Key: Đã kết nối" : "Cấu hình API Key"}
-            </Button>
           </div>
         </div>
-
-        {/* API Key Guide Banner (Dropdown / Collapsible) */}
-        {showKeyGuide && (
-          <div className="mb-6 p-4 rounded-2xl bg-white border border-[#D6AD72]/40 shadow-sm text-xs text-[#1A3429] flex flex-col sm:flex-row sm:items-center justify-between gap-4 animate-in fade-in duration-200">
-            <div className="flex items-start gap-3">
-              <div className="p-2 rounded-xl bg-[#244B3B] text-[#D6AD72] flex-shrink-0 mt-0.5">
-                <Compass className="w-4 h-4" />
-              </div>
-              <div>
-                <p className="font-bold text-[#244B3B] text-sm">
-                  {isApiKeySet
-                    ? "✓ Google Maps JavaScript API đang hoạt động ổn định"
-                    : "Hướng dẫn cấu hình Google Maps API Key"}
-                </p>
-                <p className="text-[#5A6D63] mt-0.5 leading-relaxed">
-                  {isApiKeySet ? (
-                    "Bản đồ đã nạp thành công Google Maps với hệ màu tùy biến độc quyền (Deep Forest Green & Champagne Gold)."
-                  ) : (
-                    <span>
-                      Để kích hoạt chế độ xem vệ tinh & 3D của Google Maps, tạo file <code className="bg-[#F5F1E8] px-1.5 py-0.5 rounded text-[#244B3B] font-mono">.env</code> và thêm: <code className="bg-[#F5F1E8] px-1.5 py-0.5 rounded text-[#244B3B] font-mono">VITE_GOOGLE_MAPS_API_KEY=your_key_here</code>.
-                      Hiện tại hệ thống đang chạy chế độ bản đồ dự phòng OpenStreetMap ổn định 100%, không lo lỗi gián đoạn.
-                    </span>
-                  )}
-                </p>
-              </div>
-            </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setShowKeyGuide(false)}
-              className="text-xs self-end sm:self-auto border-[#DFD7C7]"
-            >
-              Đóng
-            </Button>
-          </div>
-        )}
 
         {/* Category Filter Pills for Map */}
         <div className="flex flex-wrap items-center gap-2 mb-6">
@@ -703,15 +653,11 @@ export function InteractiveMapSection({
             {/* Map Canvas Element */}
             <div ref={mapContainerRef} className="w-full h-full bg-[#F5F1E8]" />
 
-            {/* Engine Indicator Badge (Top Left Overlay) */}
+            {/* Map Indicator Badge (Top Left Overlay) */}
             <div className="absolute top-3 left-3 z-[10] bg-white/95 backdrop-blur-md py-1.5 px-3 rounded-full border border-[#DFD7C7] shadow-sm flex items-center gap-2 text-[11px] text-[#1A3429]">
-              <span
-                className={`w-2 h-2 rounded-full ${
-                  mapEngine === "google" ? "bg-emerald-500 animate-pulse" : "bg-[#244B3B]"
-                }`}
-              />
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span className="font-semibold text-[#244B3B]">
-                {mapEngine === "google" ? "Google Maps JS API" : "Bản Đồ Ninh Bình (OSM)"}
+                Bản Đồ Du Lịch Ninh Bình
               </span>
             </div>
 

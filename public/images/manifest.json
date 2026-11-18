@@ -550,5 +550,44 @@
     "width": 1600,
     "height": 1200,
     "sizeKB": 114
+  },
+  {
+    "id": "tam-coc-den-thai-vi",
+    "file": "/images/03-tam-coc-bich-dong/tam-coc-den-thai-vi.webp",
+    "place": "Đền Thái Vi, Hoa Lư, Ninh Bình",
+    "alt": "Đền đá cổ Thái Vi thâm nghiêm giữa non nước Ngô Đồng Tam Cốc Ninh Bình",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thai_Vi_Temple.jpg",
+    "author": "Shyamal",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "attributionRequired": true,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "visual",
+      "gps"
+    ],
+    "width": 1600,
+    "height": 720,
+    "sizeKB": 258
+  },
+  {
+    "id": "ho-dong-chuong",
+    "file": "/images/08-cuc-phuong-thien-ha/ho-dong-chuong.webp",
+    "place": "Hồ Đồng Chương, Nho Quan, Ninh Bình",
+    "alt": "Mặt hồ Đồng Chương lãng mạn phẳng lặng bên triền thông xanh rì rào, Nho Quan",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:HoDongChuong1.jpg",
+    "author": "Kien1980v",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attributionRequired": false,
+    "illustrative": false,
+    "verifiedBy": [
+      "category",
+      "visual"
+    ],
+    "width": 1600,
+    "height": 1200,
+    "sizeKB": 80
   }
 ]

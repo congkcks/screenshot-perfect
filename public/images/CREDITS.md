@@ -33,3 +33,5 @@ Danh sách bản quyền hình ảnh sử dụng từ Wikimedia Commons, Unsplas
 | 27 | `hoa-lu-03-le-hoi-truong-yen` | Cố đô Hoa Lư, Ninh Bình | Kien1980v at Vietnamese Wikipedia | Public domain | [Nguồn](https://commons.wikimedia.org/wiki/File%3ACodohoalu2010k3.jpg) |
 | 28 | `am-thuc-06-nem-chua-yen-mac` | Ninh Bình (Minh họa) | Joshua Rappeneker | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [Nguồn](https://commons.wikimedia.org/wiki/File%3ANem%20Chua.jpg) |
 | 29 | `am-thuc-04-bun-moc` | Ninh Bình (Minh họa) | SauceSupreme | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Nguồn](https://commons.wikimedia.org/wiki/File%3ABun%20Moc%20Ha%20Noi.jpg) |
+| 30 | `tam-coc-den-thai-vi` | Đền Thái Vi, Hoa Lư, Ninh Bình | Shyamal | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Nguồn](https://commons.wikimedia.org/wiki/File:Thai_Vi_Temple.jpg) |
+| 31 | `ho-dong-chuong` | Hồ Đồng Chương, Nho Quan, Ninh Bình | Kien1980v | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [Nguồn](https://commons.wikimedia.org/wiki/File:HoDongChuong1.jpg) |
