@@ -10,13 +10,12 @@ import {
   ArrowRight,
   Eye,
   Camera,
-  Mail,
-  Phone,
+  Calendar,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { destinations, type Destination } from "@/data/ninh-binh";
 
-interface ShowcaseLocation {
+export interface DiscoverPlace {
   id: string;
   tabLabel: string;
   name: string;
@@ -28,7 +27,7 @@ interface ShowcaseLocation {
   stats: string;
 }
 
-const showcaseList: ShowcaseLocation[] = [
+export const PLACES: DiscoverPlace[] = [
   {
     id: "trang-an",
     tabLabel: "Tràng An",
@@ -37,8 +36,8 @@ const showcaseList: ShowcaseLocation[] = [
     description:
       "Vùng lõi di sản với 31 đầm nước nối thông bởi 48 hang ngầm. Ngồi thuyền nan lướt êm trên làn nước trong vắt soi thấu đáy rong rêu giữa thung lũng đá vôi triệu năm kiến tạo.",
     badge: "UNESCO World Heritage",
-    image: "/images/02-trang-an/trang-an-02-toan-canh-song-nui.webp",
-    fallbackImage: "/images/02-trang-an/trang-an-01-thuyen-xuyen-hang.webp",
+    image: "/images/02-trang-an/trang-an-01-thuyen-xuyen-hang.webp",
+    fallbackImage: "/images/02-trang-an/trang-an-02-toan-canh-song-nui.webp",
     stats: "31 đầm nước · 48 hang động xuyên thủy",
   },
   {
@@ -49,8 +48,8 @@ const showcaseList: ShowcaseLocation[] = [
     description:
       "Dòng sông thơ mộng xuyên qua Hang Cả, Hang Hai, Hang Ba. Mỗi độ tháng 5 – 6, hai bên bờ rực rỡ dải lúa chín vàng óng ả nép mình dưới chân những dãy núi đá uy nghiêm.",
     badge: "Nam Thiên Đệ Nhị Động",
-    image: "/images/03-tam-coc-bich-dong/tam-coc-01-song-ngo-dong.webp",
-    fallbackImage: "/images/03-tam-coc-bich-dong/tam-coc-02-lua-chin-vang.webp",
+    image: "/images/03-tam-coc-bich-dong/tam-coc-02-lua-chin-vang.webp",
+    fallbackImage: "/images/03-tam-coc-bich-dong/tam-coc-01-song-ngo-dong.webp",
     stats: "3 hang ngầm · Dòng sông lúa chín vàng",
   },
   {
@@ -67,46 +66,69 @@ const showcaseList: ShowcaseLocation[] = [
   },
 ];
 
-export function TourBookingSection({
-  onSelectDestination,
-}: {
+export interface DiscoverSectionProps {
+  destinationsHref?: string;
   onSelectDestination?: (dest: Destination) => void;
-}) {
-  const [activeTab, setActiveTab] = useState<number>(0);
-  const currentShowcase = showcaseList[activeTab] ?? showcaseList[0]!;
+}
 
-  const handleOpenShowcaseModal = () => {
+export function DiscoverSection({
+  destinationsHref = "#diem-den",
+  onSelectDestination,
+}: DiscoverSectionProps) {
+  const [activeTab, setActiveTab] = useState<number>(0);
+  const currentPlace = PLACES[activeTab] ?? PLACES[0]!;
+
+  const handleOpenPlaceModal = () => {
     if (!onSelectDestination) return;
-    const dest = destinations.find((d) => d.id === currentShowcase.id);
+    const dest = destinations.find((d) => d.id === currentPlace.id);
     if (dest) {
       onSelectDestination(dest);
     }
   };
 
+  const handleScrollToDestinations = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (destinationsHref.startsWith("#")) {
+      e.preventDefault();
+      const targetId = destinationsHref.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  const handleScrollToItinerary = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetEl = document.getElementById("lich-trinh");
+    if (targetEl) {
+      targetEl.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
+      id="kham-pha"
       className="py-24 bg-[#0F231B] text-white relative overflow-hidden"
-      id="kham-pha-ninh-binh"
-      aria-labelledby="heritage-intro-title"
+      aria-labelledby="discover-heading"
     >
-      {/* Anchor alias to ensure old links scroll smoothly without 404 */}
-      <span id="dat-tour" className="sr-only" />
+      {/* Anchor alias for smooth backward compatibility */}
+      <span id="kham-pha-ninh-binh" className="sr-only" />
 
       {/* Decorative ambient background glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D6AD72]/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#244B3B]/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Editorial Heritage Storytelling (6 cols) */}
           <div className="lg:col-span-6 space-y-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-[#D6AD72] text-[#173428]">
               <Sparkles className="w-3.5 h-3.5" />
-              Quảng Bá & Tôn Vinh Di Sản Địa Phương
+              Quảng Bá & Tôn Vinh Vẻ Đẹp Ninh Bình
             </div>
 
             <h2
-              id="heritage-intro-title"
+              id="discover-heading"
               className="text-3xl sm:text-4xl md:text-5xl font-editorial-heading text-white leading-tight"
             >
               Khám Phá Ninh Bình{" "}
@@ -123,8 +145,8 @@ export function TourBookingSection({
             </p>
 
             {/* 4 Thematic Heritage Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5 transition-colors hover:border-[#D6AD72]/40">
                 <div className="flex items-center gap-2 text-[#D6AD72]">
                   <Mountain className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">
@@ -136,7 +158,7 @@ export function TourBookingSection({
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5 transition-colors hover:border-[#D6AD72]/40">
                 <div className="flex items-center gap-2 text-[#D6AD72]">
                   <Landmark className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">
@@ -148,7 +170,7 @@ export function TourBookingSection({
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5 transition-colors hover:border-[#D6AD72]/40">
                 <div className="flex items-center gap-2 text-[#D6AD72]">
                   <HeartHandshake className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">
@@ -160,7 +182,7 @@ export function TourBookingSection({
                 </p>
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm space-y-1.5 transition-colors hover:border-[#D6AD72]/40">
                 <div className="flex items-center gap-2 text-[#D6AD72]">
                   <UtensilsCrossed className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">
@@ -173,14 +195,14 @@ export function TourBookingSection({
               </div>
             </div>
 
-            {/* CTAs: Discover Destinations & Interactive Map */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            {/* CTAs: Discover Destinations & Recommended Itinerary */}
+            <div className="pt-3 flex flex-wrap items-center gap-4">
               <Button
                 asChild
                 size="lg"
-                className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm px-7 py-6 rounded-2xl shadow-xl shadow-[#D6AD72]/20 transition-all hover:scale-105 gap-2 cursor-pointer"
+                className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm px-7 py-6 rounded-2xl shadow-xl shadow-[#D6AD72]/20 transition-all hover:scale-105 gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#D6AD72] focus:ring-offset-2 focus:ring-offset-[#0F231B]"
               >
-                <a href="#diem-den">
+                <a href={destinationsHref} onClick={handleScrollToDestinations}>
                   <Compass className="w-4 h-4" />
                   Khám Phá Các Địa Danh
                 </a>
@@ -190,48 +212,42 @@ export function TourBookingSection({
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white/30 text-white bg-white/5 hover:bg-white/15 backdrop-blur-sm text-sm px-6 py-6 rounded-2xl transition-all gap-2"
+                className="border-white/30 text-white bg-white/5 hover:bg-white/15 backdrop-blur-sm text-sm px-6 py-6 rounded-2xl transition-all gap-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-[#0F231B]"
               >
-                <a href="#ban-do">
-                  <MapPin className="w-4 h-4 text-[#D6AD72]" />
-                  Bản Đồ 20 Danh Thắng
+                <a href="#lich-trinh" onClick={handleScrollToItinerary}>
+                  <Calendar className="w-4 h-4 text-[#D6AD72]" />
+                  Xem Lịch Trình Gợi Ý
                 </a>
               </Button>
             </div>
 
-            {/* Cultural Information Inquiries Note */}
-            <div className="pt-4 border-t border-white/10 flex flex-wrap items-center gap-6 text-xs text-white/70">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#D6AD72]" />
-                <span>
-                  Đường dây nóng hỗ trợ du khách: <strong className="text-white">1900 6868</strong>
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-[#D6AD72]" />
-                <a
-                  href="mailto:congvanvu0000@gmail.com"
-                  className="hover:text-[#D6AD72] transition-colors underline decoration-[#D6AD72]/40"
-                >
-                  congvanvu0000@gmail.com
-                </a>
-              </div>
-            </div>
+            {/* Disclaimer note */}
+            <p className="text-xs text-white/60 italic leading-relaxed pt-1">
+              * Thông tin mang tính tham khảo, có thể thay đổi theo thời điểm.
+            </p>
           </div>
 
           {/* Right Column: Cinematic Photography Showcase (6 cols) */}
           <div className="lg:col-span-6">
             <div className="bg-[#173428] rounded-3xl p-4 sm:p-6 border border-[#D6AD72]/40 shadow-2xl relative overflow-hidden group">
               {/* Sights Tab Navigation Switcher */}
-              <div className="flex items-center justify-between gap-2 mb-4 overflow-x-auto pb-1 scrollbar-none">
+              <div
+                role="tablist"
+                aria-label="Chọn địa danh tiêu biểu"
+                className="flex items-center justify-between gap-2 mb-4 overflow-x-auto pb-1 scrollbar-none"
+              >
                 <div className="flex items-center gap-1.5 p-1 rounded-2xl bg-black/30 border border-white/10">
-                  {showcaseList.map((item, idx) => (
+                  {PLACES.map((item, idx) => (
                     <button
                       key={item.id}
+                      role="tab"
+                      id={`discover-tab-${item.id}`}
+                      aria-selected={activeTab === idx}
+                      aria-controls={`discover-panel-${item.id}`}
                       onClick={() => setActiveTab(idx)}
-                      className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap ${
+                      className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[#D6AD72] ${
                         activeTab === idx
-                          ? "bg-[#D6AD72] text-[#173428] shadow-md"
+                          ? "bg-[#D6AD72] text-[#173428] shadow-md font-bold"
                           : "text-white/70 hover:text-white hover:bg-white/10"
                       }`}
                     >
@@ -242,53 +258,59 @@ export function TourBookingSection({
 
                 <span className="text-[11px] text-[#D6AD72] font-mono hidden sm:inline-flex items-center gap-1">
                   <Camera className="w-3.5 h-3.5" />
-                  {activeTab + 1} / {showcaseList.length}
+                  {activeTab + 1} / {PLACES.length}
                 </span>
               </div>
 
-              {/* Expansive Hero Picture Showcase */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[16/11] border border-white/10 shadow-lg group-hover:border-[#D6AD72]/60 transition-colors">
+              {/* Expansive Hero Picture Showcase with Fallback Gradient */}
+              <div
+                role="tabpanel"
+                id={`discover-panel-${currentPlace.id}`}
+                aria-labelledby={`discover-tab-${currentPlace.id}`}
+                className="relative rounded-2xl overflow-hidden aspect-[16/11] border border-white/10 shadow-lg group-hover:border-[#D6AD72]/60 transition-colors bg-gradient-to-br from-[#173428] via-[#244B3B] to-[#0F231B]"
+              >
                 <img
-                  src={currentShowcase.image}
-                  alt={currentShowcase.name}
+                  src={currentPlace.image}
+                  alt={currentPlace.name}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   onError={(e) => {
-                    e.currentTarget.src = currentShowcase.fallbackImage;
+                    e.currentTarget.src = currentPlace.fallbackImage;
                   }}
                 />
 
-                {/* Dark Gradient Overlay for optimal readability */}
+                {/* Dark Gradient Overlay for optimal contrast & legibility */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-black/10" />
 
                 {/* Top Badge Overlay */}
                 <div className="absolute top-4 left-4 z-10">
                   <span className="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#244B3B]/90 text-[#D6AD72] border border-[#D6AD72]/50 backdrop-blur-md shadow-md">
-                    {currentShowcase.badge}
+                    {currentPlace.badge}
                   </span>
                 </div>
 
                 {/* Bottom Narrative Caption */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10 text-white space-y-2">
                   <h3 className="text-xl sm:text-2xl font-serif font-bold text-white leading-tight">
-                    {currentShowcase.name}
+                    {currentPlace.name}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#D6AD72] italic font-serif leading-snug">
-                    "{currentShowcase.tagline}"
+                    "{currentPlace.tagline}"
                   </p>
                   <p className="text-xs text-white/80 font-light line-clamp-2 leading-relaxed hidden sm:block">
-                    {currentShowcase.description}
+                    {currentPlace.description}
                   </p>
 
                   <div className="pt-2 flex items-center justify-between gap-3 text-xs">
                     <span className="text-[11px] text-white/70 flex items-center gap-1">
                       <MapPin className="w-3.5 h-3.5 text-[#D6AD72]" />
-                      {currentShowcase.stats}
+                      {currentPlace.stats}
                     </span>
 
                     {onSelectDestination && (
                       <button
-                        onClick={handleOpenShowcaseModal}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D6AD72] hover:text-white transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg backdrop-blur-sm"
+                        onClick={handleOpenPlaceModal}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D6AD72] hover:text-white transition-colors cursor-pointer bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-lg backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-[#D6AD72]"
+                        aria-label={`Xem chi tiết về ${currentPlace.name}`}
                       >
                         <Eye className="w-3.5 h-3.5" />
                         Xem chi tiết
@@ -298,17 +320,18 @@ export function TourBookingSection({
                 </div>
               </div>
 
-              {/* Bottom Showcase Micro-thumbnails */}
+              {/* Bottom Showcase Micro-thumbnails with Accessible Focus Rings */}
               <div className="grid grid-cols-3 gap-2.5 mt-3 pt-3 border-t border-white/10">
-                {showcaseList.map((item, idx) => (
+                {PLACES.map((item, idx) => (
                   <button
                     key={item.id}
                     onClick={() => setActiveTab(idx)}
-                    className={`text-left p-1.5 rounded-xl border transition-all cursor-pointer flex items-center gap-2 ${
+                    className={`text-left p-1.5 rounded-xl border transition-all cursor-pointer flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-[#D6AD72] ${
                       activeTab === idx
                         ? "bg-white/15 border-[#D6AD72] ring-1 ring-[#D6AD72]"
                         : "bg-white/5 border-white/10 hover:bg-white/10"
                     }`}
+                    aria-label={`Chọn ảnh ${item.tabLabel}`}
                   >
                     <img
                       src={item.image}

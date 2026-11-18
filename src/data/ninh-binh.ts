@@ -1328,14 +1328,6 @@ export const transportGuide = {
   localTransport: "Tại Ninh Bình: Taxi, xe limousine đưa đón tận nơi, xe điện thăm Chùa Bái Đính & Tràng An, xe đạp dạo quanh làng quê Tam Cốc, và thuyền nan truyền thống.",
 };
 
-export const whyBookWithUsList = [
-  "Lịch trình được may đo thiết kế phù hợp: gia đình có trẻ nhỏ, nhóm bạn trẻ mê check-in, cặp đôi nghỉ dưỡng hoặc đoàn cơ quan",
-  "Đội ngũ hướng dẫn viên người bản xứ am hiểu sâu sắc văn hóa, lịch sử và những góc chụp ảnh bí mật đẹp nhất",
-  "Đội xe du lịch đời mới tiện nghi, tài xế bản địa giàu kinh nghiệm lái êm ái",
-  "Cam kết báo giá minh bạch trọn gói, không phụ phí ẩn, hỗ trợ tư vấn 24/7 trước và trong suốt hành trình",
-  "Linh hoạt tùy chỉnh theo nhu cầu: tour riêng sang trọng, tour ghép tiết kiệm, team building doanh nghiệp",
-];
-
 export type Itinerary = {
   id: string;
   title: string;

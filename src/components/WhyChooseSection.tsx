@@ -1,12 +1,12 @@
-import { ArrowRight, Compass, PhoneCall, Sparkles, Ticket } from "lucide-react";
+import { Calendar, Compass, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { whyChooseNinhBinh } from "@/data/ninh-binh";
 
 interface WhyChooseSectionProps {
-  onOpenBooking: () => void;
+  onExplore?: () => void;
 }
 
-export function WhyChooseSection({ onOpenBooking }: WhyChooseSectionProps) {
+export function WhyChooseSection({ onExplore }: WhyChooseSectionProps) {
   return (
     <section className="py-20 bg-[#FAF8F4] border-b border-[#DFD7C7]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -40,9 +40,9 @@ export function WhyChooseSection({ onOpenBooking }: WhyChooseSectionProps) {
               variant="outline"
               className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md text-xs sm:text-sm px-5 py-5 rounded-full gap-2 cursor-pointer"
             >
-              <a href="#kham-pha-ninh-binh">
-                <Sparkles className="w-4 h-4 text-[#D6AD72]" />
-                VỀ VÙNG ĐẤT CỐ ĐÔ
+              <a href="#lich-trinh">
+                <Calendar className="w-4 h-4 text-[#D6AD72]" />
+                XEM LỊCH TRÌNH GỢI Ý
               </a>
             </Button>
           </div>

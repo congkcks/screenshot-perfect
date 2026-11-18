@@ -53,12 +53,12 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
   };
 
   const navLinks = [
-    { label: "Khám Phá", href: "#diem-den", icon: MapPin },
+    { label: "Điểm Đến", href: "#diem-den", icon: MapPin },
     { label: "Theo Vùng", href: "#vung-mien", icon: Layers },
     { label: "Ẩm Thực", href: "#am-thuc", icon: UtensilsCrossed },
     { label: "Lịch Trình", href: "#lich-trinh", icon: Calendar },
     { label: "Cẩm Nang", href: "#cam-nang", icon: Sparkles },
-    { label: "Về Ninh Bình", href: "#kham-pha-ninh-binh", icon: Compass },
+    { label: "Khám Phá", href: "#kham-pha", icon: Compass },
   ];
 
   return (

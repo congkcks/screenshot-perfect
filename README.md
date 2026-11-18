@@ -57,10 +57,11 @@
 - Cẩm nang khám phá theo mùa: Mùa bướm Cúc Phương, Mùa lúa chín Tam Cốc vàng rực, Mùa sen Bích Động, Mùa cúc họa mi và hoa lau cổ kính.
 - Lộ trình thiết kế sẵn: **1 Ngày Tinh Hoa**, **2N1Đ Di Sản & Lối Cũ**, **3N2Đ Trọn Vẹn Non Nước**.
 
-### 5. 📬 Đặt Tour & Tiếp Nhận Yêu Cầu Tư Vấn (Booking & Inquiry)
-- Form tư vấn tour trực tuyến với đầy đủ các trường: Họ và tên, Email, Số điện thoại, Ngày khởi hành, Quy mô đoàn, Chương trình quan tâm, Ghi chú đặc biệt.
-- **Server Function** an toàn của TanStack Start: Thu thập thông tin và chuyển tiếp trực tiếp về hòm thư chuyên viên **`congvanvu0000@gmail.com`**.
-- Hỗ trợ gửi email HTML tự động qua dịch vụ **Resend API**.
+### 5. 🌿 Khám Phá Ninh Bình Cùng Chúng Tôi (Discover Section)
+- Không gian giới thiệu vẻ đẹp di sản và quảng bá du lịch địa phương Ninh Bình.
+- Ba lớp thời gian: Thiên nhiên triệu năm (karst nhiệt đới ngập nước), Cố đô nghìn năm (Hoa Lư 968 – 1010), nét đẹp bản địa và ẩm thực non nước.
+- Trình diễn hình ảnh điện ảnh về 3 danh thắng đỉnh cao: Quần thể Tràng An, Tam Cốc – Bích Động và Đỉnh Ngọa Long Hang Múa với các tab chuyển cảnh mượt mà.
+- Nút CTA chuyển tiếp thông minh đến danh mục 20 điểm tham quan và lịch trình gợi ý.
 
 ### 6. ⚖️ Pháp Lý Bản Quyền & Hình Ảnh Minh Bạch (Media Integrity)
 - 100% hình ảnh trong dự án là ảnh thật, đúng địa danh Ninh Bình, được tối ưu định dạng hiện đại **WebP** (dung lượng ≤ 300 KB).
@@ -112,13 +113,7 @@ Nội dung cấu hình trong `.env`:
 # 1. Khóa Google Maps API (hiển thị bản đồ vệ tinh & 3D)
 VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 
-# 2. Email tiếp nhận đặt tour và liên hệ
-CONTACT_RECEIVER_EMAIL=congvanvu0000@gmail.com
-
-# 3. Khóa Resend để gửi email tự động (tùy chọn)
-RESEND_API_KEY=
-
-# 4. Preset triển khai Nitro
+# 2. Preset triển khai Nitro
 NITRO_PRESET=vercel
 ```
 
@@ -163,8 +158,6 @@ Dự án đã được cấu hình tối ưu sẵn sàng cho nền tảng **Verc
    - **Output Directory**: `.vercel/output` (Nitro sẽ tự động xuất định dạng Vercel Serverless Function).
 4. Thêm các biến môi trường trong phần **Environment Variables**:
    - `VITE_GOOGLE_MAPS_API_KEY`: Khóa API Google Maps của bạn.
-   - `CONTACT_RECEIVER_EMAIL`: `congvanvu0000@gmail.com`
-   - `RESEND_API_KEY`: Khóa Resend (nếu có).
    - `NITRO_PRESET`: `vercel`
 5. Nhấn **Deploy** và trải nghiệm sản phẩm trực tiếp!
 
@@ -173,6 +166,5 @@ Dự án đã được cấu hình tối ưu sẵn sàng cho nền tảng **Verc
 ## 👥 Đội Ngũ & Liên Hệ
 
 - **Dự án**: NinhBinhTravel Mini App
-- **Email quản trị**: [congvanvu0000@gmail.com](mailto:congvanvu0000@gmail.com)
-- **Hotline 24/7**: 1900 6868
+- **Email liên hệ**: [congvanvu0000@gmail.com](mailto:congvanvu0000@gmail.com)
 - **Bản quyền**: © 2026 NinhBinhTravel. Giữ toàn quyền tác quyền cho cuộc thi AI Mini App.

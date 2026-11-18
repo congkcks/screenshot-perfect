@@ -5,9 +5,6 @@ import {
   Compass,
   Heart,
   Mail,
-  MapPin,
-  Phone,
-  ShieldCheck,
   Sparkles,
 } from "lucide-react";
 import { ImageCreditsModal } from "./ImageCreditsModal";
@@ -120,33 +117,19 @@ export function FooterSection() {
             </ul>
           </div>
 
-          {/* Emergency & Tourism Contacts (3 cols) */}
+          {/* Contact (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <p className="text-xs font-bold uppercase tracking-widest text-[#D6AD72]">
-              Thông Tin Hữu Ích
+              Liên Hệ
             </p>
-            <div className="space-y-2.5 text-xs text-white/80 font-light">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-3.5 h-3.5 text-[#D6AD72] flex-shrink-0 mt-0.5" />
-                <span>Trung tâm hỗ trợ du khách: TP. Ninh Bình & Bến Tràng An</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-[#D6AD72] flex-shrink-0" />
-                <span>Đường dây nóng du lịch: <strong>1900 6868</strong></span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#769477] flex-shrink-0" />
-                <span>BQL Quần thể Danh thắng Tràng An</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-[#D6AD72] flex-shrink-0" />
-                <a
-                  href="mailto:congvanvu0000@gmail.com"
-                  className="hover:text-[#D6AD72] transition-colors"
-                >
-                  congvanvu0000@gmail.com
-                </a>
-              </div>
+            <div className="text-xs text-white/80 font-light">
+              <a
+                href="mailto:congvanvu0000@gmail.com"
+                className="inline-flex items-center gap-2 text-white/90 hover:text-[#D6AD72] transition-colors"
+              >
+                <Mail className="w-4 h-4 text-[#D6AD72] flex-shrink-0" />
+                <span>congvanvu0000@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>

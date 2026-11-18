@@ -16,7 +16,7 @@ import { SeasonalGuideSection } from "@/components/SeasonalGuideSection";
 import { InteractiveMapSection } from "@/components/InteractiveMapSection";
 import { ItinerarySection } from "@/components/ItinerarySection";
 import { TravelTipsTransportSection } from "@/components/TravelTipsTransportSection";
-import { TourBookingSection } from "@/components/TourBookingSection";
+import { DiscoverSection } from "@/components/DiscoverSection";
 import { FooterSection } from "@/components/FooterSection";
 import {
   destinations,
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Non nước hữu tình, di sản thế giới, đặc sản khó quên. Khám phá Tràng An, Tam Cốc, Hang Múa, Cố Đô Hoa Lư, ẩm thực dê núi cơm cháy và đặt tour trọn gói ưu đãi.",
+          "Non nước hữu tình, di sản thế giới, đặc sản khó quên. Khám phá Tràng An, Tam Cốc, Hang Múa, Cố Đô Hoa Lư, ẩm thực dê núi cơm cháy và cẩm nang du lịch tự túc Ninh Bình.",
       },
       {
         property: "og:title",
@@ -142,7 +142,7 @@ function Index() {
       <StatsCounterBar />
 
       {/* Why Choose Ninh Binh Section */}
-      <WhyChooseSection onOpenBooking={scrollToExplore} />
+      <WhyChooseSection onExplore={scrollToExplore} />
 
       {/* 5 Signature Experiences Section */}
       <SignatureExperiencesSection />
@@ -183,7 +183,7 @@ function Index() {
       <TravelTipsTransportSection />
 
       {/* Heritage Introduction & Visual Showcase Section */}
-      <TourBookingSection onSelectDestination={handleOpenDestination} />
+      <DiscoverSection destinationsHref="#diem-den" onSelectDestination={handleOpenDestination} />
 
       {/* Footer Section */}
       <FooterSection />
