@@ -16,6 +16,7 @@ import { SeasonalGuideSection } from "@/components/SeasonalGuideSection";
 import { InteractiveMapSection } from "@/components/InteractiveMapSection";
 import { ItinerarySection } from "@/components/ItinerarySection";
 import { TravelTipsTransportSection } from "@/components/TravelTipsTransportSection";
+import { TripPlannerSection } from "@/components/TripPlannerSection";
 import { DiscoverSection } from "@/components/DiscoverSection";
 import { FooterSection } from "@/components/FooterSection";
 import {
@@ -181,6 +182,9 @@ function Index() {
 
       {/* Travel Tips & Transportation Section */}
       <TravelTipsTransportSection />
+
+      {/* Trip Planner & Cost Estimator Section (5 tabs: Ước tính chi phí, Địa điểm gần nhau, Di chuyển, Ăn uống, Lưu trú) */}
+      <TripPlannerSection />
 
       {/* Heritage Introduction & Visual Showcase Section */}
       <DiscoverSection destinationsHref="#diem-den" onSelectDestination={handleOpenDestination} />

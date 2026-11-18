@@ -12,6 +12,7 @@ import {
   UtensilsCrossed,
   Calendar,
   Layers,
+  Calculator,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toggleNatureAudio, isNatureAudioPlaying } from "@/lib/nature-audio";
@@ -57,6 +58,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
     { label: "Theo Vùng", href: "#vung-mien", icon: Layers },
     { label: "Ẩm Thực", href: "#am-thuc", icon: UtensilsCrossed },
     { label: "Lịch Trình", href: "#lich-trinh", icon: Calendar },
+    { label: "Lên Kế Hoạch", href: "#len-ke-hoach", icon: Calculator },
     { label: "Cẩm Nang", href: "#cam-nang", icon: Sparkles },
     { label: "Khám Phá", href: "#kham-pha", icon: Compass },
   ];
@@ -92,7 +94,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-3.5 lg:gap-5 xl:gap-7">
             {navLinks.map((item) => (
               <a
                 key={item.href}

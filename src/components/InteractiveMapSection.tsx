@@ -100,7 +100,7 @@ export function InteractiveMapSection({
   const leafletMapRef = useRef<any>(null);
   const leafletMarkersRef = useRef<{ [id: string]: any }>({});
 
-  const apiKey = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY as string | undefined)?.trim();
+  const apiKey = (import.meta.env["VITE_GOOGLE_MAPS_API_KEY"] as string | undefined)?.trim();
 
   // Filtered destinations by active category
   const filteredList = useMemo(() => {
