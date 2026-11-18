@@ -5,47 +5,1349 @@ import localFoodImage from "@/assets/ninh-binh-food.jpg";
 export type DestinationCategory = "Thiên nhiên" | "Check-in" | "Văn hóa" | "Tâm linh" | "Sinh thái";
 
 export type Destination = {
+  id: string;
   name: string;
+  subtitle: string;
+  slogan: string;
   area: string;
+  region: string;
   category: DestinationCategory;
   description: string;
+  stats: string[];
+  highlights: string[];
+  mustTry: string[];
+  bestTime: string;
+  duration: string;
+  ticketPrice: string;
+  insiderTip: string;
+  didYouKnow: string;
+  rating: number;
+  reviewCount: number;
+  lat: number;
+  lng: number;
   image: string;
+  fallbackImage: string;
   mapQuery: string;
+  badge?: string;
+  featured?: boolean;
 };
 
 export const destinations: Destination[] = [
-  { name: "Quần thể danh thắng Tràng An", area: "Hoa Lư", category: "Thiên nhiên", description: "Theo dòng thuyền qua những dãy núi đá vôi và hang động kỳ thú.", image: trangAnImage, mapQuery: "Tràng An Ninh Bình" },
-  { name: "Tam Cốc – Bích Động", area: "Ninh Hải", category: "Thiên nhiên", description: "Một miền sông nước thanh bình giữa cánh đồng và núi đá.", image: trangAnImage, mapQuery: "Tam Cốc Bích Động Ninh Bình" },
-  { name: "Hang Múa", area: "Ninh Xuân", category: "Check-in", description: "Đường lên đỉnh núi mở ra tầm nhìn rộng khắp vùng Tam Cốc.", image: muaCaveImage, mapQuery: "Hang Múa Ninh Bình" },
-  { name: "Cố đô Hoa Lư", area: "Trường Yên", category: "Văn hóa", description: "Dấu tích kinh đô xưa giữa một thung lũng núi đá trầm mặc.", image: muaCaveImage, mapQuery: "Cố đô Hoa Lư Ninh Bình" },
-  { name: "Chùa Bái Đính", area: "Gia Sinh", category: "Tâm linh", description: "Quần thể chùa nằm giữa núi rừng và không gian rộng mở.", image: muaCaveImage, mapQuery: "Chùa Bái Đính Ninh Bình" },
-  { name: "Vườn chim Thung Nham", area: "Ninh Hải", category: "Sinh thái", description: "Khám phá hang động và vùng sinh thái ngập nước xanh mát.", image: trangAnImage, mapQuery: "Thung Nham Ninh Bình" },
-  { name: "Đầm Vân Long", area: "Gia Viễn", category: "Thiên nhiên", description: "Vùng đất ngập nước yên ả nép dưới chân những vách núi.", image: trangAnImage, mapQuery: "Đầm Vân Long Ninh Bình" },
-  { name: "Tuyệt Tình Cốc", area: "Trường Yên", category: "Check-in", description: "Hồ nước xanh nằm gọn giữa những vách núi đá vôi.", image: muaCaveImage, mapQuery: "Động Am Tiên Ninh Bình" },
-  { name: "Vườn quốc gia Cúc Phương", area: "Nho Quan", category: "Sinh thái", description: "Rừng nguyên sinh với những cung đường đi bộ dưới tán cây.", image: trangAnImage, mapQuery: "Vườn quốc gia Cúc Phương" },
-  { name: "Thung Nắng", area: "Ninh Hải", category: "Thiên nhiên", description: "Một chuyến thuyền nhẹ nhàng giữa đồng nước và vách núi.", image: trangAnImage, mapQuery: "Thung Nắng Ninh Bình" },
-  { name: "Đền vua Đinh Tiên Hoàng", area: "Trường Yên", category: "Văn hóa", description: "Ngôi đền cổ lưu giữ câu chuyện về vị vua đầu triều Đinh.", image: muaCaveImage, mapQuery: "Đền vua Đinh Tiên Hoàng Ninh Bình" },
-  { name: "Đền vua Lê Đại Hành", area: "Trường Yên", category: "Văn hóa", description: "Không gian kiến trúc cổ kính trong vùng đất cố đô.", image: muaCaveImage, mapQuery: "Đền vua Lê Đại Hành Ninh Bình" },
-  { name: "Nhà thờ đá Phát Diệm", area: "Kim Sơn", category: "Văn hóa", description: "Công trình đá độc đáo giao thoa kiến trúc Việt và phương Tây.", image: muaCaveImage, mapQuery: "Nhà thờ đá Phát Diệm" },
-  { name: "Hồ Đồng Chương", area: "Nho Quan", category: "Thiên nhiên", description: "Hồ nước tĩnh lặng được bao quanh bởi rừng thông xanh.", image: trangAnImage, mapQuery: "Hồ Đồng Chương Ninh Bình" },
-  { name: "Khu bảo tồn đất ngập nước Vân Long", area: "Gia Viễn", category: "Sinh thái", description: "Lênh đênh trên mặt nước phẳng lặng giữa thiên nhiên hoang sơ.", image: trangAnImage, mapQuery: "Khu bảo tồn Vân Long Ninh Bình" },
-  { name: "Động Thiên Hà", area: "Sơn Hà", category: "Thiên nhiên", description: "Khám phá hang động nằm ẩn mình trong dãy núi Tướng.", image: muaCaveImage, mapQuery: "Động Thiên Hà Ninh Bình" },
-  { name: "Đan viện Châu Sơn", area: "Phú Sơn", category: "Văn hóa", description: "Kiến trúc gạch đỏ yên tĩnh giữa khung cảnh làng quê.", image: muaCaveImage, mapQuery: "Đan viện Châu Sơn Ninh Bình" },
-  { name: "Động Am Tiên", area: "Trường Yên", category: "Check-in", description: "Thung lũng khép kín với hồ nước và những vách núi cao.", image: muaCaveImage, mapQuery: "Động Am Tiên Ninh Bình" },
-  { name: "Khu du lịch sinh thái Tràng An", area: "Hoa Lư", category: "Sinh thái", description: "Ghé thăm các tuyến hang và điểm dừng chân trên sông.", image: trangAnImage, mapQuery: "Khu du lịch sinh thái Tràng An" },
-  { name: "Chùa Bích Động", area: "Ninh Hải", category: "Tâm linh", description: "Ngôi chùa cổ nép theo triền núi giữa không gian tĩnh lặng.", image: muaCaveImage, mapQuery: "Chùa Bích Động Ninh Bình" },
+  {
+    id: "trang-an",
+    name: "Quần thể danh thắng Tràng An",
+    subtitle: "Di sản Văn hóa & Thiên nhiên Thế giới UNESCO",
+    slogan: "Hành trình xuyên hang giữa trái tim di sản.",
+    area: "Vùng Hoa Lư – Tràng An",
+    region: "Hoa Lư",
+    category: "Thiên nhiên",
+    description: "Tràng An là vùng núi đá vôi, sông nước và hang động kỳ vĩ. Năm 2014, nơi đây được UNESCO công nhận là Di sản thế giới hỗn hợp đầu tiên của Việt Nam, thỏa mãn các tiêu chí V, VII, VIII. Du khách ngồi thuyền nan do người dân địa phương chèo, lướt qua những thung nước ngọc bích và hang xuyên thủy.",
+    stats: [
+      "31 đầm nước nối thông bởi 48 hang động",
+      "Nhiều hang dài hàng km (Địa Linh, Nấu Rượu, Ba Giọt)",
+      "Vùng lõi di sản rộng hơn 6.226 ha",
+      "3 tuyến thuyền nan + 1 tuyến đường bộ 1,6 km",
+    ],
+    highlights: ["Hang Địa Linh, Hang Nấu Rượu, Hang Ba Giọt", "Đền Trần, Đền Trình, Đền Suối Tiên", "Hành cung Vũ Lâm linh thiêng", "Hệ thống thuyền một chiều không quay đầu"],
+    mustTry: [
+      "Chui qua hang Địa Linh, hang Nấu Rượu mái chèo chạm vách đá",
+      "Dừng chân thắp hương tại Hành cung Vũ Lâm",
+      "Thuyền đi một chiều qua các thung nước, không phải quay đầu",
+    ],
+    bestTime: "Sáng sớm (07:30) hoặc chiều muộn (15:00); mùa lúa chín tháng 5-6 và mùa thu dịu mát.",
+    duration: "Khoảng 2 – 3 giờ tùy tuyến thuyền lựa chọn",
+    ticketPrice: "250.000 VNĐ / người lớn (đã bao gồm thuyền nan)",
+    insiderTip: "Chọn tuyến 1 và 2 nếu thích nhiều hang động kỳ vĩ; chọn tuyến 3 nếu thích nhiều đền đài và cảnh sắc hành cung. Nên mang áo khoác mỏng vì trong lòng hang nhiệt độ rất mát lạnh.",
+    didYouKnow: "Các nghiên cứu khảo cổ cho thấy con người tiền sử đã sinh sống trong các hang động Tràng An từ hàng chục nghìn năm trước. Nơi đây từng là bối cảnh quay bộ phim bom tấn Hollywood Kong: Skull Island.",
+    rating: 4.9,
+    reviewCount: 4280,
+    lat: 20.2562,
+    lng: 105.9038,
+    image: "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Quần thể danh thắng Tràng An Ninh Bình",
+    badge: "UNESCO World Heritage",
+    featured: true,
+  },
+  {
+    id: "tam-coc",
+    name: "Tam Cốc – Bích Động",
+    subtitle: "Vịnh Hạ Long trên cạn bên dòng Ngô Đồng",
+    slogan: "'Vịnh Hạ Long trên cạn' bên dòng Ngô Đồng uốn lượn.",
+    area: "Vùng Tam Cốc – Bích Động",
+    region: "Hoa Lư",
+    category: "Thiên nhiên",
+    description: "Cách trung tâm thành phố hơn 10 km, Tam Cốc ('ba hang') là hành trình thuyền nan lướt trên sông Ngô Đồng, xuyên qua Hang Cả, Hang Hai, Hang Ba giữa hai vách đá vôi sừng sững và cánh đồng lúa vàng óng ả. Cách Tam Cốc khoảng 2 km là Bích Động, được mệnh danh là 'Nam thiên đệ nhị động'.",
+    stats: [
+      "3 hang nước ngầm: Hang Cả, Hang Hai, Hang Ba",
+      "Hành trình thuyền cả đi lẫn về hơn 2 giờ",
+      "Xuyên Thủy Động dài 350 m, rộng trung bình 6 m",
+      "Chùa Bích Động xây từ đầu thời Hậu Lê trên 3 tầng núi",
+    ],
+    highlights: ["Ngắm lúa chín vàng óng đôi bờ sông Ngô Đồng", "Chùa Bích Động nép mình chân núi rêu phong", "Xuyên Thủy Động & Động Tối nhũ đá linh thú", "Đền Thái Vi thờ các vị vua nhà Trần"],
+    mustTry: [
+      "Ngắm lúa chín vàng hai bên bờ từ thuyền nan",
+      "Leo chùa Bích Động vào Động Tối chiêm ngưỡng nhũ đá rồng, rùa, voi, hổ",
+      "Đi thuyền vào Xuyên Thủy Động rồi leo lên chùa từ lối ra",
+      "Thăm đền Thái Vi và động Thiên Hương thanh tịnh",
+    ],
+    bestTime: "Tháng 5 – 6 và tháng 9 – 10 (mùa lúa chín vàng rực rỡ nhất)",
+    duration: "Khoảng nửa ngày (2.5 – 3 giờ đi thuyền và vãn cảnh chùa)",
+    ticketPrice: "120.000 VNĐ vé thắng cảnh + 150.000 VNĐ vé đò / 2 người",
+    insiderTip: "Đi sớm trước 08:00 sáng để tránh đông khách và cái nắng gay gắt; chuẩn bị mũ nan rộng vành, quạt tay và kem chống nắng.",
+    didYouKnow: "Tam Cốc nổi tiếng thế giới với hình ảnh các bác lái đò chèo thuyền bằng hai bàn chân điêu luyện — một kỹ nghệ truyền thống độc nhất vô nhị chỉ có tại miền non nước này.",
+    rating: 4.8,
+    reviewCount: 3120,
+    lat: 20.2178,
+    lng: 105.9372,
+    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Tam Cốc Bích Động Ninh Bình",
+    badge: "Vịnh Hạ Long Trên Cạn",
+    featured: true,
+  },
+  {
+    id: "hang-mua",
+    name: "Hang Múa – Đỉnh Ngọa Long",
+    subtitle: "Vạn Lý Trường Thành thu nhỏ của Việt Nam",
+    slogan: "486 bậc đá, một tầm nhìn không thể quên.",
+    area: "Khê Đầu Hạ, Vùng Hoa Lư",
+    region: "Hoa Lư",
+    category: "Check-in",
+    description: "Hang Múa nằm dưới chân núi Múa (núi Ngọa Long - 'rồng nằm'). Cung đường bậc đá trắng uốn lượn ngoạn mục tựa 'Vạn Lý Trường Thành thu nhỏ', dẫn lên đỉnh núi cao khoảng 142 m với tượng rồng đá ngự trị mây trời, bảo tháp và tượng Quan Thế Âm Bồ Tát.",
+    stats: [
+      "486 bậc đá lên đỉnh núi (gần 500 bậc)",
+      "Độ cao đỉnh núi khoảng 142 m so với mặt đất",
+      "Tầm nhìn 360 độ toàn cảnh sông Ngô Đồng và thung lũng lúa",
+      "Hai đỉnh ngắm cảnh: bên tượng Rồng đá và bên ngọn Tháp cổ",
+    ],
+    highlights: ["Chinh phục 486 bậc thang đá trắng uốn lượn", "Chụp ảnh cùng tượng rồng đá khổng lồ trên đỉnh núi", "Ngắm toàn cảnh Tam Cốc sông Ngô Đồng từ trên cao", "Đầm sen Hang Múa rực rỡ dưới chân núi vào mùa hè"],
+    mustTry: [
+      "Chụp ảnh cùng tượng rồng đá trên đỉnh núi",
+      "Ngắm nhìn toàn cảnh sông Ngô Đồng và thung lũng lúa từ độ cao 142m",
+      "Dạo bước trên cây cầu gỗ giữa đầm sen hình bông sen khổng lồ",
+    ],
+    bestTime: "Mùa sen (tháng 5–6), mùa lúa chín; hoàng hôn (16:30) hoặc sáng sớm (06:00).",
+    duration: "Khoảng 1,5 – 2 giờ",
+    ticketPrice: "100.000 VNĐ / vé tham quan",
+    insiderTip: "Bậc đá dài, thưa và dốc đứng, dễ trơn trượt khi mưa. Hãy mang giày thể thao có độ bám cao, mang theo nước uống và máy ảnh sạc đầy pin.",
+    didYouKnow: "Hang Múa là điểm chụp ảnh toàn cảnh nổi tiếng bậc nhất Ninh Bình, nơi thường xuyên được các cặp đôi và nhiếp ảnh gia quốc tế chọn làm điểm săn ảnh bình minh triệu đô.",
+    rating: 4.9,
+    reviewCount: 3450,
+    lat: 20.2312,
+    lng: 105.9428,
+    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Hang Múa Ninh Bình",
+    badge: "Top Check-in View",
+    featured: true,
+  },
+  {
+    id: "bai-dinh",
+    name: "Quần thể Chùa Bái Đính",
+    subtitle: "Ngôi đại tự của những kỷ lục Châu Á",
+    slogan: "Ngôi chùa của những kỷ lục châu lục.",
+    area: "Vùng Gia Viễn – Bái Đính",
+    region: "Gia Viễn",
+    category: "Tâm linh",
+    description: "Bái Đính gồm chùa cổ (tương truyền do Thiền sư Nguyễn Minh Không lập năm 1136 trên sườn núi) và quần thể chùa mới (xây từ năm 2003). Quần thể mới là khuôn viên chùa lớn nhất Việt Nam với Tam Quan, gác chuông, điện Quán Âm, điện Pháp Chủ, điện Tam Thế, bảo tháp 13 tầng và hành lang La Hán dài gần 3 km.",
+    stats: [
+      "Bảo tháp 13 tầng cao 100 m thờ xá lợi Phật",
+      "Đại hồng chung nặng 36 tấn, chuông đồng lớn nhất Việt Nam",
+      "Hành lang La Hán dài gần 3 km với 500 pho tượng đá xanh",
+      "Tượng Phật Di Lặc bằng đồng nguyên khối nặng 80 tấn",
+      "Giếng Ngọc khổng lồ đường kính khoảng 30 m",
+    ],
+    highlights: ["Hành lang 500 vị La Hán tạc từ đá xanh nguyên khối", "Bảo tháp xá lợi 13 tầng cao 100m ngắm trọn vùng Tràng An", "Chuông đồng Đại hồng chung 36 tấn ngân vang", "Ngắm toàn cảnh Bái Đính lung linh huyền ảo về đêm"],
+    mustTry: [
+      "Đi bộ dọc hành lang La Hán, chiêm ngưỡng mỗi pho tượng một vẻ mặt tư thế",
+      "Lên đỉnh bảo tháp 13 tầng ngắm toàn cảnh non nước Tràng An từ trên cao",
+      "Vãn cảnh chùa Bái Đính cổ trên núi, nơi thanh tịnh và yên bình",
+      "Chiêm ngưỡng cảnh chùa lung linh ánh đèn lúc hoàng hôn buông xuống",
+    ],
+    bestTime: "Đầu năm từ tháng Giêng đến tháng 3 (trẩy hội du xuân), hoặc chiều muộn để chiêm ngưỡng lúc lên đèn.",
+    duration: "Khoảng 2 – 3 giờ",
+    ticketPrice: "Miễn phí vé vào cửa khuôn viên (Xe điện: 30.000 VNĐ/lượt, Vé lên Bảo tháp: 50.000 VNĐ)",
+    insiderTip: "Khuôn viên chùa rất rộng lớn, nên sử dụng dịch vụ xe điện nếu đi cùng người lớn tuổi hoặc trẻ nhỏ. Mặc trang phục kín đáo lịch sự khi vào lễ Phật.",
+    didYouKnow: "Hai pho tượng Hộ pháp Khuyến Thiện và Trừng Ác tại cổng Tam Quan mỗi tượng cao tới 5,5 m và nặng đến 30 tấn, được tạc bằng gỗ và đồng vô cùng uy nghi.",
+    rating: 4.8,
+    reviewCount: 4500,
+    lat: 20.2683,
+    lng: 105.8672,
+    image: "https://images.unsplash.com/photo-1596401057633-54a8fe8ef647?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Chùa Bái Đính Ninh Bình",
+    badge: "Kỷ Lục Châu Á",
+  },
+  {
+    id: "hoa-lu",
+    name: "Cố đô Hoa Lư",
+    subtitle: "Kinh đô đầu tiên của nhà nước Đại Cồ Việt",
+    slogan: "Nơi khởi đầu của một triều đại, một đất nước độc lập.",
+    area: "Vùng Cố đô Hoa Lư",
+    region: "Hoa Lư",
+    category: "Văn hóa",
+    description: "Hoa Lư là kinh đô của nước Đại Cồ Việt từ năm 968 đến năm 1010, trải qua ba triều đại Đinh, Tiền Lê và thời kỳ đầu triều Lý. Năm 1010, vua Lý Công Uẩn dời đô về Thăng Long. Ngày nay, khu đền thờ vua Đinh Tiên Hoàng, đền vua Lê Đại Hành cùng dấu tích thành lũy đá vôi là nơi lưu giữ hồn cốt cố đô ngàn năm.",
+    stats: [
+      "42 năm làm kinh đô nước Đại Cồ Việt (968–1010)",
+      "3 triều đại vàng son: Đinh – Tiền Lê – Lý",
+      "3 cửa thành chính: Bắc, Đông và Nam",
+      "Sập rồng đá cổ trước đền Vua Đinh – Bảo vật quốc gia",
+    ],
+    highlights: ["Đền thờ Vua Đinh Tiên Hoàng với sập rồng đá nguyên khối", "Đền thờ Vua Lê Đại Hành và tượng Thái hậu Dương Vân Nga", "Chùa Nhất Trụ với cột kinh đá chạm chữ Phạn cổ thế kỷ X", "Tuyệt Tình Cốc (Động Am Tiên) cách cửa Đông 400m"],
+    mustTry: [
+      "Thăm đền vua Đinh Tiên Hoàng, đền vua Lê Đại Hành, lăng vua Đinh",
+      "Ngắm chùa Nhất Trụ, nơi lưu giữ cột kinh đá từ thời Đinh nghìn năm",
+      "Lắng nghe câu chuyện 'cờ lau tập trận' của Đinh Bộ Lĩnh thời niên thiếu",
+      "Ghé thăm hồ nước xanh Tuyệt Tình Cốc (Động Am Tiên) gần kề",
+    ],
+    bestTime: "Mùa xuân từ tháng 1 đến tháng 4 (Thời tiết mát dịu; Lễ hội truyền thống Trường Yên vào tháng 3 âm lịch).",
+    duration: "Khoảng 1,5 – 2 giờ",
+    ticketPrice: "20.000 VNĐ / vé tham quan",
+    insiderTip: "Nên thuê một hướng dẫn viên tại điểm để nghe kể những giai thoại lịch sử ly kỳ và ý nghĩa kiến trúc sập rồng đá cổ.",
+    didYouKnow: "Ngôi chùa Duyên Ninh nằm trong vùng cố đô nổi tiếng linh thiêng là nơi cầu duyên cho các bạn trẻ: 'Khi đi lẻ bóng, khi về có đôi'.",
+    rating: 4.7,
+    reviewCount: 2200,
+    lat: 20.2858,
+    lng: 105.9075,
+    image: "https://images.unsplash.com/photo-1583417267826-aebc4d1542e1?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Cố đô Hoa Lư Ninh Bình",
+    badge: "Di Tích Quốc Gia Đặc Biệt",
+  },
+  {
+    id: "thung-nham",
+    name: "Vườn chim sinh thái Thung Nham",
+    subtitle: "Vương quốc 46 loài chim và cây duối nghìn năm",
+    slogan: "Chiều xuống, đàn chim về tổ như một bản hòa ca giữa non ngàn.",
+    area: "Vùng Nam Hoa Lư",
+    region: "Hoa Lư",
+    category: "Sinh thái",
+    description: "Thung Nham là thung lũng hoang sơ nằm ẩn mình sau dãy núi đá vôi, có vườn chim tự nhiên, cây cổ thụ và nhiều hang động kỳ thú. Vườn chim là nơi cư trú của 46 loài chim với gần 50.000 cá thể, nhiều loài quý hiếm trong Sách Đỏ như giang sen, cốc đế nhỏ.",
+    stats: [
+      "46 loài chim cư trú với gần 50.000 cá thể",
+      "Cây duối hơn 1.000 năm tuổi mọc kiên cường trên tảng đá",
+      "Cây đa 'biết dịch chuyển' quanh đền cổ Gối Đại (3 lần trong ngàn năm)",
+      "Hệ thống hang động: Hang Bụt, Động Vái Giời, Động Tiên Cá, Thủy Cung",
+    ],
+    highlights: ["Đi thuyền vào đảo chim ngắm hàng vạn cánh chim bay về tổ", "Cây duối cổ thụ nghìn năm tuổi linh thiêng", "Hang Bụt thạch nhũ tự nhiên hình ông Bụt ban phúc", "Động Vái Giời leo 439 bậc đá ngắm mây trời"],
+    mustTry: [
+      "Đi thuyền vào vườn chim lúc chiều muộn (khoảng 16h30) ngắm đàn chim rợp trời",
+      "Khám phá hang Bụt, động Vái Giời, động Tiên Cá, động Thủy Cung",
+      "Dạo bước giữa cánh đồng hoa bạt ngàn giữa lòng thung lũng đá",
+    ],
+    bestTime: "Chiều muộn khoảng 16:00 – 17:30 (Thời điểm hàng vạn cánh chim bay về tổ)",
+    duration: "Khoảng 2 – 3 giờ",
+    ticketPrice: "150.000 VNĐ / vé (đã bao gồm thuyền thăm vườn chim)",
+    insiderTip: "Đi thuyền là cách lý tưởng nhất để ngắm chim; hãy chuẩn bị sẵn ống nhòm hoặc máy ảnh có ống kính tele để chụp cận cảnh đàn chim quý.",
+    didYouKnow: "Cây duối nghìn năm tuổi tại Thung Nham mọc hoàn toàn trên một tảng đá vôi lớn mà rễ cây vẫn cắm sâu hút dưỡng chất, tượng trưng cho sức sống mãnh liệt của thiên nhiên cố đô.",
+    rating: 4.8,
+    reviewCount: 2100,
+    lat: 20.1985,
+    lng: 105.9189,
+    image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Vườn chim Thung Nham Ninh Bình",
+    badge: "Vườn Chim Đất Cố Đô",
+  },
+  {
+    id: "van-long",
+    name: "Khu bảo tồn thiên nhiên Vân Long",
+    subtitle: "Vịnh không sóng & Vương quốc Voọc mông trắng",
+    slogan: "Vịnh không sóng, nơi voọc và cò làm chủ.",
+    area: "Vùng Gia Viễn – Vân Long",
+    region: "Gia Viễn",
+    category: "Sinh thái",
+    description: "Vân Long là khu bảo tồn đất ngập nước lớn nhất đồng bằng Bắc Bộ. Mở cửa đón khách từ năm 1998, nơi đây xác lập hai kỷ lục Việt Nam: nơi có số lượng voọc mông trắng nhiều nhất và nơi có bức tranh thiên nhiên lớn nhất. Mặt nước phẳng lặng như gương soi bóng rặng núi Mèo Cào.",
+    stats: [
+      "Khu bảo tồn đất ngập nước lớn nhất đồng bằng Bắc Bộ",
+      "Nơi sinh sống của đàn Voọc mông trắng lớn nhất thế giới",
+      "2 kỷ lục Việt Nam xác lập năm 2010",
+      "Khu Ramsar thứ 9 của Việt Nam được thế giới công nhận",
+    ],
+    highlights: ["Mặt nước tĩnh mịch được ví như 'Vịnh không sóng'", "Săn ảnh Voọc mông trắng chuyền cành lúc hoàng hôn", "Đàn cò trắng hàng ngàn con bay về tổ lúc chiều tà", "Hang Cá, Hang Bóng hoang sơ nguyên vẹn"],
+    mustTry: [
+      "Chèo thuyền trên đầm, nhìn kỹ lên vách núi đá vôi để tìm voọc",
+      "Ngắm đàn cò trắng bay rợp trời về tổ lúc chiều (khoảng 16h30)",
+      "Nghe người chèo đò bản xứ kể chuyện đời sống đầm nước thanh bình",
+    ],
+    bestTime: "Chiều muộn khoảng 15:30 – 17:00 (Thời điểm ngắm voọc và hoàng hôn đẹp nhất)",
+    duration: "Khoảng 2 giờ",
+    ticketPrice: "100.000 VNĐ / người (Vé thắng cảnh + Thuyền nan)",
+    insiderTip: "Giữ im lặng tuyệt đối khi thuyền tiếp cận vách núi đá để tránh làm đàn voọc giật mình lẩn trốn. Ở Vân Long tiếng mái chèo là âm thanh duy nhất, không có động cơ thuyền ồn ào.",
+    didYouKnow: "Vân Long từng được đoàn làm phim bom tấn Hollywood Kong: Skull Island chọn làm bối cảnh chính cho các đại cảnh thủy chiến hoang sơ kỳ vĩ.",
+    rating: 4.8,
+    reviewCount: 1850,
+    lat: 20.3644,
+    lng: 105.8736,
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Đầm Vân Long Ninh Bình",
+    badge: "Khu Ramsar Quốc Tế",
+  },
+  {
+    id: "cuc-phuong",
+    name: "Vườn quốc gia Cúc Phương",
+    subtitle: "Rừng nguyên sinh đầu tiên của đất nước",
+    slogan: "Rừng nguyên sinh đầu tiên của đất nước.",
+    area: "Vùng Rừng Cúc Phương",
+    region: "Nho Quan",
+    category: "Sinh thái",
+    description: "Cúc Phương là vườn quốc gia đầu tiên của Việt Nam (thành lập năm 1962), nằm trên ranh giới ba tỉnh Ninh Bình, Hòa Bình, Thanh Hóa. Nơi đây sở hữu khu rừng mưa nhiệt đới nguyên sinh cổ xưa, hệ động thực vật phong phú, cây cổ thụ ngàn năm và các di chỉ khảo cổ tiền sử.",
+    stats: [
+      "Vườn quốc gia đầu tiên của Việt Nam (thành lập năm 1962)",
+      "Diện tích rộng lớn hơn 22.000 ha rừng nhiệt đới",
+      "Cây Chò chỉ ngàn năm tuổi chu vi hơn 20 người ôm",
+      "Động Người Xưa lưu giữ di cốt người tiền sử 7.500 năm",
+    ],
+    highlights: ["Mùa bướm trắng bay dập dờn hàng triệu con vào đầu hè", "Cây Chò ngàn năm đại thụ sừng sững giữa rừng", "Trung tâm Cứu hộ Linh trưởng Nguy cấp (EPRC)", "Trekking con đường rừng nguyên sinh rợp bóng đại ngàn"],
+    mustTry: [
+      "Đạp xe hoặc đi bộ qua đường rừng nguyên sinh rợp bóng cây",
+      "Thăm cây Chò xanh ngàn năm và Động Người Xưa",
+      "Săn ảnh mùa bướm trắng dập dờn khắp lối đi vào tháng 4 – 5",
+      "Tìm hiểu công tác bảo tồn linh trưởng tại trung tâm cứu hộ",
+    ],
+    bestTime: "Tháng 4 – Tháng 6 (Mùa bướm trắng và mùa đom đóm lung linh nhất trong năm).",
+    duration: "Nửa ngày đến 1 ngày trọn vẹn",
+    ticketPrice: "60.000 VNĐ / người lớn; 10.000 VNĐ / trẻ em",
+    insiderTip: "Mang theo thuốc xịt chống muỗi, giày thể thao đi rừng êm chân. Nên thuê hướng dẫn viên của vườn quốc gia để được giải thích cặn kẽ về các loài cây thuốc và động vật quý.",
+    didYouKnow: "Cúc Phương liên tiếp nhiều năm liền được Tổ chức Giải thưởng Du lịch Thế giới (World Travel Awards) bình chọn là 'Vườn quốc gia hàng đầu châu Á'.",
+    rating: 4.9,
+    reviewCount: 2600,
+    lat: 20.3167,
+    lng: 105.6083,
+    image: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Vườn quốc gia Cúc Phương",
+    badge: "World Leading National Park",
+  },
+  {
+    id: "thien-ha",
+    name: "Động Thiên Hà",
+    subtitle: "Xuyên thủy động đẹp nhất Ninh Bình",
+    slogan: "Xuyên thủy động đẹp nhất Ninh Bình, dải ngân hà trong lòng núi.",
+    area: "Sơn Hà, Vùng Nho Quan",
+    region: "Nho Quan",
+    category: "Thiên nhiên",
+    description: "Nằm trong lòng núi Tướng, động dài khoảng 700 m, gồm đoạn động khô 200 m và động nước 500 m với hệ thống thạch nhũ lung linh huyền ảo như dải ngân hà. Hang từng bị bùn đất bồi lấp nghìn năm, mới được phát lộ gần đây. Du khách vào động bằng thuyền nhỏ lướt trên dòng sông ngầm kỳ bí.",
+    stats: [
+      "Chiều dài 700 m: gồm 200 m động khô và 500 m động nước",
+      "Nhiệt độ trong hang luôn mát lạnh ổn định 20 – 22°C",
+      "Cửa 'Giếng Trời' tự nhiên đón ánh sáng mặt trời huyền ảo",
+      "Hệ thống thạch nhũ sống vẫn đang tiếp tục phát triển",
+    ],
+    highlights: ["Lướt thuyền nhỏ trên dòng sông ngầm thạch nhũ lấp lánh", "Động khô 200m với các khối nhũ đá hóa thạch", "Khám phá thế giới ngầm kỳ bí nguyên sơ", "Cảm giác tĩnh mịch không gian huyền ảo"],
+    mustTry: [
+      "Lướt thuyền qua động nước ngắm nhũ đá lấp lánh như dát bạc",
+      "Đón khoảnh khắc ánh nắng rọi qua cửa Giếng Trời",
+      "Chụp ảnh nhũ đá hình voi phục, hổ quỳ và lâu đài cổ tích",
+    ],
+    bestTime: "Quanh năm (Nhiệt độ trong lòng hang luôn mát rượi vào mùa hè, ấm áp vào mùa đông).",
+    duration: "Khoảng 1 – 1,5 giờ",
+    ticketPrice: "120.000 VNĐ / vé (bao gồm thuyền đưa đón)",
+    insiderTip: "Nên kết hợp Động Thiên Hà cùng tuyến tham quan Vườn quốc gia Cúc Phương hoặc suối khoáng nóng Kênh Gà trong cùng một ngày phía Tây Bắc Ninh Bình.",
+    didYouKnow: "Trong lòng Động Thiên Hà, các nhà khảo cổ đã tìm thấy dấu tích của người tiền sử sống cách đây khoảng 7.500 đến 10.000 năm với các công cụ ghè đẽo bằng đá và vỏ nhuyễn thể.",
+    rating: 4.8,
+    reviewCount: 1420,
+    lat: 20.2711,
+    lng: 105.8242,
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Động Thiên Hà Ninh Bình",
+    badge: "Xuyên Thủy Động Đẹp Nhất",
+  },
+  {
+    id: "kenh-ga",
+    name: "Suối nước nóng Kênh Gà",
+    subtitle: "Nguồn khoáng nóng thiên nhiên lộ thiên 53°C",
+    slogan: "Ngâm mình giữa núi non, nước nóng thiên nhiên 53°C.",
+    area: "Vùng Gia Viễn – Kênh Gà",
+    region: "Gia Viễn",
+    category: "Sinh thái",
+    description: "Suối chảy ra từ lòng quả núi đá vôi Hang Cả phía trên làng nổi Kênh Gà và đổ vào nhánh sông Hoàng Long. Nước trong vắt, không màu, không mùi, nhiệt độ luôn ổn định ở mức 53°C, giàu muối khoáng vi lượng có lợi cho sức khỏe và thư giãn cơ bắp.",
+    stats: [
+      "Nhiệt độ nước nóng tự nhiên ổn định 53°C quanh năm",
+      "Giàu muối khoáng: natri clorua, kali clorua, canxi, magie",
+      "Làng nổi Kênh Gà độc đáo trên sông Hoàng Long",
+      "Cách khu bảo tồn Vân Long chỉ hơn 10 km",
+    ],
+    highlights: ["Ngâm khoáng nóng thiên nhiên hồi phục năng lượng", "Đi thuyền trên sông Hoàng Long ngắm làng chài Kênh Gà", "Bể tắm khoáng nóng, tắm bùn và dịch vụ massage thảo dược", "Thưởng thức cá chuối nướng trui và dê núi ven sông"],
+    mustTry: [
+      "Ngâm khoáng nóng thư giãn sau ngày dài leo núi Hang Múa",
+      "Đi thuyền nan vãn cảnh làng nổi Kênh Gà sông nước hữu tình",
+      "Thưởng thức trứng gà luộc chín tự nhiên từ dòng nước khoáng nóng",
+    ],
+    bestTime: "Mùa thu – đông, khi tiết trời se lạnh ngâm mình trong làn nước nóng bốc hơi nghi ngút.",
+    duration: "Khoảng 2 – 3 giờ",
+    ticketPrice: "150.000 – 250.000 VNĐ / vé dịch vụ khoáng nóng",
+    insiderTip: "Chỉ cách khu bảo tồn Vân Long hơn 10 km, rất lý tưởng để kết hợp: buổi sáng đi thuyền ngắm voọc Vân Long, buổi chiều ngâm khoáng nóng Kênh Gà hồi phục sức khỏe.",
+    didYouKnow: "Nguồn khoáng nóng Kênh Gà được các nhà địa chất người Pháp phát hiện và nghiên cứu từ năm 1940, đánh giá là một trong những nguồn nước khoáng quý giá nhất Đông Dương.",
+    rating: 4.6,
+    reviewCount: 980,
+    lat: 20.3789,
+    lng: 105.8122,
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Suối nước nóng Kênh Gà Ninh Bình",
+    badge: "Khoáng Nóng Tự Nhiên 53°C",
+  },
+  {
+    id: "thung-nang",
+    name: "Thung Nắng",
+    subtitle: "Vùng trũng hoang sơ không đèn điện",
+    slogan: "Tiếng chèo khua nước và một chiếc đèn pin khám phá.",
+    area: "Vùng Tam Cốc – Thung Nắng",
+    region: "Hoa Lư",
+    category: "Thiên nhiên",
+    description: "Vùng trũng ngập nước cách Bích Động vài km, rất vắng khách và yên tĩnh. Các hang động ở đây giữ nguyên vẹn vẻ đẹp hoang sơ không lắp đèn điện màu, du khách tự mang đèn pin khám phá cho cảm giác thám hiểm thực thụ. Thuyền lướt qua bờ lúa, núi Ba Dọi, núi Cóc, núi Măng và ghé đền Thung Nắng, đền Vối cổ kính.",
+    stats: [
+      "Hang động hoàn toàn nguyên sinh, không lắp đèn điện màu",
+      "Hành trình thuyền yên tĩnh qua núi Ba Dọi, núi Cóc, núi Măng",
+      "Đền Thung Nắng cổ kính thờ Chúa Thượng Ngàn",
+      "Mặt nước trong vắt nhìn thấy thảm rong rêu dưới đáy",
+    ],
+    highlights: ["Chuyến thuyền nan yên bình, tĩnh mịch không xô bồ", "Hang động nguyên sinh thám hiểm bằng đèn pin", "Đền Thung Nắng và đền Vối cổ kính giữa thung lũng", "Cánh đồng lau sậy và hoa súng nở rộ bờ kênh"],
+    mustTry: [
+      "Bật đèn pin rọi từng khối thạch nhũ nguyên sơ trong hang tối",
+      "Tận hưởng sự tĩnh lặng tuyệt đối, chỉ có tiếng mái chèo khua nước",
+      "Thắp hương tại ngôi đền Thung Nắng nép mình chân vách đá",
+    ],
+    bestTime: "Buổi sáng sớm khi ánh nắng xuyên qua làn sương mỏng chiếu xuống thung lũng.",
+    duration: "Khoảng 1,5 – 2 giờ",
+    ticketPrice: "100.000 VNĐ / người (Vé thắng cảnh + Đò)",
+    insiderTip: "Dành riêng cho những ai thích sự yên tĩnh, hoang sơ và tránh xa các điểm du lịch đông đúc. Hãy nhớ mang theo đèn pin cá nhân có độ sáng tốt.",
+    didYouKnow: "Tên gọi 'Thung Nắng' xuất phát từ việc thung lũng này đón ánh nắng mặt trời rực rỡ từ sáng sớm đến chiều muộn, làm bừng sáng cả vùng nước non xanh biếc.",
+    rating: 4.7,
+    reviewCount: 1150,
+    lat: 20.2033,
+    lng: 105.9255,
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: trangAnImage,
+    mapQuery: "Thung Nắng Ninh Bình",
+    badge: "Thám Hiểm Nguyên Sơ",
+  },
+  {
+    id: "doi-dua",
+    name: "Đồi dứa Đồng Giao",
+    subtitle: "Cánh đồng dứa xanh ngút ngàn đất đỏ bazan",
+    slogan: "Đất đỏ, lá xanh, trời trong, một khung hình đủ sắc màu.",
+    area: "TP. Tam Điệp",
+    region: "Tam Điệp",
+    category: "Check-in",
+    description: "Nông trường Đồng Giao cách trung tâm thành phố hơn 20 km, nổi tiếng với những quả đồi dứa nối tiếp nhau trải dài trên nền đất đỏ bazan trù phú. Sự kết hợp giữa màu đất đỏ, màu xanh mướt của lá dứa và bầu trời xanh lộng gió tạo nên những khung hình check-in vô cùng rực rỡ và tràn đầy sức sống.",
+    stats: [
+      "Nông trường dứa lớn nhất miền Bắc với hàng trăm hecta",
+      "Vùng đất đỏ bazan trù phú của thành phố hoa đào Tam Điệp",
+      "Vựa dứa ngọt thanh nổi tiếng khắp cả nước",
+      "Gần kề Phòng tuyến Tam Điệp và Đền Dâu lịch sử",
+    ],
+    highlights: ["Khung cảnh đồi dứa trải dài tít tắp ngút tầm mắt", "Thưởng thức dứa Đồng Giao ngọt mát hái tại vườn", "Góc ảnh màu sắc rực rỡ cực kỳ ăn ảnh", "Ghé thăm Đền Dâu và Phòng tuyến Tam Điệp thời Tây Sơn"],
+    mustTry: [
+      "Chụp ảnh check-in giữa những luống dứa xanh ngút ngàn",
+      "Thưởng thức quả dứa Đồng Giao gọt vỏ ăn tại chỗ ngọt lịm",
+      "Mua dứa tươi về làm quà tặng bạn bè và người thân",
+    ],
+    bestTime: "Tháng 4 – Tháng 7 (Mùa dứa chín rộ, quả vàng ươm tỏa hương thơm ngát khắp triền đồi).",
+    duration: "Khoảng 1 – 2 giờ",
+    ticketPrice: "Miễn phí vào cửa tham quan (Nên mua dứa ủng hộ bà con nông dân)",
+    insiderTip: "Giữ ý thức không bẻ dứa hay giẫm đạp lên cây của người dân; nên mặc quần dài vì lá dứa có gai sắc có thể cứa xước da chân; có thể mua dứa làm đạo cụ chụp ảnh.",
+    didYouKnow: "Tam Điệp không chỉ nổi tiếng với dứa Đồng Giao mà còn được mệnh danh là 'Thành phố hoa đào', thủ phủ của thương hiệu đào phai Tam Điệp bung nở rực rỡ mỗi dịp Tết đến xuân về.",
+    rating: 4.7,
+    reviewCount: 1680,
+    lat: 20.1583,
+    lng: 105.8833,
+    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Đồi dứa Đồng Giao Tam Điệp",
+    badge: "Check-in Sắc Màu",
+  },
+  {
+    id: "phat-diem",
+    name: "Nhà thờ đá Phát Diệm & Vùng Kim Sơn",
+    subtitle: "Giao thoa kiến trúc Công giáo và đình chùa Á Đông",
+    slogan: "Khi kiến trúc đình chùa Bắc Bộ gặp gỡ nhà thờ Công giáo.",
+    area: "Vùng Kim Sơn duyên hải",
+    region: "Kim Sơn",
+    category: "Văn hóa",
+    description: "Cách trung tâm thành phố khoảng 35 km, Nhà thờ đá Phát Diệm mang dáng dấp cổng làng và mái cong đình chùa Bắc Bộ, trên đỉnh gắn cây thánh giá. Công trình được xây dựng hoàn toàn bằng đá xanh và gỗ lim nguyên khối với những chạm khắc tinh xảo suốt 24 năm cuối thế kỷ XIX. Cùng vùng Kim Sơn còn có 3 cây cầu ngói cổ kính, bãi bồi Cồn Nổi và chùa cổ Đồng Đắc.",
+    stats: [
+      "Quần thể xây dựng hoàn toàn từ đá và gỗ lim suốt 24 năm",
+      "Phương Đình sừng sững tạc từ khối đá xanh nguyên khối",
+      "Kim Sơn là nơi có nhiều cầu ngói nhất Việt Nam (3 cầu)",
+      "Bãi Ngang – Cồn Nổi thuộc Khu dự trữ sinh quyển thế giới",
+    ],
+    highlights: ["Phương Đình đồ sộ và Trái tim Đức Mẹ tạc từ đá cẩm thạch", "Cột gỗ lim nguyên khối chu vi khổng lồ", "Cầu ngói Phát Diệm bắc qua sông Ân cổ kính", "Vùng sinh quyển Cồn Nổi và nghề rượu nếp Kim Sơn"],
+    mustTry: [
+      "Chiêm ngưỡng các bức phù điêu đá tùng cúc trúc mai chạm khắc tinh xảo",
+      "Dạo bước trên cây cầu ngói Phát Diệm cổ kính",
+      "Thưởng thức gỏi nhệch Kim Sơn và rượu nếp thơm nồng hạ thổ",
+    ],
+    bestTime: "Buổi chiều nắng vàng rọi vào phù điêu đá hoặc đêm Giáng Sinh lung linh ánh đèn.",
+    duration: "Khoảng 2 – 3 giờ",
+    ticketPrice: "Miễn phí vé tham quan",
+    insiderTip: "Nên kết hợp thăm Nhà thờ đá Phát Diệm, Cầu ngói Kim Sơn và thưởng thức món gỏi nhệch Kim Sơn trứ danh trong cùng một chuyến đi về vùng duyên hải.",
+    didYouKnow: "Cụ Sáu (Linh mục Phêrô Trần Lục) là người chủ trì thiết kế và chỉ đạo xây dựng toàn bộ quần thể này mà không cần bản vẽ phương Tây, tạo nên kiệt tác kiến trúc Đông - Tây độc nhất vô nhị trên thế giới.",
+    rating: 4.8,
+    reviewCount: 1750,
+    lat: 20.0928,
+    lng: 106.0792,
+    image: "https://images.unsplash.com/photo-1548625361-195fe57876a3?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Nhà thờ đá Phát Diệm",
+    badge: "Kiến Trúc Độc Bản",
+  },
+  {
+    id: "tp-ninh-binh-landmarks",
+    name: "Danh thắng TP. Ninh Bình",
+    subtitle: "Núi Non Nước · Kỳ Lân · Chùa Vàng · Phố Đi Bộ",
+    slogan: "Sông núi giữa lòng phố thị, lung linh huyền ảo về đêm.",
+    area: "Vùng Trung tâm TP. Ninh Bình",
+    region: "TP. Ninh Bình",
+    category: "Văn hóa",
+    description: "Trung tâm thành phố lưu giữ những danh thắng văn hóa đặc sắc: Núi Non Nước (Dục Thúy Sơn) ngã ba sông Đáy khắc hơn 40 bài thơ cổ; Núi Kỳ Lân hình đầu lân sừng sững cạnh hồ nước; Chùa Vàng ba tầng mái bát giác lung linh; và Phố đi bộ sôi động về đêm với ẩm thực đường phố và âm nhạc cuối tuần.",
+    stats: [
+      "Núi Non Nước cao hơn 100 m với 72 bậc đá và hơn 40 bài thơ cổ",
+      "Núi Kỳ Lân cao trên 50 m với 5 hang động tự nhiên",
+      "Chùa Vàng xây trên nền chùa cổ hơn 1.000 năm thời vua Lê Đại Hành",
+      "Phố đi bộ mở cửa 17h30 – 23h30 hàng ngày sôi động",
+    ],
+    highlights: ["Bảo tàng thơ vách đá Dục Thúy Sơn bên ngã ba sông Đáy", "Tháp Chùa Vàng lung linh soi bóng hồ Kỳ Lân về đêm", "Phố đi bộ cuối tuần rực rỡ ẩm thực đường phố và âm nhạc", "Quảng trường Đinh Tiên Hoàng bề thế trung tâm thành phố"],
+    mustTry: [
+      "Leo 72 bậc đá lên đỉnh núi Non Nước đọc bia thơ cổ của Trương Hán Siêu, Nguyễn Trãi",
+      "Dạo chơi Phố đi bộ Ninh Bình thưởng thức ẩm thực vặt và nghe nhạc cuối tuần",
+      "Ngắm nhìn Chùa Vàng rực rỡ lên đèn soi bóng hồ nước lung linh",
+    ],
+    bestTime: "Chiều tà lên núi Non Nước ngắm hoàng hôn ngã ba sông; tối từ 19:00 dạo Phố đi bộ và Chùa Vàng.",
+    duration: "Khoảng 2 – 3 giờ buổi chiều và tối",
+    ticketPrice: "Núi Non Nước: 20.000 VNĐ; Phố đi bộ và Chùa Vàng: Miễn phí",
+    insiderTip: "Phố đi bộ đông vui và nhộn nhịp nhất vào tối thứ Bảy và Chủ nhật, rất thích hợp để dạo bộ, ăn vặt và cảm nhận nhịp sống cố đô về đêm.",
+    didYouKnow: "Danh sĩ Trương Hán Siêu thời Trần chính là người đặt tên ngọn núi này là 'Dục Thúy Sơn' (nghĩa là con chim bói cá tắm mình trong làn sóng biếc ngã ba sông).",
+    rating: 4.7,
+    reviewCount: 1350,
+    lat: 20.2589,
+    lng: 105.9811,
+    image: "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: muaCaveImage,
+    mapQuery: "Núi Non Nước Ninh Bình",
+    badge: "Bảo Tàng Thơ Vách Đá",
+  },
 ];
 
-export const localFoods = [
-  { name: "Dê núi Ninh Bình", note: "Thử cùng cơm cháy, rau rừng và nước chấm địa phương.", image: localFoodImage },
-  { name: "Cơm cháy", note: "Lớp cơm vàng giòn, thường dùng kèm nước sốt đậm đà.", image: localFoodImage },
-  { name: "Ốc núi", note: "Đặc sản theo mùa, thường được chế biến cùng sả và lá thơm.", image: localFoodImage },
-  { name: "Miến lươn", note: "Món ăn địa phương dân dã, thích hợp cho bữa sáng.", image: localFoodImage },
+export const statsImpressive = [
+  { num: "2014", label: "Di sản Thế giới UNESCO", desc: "Năm Tràng An được ghi danh Di sản hỗn hợp văn hóa & thiên nhiên đầu tiên của VN" },
+  { num: "31 · 48", label: "Đầm Nước & Hang Xuyên Thủy", desc: "Hệ thống 31 thung nước nối thông bởi 48 hang ngầm không cần quay đầu" },
+  { num: "968 – 1010", label: "Năm Cố Đô Hoa Lư", desc: "42 năm Hoa Lư là kinh đô Đại Cồ Việt, qua ba triều Đinh – Tiền Lê – Lý" },
+  { num: "486", label: "Bậc Đá Lên Đỉnh Hang Múa", desc: "Cung đường đá trắng uốn lượn ngắm toàn cảnh Tam Cốc triệu view" },
+  { num: "100m · 13", label: "Tầng Bảo Tháp Bái Đính", desc: "Bảo tháp xá lợi Phật đồ sộ cao nhất Đông Nam Á" },
+  { num: "36 Tấn", label: "Đại Hồng Chung Bái Đính", desc: "Chuông đồng lớn nhất Việt Nam ngân vang giữa núi ngàn" },
+  { num: "46 · 50.000", label: "Loài Chim & Cá Thể Thung Nham", desc: "Vườn chim sinh thái ngập nước rợp bóng cò trắng lúc hoàng hôn" },
+  { num: "1962", label: "Vườn Quốc Gia Cúc Phương", desc: "Vườn quốc gia đầu tiên của Việt Nam với mùa bướm trắng kỳ ảo" },
+  { num: "700m", label: "Xuyên Thủy Động Thiên Hà", desc: "200m hang khô và 500m dòng sông ngầm thạch nhũ lung linh" },
+  { num: "53°C", label: "Khoáng Nóng Kênh Gà", desc: "Nguồn suối khoáng nóng tự nhiên giàu khoáng chất bốc hơi nghi ngút" },
+  { num: "~93–100 km", label: "Khoảng Cách Từ Hà Nội", desc: "Chỉ 1.5 – 2 giờ xe chạy cao tốc thông suốt vô cùng tiện lợi" },
 ];
 
-export const itineraries = [
-  { title: "Một ngày giữa non nước", duration: "1 ngày", stops: ["Tràng An", "Hang Múa", "Thưởng thức đặc sản địa phương"], detail: "Bắt đầu trên sông ở Tràng An, dành buổi chiều cho Hang Múa và khép lại bằng một bữa ăn mang hương vị Ninh Bình." },
-  { title: "Ninh Bình thong thả", duration: "2 ngày 1 đêm", stops: ["Cố đô Hoa Lư", "Tràng An", "Tam Cốc", "Hang Múa"], detail: "Kết hợp một ngày khám phá di sản và một ngày đi thuyền, đạp xe quanh vùng Tam Cốc." },
-  { title: "Theo dấu thiên nhiên", duration: "2 ngày", stops: ["Đầm Vân Long", "Thung Nham", "Cúc Phương"], detail: "Một gợi ý dành cho người yêu vùng đất ngập nước, rừng xanh và những cung đường ngoài trời." },
-  { title: "Một vòng cố đô", duration: "1 ngày", stops: ["Cố đô Hoa Lư", "Đền vua Đinh", "Đền vua Lê", "Chùa Bái Đính"], detail: "Dành thời gian tìm hiểu dấu tích kinh đô xưa và các điểm đến văn hóa, tâm linh quanh Hoa Lư." },
+export const heroQuotes = [
+  "Một chuyến đi, ba lớp thời gian: thiên nhiên triệu năm, cố đô nghìn năm và bữa ăn đậm vị hôm nay.",
+  "Ngồi thuyền nan, chui qua hang đá, nghe lịch sử thì thầm.",
+  "Chỉ cách Hà Nội khoảng 93–100 km, Ninh Bình mở ra một thế giới khác: núi đá vôi trùng điệp, dòng sông lặng lờ và hang động huyền ảo.",
+];
+
+export const whyChooseNinhBinh = [
+  {
+    icon: "🏞️",
+    title: "Di sản thế giới UNESCO",
+    desc: "Quần thể Danh thắng Tràng An – Di sản hỗn hợp văn hóa và thiên nhiên đầu tiên và duy nhất của Việt Nam (vinh danh năm 2014).",
+  },
+  {
+    icon: "👑",
+    title: "Cố đô nghìn năm lịch sử",
+    desc: "Kinh đô Hoa Lư vàng son (968–1010) của ba triều đại Đinh – Tiền Lê – Lý với những dấu tích thành lũy và đền thờ uy nghiêm.",
+  },
+  {
+    icon: "🚣",
+    title: "Du thuyền xuyên hang kỳ ảo",
+    desc: "Lướt trên thuyền nan qua những hang động nối nhau giữa non nước ngọc bích phẳng lặng, không phải quay đầu.",
+  },
+  {
+    icon: "🌾",
+    title: "Bốn mùa biến ảo rực rỡ",
+    desc: "Lúa chín vàng Tam Cốc, đầm sen thơm ngát, hoa phượng rực trời, đồi dứa xanh mướt và mùa bướm trắng rừng Cúc Phương.",
+  },
+  {
+    icon: "🍽️",
+    title: "Ẩm thực đặc sắc trứ danh",
+    desc: "Dê núi tái chanh chấm tương bần, cơm cháy giòn rụm sốt dê nóng, cá chuối nướng trui, xôi trứng kiến, bún mọc Kim Sơn...",
+  },
+  {
+    icon: "🚗",
+    title: "Rất gần Thủ đô Hà Nội",
+    desc: "Chỉ cách Hà Nội khoảng 93–100 km, di chuyển bằng cao tốc chỉ mất 1.5 – 2 giờ, vô cùng thuận tiện cho chuyến đi 1–3 ngày.",
+  },
+];
+
+export type RegionArea = {
+  id: string;
+  name: string;
+  tagline: string;
+  landmarks: string;
+  description: string;
+  accent: string;
+};
+
+export const regionalExploration: RegionArea[] = [
+  {
+    id: "tp-ninh-binh",
+    name: "TP. Ninh Bình",
+    tagline: "Nhịp sống đô thị & Phố đêm lung linh",
+    landmarks: "Núi Non Nước & Công viên Thúy Sơn · Núi Kỳ Lân & Chùa Vàng · Phố đi bộ (17h30–23h30) · Quảng trường Đinh Tiên Hoàng",
+    description: "Trung tâm năng động của cố đô, nổi bật với phố đi bộ ẩm thực sôi động cuối tuần, tháp chùa Vàng lung linh soi bóng hồ Kỳ Lân và ngọn núi Dục Thúy Sơn khắc đầy bia thơ cổ bên dòng sông Đáy.",
+    accent: "Đô thị & Phố đêm",
+  },
+  {
+    id: "hoa-lu",
+    name: "Vùng Hoa Lư",
+    tagline: "Trái tim di sản & Vịnh Hạ Long trên cạn",
+    landmarks: "Cố đô Hoa Lư · Tràng An · Tam Cốc – Bích Động · Hang Múa · Thung Nham · Thung Nắng · Tuyệt Tình Cốc · Chùa Duyên Ninh",
+    description: "Khu vực tập trung mật độ di sản và danh thắng dày đặc nhất Ninh Bình. Nơi bạn có thể ngồi thuyền xuyên thủy Tràng An, leo đỉnh Ngọa Long Hang Múa ngắm lúa chín hay cầu duyên tại Chùa Duyên Ninh linh ứng.",
+    accent: "Trọng tâm di sản",
+  },
+  {
+    id: "gia-vien",
+    name: "Vùng Gia Viễn",
+    tagline: "Miền đất tâm linh & Vịnh không sóng",
+    landmarks: "Chùa Bái Đính · Đầm Vân Long · Suối nước nóng Kênh Gà",
+    description: "Miền quê trù phú nằm kề sông Hoàng Long, nơi có ngôi đại tự Bái Đính nắm giữ nhiều kỷ lục Châu Á, vùng ngập nước Vân Long thanh bình nơi loài Voọc mông trắng sinh sống và suối khoáng nóng Kênh Gà 53°C.",
+    accent: "Tâm linh & Sinh thái",
+  },
+  {
+    id: "nho-quan",
+    name: "Vùng Nho Quan",
+    tagline: "Đại ngàn rừng nguyên sinh & Hang động",
+    landmarks: "Vườn quốc gia Cúc Phương · Động Thiên Hà · Động Vân Trình · Hồ Yên Quang",
+    description: "Cửa ngõ miền núi phía Tây với Vườn quốc gia Cúc Phương rợp bóng cây nghìn năm, Động Thiên Hà được ví như xuyên thủy động đẹp nhất Ninh Bình và những hồ nước phẳng lặng nguyên sơ.",
+    accent: "Rừng già & Khám phá",
+  },
+  {
+    id: "tam-diep",
+    name: "TP. Tam Điệp",
+    tagline: "Sắc màu đồi dứa & Cửa ải lịch sử",
+    landmarks: "Đồi dứa Đồng Giao · Phòng tuyến Tam Điệp · Đền Dâu · Đền Quán Cháo",
+    description: "Vùng đất bán sơn địa nổi tiếng với đồi dứa Đồng Giao trải dài ngút ngàn trên nền đất đỏ bazan, đặc sản dứa ngọt sắc và phòng tuyến quân sự Tam Điệp oai hùng thời vua Quang Trung đại phá quân Thanh.",
+    accent: "Nông trường & Lịch sử",
+  },
+  {
+    id: "yen-mo",
+    name: "Vùng Yên Mô & Yên Khánh",
+    tagline: "Hồ nước yên bình & Làng nghề nem chua",
+    landmarks: "Hồ Yên Thắng · Hồ Đồng Thái · Động Mã Tiên · Chùa Dầu · Làng nghề Nem Yên Mạc",
+    description: "Vùng đồng quê trù phú ven hồ nước tự nhiên Đồng Thái và sân golf hồ Yên Thắng hiện đại, cái nôi của đặc sản nem chua Yên Mạc danh tiếng gói bằng lá ổi truyền thống.",
+    accent: "Hồ nước & Nghỉ dưỡng",
+  },
+  {
+    id: "kim-son",
+    name: "Vùng Kim Sơn",
+    tagline: "Kiến trúc đá độc bản & Hương rượu nếp",
+    landmarks: "Nhà thờ đá Phát Diệm · Cầu ngói Kim Sơn · Bãi Ngang – Cồn Nổi · Chùa Đồng Đắc",
+    description: "Miền đất ven biển duy nhất của tỉnh Ninh Bình, nổi tiếng toàn cầu với quần thể Nhà thờ đá Phát Diệm giao thoa kiến trúc Đông - Tây, làng nghề chiếu cói và rượu nếp Kim Sơn êm nồng hạ thổ.",
+    accent: "Kiến trúc & Miền duyên hải",
+  },
+];
+
+export type LocalFood = {
+  id: string;
+  name: string;
+  subtitle: string;
+  slogan: string;
+  tag: string;
+  description: string;
+  tasteProfile: string;
+  howToEat: string;
+  pairing: string;
+  whereToBuy: string;
+  flavors: string[];
+  signatureDish: string;
+  recommendedPlaces: string[];
+  image: string;
+  fallbackImage: string;
+  editorialQuote: string;
+};
+
+export const localFoods: LocalFood[] = [
+  {
+    id: "de-nui",
+    name: "Dê Núi Tái Chanh",
+    subtitle: "Mỹ vị trứ danh từ những vách đá vôi ngút ngàn",
+    slogan: "Thịt dê của núi đá, ngọt thịt, thơm lá chanh.",
+    tag: "ĐẶC SẢN SỐ 1",
+    description: "Dê được chăn thả tự nhiên trên các ngọn núi đá vôi dốc đứng, thường xuyên vận động nên thớ thịt săn chắc, thơm và ít mỡ. Thịt dê thái mỏng còn nguyên lớp da giòn, chần sơ nước sôi cho vừa tái, bóp cùng nước cốt chanh tươi, riềng non giã nhuyễn, tỏi, sả thơm, lá chanh thái chỉ và vừng rang thơm bùi.",
+    tasteProfile: "Giòn ngọt đậm đà, thơm chua nhẹ thanh tao, cay ấm nồng nàn của gừng riềng và vị bùi của vừng.",
+    howToEat: "Chấm ngập tương bần gừng non, ăn kèm chuối chát thái mỏng, khế chua, lá mơ lông và sung muối. Có thể thưởng thức thêm dê nướng tảng than hoa, dê né tỏi, lẩu dê thuốc bắc.",
+    pairing: "Rượu nếp Kim Sơn hạ thổ êm nồng hoặc trà búp thanh nhiệt.",
+    whereToBuy: "Nhà hàng Thăng Long (Chi Phong, Trường Yên), Chính Thư (Ninh Xuân), Ba Cửa (Tràng An).",
+    flavors: ["Ngọt đậm đà tự nhiên", "Thịt săn chắc không hôi", "Thơm nồng tương bần gừng", "Chua thanh dịu nhẹ"],
+    signatureDish: "Dê tái chanh tương bần, Dê nướng tảng than hoa, Dê né tỏi, Dê xào lăn",
+    recommendedPlaces: [
+      "Nhà hàng Thăng Long — Chi Phong, Vùng Hoa Lư",
+      "Nhà hàng Chính Thư — Thôn Khê Thượng, Ninh Xuân",
+      "Nhà hàng Ba Cửa — Thôn Tràng An, Trường Yên"
+    ],
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Dê núi Ninh Bình không đơn thuần là món ăn, đó là sự kết tinh của đá vôi, ngàn lá rừng và nghệ thuật gia truyền của người đầu bếp cố đô.",
+  },
+  {
+    id: "com-chay",
+    name: "Cơm Cháy Cố Đô",
+    subtitle: "Vàng ruộm giòn tan quyện nước sốt gia truyền",
+    slogan: "Món quà giòn rụm của cố đô nghìn năm.",
+    tag: "ẨM THỰC DI SẢN",
+    description: "Đặc sản trứ danh nhất đất Ninh Bình, làm từ gạo nếp cái hoa vàng dẻo thơm nấu trong nồi gang dày tạo lớp cháy giòn đều. Ép mỏng, phơi nắng tự nhiên rồi chiên ngập dầu sôi tạo độ xốp giòn rụm khó cưỡng.",
+    tasteProfile: "Giòn tan rụm trong miệng, thơm mùi cháy nhẹ mộc mạc, béo ngậy đậm đà khi hòa quyện cùng nước sốt tim cật dê nóng.",
+    howToEat: "Bẻ miếng cơm cháy vừa ăn, múc muôi nước sốt dê băm nấm hương nóng hổi rưới trực tiếp lên miếng cơm kêu xèo xèo rồi thưởng thức ngay. Hoặc ăn vặt trực tiếp loại cơm cháy chà bông cay giòn.",
+    pairing: "Rất thích hợp dùng kèm dê núi tái chanh hoặc làm món ăn vặt nhâm nhi trên đường đi.",
+    whereToBuy: "Đóng gói sẵn tại các cơ sở Cơm cháy Bà Phấn (Phố cổ Hoa Lư), Cơm cháy Khải Lương, hoặc các quầy đặc sản Tràng An, Bái Đính, Tam Cốc.",
+    flavors: ["Giòn tan rụm trong miệng", "Béo ngậy nước sốt đậm đà", "Thơm lừng hương nếp mới", "Đượm vị nấm hương"],
+    signatureDish: "Cơm cháy rưới sốt tim cật dê nấm hương, Cơm cháy chà bông cay giòn",
+    recommendedPlaces: [
+      "Cơm cháy Bà Phấn — Phố cổ Hoa Lư, TP. Ninh Bình",
+      "Cơm cháy Khải Lương — Đường Trần Hưng Đạo, TP. Ninh Bình",
+      "Đặc sản Cơm cháy Nhật Quỳnh — Gia Viễn"
+    ],
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Món quà quen thuộc của mọi du khách: giòn tan nơi đầu lưỡi và đượm tình người đất cố đô mang về làm quà tặng người thân.",
+  },
+  {
+    id: "ca-chuoi-nuong",
+    name: "Cá Chuối Nướng Trui",
+    subtitle: "Cá chuối hang đá vôi nướng nguyên con giữ vị ngọt tự nhiên",
+    slogan: "Không tẩm ướp, chỉ cần than hồng và cá tươi ngọt lịm.",
+    tag: "ĐẶC SẢN NƯỚC NGỌT",
+    description: "Cá chuối thân tròn chắc nịch bắt từ các đầm nước và hang ngầm đá vôi Ninh Bình. Cá vừa bắt được làm sạch rồi nướng nguyên con trên than hồng hoặc vùi rơm nếp cháy đượm, hoàn toàn không tẩm ướp để giữ nguyên vẹn vị ngọt tinh khiết của thịt cá.",
+    tasteProfile: "Thịt cá trắng ngần ngọt đậm, thơm phảng phất khói rơm nếp đồng quê, dai nhẹ tự nhiên.",
+    howToEat: "Gỡ từng thớ thịt cá nóng hổi, cuốn cùng bánh tráng mỏng, bún tươi, chuối xanh, dứa lát, khế chua, rau xà lách, rau thơm rồi chấm ngập bát nước mắm chua ngọt pha tỏi ớt gừng cay nồng.",
+    pairing: "Bia tươi hoặc rượu nếp Kim Sơn êm nồng.",
+    whereToBuy: "Khu ẩm thực Đầm Vân Long, các nhà hàng ẩm thực dân dã ven sông Hoàng Long hoặc Tam Cốc.",
+    flavors: ["Ngọt thịt tự nhiên", "Thơm khói rơm nếp", "Thanh mát rau rừng", "Đậm đà mắm gừng"],
+    signatureDish: "Cá chuối nướng rơm cuốn bánh tráng, Cá chuối nấu ám hoa chuối",
+    recommendedPlaces: [
+      "Khu ẩm thực Đầm Vân Long — Gia Viễn",
+      "Nhà hàng Vườn Dừa — Vùng Tam Cốc",
+      "Nhà hàng Bến Thuyền Tam Cốc"
+    ],
+    image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Vị ngọt thanh của cá chuối nướng trui hòa quyện cùng rau rừng tạo nên khúc ca đồng quê mộc mạc khó quên.",
+  },
+  {
+    id: "bun-moc-kim-son",
+    name: "Bún Mọc Kim Sơn",
+    subtitle: "Bữa sáng thanh tao nức tiếng đất duyên hải",
+    slogan: "Bữa sáng mộc mạc nhưng khó quên của người đất biển.",
+    tag: "BỮA SÁNG CỐ ĐÔ",
+    description: "Sợi bún Kim Sơn trắng tinh dẻo thơm làm từ gạo tiến vua, ăn cùng những viên mọc giòn dai nặn từ thịt mông heo tươi quết nhuyễn cùng mộc nhĩ nấm hương. Nước dùng ninh từ xương ống hầm kỹ trong veo ngọt thanh tự nhiên.",
+    tasteProfile: "Mọc giòn sần sật đậm vị, nước dùng trong veo thanh ngọt tự nhiên, hoa chuối giòn mát.",
+    howToEat: "Ăn nóng vào bữa sáng, thêm giá đỗ, rau húng quế, kinh giới và hoa chuối thái chỉ, vắt thêm lát chanh cố đô và vài lát ớt tươi cay nồng.",
+    pairing: "Trà xanh nóng sau bữa sáng.",
+    whereToBuy: "Các quán bún mọc gia truyền tại thị trấn Phát Diệm (Kim Sơn) hoặc đường Trần Hưng Đạo (TP. Ninh Bình).",
+    flavors: ["Mọc giòn dai đậm vị", "Nước dùng thanh ngọt trong veo", "Bún dẻo mềm", "Thơm mát hoa chuối"],
+    signatureDish: "Bún mọc sườn non, Bún mọc chả quế Kim Sơn",
+    recommendedPlaces: [
+      "Bún mọc Tố Như — Thị trấn Phát Diệm, Kim Sơn",
+      "Bún mọc bà Phấn — Đường Trần Hưng Đạo, TP. Ninh Bình"
+    ],
+    image: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Một tô bún mọc Kim Sơn vào sớm mai sương mờ đủ làm ấm lòng bất kỳ lữ khách phương xa nào dừng chân.",
+  },
+  {
+    id: "xoi-trung-kien",
+    name: "Xôi Trứng Kiến Nho Quan",
+    subtitle: "Món lạ độc bản từ những cánh rừng đá vôi",
+    slogan: "Món lạ độc bản hiếm nơi nào có được.",
+    tag: "ĐỘC BẢN RỪNG NÚI",
+    description: "Trứng kiến non lấy từ các tổ kiến đen trên cây rừng đá vôi Nho Quan vào cữ tháng 2 đến tháng 3 âm lịch. Trứng kiến rửa sạch, ướp gia vị rồi xào thơm cùng mỡ gà và hành phi thơm nức, rưới đều lên đĩa xôi nếp hương dẻo mềm.",
+    tasteProfile: "Vị béo thơm của mỡ hành, trứng kiến bùi ngậy vỡ lách tách trong miệng vui tai, xôi nếp dẻo thơm nồng.",
+    howToEat: "Dùng nóng làm bữa sáng hoặc món ăn độc đáo trong mâm cỗ dân tộc Mường Nho Quan.",
+    pairing: "Nước trà thảo mộc Cúc Phương.",
+    whereToBuy: "Khu du lịch sinh thái Cúc Phương, các bản làng dân tộc Mường Nho Quan vào đúng mùa xuân vụ kiến.",
+    flavors: ["Béo bùi ngậy béo", "Vỡ lách tách vui tai", "Hương nếp nương thơm dẻo", "Hành phi thơm nức"],
+    signatureDish: "Xôi nếp nương trứng kiến xào hành mỡ phi",
+    recommendedPlaces: [
+      "Khu du lịch sinh thái Cúc Phương — Nho Quan",
+      "Nhà sàn ẩm thực Mường — Xã Cúc Phương, Nho Quan"
+    ],
+    image: "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Món quà tinh túy của đại ngàn Nho Quan, món ăn một lần thử để nhớ cả đời về sự trù phú của thiên nhiên Ninh Bình.",
+  },
+  {
+    id: "goi-nhech",
+    name: "Gỏi Nhệch Kim Sơn",
+    subtitle: "Mỹ vị gỏi cá trứ danh vùng cửa sông duyên hải",
+    slogan: "Hương vị nồng nàn độc nhất vô nhị vùng cửa biển.",
+    tag: "ĐẶC SẢN DUYÊN HẢI",
+    description: "Món gỏi cá trứ danh của vùng cửa sông Kim Sơn làm từ cá nhệch (loài cá da trơn thân dài tựa lươn sống ở vùng nước lợ). Cá được lọc xương khéo léo, bóp thính gạo nếp rang vàng thơm phức, ăn kèm bát 'chẻo' gia truyền nấu từ xương cá, mẻ, gừng, tỏi ớt sánh mịn đỏ au.",
+    tasteProfile: "Thịt cá ngọt dai sần sật, thính gạo thơm lừng, nước chẻo béo bùi cay nồng tê đầu lưỡi, chát dịu của lá sung lá ổi.",
+    howToEat: "Cuộn lá sung thành hình chiếc phễu, đặt thịt cá nhệch, lát ớt, hành tỏi, lá đinh lăng rồi chan một thìa chẻo nóng hổi lên trên, ăn trọn một miếng để cảm nhận sự bùng nổ hương vị.",
+    pairing: "Rượu nếp Kim Sơn chính gốc hạ thổ để cân bằng tính hàn của cá biển.",
+    whereToBuy: "Các nhà hàng đặc sản ven sông Ân, thị trấn Phát Diệm, huyện Kim Sơn.",
+    flavors: ["Ngọt bùi chẻo cá", "Thính gạo rang nồng", "Chát nhẹ lá rừng", "Cay nồng ớt tỏi"],
+    signatureDish: "Gỏi cá nhệch cuốn chẻo gia truyền",
+    recommendedPlaces: [
+      "Nhà hàng Gỏi nhệch Vũ Bảo — Thị trấn Phát Diệm, Kim Sơn",
+      "Nhà hàng Tính Sáu — Kim Sơn, Ninh Bình"
+    ],
+    image: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Thưởng thức gỏi nhệch Kim Sơn là một nghệ thuật ẩm thực công phu, nơi mỗi chiếc lá gói đều tôn vinh vị ngọt lịm của biển cả.",
+  },
+  {
+    id: "nem-yen-mac",
+    name: "Nem Chua Yên Mạc",
+    subtitle: "Nét thanh tao của cung đình xưa gói trong lá ổi",
+    slogan: "Chua ngọt, cay nhẹ, món nhắm cố đô và món quà tao nhã.",
+    tag: "ĐẶC SẢN LÀNG NGHỀ",
+    description: "Đặc sản làng Yên Mạc (huyện Yên Mô) bắt nguồn từ nem cung đình Huế thời Nguyễn. Nem làm từ thịt nạc mông heo tươi thái chỉ (không xay) trộn bì luộc mỏng và thính gạo rang thơm, ủ lên men tự nhiên trong lá ổi và lá chuối tươi.",
+    tasteProfile: "Chua thanh dịu mát, ngọt thơm thớ thịt nạc tươi, bì giòn sần sật, thơm ngát mùi lá ổi thảo mộc.",
+    howToEat: "Bóc lớp lá chuối, dùng tay tơi đều sợi nem, cuốn cùng lá sung tật, lá đinh lăng rồi chấm nước mắm ớt tỏi gừng pha chua ngọt.",
+    pairing: "Rất thích hợp làm món nhắm rượu nếp hoặc món quà biếu trang trọng.",
+    whereToBuy: "Làng nghề nem Yên Mạc (huyện Yên Mô), các cửa hàng đặc sản TP. Ninh Bình (nên bảo quản lạnh).",
+    flavors: ["Chua thanh tự nhiên", "Thịt thái sợi ngọt dai", "Giòn sần sật bì heo", "Thơm dịu lá ổi"],
+    signatureDish: "Nem chua Yên Mạc cuốn lá sung chấm mắm tiêu",
+    recommendedPlaces: [
+      "Cơ sở Nem chua Tuấn Mai — Xã Yên Mạc, Yên Mô",
+      "Cơ sở Nem Yên Mạc Anh Quân — TP. Ninh Bình"
+    ],
+    image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Sợi nem chua Yên Mạc giòn ngọt gói trọn nét cầu kỳ, tao nhã của người nghệ nhân đất cố đô.",
+  },
+  {
+    id: "mam-tep-oc-nui",
+    name: "Mắm Tép Gia Viễn, Ốc Núi & Cá Rô Tổng Trường",
+    subtitle: "Bộ ba hương vị dân dã tinh túy đồng quê",
+    slogan: "Đậm đà hương vị đồng quê mộc mạc khó quên.",
+    tag: "TINH HOA DÂN DÃ",
+    description: "Bộ ba sản vật dân dã nức tiếng: Mắm tép Gia Viễn muối từ tép riu sông Hoàng Long đỏ au đậm đà; Ốc núi Tam Điệp ăn lá cây thuốc rừng giòn ngọt bổ dưỡng; và Cá rô Tổng Trường đầm ngập nước thịt chắc béo ngậy.",
+    tasteProfile: "Mắm tép thơm nồng béo bùi, ốc núi giòn sần sật thoảng mùi thuốc bắc, cá rô ngọt bùi béo ngậy.",
+    howToEat: "Mắm tép chưng thịt băm ăn với cơm nóng hoặc chấm thịt ba chỉ luộc; Ốc núi hấp gừng sả lá chanh chấm mắm tỏi; Cá rô rán giòn hoặc kho tộ niêu đất.",
+    pairing: "Cơm trắng gạo nếp nương và rau luộc vườn nhà.",
+    whereToBuy: "Các khu chợ truyền thống huyện Gia Viễn, Nho Quan, Tam Điệp hoặc siêu thị đặc sản TP. Ninh Bình.",
+    flavors: ["Đậm đà mắm tép", "Ốc núi thơm thảo mộc", "Cá rô béo ngậy", "Cay ấm sả gừng"],
+    signatureDish: "Mắm tép chưng thịt, Ốc núi hấp sả lá chanh, Cá rô Tổng Trường kho niêu đất",
+    recommendedPlaces: [
+      "Khu ẩm thực Đầm Vân Long — Gia Viễn",
+      "Quán Ốc Núi Vườn Cây — Tam Điệp",
+      "Nhà hàng Trung Tuyết — TP. Ninh Bình"
+    ],
+    image: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Mâm cơm quê với thìa mắm tép đỏ au và đĩa ốc núi hấp sả chính là linh hồn ẩm thực bình dị mà ấm áp của đất Ninh Bình.",
+  },
+  {
+    id: "dua-che-dao",
+    name: "Dứa Đồng Giao, Chè Trại Quang Sỏi & Đào Phai",
+    subtitle: "Sản vật thơm thảo vùng đất bán sơn địa Tam Điệp",
+    slogan: "Ngọt thanh dứa mật, đậm đà chè búp, rực rỡ sắc đào.",
+    tag: "QUÀ TẶNG THIÊN NHIÊN",
+    description: "Tam Điệp được thiên nhiên ban tặng nông trường dứa Đồng Giao bạt ngàn quả vàng ngọt sắc không rát lưỡi; vùng chè Trại Quang Sỏi nổi tiếng với chè búp đậm nước ngọt hậu vị; và thủ phủ hoa đào phai rực rỡ mỗi độ xuân về.",
+    tasteProfile: "Dứa ngọt lịm mọng nước thơm nồng, chè xanh chát dịu hậu ngọt sâu lắng kéo dài.",
+    howToEat: "Dứa gọt vỏ ướp lạnh ăn trực tiếp hoặc ép nước; nhâm nhi chén chè Trại Quang Sỏi ấm nóng cùng kẹo lạc sau bữa ăn.",
+    pairing: "Rất thích hợp làm món tráng miệng thanh mát hoặc quà biếu ấm áp.",
+    whereToBuy: "Nông trường dứa Đồng Giao, các hợp tác xã chè Quang Sơn (TP. Tam Điệp).",
+    flavors: ["Ngọt thanh đậm đà", "Mọng nước thơm lừng", "Hậu vị chè chát ngọt", "Tươi mát trọn vẹn"],
+    signatureDish: "Dứa tươi ướp lạnh, Nước ép dứa Đồng Giao, Chè búp Trại Quang Sỏi",
+    recommendedPlaces: [
+      "Nông trường dứa Đồng Giao — TP. Tam Điệp",
+      "Vùng chè Trại Quang Sỏi — Xã Quang Sơn, TP. Tam Điệp"
+    ],
+    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=1200&auto=format&fit=crop",
+    fallbackImage: localFoodImage,
+    editorialQuote: "Vị ngọt lịm của quả dứa tắm nắng gió Tam Điệp xua tan mọi mệt mỏi trên nẻo đường viễn du.",
+  },
+];
+
+export const dailyMenu = [
+  {
+    meal: "Bữa Sáng",
+    time: "07:00 — 08:30",
+    dishes: "Bún mọc Kim Sơn hoặc Xôi trứng kiến Nho Quan",
+    desc: "Khởi đầu ngày mới với bát bún mọc nước dùng trong veo ngọt thanh hoặc đĩa xôi nếp nương trứng kiến béo ngậy thơm lừng.",
+    drink: "Trà xanh Thái Nguyên ấm nóng hoặc nước dừa tươi",
+  },
+  {
+    meal: "Bữa Trưa",
+    time: "11:30 — 13:00",
+    dishes: "Dê núi tái chanh, Cá chuối nướng trui & Cơm cháy sốt dê",
+    desc: "Mâm cỗ thịnh soạn đậm chất cố đô: thịt dê săn chắc chấm tương bần, cá chuối nướng cuốn bánh tráng rau rừng và cơm cháy giòn rụm rưới sốt nóng hổi xèo xèo.",
+    drink: "Rượu nếp Kim Sơn hạ thổ nhấp môi hoặc bia lạnh",
+  },
+  {
+    meal: "Buổi Chiều",
+    time: "15:00 — 16:30",
+    dishes: "Dứa Đồng Giao ướp lạnh & Chè búp Trại Quang Sỏi",
+    desc: "Giải khát sau chặng chèo thuyền với đĩa dứa mật ngọt lịm mọng nước và ly chè xanh chát ngọt hậu vị.",
+    drink: "Nước ép dứa tươi nguyên chất",
+  },
+  {
+    meal: "Bữa Tối",
+    time: "18:30 — 21:00",
+    dishes: "Ẩm thực Phố đi bộ Ninh Bình & Lẩu dê niêu đất",
+    desc: "Dạo chơi phố đêm, thưởng thức lẩu dê thơm ngát thảo mộc hoặc ăn vặt đường phố: chè sen cố đô, nem chua nướng, bánh trôi nước.",
+    drink: "Trà hoa cúc hoặc trà hạt sen cố đô",
+  },
+  {
+    meal: "Quà Mang Về",
+    time: "Trước khi về",
+    dishes: "Cơm cháy ruốc chà bông, Nem chua Yên Mạc, Rượu Kim Sơn & Chè búp",
+    desc: "Những gói quà đóng gói tinh tươm, chuẩn vị truyền thống mang hương vị cố đô gửi tặng gia đình và người thân.",
+    drink: "Dễ bảo quản, hạn dùng rõ ràng",
+  },
+];
+
+export const signatureExperiences = [
+  {
+    id: "sig-hang-mua",
+    number: "01",
+    title: "Bình Minh Trên Đỉnh Hang Múa",
+    desc: "Leo 486 bậc đá khi trời còn mát lạnh sương sớm, đón những tia nắng đầu ngày rọi xuống dải lụa sông Ngô Đồng.",
+    badge: "Check-in Triệu View",
+    tagline: "486 bậc đá chạm tới mây trời",
+  },
+  {
+    id: "sig-trang-an",
+    number: "02",
+    title: "Du Thuyền Xuyên Hang Tràng An",
+    desc: "Ngồi thuyền nan lướt nhẹ qua 31 thung nước ngọc bích và 48 hang xuyên thủy kỳ thú trong lòng di sản thế giới UNESCO.",
+    badge: "Di Sản UNESCO",
+    tagline: "Hành trình xuyên thủy triệu năm",
+  },
+  {
+    id: "sig-van-long",
+    number: "03",
+    title: "Hoàng Hôn Trên Vịnh Không Sóng Vân Long",
+    desc: "Lênh đênh trên mặt nước phẳng lặng như gương soi, săn hình ảnh đàn Voọc mông trắng và ngàn cánh cò bay về tổ lúc 16h30.",
+    badge: "Khu Ramsar Thế Giới",
+    tagline: "Vịnh không sóng & đàn voọc quý",
+  },
+  {
+    id: "sig-bai-dinh",
+    number: "04",
+    title: "Đêm Bái Đính & Tháp Chùa Vàng Lung Linh",
+    desc: "Chiêm ngưỡng quần thể đại tự kỷ lục châu Á bừng sáng lung linh giữa núi rừng tĩnh mịch khi lên đèn về đêm.",
+    badge: "Tâm Linh Huyền Ảo",
+    tagline: "Ánh sáng uy nghiêm cố đô",
+  },
+  {
+    id: "sig-kenh-ga",
+    number: "05",
+    title: "Ngâm Khoáng Nóng Thiên Nhiên Kênh Gà 53°C",
+    desc: "Thả lỏng cơ thể giữa thiên nhiên trong làn nước khoáng nóng bốc hơi nghi ngút, phục hồi thể lực sau ngày dài khám phá.",
+    badge: "Nghỉ Dưỡng Trị Liệu",
+    tagline: "Dòng suối nóng chữa lành 53°C",
+  },
+];
+
+export const craftVillages = [
+  {
+    id: "theu-van-lam",
+    name: "Làng nghề Thêu ren Văn Lâm",
+    location: "Vùng Tam Cốc, Hoa Lư",
+    heritage: "Nghề thủ công truyền thống hơn 700 năm",
+    desc: "Nghề thêu ren thủ công truyền thống có từ thời nhà Trần. Du khách có thể tận mắt xem các nghệ nhân thêu tranh, khăn tay, ga gối bằng tay tỉ mẩn và mua về làm quà lưu niệm.",
+  },
+  {
+    id: "da-ninh-van",
+    name: "Làng Đá mỹ nghệ Ninh Vân",
+    location: "Vùng Hoa Lư",
+    heritage: "Nghệ thuật điêu khắc đá xanh danh tiếng",
+    desc: "Cái nôi của nghề chạm khắc đá mỹ nghệ miền Bắc. Nơi tạo tác nên những công trình sập rồng, tượng La Hán, phù điêu đá xanh tinh xảo cho Chùa Bái Đính và Nhà thờ đá Phát Diệm.",
+  },
+  {
+    id: "nem-yen-mac-craft",
+    name: "Làng nghề Nem chua Yên Mạc",
+    location: "Vùng Yên Mô",
+    heritage: "Ẩm thực truyền thống cung đình",
+    desc: "Làng nghề lưu truyền bí quyết ủ nem thịt nạc thái chỉ lên men trong lá ổi từ thời Nguyễn, tạo nên thương hiệu nem chua nức tiếng khắp ba miền.",
+  },
+  {
+    id: "cheo-do-chan",
+    name: "Nghệ thuật chèo đò bằng chân sông Ngô Đồng",
+    location: "Bến thuyền Tam Cốc",
+    heritage: "Kỹ nghệ bản địa độc nhất vô nhị",
+    desc: "Hình ảnh người lái đò Tam Cốc dùng hai bàn chân chèo thuyền thoăn thoắt vừa điêu luyện vừa thảnh thơi kể chuyện lịch sử non nước là nét văn hóa dân gian ấn tượng bậc nhất.",
+  },
+  {
+    id: "le-hoi-co-do",
+    name: "Lễ hội truyền thống Cố đô Hoa Lư",
+    location: "Đền Vua Đinh – Vua Lê",
+    heritage: "Di sản văn hóa phi vật thể quốc gia",
+    desc: "Lễ hội xuân tổ chức từ mùng 8 đến mùng 10 tháng 3 âm lịch, tái hiện lễ rước nước sông Hoàng Long, hội 'cờ lau tập trận' và các trò chơi dân gian cố đô đặc sắc.",
+  },
+];
+
+export const seasonalGuide = [
+  {
+    season: "Mùa Xuân",
+    timing: "Tháng 1 — Tháng 3",
+    icon: "🌸",
+    title: "Mùa Lễ Hội & Trẩy Lộc Đầu Năm",
+    description: "Khí hậu mát mẻ, sương mờ lãng đãng quanh những ngọn núi đá. Ninh Bình rộn ràng với các lễ hội truyền thống lớn nhất năm: Lễ hội chùa Bái Đính, Lễ hội Cố đô Hoa Lư, Lễ hội Tràng An.",
+    activities: ["Chiêm bái tâm linh tại Chùa Bái Đính & Bích Động", "Tham gia rước kiệu nước trên sông Tràng An", "Thời tiết mát mẻ thích hợp du xuân thưởng ngoạn"],
+  },
+  {
+    season: "Mùa Hè",
+    timing: "Tháng 5 — Tháng 6",
+    icon: "🪷",
+    title: "Mùa Sen Nở Rộ & Sắc Xanh Tràn Đầy",
+    description: "Những đầm sen bạt ngàn dưới chân núi Hang Múa và cổng Chùa Bích Động bung nở thơm ngát. Hoa phượng đỏ rực bên núi Non Nước, dòng nước sông Ngô Đồng xanh ngọc bích mát lạnh.",
+    activities: ["Check-in tháp sen rực rỡ tại chân Hang Múa", "Chụp ảnh hoa phượng đỏ rực bên cầu đá sông Đáy", "Đi thuyền ngắm vẻ đẹp căng tràn sức sống của thiên nhiên"],
+  },
+  {
+    season: "Cuối Hè — Đầu Thu",
+    timing: "Tháng 6 & Tháng 9 — 10",
+    icon: "🌾",
+    title: "Mùa Vàng Tam Cốc & Sông Ngô Đồng",
+    description: "Thời điểm vàng ngoạn mục nhất trong năm. Những dải lúa chín vàng ươm uốn lượn hai bên dòng sông Ngô Đồng, nhìn từ đỉnh Hang Múa tựa như một dải lụa hoàng gia trải dài bất tận.",
+    activities: ["Leo Hang Múa ngắm toàn cảnh cánh đồng lúa chín", "Ngồi thuyền nan lướt giữa biển vàng thơm ngát", "Săn ảnh nghệ thuật 'Sắc vàng Tam Cốc' trứ danh"],
+  },
+  {
+    season: "Thu — Đông",
+    timing: "Tháng 11 — Tháng 12",
+    icon: "🍂",
+    title: "Tiết Trời Se Lạnh & Sương Mờ Huyền Ảo",
+    description: "Thời tiết dịu mát, không khí trong lành khô ráo. Thung lũng Tràng An và đầm Vân Long khoác lên vẻ đẹp tĩnh lặng, sương mờ giăng mắc vách núi đá vôi tựa như bức tranh thủy mặc cổ điển.",
+    activities: ["Thăm quan hang động ấm áp tránh gió lạnh", "Ngâm khoáng nóng Kênh Gà 53°C thư giãn", "Thưởng thức dê núi nướng tảng thơm lừng bên bếp than hồng"],
+  },
+];
+
+export const travelTipsList = [
+  {
+    icon: "👟",
+    title: "Trang phục leo Hang Múa",
+    content: "Nên mang giày thể thao thoải mái có độ bám cao vì đường lên đỉnh dốc đứng với 486 bậc đá dài, rất dễ trơn trượt nếu trời có mưa.",
+  },
+  {
+    icon: "🧢",
+    title: "Hành lý gọn nhẹ & Chống nắng",
+    content: "Chuẩn bị mũ nan rộng vành, kính râm, kem chống nắng và một chiếc áo mưa mỏng nhẹ khi ngồi thuyền nan 2-3 tiếng ngoài trời.",
+  },
+  {
+    icon: "🔦",
+    title: "Đèn pin cho hang hoang sơ",
+    content: "Nếu chọn đi các tuyến hang thám hiểm hoang sơ không có hệ thống đèn điện như Thung Nắng, hãy mang theo đèn pin đội đầu để khám phá trọn vẹn.",
+  },
+  {
+    icon: "🍍",
+    title: "Ý thức khi chụp ảnh đồi dứa",
+    content: "Tại đồi dứa Đồng Giao: Tuyệt đối giữ ý thức không dẫm đạp làm hỏng cây hay tự ý bẻ dứa của người dân; nên mặc quần dài để tránh lá dứa sắc cứa xước da chân.",
+  },
+  {
+    icon: "⏰",
+    title: "Khung giờ vàng tránh đông",
+    content: "Nên đi thuyền Tràng An lúc 07:30 sáng hoặc 15:30 chiều mát. Leo Hang Múa lúc 06:00 sáng đón bình minh để tận hưởng không gian thanh vắng và ánh sáng nhiếp ảnh đẹp nhất.",
+  },
+  {
+    icon: "📍",
+    title: "Đặt dịch vụ sớm vào dịp lễ",
+    content: "Vào các dịp cuối tuần, lễ Tết hay Tuần lễ du lịch Sắc vàng Tam Cốc, hãy đặt trước phòng nghỉ và tour để giữ chỗ tốt nhất và tránh tăng giá dịch vụ.",
+  },
+];
+
+export const transportGuide = {
+  distance: "93 — 100 km từ trung tâm Hà Nội",
+  time: "Khoảng 1.5 — 2 giờ bằng ô tô/limousine; 2.5 — 3 giờ bằng xe máy",
+  expressways: [
+    "Cao tốc Cầu Giẽ – Ninh Bình (rút ngắn thời gian di chuyển chỉ còn khoảng 75 phút)",
+    "Cao tốc Bắc – Nam đoạn Ninh Bình – Thanh Hóa – Vinh thông suốt thuận tiện",
+    "Tuyến đường cao tốc ven biển kết nối Ninh Bình – Hải Phòng – Hạ Long",
+  ],
+  localTransport: "Tại Ninh Bình: Taxi, xe limousine đưa đón tận nơi, xe điện thăm Chùa Bái Đính & Tràng An, xe đạp dạo quanh làng quê Tam Cốc, và thuyền nan truyền thống.",
+};
+
+export const whyBookWithUsList = [
+  "Lịch trình được may đo thiết kế phù hợp: gia đình có trẻ nhỏ, nhóm bạn trẻ mê check-in, cặp đôi nghỉ dưỡng hoặc đoàn cơ quan",
+  "Đội ngũ hướng dẫn viên người bản xứ am hiểu sâu sắc văn hóa, lịch sử và những góc chụp ảnh bí mật đẹp nhất",
+  "Đội xe du lịch đời mới tiện nghi, tài xế bản địa giàu kinh nghiệm lái êm ái",
+  "Cam kết báo giá minh bạch trọn gói, không phụ phí ẩn, hỗ trợ tư vấn 24/7 trước và trong suốt hành trình",
+  "Linh hoạt tùy chỉnh theo nhu cầu: tour riêng sang trọng, tour ghép tiết kiệm, team building doanh nghiệp",
+];
+
+export type Itinerary = {
+  id: string;
+  title: string;
+  subtitle: string;
+  duration: string;
+  targetAudience: string;
+  estimatedBudget: string;
+  highlightRoute: string;
+  timeline: {
+    time: string;
+    place: string;
+    activity: string;
+    iconType: "sun" | "boat" | "food" | "mountain" | "moon" | "tree";
+  }[];
+  insiderAdvice: string;
+};
+
+export const itineraries: Itinerary[] = [
+  {
+    id: "2-days-1-night",
+    title: "Lịch Trình 2N1Đ — Di Sản & Cố Đô",
+    subtitle: "Chuyến Hành Trình Kinh Điển Khám Phá Trọn Vẹn Non Nước Ninh Bình",
+    duration: "2 Ngày 1 Đêm",
+    targetAudience: "Phù hợp mọi đối tượng: Cặp đôi, gia đình, nhóm bạn khám phá dịp cuối tuần",
+    estimatedBudget: "1.450.000 — 2.200.000 VNĐ / người (đã bao gồm xe, vé & ăn uống)",
+    highlightRoute: "Ngày 1: Hà Nội -> Chùa Bái Đính -> Du thuyền Tràng An -> Phố đi bộ • Ngày 2: Cố đô Hoa Lư -> Tam Cốc Bích Động -> Hang Múa",
+    timeline: [
+      {
+        time: "Ngày 1 — 07:30",
+        place: "Khởi hành từ Hà Nội",
+        activity: "Xe limousine đón tại điểm hẹn, di chuyển trên cao tốc Pháp Vân - Cầu Giẽ đến Ninh Bình chỉ mất 1.5 - 2 giờ.",
+        iconType: "sun",
+      },
+      {
+        time: "Ngày 1 — 09:30",
+        place: "Quần thể Chùa Bái Đính",
+        activity: "Chiêm bái đại tự giữ nhiều kỷ lục Châu Á, dạo bước trên hành lang 500 La Hán và ngắm nhìn chuông đồng 36 tấn.",
+        iconType: "tree",
+      },
+      {
+        time: "Ngày 1 — 12:30",
+        place: "Ăn trưa đặc sản Ninh Bình",
+        activity: "Thưởng thức mâm cỗ dê núi nướng tảng, dê tái chanh chấm tương bần và cơm cháy sốt dê nóng hổi giòn rụm.",
+        iconType: "food",
+      },
+      {
+        time: "Ngày 1 — 14:00",
+        place: "Du thuyền Quần thể Tràng An",
+        activity: "Lên thuyền nan du ngoạn 3 tiếng qua các hang động kỳ thú: Hang Nấu Rượu, Hang Ba Giọt và Hành cung Vũ Lâm linh thiêng.",
+        iconType: "boat",
+      },
+      {
+        time: "Ngày 1 — 18:30",
+        place: "Nhận phòng khách sạn & Dạo Phố đi bộ",
+        activity: "Nhận phòng nghỉ ngơi, dùng bữa tối và dạo chơi Phố đi bộ Ninh Bình (17h30–23h30), ngắm tháp Chùa Vàng rực sáng về đêm.",
+        iconType: "moon",
+      },
+      {
+        time: "Ngày 2 — 07:30",
+        place: "Cố đô Hoa Lư nghìn năm",
+        activity: "Thăm Đền vua Đinh Tiên Hoàng, Đền vua Lê Đại Hành trầm mặc giữa thung lũng đá vôi, tìm hiểu lịch sử cố đô thế kỷ X.",
+        iconType: "tree",
+      },
+      {
+        time: "Ngày 2 — 10:00",
+        place: "Tam Cốc – Bích Động",
+        activity: "Xuôi thuyền sông Ngô Đồng qua 3 hang ngầm, chiêm bái Chùa Bích Động cổ kính - Nam thiên đệ nhị động nép mình bên hồ sen.",
+        iconType: "boat",
+      },
+      {
+        time: "Ngày 2 — 12:30",
+        place: "Ăn trưa cá chuối nướng & nghỉ ngơi",
+        activity: "Thưởng thức cá chuối nướng trui cuốn bánh tráng rau rừng và mua cơm cháy ruốc chà bông làm quà.",
+        iconType: "food",
+      },
+      {
+        time: "Ngày 2 — 15:30",
+        place: "Đỉnh Hang Múa (Ngọa Long Sơn)",
+        activity: "Chinh phục 486 bậc thang đá trắng, ngắm toàn cảnh Tam Cốc lúc hoàng hôn buông xuống rực rỡ trước khi lên xe về Hà Nội.",
+        iconType: "mountain",
+      },
+    ],
+    insiderAdvice: "Nên mang giày thể thao đế mềm để leo Hang Múa dễ dàng và mang theo máy ảnh sạc đầy pin vì tuyến đường Tam Cốc và Hang Múa có rất nhiều góc ảnh đẹp.",
+  },
+  {
+    id: "3-days-2-nights",
+    title: "Lịch Trình 3N2Đ — Thiên Nhiên & Văn Hóa",
+    subtitle: "Kỳ Nghỉ Thư Thái Kết Hợp Tắm Khoáng Nóng Kênh Gà & Rừng Cúc Phương",
+    duration: "3 Ngày 2 Đêm",
+    targetAudience: "Gia đình, đoàn công ty, du khách yêu thích khám phá sâu và nghỉ dưỡng thư thái",
+    estimatedBudget: "2.800.000 — 4.200.000 VNĐ / người (đã gồm resort & khoáng nóng)",
+    highlightRoute: "Ngày 1: Bái Đính - Tràng An - Phố đi bộ • Ngày 2: Hoa Lư - Tam Cốc - Hang Múa - Thung Nham • Ngày 3: Vân Long hoặc Cúc Phương - Suối Kênh Gà",
+    timeline: [
+      {
+        time: "Ngày 1",
+        place: "Hà Nội -> Chùa Bái Đính -> Tràng An -> Phố đi bộ",
+        activity: "Khởi hành từ Hà Nội, chiêm bái đại tự Bái Đính tráng lệ, du ngoạn thuyền nan Tràng An buổi chiều và dạo phố đi bộ lung linh buổi tối.",
+        iconType: "boat",
+      },
+      {
+        time: "Ngày 2",
+        place: "Hoa Lư -> Tam Cốc Bích Động -> Hang Múa -> Vườn chim Thung Nham",
+        activity: "Thăm kinh đô xưa Hoa Lư, lướt thuyền Tam Cốc, chinh phục Hang Múa săn mây và khép lại buổi chiều ngắm hàng vạn cánh chim bay về tổ tại Thung Nham.",
+        iconType: "mountain",
+      },
+      {
+        time: "Ngày 3",
+        place: "Đầm Vân Long hoặc Rừng Cúc Phương -> Suối khoáng nóng Kênh Gà",
+        activity: "Sáng sớm đi thuyền ngắm Voọc mông trắng tại Đầm Vân Long (hoặc trekking rừng già Cúc Phương), trưa thư giãn ngâm suối khoáng nóng Kênh Gà 53°C trước khi trở về Hà Nội.",
+        iconType: "sun",
+      },
+    ],
+    insiderAdvice: "Nên đặt resort nghỉ dưỡng ở khu vực Tam Cốc hoặc Tràng An để thuận tiện đạp xe ngắm làng quê buổi tối thanh bình.",
+  },
+  {
+    id: "1-day-express",
+    title: "Lịch Trình 1 Ngày — Tinh Hoa Cố Đô",
+    subtitle: "Gọn Gàng & Đậm Đà Cho Du Khách Bận Rộn",
+    duration: "1 Ngày (06:30 — 20:30)",
+    targetAudience: "Du khách đi trong ngày từ Hà Nội, người yêu thích lịch trình cô đọng",
+    estimatedBudget: "850.000 — 1.200.000 VNĐ / người",
+    highlightRoute: "Hà Nội -> Đỉnh Hang Múa -> Thuyền nan Tràng An -> Dê núi nướng tảng -> Cố đô Hoa Lư -> Hà Nội",
+    timeline: [
+      {
+        time: "06:30 — 08:30",
+        place: "Đỉnh Hang Múa (Ngọa Long Sơn)",
+        activity: "Leo 486 bậc thang đón bình minh trong lành, tránh đông đúc và săn ảnh tầm nhìn triệu đô xuống thung lũng Tam Cốc.",
+        iconType: "mountain",
+      },
+      {
+        time: "09:00 — 12:00",
+        place: "Quần thể danh thắng Tràng An",
+        activity: "Lên thuyền nan theo Tuyến 2 (qua Hang Lấm, Hang Vạng, Đền Suối Tiên) tận hưởng 3 giờ du ngoạn mặt nước trong vắt.",
+        iconType: "boat",
+      },
+      {
+        time: "12:30 — 14:00",
+        place: "Nhà hàng Thăng Long (Chi Phong, Trường Yên)",
+        activity: "Thưởng thức mâm cỗ dê núi nướng tảng ngũ vị, dê tái chanh cuốn chuối xanh và cơm cháy sốt dê gia truyền nóng giòn.",
+        iconType: "food",
+      },
+      {
+        time: "14:30 — 16:30",
+        place: "Cố đô Hoa Lư & Tuyệt Tình Cốc",
+        activity: "Thắp hương Đền Vua Đinh, Đền Vua Lê trầm mặc rồi ghé thăm hồ nước ngọc bích phẳng lặng tại Tuyệt Tình Cốc.",
+        iconType: "tree",
+      },
+      {
+        time: "17:30 — 20:30",
+        place: "Phố cổ Hoa Lư & Khởi hành về Hà Nội",
+        activity: "Dạo chơi phố cổ lung linh dưới hàng ngàn chiếc đèn lồng, ngắm Tháp Tứ Ân soi bóng nước và thưởng thức đồ ăn vặt cố đô.",
+        iconType: "moon",
+      },
+    ],
+    insiderAdvice: "Khởi hành từ Hà Nội lúc 05:00 sáng bằng xe limousine để đến Hang Múa đúng lúc bình minh lên, lúc này nhiệt độ mát mẻ và vắng khách nhất.",
+  },
+];
+
+export type Experience = {
+  id: string;
+  title: string;
+  category: string;
+  tagline: string;
+  description: string;
+  duration: string;
+  intensity: "Thư thái" | "Trung bình" | "Thử thách";
+  bestTime: string;
+  tips: string[];
+  image: string;
+  location: string;
+};
+
+export const experiences: Experience[] = [
+  {
+    id: "boat-trip",
+    title: "Du Thuyền Xuyên Hang Kỳ Ảo",
+    category: "Du Thuyền Xuyên Hang",
+    tagline: "Lướt thuyền nan qua những hang ngầm nối nhau giữa non xanh nước biếc",
+    description: "Thả mình trên chiếc thuyền nan lướt nhẹ trên dòng sông trong vắt tại Tràng An, Tam Cốc, Thung Nắng hay Đầm Vân Long. Nghe tiếng chèo khua nước êm đềm và tiếng giọt nước thánh thót rơi từ vòm hang thạch nhũ hàng triệu năm tuổi.",
+    duration: "2 — 3.5 Giờ",
+    intensity: "Thư thái",
+    bestTime: "Sáng sớm 07:30 hoặc hoàng hôn 15:30",
+    tips: [
+      "Nên mang theo nón lá hoặc ô che nắng",
+      "Chọn Tuyến 2 hoặc Tuyến 3 ở Tràng An để khám phá hang dài nhất",
+      "Chuẩn bị tiền boa nhỏ cảm ơn người chèo đò bản địa"
+    ],
+    image: "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1200&auto=format&fit=crop",
+    location: "Tràng An, Tam Cốc, Thung Nắng, Vân Long",
+  },
+  {
+    id: "hiking",
+    title: "Leo Núi Ngắm Toàn Cảnh Triệu Đô",
+    category: "Leo Núi Toàn Cảnh",
+    tagline: "Chinh phục 486 bậc đá Hang Múa, Non Nước & Kỳ Lân",
+    description: "Từng bước chân trên cung đường đá trắng dẫn bạn lên đỉnh núi Ngọa Long sừng sững giữa trời. Ngắm nhìn rồng đá ngự trị trên mây và toàn cảnh dải lụa sông Ngô Đồng uốn lượn mềm mại qua những cánh đồng lúa chín vàng óng ả.",
+    duration: "1.5 — 2.5 Giờ",
+    intensity: "Trung bình",
+    bestTime: "06:00 đón bình minh hoặc 16:30 ngắm hoàng hôn",
+    tips: [
+      "Mang giày thể thao có độ bám đế tốt, tránh trơn trượt",
+      "Mang theo nước uống và máy ảnh sạc đầy pin",
+      "Cẩn thận các bậc đá dốc đứng gần đỉnh tháp"
+    ],
+    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
+    location: "Hang Múa, Núi Non Nước, Núi Kỳ Lân",
+  },
+  {
+    id: "cycling",
+    title: "Đạp Xe Qua Làng Quê & Mùa Vàng",
+    category: "Đạp Xe Làng Quê",
+    tagline: "Thong thả lăn bánh giữa thung lũng sen thơm & rừng Cúc Phương",
+    description: "Thuê một chiếc xe đạp cổ điển, chậm rãi lăn bánh qua những ngõ làng thanh bình của Tam Cốc - Bích Động hoặc cung đường rợp bóng cây cổ thụ Cúc Phương. Hít hà hương sen tháng Sáu thơm ngát và hương lúa trĩu bông ngọt ngào.",
+    duration: "2 — 3 Giờ (Cung đường 8 — 15km)",
+    intensity: "Thư thái",
+    bestTime: "Sáng sớm mát mẻ 07:00 — 09:30",
+    tips: [
+      "Hỏi mượn xe đạp tại các homestay hoặc resort",
+      "Ghé đầm sen Hang Múa và cổng Chùa Bích Động check-in",
+      "Tấp vào quán ven đường uống nước dừa xiêm mát lạnh"
+    ],
+    image: "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?q=80&w=1200&auto=format&fit=crop",
+    location: "Tam Cốc, Bích Động & Rừng Cúc Phương",
+  },
+  {
+    id: "photo-hunt",
+    title: "Săn Ảnh Đẹp: Đồi Dứa, Sen & Tuyệt Tình Cốc",
+    category: "Săn Ảnh Đẹp",
+    tagline: "Đất đỏ bazan đồi dứa, hồ ngọc bích Tuyệt Tình Cốc & đầm sen",
+    description: "Những góc máy triệu like: Đồi dứa Đồng Giao xanh ngắt trên nền đất đỏ Tam Điệp, hồ nước ngọc bích phẳng lặng Động Am Tiên soi bóng vách thành cổ, hay đầm sen nở rộ thơm ngát dưới chân vách đá vôi.",
+    duration: "Nửa Ngày",
+    intensity: "Thư thái",
+    bestTime: "07:00 — 09:00 hoặc 15:30 — 17:30 (Ánh sáng vàng mềm)",
+    tips: [
+      "Mặc trang phục màu trắng, vàng hoặc vintage nổi bật",
+      "Tại đồi dứa nên mặc quần dài tránh lá dứa cứa chân",
+      "Tôn trọng bà con nông dân, không bẻ dứa hay dẫm nát luống hoa"
+    ],
+    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=1200&auto=format&fit=crop",
+    location: "Đồi dứa Đồng Giao, Tuyệt Tình Cốc, Đầm sen",
+  },
+  {
+    id: "wildlife",
+    title: "Ngắm Chim Về Tổ & Săn Voọc Quý Hiếm",
+    category: "Ngắm Chim & Voọc",
+    tagline: "46 loài chim Thung Nham & vương quốc Voọc mông trắng Vân Long",
+    description: "Thả hồn giữa thiên nhiên hoang sơ tuyệt đối: Chứng kiến cảnh tượng hàng vạn cánh cò trắng rợp trời bay về tổ lúc ráng chiều tại Thung Nham, và dùng ống nhòm săn hình ảnh đàn Voọc mông trắng quý hiếm đang chuyền cành kiếm ăn trên vách đá đầm Vân Long.",
+    duration: "2 — 3 Giờ",
+    intensity: "Thư thái",
+    bestTime: "16:00 — 17:30 (Thời điểm chim và voọc hoạt động mạnh nhất)",
+    tips: [
+      "Mang theo ống nhòm hoặc ống kính tele máy ảnh",
+      "Giữ trật tự yên lặng tuyệt đối khi thuyền tiếp cận khu vực chim/voọc",
+      "Mặc áo khoác nhẹ khi trời về chiều muộn"
+    ],
+    image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1200&auto=format&fit=crop",
+    location: "Thung Nham & Đầm Vân Long",
+  },
+  {
+    id: "hot-spring",
+    title: "Tắm Khoáng Nóng Thư Giãn Kênh Gà",
+    category: "Tắm Khoáng Nóng",
+    tagline: "Suối khoáng nóng thiên nhiên lộ thiên 53°C giàu dưỡng chất",
+    description: "Sau những ngày leo bậc đá Hang Múa và trekking rừng sâu, hãy thưởng cho cơ thể khoảnh khắc thư giãn tuyệt đối tại suối khoáng nóng Kênh Gà 53°C. Ngâm mình trong bể khoáng nóng bốc hơi nghi ngút giữa khung cảnh núi non thanh bình.",
+    duration: "2 — 4 Giờ",
+    intensity: "Thư thái",
+    bestTime: "Buổi chiều sau khi kết thúc các chặng tham quan",
+    tips: [
+      "Mang theo đồ bơi cá nhân và khăn tắm sạch",
+      "Không nên ngâm khoáng nóng ngay sau khi vừa ăn no",
+      "Uống bổ sung nước lọc ấm sau khi tắm khoáng"
+    ],
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+    location: "Khu du lịch Suối khoáng nóng Kênh Gà, Gia Viễn",
+  },
 ];
