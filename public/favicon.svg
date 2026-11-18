@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#173428" />
+      <stop offset="50%" stop-color="#244B3B" />
+      <stop offset="100%" stop-color="#0F231B" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2D8A7" />
+      <stop offset="50%" stop-color="#D6AD72" />
+      <stop offset="100%" stop-color="#A67B38" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Rounded Squircle Luxury Badge -->
+  <rect x="24" y="24" width="464" height="464" rx="108" fill="url(#bgGrad)" stroke="url(#goldGrad)" stroke-width="12" />
+
+  <!-- Inner delicate decorative frame -->
+  <rect x="44" y="44" width="424" height="424" rx="90" fill="none" stroke="#D6AD72" stroke-width="2" stroke-opacity="0.4" />
+
+  <!-- Mountain Silhouettes (Tràng An Karst Peaks) -->
+  <path d="M120 360 L210 230 L270 310 L330 200 L410 360 Z" fill="#769477" fill-opacity="0.25" />
+  <path d="M150 360 L240 250 L310 360 Z" fill="#D6AD72" fill-opacity="0.2" />
+
+  <!-- Sinuous River Stream (Dòng Sông Ngô Đồng) -->
+  <path d="M100 375 Q 190 350, 256 375 T 412 375" fill="none" stroke="url(#goldGrad)" stroke-width="6" stroke-linecap="round" filter="url(#glow)" />
+  <path d="M130 395 Q 210 375, 256 395 T 382 395" fill="none" stroke="#F5F1E8" stroke-width="3" stroke-opacity="0.6" stroke-linecap="round" />
+
+  <!-- Iconic Letter "N" with Serif Elegance & Mountain Diagonal Peak -->
+  <!-- Left Pillar -->
+  <path d="M150 160 L185 160 L185 340 L150 340 Z" fill="url(#goldGrad)" filter="url(#glow)" />
+  <!-- Left Serif top -->
+  <path d="M136 160 L198 160 L198 172 L136 172 Z" fill="url(#goldGrad)" />
+  <!-- Left Serif bottom -->
+  <path d="M136 340 L198 340 L198 328 L136 328 Z" fill="url(#goldGrad)" />
+
+  <!-- Right Pillar -->
+  <path d="M327 160 L362 160 L362 340 L327 340 Z" fill="url(#goldGrad)" filter="url(#glow)" />
+  <!-- Right Serif top -->
+  <path d="M313 160 L376 160 L376 172 L313 172 Z" fill="url(#goldGrad)" />
+  <!-- Right Serif bottom -->
+  <path d="M313 340 L376 340 L376 328 L313 328 Z" fill="url(#goldGrad)" />
+
+  <!-- Dynamic Diagonal (Carved Mountain Peak Slope) -->
+  <polygon points="175,160 215,160 340,335 300,335" fill="#FAF8F4" filter="url(#glow)" />
+  <polygon points="175,160 195,160 320,335 300,335" fill="url(#goldGrad)" />
+
+  <!-- Shimmering Star at apex -->
+  <circle cx="330" cy="180" r="10" fill="#FFFFFF" filter="url(#glow)" />
+  <polygon points="330,162 334,176 348,180 334,184 330,198 326,184 312,180 326,176" fill="#F2D8A7" />
+</svg>
