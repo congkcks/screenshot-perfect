@@ -28,8 +28,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title:
-          "NinhBinhTravel — Vịnh Hạ Long Trên Cạn | Di Sản Thế Giới UNESCO",
+        title: "NinhBinhTravel | Khám phá Ninh Bình",
       },
       {
         name: "description",
