@@ -3,6 +3,7 @@ import {
   Calendar,
   CheckCircle2,
   Mail,
+  MessageSquare,
   Phone,
   Send,
   ShieldCheck,
@@ -13,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { whyBookWithUsList } from "@/data/ninh-binh";
 import { toast } from "sonner";
+import { sendContactInquiry } from "@/services/contact";
 
 export function TourBookingSection() {
   const [formData, setFormData] = useState({
@@ -26,20 +28,24 @@ export function TourBookingSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName.trim() || !formData.phone.trim()) {
       toast.error("Vui lòng nhập Họ tên và Số điện thoại để nhận tư vấn!");
       return;
     }
 
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      setIsSubmitting(true);
+      await sendContactInquiry({
+        data: formData,
+      });
+
       toast.success(
-        `Cảm ơn ${formData.fullName}! Yêu cầu tư vấn tour đã được tiếp nhận. Đội ngũ NinhBinhTravel sẽ liên hệ qua SĐT ${formData.phone} trong vòng 15 phút.`,
-        { duration: 5000 }
+        `Cảm ơn ${formData.fullName}! Yêu cầu tư vấn tour đã được chuyển đến bộ phận CSKH (congvanvu0000@gmail.com). Đội ngũ NinhBinhTravel sẽ liên hệ qua SĐT ${formData.phone} trong vòng 15 phút.`,
+        { duration: 6000 }
       );
+
       setFormData({
         fullName: "",
         phone: "",
@@ -49,7 +55,15 @@ export function TourBookingSection() {
         tourType: "Tour 2N1Đ Di Sản & Cố Đô",
         notes: "",
       });
-    }, 700);
+    } catch (err: any) {
+      console.error("Booking submission error:", err);
+      toast.error(
+        err?.message ||
+          "Chưa thể gửi yêu cầu lúc này. Vui lòng liên hệ trực tiếp qua congvanvu0000@gmail.com hoặc hotline 1900 6868!"
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -105,7 +119,12 @@ export function TourBookingSection() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#D6AD72]" />
-                <span>contact@ninhbinhtravel.vn</span>
+                <a
+                  href="mailto:congvanvu0000@gmail.com"
+                  className="hover:text-[#D6AD72] transition-colors underline decoration-[#D6AD72]/40"
+                >
+                  congvanvu0000@gmail.com
+                </a>
               </div>
             </div>
           </div>
@@ -121,7 +140,7 @@ export function TourBookingSection() {
                   Nhận Báo Giá & Ưu Đãi Ngay
                 </h3>
                 <p className="text-xs text-white/70 font-light mt-1">
-                  Để lại thông tin, chuyên viên tư vấn sẽ liên hệ ngay trong ít phút!
+                  Để lại thông tin, chuyên viên sẽ phản hồi trực tiếp tới email hoặc điện thoại của bạn!
                 </p>
               </div>
 
@@ -169,7 +188,7 @@ export function TourBookingSection() {
                   <div className="space-y-1">
                     <label className="text-xs font-medium text-white/90 flex items-center gap-1.5">
                       <Mail className="w-3.5 h-3.5 text-[#D6AD72]" />
-                      Email
+                      Email Nhận Thông Tin
                     </label>
                     <input
                       type="email"
@@ -250,11 +269,28 @@ export function TourBookingSection() {
                   </div>
                 </div>
 
+                {/* Message / Special Notes */}
+                <div className="space-y-1">
+                  <label className="text-xs font-medium text-white/90 flex items-center gap-1.5">
+                    <MessageSquare className="w-3.5 h-3.5 text-[#D6AD72]" />
+                    Nội Dung Ghi Chú / Yêu Cầu Đặc Biệt
+                  </label>
+                  <textarea
+                    rows={2}
+                    value={formData.notes}
+                    onChange={(e) =>
+                      setFormData({ ...formData, notes: e.target.value })
+                    }
+                    placeholder="Ví dụ: Cần xe đưa đón từ Hà Nội, nhóm có trẻ nhỏ, tư vấn thực đơn dê núi..."
+                    className="w-full px-3.5 py-2 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#D6AD72] resize-none"
+                  />
+                </div>
+
                 {/* Submit button */}
                 <Button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm py-6 rounded-xl shadow-xl shadow-[#D6AD72]/20 transition-all gap-2 mt-2"
+                  className="w-full bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm py-6 rounded-xl shadow-xl shadow-[#D6AD72]/20 transition-all gap-2 mt-2 cursor-pointer"
                 >
                   <Send className="w-4 h-4" />
                   {isSubmitting ? "Đang gửi yêu cầu..." : "GỬI YÊU CẦU TƯ VẤN MIỄN PHÍ"}
@@ -262,7 +298,7 @@ export function TourBookingSection() {
 
                 {/* Disclaimer note */}
                 <p className="text-[10px] text-white/60 italic text-center pt-2 leading-tight">
-                  * Lưu ý: Giá vé, giờ mở cửa, tuyến tham quan và chương trình khuyến mãi có thể thay đổi theo thời điểm. Vui lòng kiểm tra lại thông tin trước khi khởi hành.
+                  * Thông tin đặt tour sẽ được bảo mật và chuyển tiếp trực tiếp đến ban tư vấn phụ trách (<strong className="text-white/80">congvanvu0000@gmail.com</strong>).
                 </p>
               </form>
             </div>

@@ -140,7 +140,12 @@ export function FooterSection() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-[#D6AD72] flex-shrink-0" />
-                <span>contact@ninhbinhtravel.vn</span>
+                <a
+                  href="mailto:congvanvu0000@gmail.com"
+                  className="hover:text-[#D6AD72] transition-colors"
+                >
+                  congvanvu0000@gmail.com
+                </a>
               </div>
             </div>
           </div>
