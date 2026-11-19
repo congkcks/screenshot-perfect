@@ -1,0 +1,907 @@
+{
+  "model": null,
+  "dims": null,
+  "updatedAt": "2026-11-19T05:45:57.943Z",
+  "chunks": [
+    {
+      "id": "cac-mon-dac-san-khac-0",
+      "title": "Các món ẩm thực đặc sản Ninh Bình phong phú",
+      "heading": "Ốc núi Tam Điệp (Ốc núi đá vôi)",
+      "text": "Các món ẩm thực đặc sản Ninh Bình phong phú – Ốc núi Tam Điệp (Ốc núi đá vôi): - Ốc núi (còn gọi là ốc đá hay ốc thuốc) sinh sống tự nhiên trong các hốc đá vôi ẩm ướt thuộc dãy núi đá Tam Điệp, Yên Mô, Nho Quan.\n- Loài ốc này chỉ bò ra kiếm ăn vào mùa mưa từ tháng 4 đến tháng 8 hàng năm, thức ăn chính của chúng là các loại lá cây rừng và cây thảo dược quý mọc trên vách đá. Vì vậy thịt ốc núi rất dai giòn sần sật, ngọt béo và thoang thoảng mùi thuốc bắc thanh tao tự nhiên.\n- Các món chế biến ngon nhất: Ốc núi hấp sả gừng chấm mắm gừng ớt cay nồng, ốc núi xào me chua ngọt, ốc núi xào sả ớt lá lốt giòn sần sật.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "cac-mon-dac-san-khac-1",
+      "title": "Các món ẩm thực đặc sản Ninh Bình phong phú",
+      "heading": "Xôi trứng kiến Nho Quan",
+      "text": "Các món ẩm thực đặc sản Ninh Bình phong phú – Xôi trứng kiến Nho Quan: - Xôi trứng kiến là món ăn độc đáo của đồng bào dân tộc Mường vùng rừng núi huyện Nho Quan vào dịp tháng 2 đến tháng 3 âm lịch mùa xuân.\n- Trứng kiến đen sau khi lấy từ tổ trên các cành cây cao được sàng sẩy thật sạch, ướp chút gia vị mắm tiêu rồi xào chín với mỡ gà và hành phi thơm lừng.\n- Đồ xôi từ gạo nếp nương thơm dẻo, rắc đều trứng kiến béo ngậy lên trên. Khi ăn, từng hạt trứng kiến lách tách nổ giòn trong miệng hòa quyện cùng vị ngọt béo ngậy và hương nếp nương tạo cảm giác vô cùng thích thú.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "cac-mon-dac-san-khac-2",
+      "title": "Các món ẩm thực đặc sản Ninh Bình phong phú",
+      "heading": "Cá chuối nướng trui Đầm Vân Long",
+      "text": "Các món ẩm thực đặc sản Ninh Bình phong phú – Cá chuối nướng trui Đầm Vân Long: - Cá chuối (cá lóc / cá quả sống tự nhiên trong các đầm nước ngọt hang đá Vân Long và Tràng An) có thân tròn lẳn, thịt trắng phau, săn chắc và ngọt đậm.\n- Cá sau khi bắt được sơ chế sạch, xiên que tre nướng trên than hồng hoặc vùi rơm rạ rực lửa. Lớp da ngoài cháy thơm giòn, thịt cá bên trong chín tới mềm mọng ngọt lịm.\n- Thưởng thức cuốn bánh tráng cùng bún tươi, chuối chát, khế chua, rau thơm húng láng và chấm nước mắm gừng ớt chua ngọt pha đậm đà.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "cac-mon-dac-san-khac-3",
+      "title": "Các món ẩm thực đặc sản Ninh Bình phong phú",
+      "heading": "Rượu nếp Kim Sơn men lá truyền thống",
+      "text": "Các món ẩm thực đặc sản Ninh Bình phong phú – Rượu nếp Kim Sơn men lá truyền thống: - Rượu Kim Sơn được chưng cất thủ công tại vùng đất ven biển huyện Kim Sơn, tỉnh Ninh Bình, là một trong 10 loại danh tửu nổi tiếng nhất Việt Nam.\n- Rượu được nấu từ gạo nếp cái hoa vàng hạt mẩy tròn kết hợp 36 vị thuốc bắc thảo mộc bí truyền làm men lá và nguồn nước giếng khơi ngọt lành của địa phương. Rượu có nồng độ cao (khoảng 40 – 45 độ), sủi tăm tăm như hạt ngọc, uống êm dịu, ấm bụng, ngọt hậu và không gây đau đầu sau khi thưởng thức.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "cac-mon-dac-san-khac-4",
+      "title": "Các món ẩm thực đặc sản Ninh Bình phong phú",
+      "heading": "Bún mọc Tố Như Kim Sơn",
+      "text": "Các món ẩm thực đặc sản Ninh Bình phong phú – Bún mọc Tố Như Kim Sơn: - Bún mọc Tố Như xuất xứ từ thị trấn Phát Diệm, huyện Kim Sơn, do một cụ bà tên Tố Như sáng tạo từ đầu thế kỷ 20.\n- Điểm khác biệt độc đáo là bún không chan chung vào một tô to như bún mọc Hà Nội, mà bún sợi trắng dẻo được bày riêng ra đĩa nhỏ, bát nước dùng nóng hổi với những viên mọc thịt lợn tươi giã nhuyễn mộc nhĩ giòn ngọt đặt bên cạnh, kèm đĩa rau sống kinh giới tía tô thơm ngát.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "cac-mon-dac-san-khac-5",
+      "title": "Các món ẩm thực đặc sản Ninh Bình phong phú",
+      "heading": "Nem chua Yên Mạc",
+      "text": "Các món ẩm thực đặc sản Ninh Bình phong phú – Nem chua Yên Mạc: - Nem chua Yên Mạc bắt nguồn từ xã Yên Mạc, huyện Yên Mô, lấy cảm hứng từ món nem chua cung đình Huế thời Nguyễn do con gái quan đại thần đem về quê hương biến tấu.\n- Nem được làm từ thịt nạc mông lợn tươi lọc bỏ hết gân, thái chỉ thật mỏng tang (chứ không xay nhuyễn), bì lợn thái mỏng trộn đều với thính gạo rang vàng và ủ lên men tự nhiên gói trong lá ổi và lá chuối tươi.\n- Khi thưởng thức, nem chua Yên Mạc có màu hồng tươi, sợi thịt dai giòn, vị chua thanh dịu, cuốn cùng lá sung non hoặc lá đinh lăng rồi chấm nước mắm tỏi ớt chanh chuẩn vị.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "com-chay-6",
+      "title": "Cơm cháy Ninh Bình",
+      "heading": "Nguồn gốc và tinh hoa cơm cháy cố đô",
+      "text": "Cơm cháy Ninh Bình – Nguồn gốc và tinh hoa cơm cháy cố đô: Cơm cháy Ninh Bình là món đặc sản dân dã nhưng đậm đà phong vị làng quê châu thổ sông Hồng, nằm trong danh sách Kỷ lục Châu Á về ẩm thực và quà tặng đặc sản Việt Nam. Xuất hiện từ cuối thế kỷ 19, món ăn bắt nguồn từ việc tận dụng lớp cơm cháy giòn nơi đáy nồi gang đun bằng bếp củi rơm của người dân địa phương, sau đó được sáng tạo và nâng tầm thành món ăn cung đình vang danh cả nước.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "com-chay-7",
+      "title": "Cơm cháy Ninh Bình",
+      "heading": "Cách chế biến cơm cháy truyền thống",
+      "text": "Cơm cháy Ninh Bình – Cách chế biến cơm cháy truyền thống: - Gạo nấu cơm cháy phải là loại gạo nếp hương tròn hạt hoặc gạo tám thơm dẻo hạt đều tăm tắp của đồng bằng Ninh Bình.\n- Cơm được nấu trong nồi gang dày đáy, canh lửa than thật khéo để tạo ra lớp cháy vàng đều, giòn rụm mà không bị khét đắng.\n- Sau khi lấy lớp cháy ra, người thợ đem phơi nắng tự nhiên từ 2 đến 3 nắng giòn tan rồi mới bảo quản. Khi thưởng thức, miếng cơm cháy được thả vào chảo dầu sôi sùng sục, phồng xốp giòn tan vàng ươm chỉ trong vài giây.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "com-chay-8",
+      "title": "Cơm cháy Ninh Bình",
+      "heading": "Nước sốt dê đậm đà và ruốc thịt giòn thơm",
+      "text": "Cơm cháy Ninh Bình – Nước sốt dê đậm đà và ruốc thịt giòn thơm: - Cơm cháy Ninh Bình ngon nhất nhờ ăn kèm với nước sốt tim cật dê hoặc thịt dê băm nhuyễn xào hành tỏi, cà chua, nấm hương và cà rốt sánh quyện đậm đà.\n- Khi bẻ miếng cơm cháy giòn rụm, rưới muỗng nước sốt nóng hổi lên trên, tiếng xèo xèo reo vang cùng mùi thơm ngào ngạt lan tỏa đánh thức mọi giác quan.\n- Ngoài ra, loại cơm cháy chà bông (ruốc thịt heo) đóng gói rưới mỡ hành, ớt cay giòn tan là thức quà biếu được du khách yêu thích mua về làm quà lưu niệm nhất.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "com-chay-9",
+      "title": "Cơm cháy Ninh Bình",
+      "heading": "Kinh nghiệm mua làm quà và giá bán tham khảo",
+      "text": "Cơm cháy Ninh Bình – Kinh nghiệm mua làm quà và giá bán tham khảo: - Giá bán cơm cháy chà bông đóng gói tham khảo: khoảng 35.000 – 60.000 VNĐ / gói (tùy trọng lượng 200g – 500g).\n- Khi mua làm quà, du khách nên chọn các thương hiệu có nhãn mác rõ ràng ngày sản xuất, bao bì hút chân không kín để giữ được độ giòn xốp lâu ngày.\n- Bữa ăn cơm cháy sốt dê tại nhà hàng có giá tham khảo khoảng 80.000 – 120.000 VNĐ / đĩa đầy đặn.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "de-nui-10",
+      "title": "Thịt dê núi Ninh Bình",
+      "heading": "Đặc sản thịt dê núi Ninh Bình",
+      "text": "Thịt dê núi Ninh Bình – Đặc sản thịt dê núi Ninh Bình: Thịt dê núi Ninh Bình là món đặc sản ẩm thực nổi tiếng nhất của đất cố đô, được Tổ chức Kỷ lục Việt Nam xác lập thuộc Top 50 món đặc sản nổi tiếng nhất Việt Nam. Dê Ninh Bình được chăn thả tự nhiên leo trèo tự do trên các vách núi đá vôi dốc đứng hiểm trở, ăn các loại lá cây thuốc, thảo mộc rừng và uống nước suối ngầm tự nhiên. Nhờ vận động liên tục nên thịt dê núi rất săn chắc, ít mỡ, mềm ngọt và có mùi thơm đậm đà đặc trưng mà dê đồng cỏ khó sánh bằng.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "de-nui-11",
+      "title": "Thịt dê núi Ninh Bình",
+      "heading": "Các món ngon từ thịt dê núi nên thử",
+      "text": "Thịt dê núi Ninh Bình – Các món ngon từ thịt dê núi nên thử: - Dê tái chanh: Thịt dê thái mỏng nhúng nước sôi cho chín tái, bóp đều với nước cốt chanh tươi, gừng băm, ớt chỉ thiên, tỏi, lá chanh thái chỉ và vừng rang thơm nức. Cuốn cùng chuối xanh chát, khế chua, lá mơ lông và chấm tương bần truyền thống.\n- Dê nướng mọi / dê nướng tảng: Từng tảng thịt dê tươi ướp gia vị nhẹ nướng trên than hoa hồng rực xì xèo, giữ trọn vẹn vị ngọt đậm đà nguyên bản và độ mềm mọng của thớ thịt.\n- Dê xào lăn: Thịt dê xào săn cùng sả, ớt, hành tây và nước cốt dừa béo ngậy ngậy, ăn kèm bánh mì giòn rụm hoặc bún tươi.\n- Dê hấp sả tía tô: Thịt dê hấp chín tới thơm ngát hương sả và lá tía tô thanh mát, chấm chao hoặc tương gừng ấm nồng.\n- Lẩu dê nhúng thuốc bắc: Nồi nước dùng hầm từ xương dê ngọt thanh tự nhiên cùng các vị thuốc bắc (đẳng sâm, táo đỏ, kỷ tử) nhúng rau cải ngọt, nấm và váng đậu giòn.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "de-nui-12",
+      "title": "Thịt dê núi Ninh Bình",
+      "heading": "Nước chấm tương bần và rau ăn kèm chuẩn vị",
+      "text": "Thịt dê núi Ninh Bình – Nước chấm tương bần và rau ăn kèm chuẩn vị: - Nước chấm linh hồn của món dê núi là Tương Bần (hoặc Tương Gừng) được pha chế vừa vặn cùng vài lát ớt tươi và gừng giã nhỏ thơm nồng.\n- Đĩa rau sống ăn kèm không thể thiếu: lá sung non, lá mơ lông xanh tím, chuối xanh thái mỏng ngâm muối, khế chua và sả tươi đập dập.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "de-nui-13",
+      "title": "Thịt dê núi Ninh Bình",
+      "heading": "Gợi ý khu vực thưởng thức và lưu ý",
+      "text": "Thịt dê núi Ninh Bình – Gợi ý khu vực thưởng thức và lưu ý: - Khi tìm quán ăn thưởng thức dê núi, du khách nên ưu tiên các khu vực tập trung nhiều nhà hàng ẩm thực bản địa lâu đời như: Khu vực Tràng An – Trường Yên, khu vực bến thuyền Tam Cốc – Ninh Hải, hoặc trung tâm thành phố Ninh Bình.\n- Du khách nên tham khảo đánh giá thực tế và điểm số gần đây của khách du lịch trên Google Maps để lựa chọn quán phù hợp nhất với khẩu vị và ngân sách của mình.\n- Mức giá tham khảo: Khoảng 150.000 – 250.000 VNĐ / người cho một bữa ăn đặc sản dê núi phong phú.",
+      "type": "am-thuc",
+      "url": "/#am-thuc",
+      "verified": true
+    },
+    {
+      "id": "bai-dinh-14",
+      "title": "Chùa Bái Đính",
+      "heading": "Giới thiệu Chùa Bái Đính",
+      "text": "Chùa Bái Đính – Giới thiệu Chùa Bái Đính: Chùa Bái Đính tọa lạc tại sườn núi Đính thuộc xã Gia Sinh, huyện Gia Viễn, tỉnh Ninh Bình, cách thành phố Ninh Bình khoảng 15 km và cách Tràng An khoảng 12 km. Đây là một quần thể chùa Phật giáo đồ sộ gồm hai khu vực: Bái Đính cổ tự nghìn năm tuổi và Chùa Bái Đính mới được xây dựng từ năm 2003, giữ nhiều kỷ lục Đông Nam Á và châu Á.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "bai-dinh-15",
+      "title": "Chùa Bái Đính",
+      "heading": "Các kỷ lục ấn tượng của Chùa Bái Đính",
+      "text": "Chùa Bái Đính – Các kỷ lục ấn tượng của Chùa Bái Đính: - Đại hồng chuông bằng đồng lớn nhất Việt Nam: Nặng 36 tấn nằm trong Tháp Chuông bát giác 3 tầng.\n- Tượng Phật Di Lặc bằng đồng ngoài trời lớn nhất Đông Nam Á: Nặng 100 tấn ngự trên đồi cao.\n- Tượng Phật Thích Ca Mâu Ni bằng đồng nguyên khối thếp vàng lớn nhất châu Á: Nặng 100 tấn đặt trong điện Pháp Chủ.\n- Hành lang La Hán dài nhất châu Á: Gần 3 km với 500 pho tượng La Hán bằng đá xanh Ninh Bình nguyên khối chạm khắc tỉ mỉ, mỗi pho tượng mang một thần thái và tư thế riêng biệt.\n- Bảo tháp xá lợi Phật cao nhất Đông Nam Á: Cao 100 m gồm 13 tầng, có thang máy đưa du khách lên đỉnh chiêm bái xá lợi và ngắm trọn toàn cảnh núi non hùng vĩ.\n- Giếng Ngọc lớn nhất Việt Nam: Đường kính 30 m, sâu 6 m, nước quanh năm xanh trong vắt không bao giờ cạn, từng được Thiền sư Lý Quốc Sư (Nguyễn Minh Không) dùng để sắc thuốc cứu chữa dân làng.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "bai-dinh-16",
+      "title": "Chùa Bái Đính",
+      "heading": "Bái Đính Cổ Tự lịch sử ngàn năm",
+      "text": "Chùa Bái Đính – Bái Đính Cổ Tự lịch sử ngàn năm: - Cách khu chùa mới khoảng 800 m về phía Đông Nam sườn núi, Bái Đính Cổ Tự được xây dựng từ thời nhà Lý (năm 1136) bởi Quốc sư Nguyễn Minh Không.\n- Cổ tự nằm trong hang đá u tịch gồm Hang Sáng thờ Phật và Thần Cao Sơn, Hang Tối thờ Mẫu và Tiên, đền thờ Thánh Nguyễn Minh Không. Nơi đây từng là nơi vua Đinh Tiên Hoàng lập đàn tế trời cầu cho quốc thái dân an trước khi dẹp loạn 12 sứ quân.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "bai-dinh-17",
+      "title": "Chùa Bái Đính",
+      "heading": "Mùa lễ hội Chùa Bái Đính đầu năm",
+      "text": "Chùa Bái Đính – Mùa lễ hội Chùa Bái Đính đầu năm: - Lễ hội Chùa Bái Đính khai mạc vào ngày mùng 6 tháng Giêng âm lịch hàng năm và kéo dài đến hết tháng 3 âm lịch mùa xuân.\n- Đây là một trong những lễ hội Phật giáo mùa xuân lớn nhất miền Bắc, thu hút hàng vạn Phật tử và du khách thập phương về chiêm bái, cầu bình an, may mắn cho gia đình.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "bai-dinh-18",
+      "title": "Chùa Bái Đính",
+      "heading": "Thông tin vé dịch vụ và kinh nghiệm tham quan Bái Đính",
+      "text": "Chùa Bái Đính – Thông tin vé dịch vụ và kinh nghiệm tham quan Bái Đính: - Khuôn viên chùa Bái Đính mở cửa vào tự do, không thu phí vé vào cổng.\n- Dịch vụ xe điện nội bộ trong chùa: Tham khảo 30.000 VNĐ / người / lượt (khoảng 60.000 VNĐ vé khứ hồi bến xe đến cổng tam quan).\n- Vé thang máy lên tham quan Bảo Tháp 13 tầng: Tham khảo 50.000 VNĐ / người.\n- Vé thuê hướng dẫn viên tại chùa (thuyết minh): Tham khảo 300.000 – 500.000 VNĐ / đoàn.\n- Do khuôn viên chùa rất rộng lớn (trên 500 ha), du khách nên đi giày thể thao thoải mái, trang phục kín đáo lịch sự nơi cửa Phật, mang theo nước uống và mũ nón.\n- Lưu ý: Thông tin chi phí dịch vụ chỉ mang tính tham khảo và có thể thay đổi theo thời gian.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cac-diem-khac-19",
+      "title": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình",
+      "heading": "Suối khoáng nóng Kênh Gà",
+      "text": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình – Suối khoáng nóng Kênh Gà: - Suối khoáng nóng Kênh Gà thuộc thôn Kênh Gà, xã Gia Thịnh, huyện Gia Viễn, cách thành phố Ninh Bình khoảng 15 km về phía Tây Bắc.\n- Dòng nước khoáng ấm áp tự nhiên chảy ra từ lòng núi đá Hang Cả có nhiệt độ ổn định khoảng 53 độ C, chứa nhiều khoáng chất canxi, magie, natri clorua rất tốt cho sức khỏe, phục hồi cơ thể và thư giãn xương khớp.\n- Du khách ngồi thuyền trên sông Hoàng Long vào làng nổi Kênh Gà, sau đó tắm ngâm khoáng nóng và bùn khoáng thiên nhiên.\n- Giá dịch vụ tắm khoáng nóng tham khảo: từ 100.000 – 200.000 VNĐ / người tùy gói dịch vụ.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cac-diem-khac-20",
+      "title": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình",
+      "heading": "Đan viện Châu Sơn – Thánh đường gạch đỏ không trát",
+      "text": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình – Đan viện Châu Sơn – Thánh đường gạch đỏ không trát: - Đan viện Xitô Châu Sơn (thường gọi là Nhà thờ Châu Sơn) nằm tại xã Phú Sơn, huyện Nho Quan, tỉnh Ninh Bình, cách ngã ba Gián Khẩu khoảng 18 km và cách Cúc Phương 20 km.\n- Xây dựng từ năm 1939 bởi các đan sĩ Dòng Xitô Thánh Gia, nhà thờ mang phong cách kiến trúc Gothic cổ kính bằng gạch đỏ nung thủ công không trát vữa, tạo nên tông màu đỏ trầm ấm cúng giữa khu rừng thông xanh ngát và hồ đá tĩnh lặng.\n- Không gian thanh tịnh như tu viện châu Âu thời trung cổ với vườn sỏi cầu nguyện, hang đá Đức Mẹ và tháp chuông uy nghiêm.\n- Lưu ý giờ mở cửa: Vì là nơi các đan sĩ tu tĩnh nội vi nghiêm ngặt, đan viện chỉ mở cửa đón khách tham quan vào những khung giờ nhất định sau giờ cầu nguyện (thường đầu giờ chiều hoặc các ngày Chúa nhật). Du khách cần giữ trật tự và ăn mặc trang nghiêm. Vào cửa miễn phí.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cac-diem-khac-21",
+      "title": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình",
+      "heading": "Đền Thái Vi – Dấu ấn hành cung nhà Trần",
+      "text": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình – Đền Thái Vi – Dấu ấn hành cung nhà Trần: - Đền Thái Vi tọa lạc tại thôn Văn Lâm, xã Ninh Hải, huyện Hoa Lư, nằm nép mình bên thung lũng đá vôi và cánh đồng lúa Tam Cốc, cách bến đò Tam Cốc khoảng 1,5 km.\n- Đền thờ các vị vua đầu triều Trần: Vua Trần Thái Tông, Trần Thánh Tông, Trần Nhân Tông, Tướng quân Trần Hưng Đạo và Hiển Từ Hoàng Thái Hậu. Nơi đây từng là Hành Cung Vũ Lâm - căn cứ quân sự và tu hành của các vị vua anh minh thời Trần.\n- Toàn bộ cột đền, xà ngang và bậc thềm đều được chạm khắc từ đá xanh nguyên khối với hình rồng uốn lượn tinh xảo. Lễ hội Đền Thái Vi diễn ra từ ngày 14 đến 17 tháng 3 âm lịch hàng năm. Vào cửa tự do.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cac-diem-khac-22",
+      "title": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình",
+      "heading": "Chùa Duyên Ninh – Ngôi chùa cầu duyên đệ nhất cố đô",
+      "text": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình – Chùa Duyên Ninh – Ngôi chùa cầu duyên đệ nhất cố đô: - Chùa Duyên Ninh (còn gọi là Chùa Cầu Duyên) nằm tại thôn Chi Phong, xã Gia Sinh, huyện Gia Viễn (giáp ranh làng cổ Trường Yên Hoa Lư), cách Cố Đô Hoa Lư khoảng 3 km.\n- Ngôi chùa cổ kính xây dựng từ thế kỷ thứ 10 dưới thời vua Đinh Tiên Hoàng. Tương truyền công chúa Phất Kim (con gái vua Đinh) và Lý Thái Tổ thuở hàn vi thường lui tới nơi đây hẹn ước, cũng là nơi công chúa Lê Thị Phất Ngân cùng Lý Công Uẩn kết duyên sinh ra vua Lý Thái Tông.\n- Chùa nổi tiếng linh thiêng về cầu tự, cầu duyên và hạnh phúc gia đạo, là điểm chiêm bái mùa xuân thu hút đông đảo bạn trẻ. Vào cửa tự do.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cac-diem-khac-23",
+      "title": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình",
+      "heading": "Động Thiên Hà – Dải ngân hà trong lòng núi đá",
+      "text": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình – Động Thiên Hà – Dải ngân hà trong lòng núi đá: - Động Thiên Hà nằm trong dãy núi Tướng thuộc xã Sơn Hà, huyện Nho Quan, nằm trong vùng đệm của Quần thể di sản Tràng An.\n- Động dài 700 m gồm hai phần: Động Khô dài 200 m với nhiều thạch nhũ hình lâu đài, voi phục, rùa đá; và Động Nước dài 500 m có dòng sông ngầm trong vắt uốn lượn được ví như \"dải ngân hà dưới lòng đất\".\n- Giá vé tham khảo: 120.000 VNĐ / người lớn (đã bao gồm thuyền đưa đón).",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cac-diem-khac-24",
+      "title": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình",
+      "heading": "Hồ Đồng Chương – Đà Lạt thu nhỏ giữa Nho Quan",
+      "text": "Các điểm di tích và thắng cảnh đặc sắc Ninh Bình – Hồ Đồng Chương – Đà Lạt thu nhỏ giữa Nho Quan: - Hồ Đồng Chương là hồ nước ngọt tự nhiên rộng lớn nằm giáp ranh giữa hai xã Phú Lộc và Phú Long, huyện Nho Quan, cách thành phố Ninh Bình khoảng 30 km.\n- Bao quanh hồ là những đồi thông mã vĩ bạt ngàn soi bóng xuống mặt nước trong xanh, tạo nên khung cảnh mộng mơ mát lành được ví von như một \"Đà Lạt thu nhỏ\" giữa lòng đất mẹ Ninh Bình. Thích hợp dã ngoại, cắm trại cuối tuần.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cuc-phuong-25",
+      "title": "Vườn Quốc Gia Cúc Phương",
+      "heading": "Giới thiệu Vườn Quốc Gia Cúc Phương",
+      "text": "Vườn Quốc Gia Cúc Phương – Giới thiệu Vườn Quốc Gia Cúc Phương: Vườn Quốc Gia Cúc Phương nằm trên địa bàn 3 tỉnh Ninh Bình, Hòa Bình và Thanh Hóa (cổng chính và trung tâm hành chính thuộc huyện Nho Quan, tỉnh Ninh Bình), cách thành phố Ninh Bình khoảng 45 km về phía Tây Bắc. Thành lập năm 1962, Cúc Phương là vườn quốc gia đầu tiên của Việt Nam, diện tích hơn 22.200 ha, là cái nôi đa dạng sinh học rừng mưa nhiệt đới trên núi đá vôi với hệ động thực vật vô cùng phong phú.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cuc-phuong-26",
+      "title": "Vườn Quốc Gia Cúc Phương",
+      "heading": "Mùa bướm rừng rực rỡ Cúc Phương",
+      "text": "Vườn Quốc Gia Cúc Phương – Mùa bướm rừng rực rỡ Cúc Phương: - Thời điểm nổi tiếng nhất tại Cúc Phương là tháng 4 đến cuối tháng 5 hàng năm: mùa bướm rừng nở rộ.\n- Hàng triệu cánh bướm đủ sắc màu trắng, vàng, lam bay rợp trời dọc lối đi từ cổng rừng vào trung tâm Bống, tạo nên cảnh tượng cổ tích thần tiên khiến du khách và nhiếp ảnh gia mê mẩn.\n- Mùa đom đóm thắp sáng rừng đêm cũng diễn ra vào dịp đầu hè (tháng 4 – 5) đem lại trải nghiệm kỳ ảo khó quên.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cuc-phuong-27",
+      "title": "Vườn Quốc Gia Cúc Phương",
+      "heading": "Cây chò ngàn năm và các điểm di tích tiền sử",
+      "text": "Vườn Quốc Gia Cúc Phương – Cây chò ngàn năm và các điểm di tích tiền sử: - Cây chò ngàn năm tuổi (Chò chỉ): Đại thụ sừng sững cao hơn 45 m, đường kính thân gần 5 m, chu vi thân cây hơn 20 người ôm không xuể, đứng sừng sững giữa rừng già qua cả thiên niên kỷ.\n- Động Người Xưa (Hang Đắng): Nơi các nhà khảo cổ phát hiện dấu tích người tiền sử cư trú cách đây 7.000 đến 12.000 năm với các công cụ đá đẽo và mộ táng nguyên vẹn.\n- Cây sấu cổ thụ, Động Sơn Cung, Đỉnh Mây Bạc cao 648 m ngắm toàn cảnh rừng Cúc Phương và cố đô Hoa Lư từ xa.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cuc-phuong-28",
+      "title": "Vườn Quốc Gia Cúc Phương",
+      "heading": "Trung tâm bảo tồn và cứu hộ linh trưởng Cúc Phương",
+      "text": "Vườn Quốc Gia Cúc Phương – Trung tâm bảo tồn và cứu hộ linh trưởng Cúc Phương: - Trung tâm Cứu hộ Linh trưởng Nguy cấp (EPRC): Nơi chăm sóc và nhân giống bán tự nhiên các loài linh trưởng quý hiếm của Việt Nam như voọc mông trắng, voọc Cát Bà, vượn đen má hung, cu li.\n- Trung tâm Bảo tồn Rùa và Chương trình Bảo tồn Thú ăn thịt và Tê tê.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "cuc-phuong-29",
+      "title": "Vườn Quốc Gia Cúc Phương",
+      "heading": "Giá vé và kinh nghiệm du lịch Cúc Phương",
+      "text": "Vườn Quốc Gia Cúc Phương – Giá vé và kinh nghiệm du lịch Cúc Phương: - Giá vé vào cổng tham khảo: 60.000 VNĐ / người lớn; 20.000 VNĐ / học sinh, sinh viên; 10.000 VNĐ / trẻ em.\n- Phương tiện di chuyển trong rừng: Du khách có thể đi xe máy, ô tô riêng hoặc thuê xe đạp địa hình tại cổng vườn để đạp xe xuyên qua rừng già râm mát (khoảng 20 km từ cổng vào Bống).\n- Thời lượng chuyến đi: Trọn vẹn 1 ngày hoặc 2 ngày 1 đêm cắm trại / nghỉ tại nhà sàn kiểm lâm trong rừng.\n- Lưu ý: Mang theo thuốc xịt côn trùng, giày leo núi, áo dài tay chống vắt rừng khi đi bộ vào mùa mưa. Thông tin giá vé chỉ mang tính tham khảo và có thể thay đổi.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hang-mua-30",
+      "title": "Hang Múa – Đỉnh Ngọa Long",
+      "heading": "Giới thiệu Hang Múa",
+      "text": "Hang Múa – Đỉnh Ngọa Long – Giới thiệu Hang Múa: Hang Múa tọa lạc dưới chân núi Múa tại thôn Khê Đầu Hạ, xã Ninh Xuân, huyện Hoa Lư, tỉnh Ninh Bình, cách Tràng An khoảng 4,5 km và cách Tam Cốc khoảng 4,8 km. Hang Múa nổi tiếng với con đường bậc đá ngoằn ngoèo tựa như Vạn Lý Trường Thành thu nhỏ dẫn lên đỉnh núi Ngọa Long, nơi du khách có thể ngắm toàn cảnh thung lũng Tam Cốc từ trên cao.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hang-mua-31",
+      "title": "Hang Múa – Đỉnh Ngọa Long",
+      "heading": "Con số 486 bậc thang đá và kiến trúc đỉnh Ngọa Long",
+      "text": "Hang Múa – Đỉnh Ngọa Long – Con số 486 bậc thang đá và kiến trúc đỉnh Ngọa Long: - Hang Múa có 486 bậc thang đá vôi trắng uốn lượn men theo sườn núi dốc đứng.\n- Trên đường leo lên đỉnh, con đường chia thành 2 nhánh: một nhánh dẫn tới ngọn tháp cao mang phong cách kiến trúc tháp Champa / Phật giáo cổ, nhánh còn lại dẫn lên mỏm đá rồng Ngọa Long.\n- Đỉnh núi Ngọa Long nằm ở độ cao gần 140 m so với mực nước biển, trên đỉnh có tượng rồng đá khổng lồ uốn lượn trải dài dọc sống núi và tượng Phật Bà Quan Âm bồ tát hướng mắt xuống trần gian.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hang-mua-32",
+      "title": "Hang Múa – Đỉnh Ngọa Long",
+      "heading": "Nguồn gốc tên gọi Hang Múa",
+      "text": "Hang Múa – Đỉnh Ngọa Long – Nguồn gốc tên gọi Hang Múa: - Theo truyền thuyết dân gian địa phương, khi vua Trần Thái Tông lập Hành Cung Vũ Lâm tại Ninh Bình sau kháng chiến chống Nguyên Mông, người thường đến hang đá dưới chân núi này để xem các cung tần mỹ nữ múa hát và đàn ca. Vì thế nơi này được dân gian gọi là \"Hang Múa\".",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hang-mua-33",
+      "title": "Hang Múa – Đỉnh Ngọa Long",
+      "heading": "Toàn cảnh thung lũng lúa và hồ sen Hang Múa",
+      "text": "Hang Múa – Đỉnh Ngọa Long – Toàn cảnh thung lũng lúa và hồ sen Hang Múa: - Từ đỉnh Hang Múa, du khách có góc nhìn 360 độ ngắm trọn dòng sông Ngô Đồng lượn lờ giữa những cánh đồng lúa xanh mướt hoặc vàng óng ả của Tam Cốc.\n- Phía dưới chân núi có cây cầu gỗ chữ Tâm hình cánh sen uốn quanh hồ sen rộng bạt ngàn. Vào tháng 5 đến tháng 7 hàng năm, hồ sen Hang Múa nở rộ hoa trắng và hồng rực rỡ, là tọa độ chụp ảnh check-in nổi tiếng bậc nhất miền Bắc.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hang-mua-34",
+      "title": "Hang Múa – Đỉnh Ngọa Long",
+      "heading": "Thời điểm đẹp và mẹo chinh phục Hang Múa",
+      "text": "Hang Múa – Đỉnh Ngọa Long – Thời điểm đẹp và mẹo chinh phục Hang Múa: - Thời điểm leo núi lý tưởng nhất: Sáng sớm (06:30 – 08:00) đón bình minh trong lành hoặc chiều mát (16:30 – 18:00) ngắm hoàng hôn ráng vàng ngoạn mục trên đỉnh Ngọa Long.\n- Cần chuẩn bị giày thể thao hoặc giày có độ bám tốt, tránh đi giày cao gót hoặc dép trơn trượt vì các bậc đá vôi dốc đứng và sắc nhọn.\n- Mang theo nước khoáng và khăn lau mồ hôi. Đi cẩn thận khi bước lên khu vực sống lưng rồng vì lối đi hẹp và nhiều đá nhọn.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hang-mua-35",
+      "title": "Hang Múa – Đỉnh Ngọa Long",
+      "heading": "Giá vé Hang Múa",
+      "text": "Hang Múa – Đỉnh Ngọa Long – Giá vé Hang Múa: - Giá vé tham quan tham khảo: 100.000 VNĐ / người lớn (vé vào cổng khu du lịch Hang Múa).\n- Giá vé đã bao gồm tham quan hang đá, leo bậc thang ngắm cảnh đỉnh Ngọa Long và đi dạo trên cầu gỗ hồ sen.\n- Lưu ý: Thông tin giá vé chỉ mang tính tham khảo và có thể thay đổi theo ban quản lý khu du lịch.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hoa-lu-36",
+      "title": "Cố Đô Hoa Lư",
+      "heading": "Giới thiệu Cố Đô Hoa Lư",
+      "text": "Cố Đô Hoa Lư – Giới thiệu Cố Đô Hoa Lư: Cố Đô Hoa Lư thuộc xã Trường Yên, huyện Hoa Lư, tỉnh Ninh Bình, cách thành phố Ninh Bình khoảng 11 km về phía Tây Bắc và cách Tràng An chỉ khoảng 3,5 km. Đây là kinh đô đầu tiên của nhà nước phong kiến trung ương tập quyền Việt Nam (nước Đại Cồ Việt), tồn tại 42 năm qua 3 triều đại: Nhà Đinh (968 – 980), Nhà Tiền Lê (980 – 1009) và thời kỳ đầu Nhà Lý (1009 – 1010) trước khi vua Lý Thái Tổ dời đô về Thăng Long (Hà Nội).",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hoa-lu-37",
+      "title": "Cố Đô Hoa Lư",
+      "heading": "Địa thế quân sự hiểm trở của kinh đô Hoa Lư",
+      "text": "Cố Đô Hoa Lư – Địa thế quân sự hiểm trở của kinh đô Hoa Lư: - Kinh đô Hoa Lư được bao bọc tự nhiên bởi các dãy núi đá vôi trùng điệp tạo thành những bức tường thành thiên nhiên kiên cố, xen kẽ dòng sông Hoàng Long tạo nên hào lũy tự nhiên bảo vệ kinh thành.\n- Thành Hoa Lư thời xưa gồm Thành Ngoại (rộng 140 ha, nơi vua thiết triều và đóng quân) và Thành Nội (rộng 160 ha, nơi sinh hoạt hậu cung của hoàng gia).",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hoa-lu-38",
+      "title": "Cố Đô Hoa Lư",
+      "heading": "Đền vua Đinh Tiên Hoàng và Đền vua Lê Đại Hành",
+      "text": "Cố Đô Hoa Lư – Đền vua Đinh Tiên Hoàng và Đền vua Lê Đại Hành: - Đền thờ vua Đinh Tiên Hoàng: Xây dựng trên nền cung điện xưa của kinh đô theo kiểu \"nội công ngoại quốc\". Trước đền có sập đá long sàng bằng đá xanh nguyên khối chạm nổi rồng uy nghi thế kỷ 17 được công nhận là Bảo vật Quốc gia.\n- Đền thờ vua Lê Đại Hành: Nằm cách đền vua Đinh khoảng 500 m, thờ vua Lê Hoàn, Hoàng hậu Dương Vân Nga và thái tử Lê Long Thâu. Đền còn lưu giữ nhiều bức phù điêu gỗ thế kỷ 17 chạm trổ tinh xảo và dấu tích nền móng cung điện thế kỷ 10.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hoa-lu-39",
+      "title": "Cố Đô Hoa Lư",
+      "heading": "Lễ hội truyền thống Cố Đô Hoa Lư",
+      "text": "Cố Đô Hoa Lư – Lễ hội truyền thống Cố Đô Hoa Lư: - Lễ hội Cố Đô Hoa Lư (trước đây gọi là Hội Trường Yên) diễn ra từ ngày 8 đến ngày 10 tháng 3 âm lịch hàng năm nhằm tưởng nhớ công đức vua Đinh Tiên Hoàng dẹp loạn 12 sứ quân, thống nhất giang sơn lập nên nhà nước Đại Cồ Việt.\n- Lễ hội có các nghi thức đặc sắc: Lễ rước nước từ sông Hoàng Long về đền, lễ tế truyền thống, thi cờ tướng, múa lân rồng, trò diễn tập trận cờ lau gợi nhớ thuở thiếu thời của Đinh Bộ Lĩnh.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "hoa-lu-40",
+      "title": "Cố Đô Hoa Lư",
+      "heading": "Thông tin vé và kinh nghiệm tham quan Cố Đô Hoa Lư",
+      "text": "Cố Đô Hoa Lư – Thông tin vé và kinh nghiệm tham quan Cố Đô Hoa Lư: - Giá vé tham quan tham khảo: 20.000 VNĐ / người lớn; 10.000 VNĐ / trẻ em hoặc học sinh, sinh viên.\n- Thời lượng tham quan: Khoảng 1 đến 1,5 giờ đồng hồ để tìm hiểu kiến trúc, lịch sử và dâng hương.\n- Rất thuận tiện kết hợp tham quan trong cùng buổi sáng hoặc buổi chiều với Quần thể Tràng An (cách 3,5 km) hoặc Tuyệt Tình Cốc / Động Am Tiên (cách 1,8 km).\n- Lưu ý: Thông tin giá vé chỉ mang tính tham khảo và có thể thay đổi theo quy định của ban quản lý.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "phat-diem-41",
+      "title": "Nhà thờ đá Phát Diệm",
+      "heading": "Giới thiệu Nhà thờ đá Phát Diệm",
+      "text": "Nhà thờ đá Phát Diệm – Giới thiệu Nhà thờ đá Phát Diệm: Quần thể Nhà thờ chính tòa Phát Diệm (thường gọi tắt là Nhà thờ đá Phát Diệm) tọa lạc tại thị trấn Phát Diệm, huyện Kim Sơn, tỉnh Ninh Bình, cách thành phố Ninh Bình khoảng 28 km về phía Đông Nam. Được xây dựng từ năm 1875 đến 1898 hoàn toàn bằng đá xanh và gỗ lim đồ sộ bởi linh mục Phêrô Trần Lục (thường gọi là Cụ Sáu), đây là công trình kiến trúc tôn giáo độc nhất vô nhị trên thế giới kết hợp hài hòa giữa kiến trúc thánh đường Công giáo phương Tây và kiến trúc đình chùa cung đình truyền thống phương Đông.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "phat-diem-42",
+      "title": "Nhà thờ đá Phát Diệm",
+      "heading": "Nét độc đáo kiến trúc đình chùa Á Đông tại Phát Diệm",
+      "text": "Nhà thờ đá Phát Diệm – Nét độc đáo kiến trúc đình chùa Á Đông tại Phát Diệm: - Mái ngói cong vút tựa mái đình làng Việt: Toàn bộ mái nhà thờ uốn cong mềm mại hình mũi thuyền, lợp ngói mũi hài truyền thống thay vì tháp nhọn Gothic phương Tây.\n- Phương Đình (tháp chuông): Công trình cao 25 m, rộng 17 m, xây hoàn toàn bằng đá phiến nguyên khối với 3 tầng mái cong mang dáng dấp Cổng Tam Quan hoặc Khuê Văn Các. Tầng trên cùng treo quả chuông đồng lớn nặng 1,4 tấn đúc năm 1890.\n- Trái tim Nhà thờ Lớn dài 74 m, rộng 21 m, gồm 6 hàng cột gỗ lim nguyên khối với 48 cột, trong đó có hai hàng cột giữa cao 11 m, chu vi 2,35 m làm từ những cây lim cổ thụ nguyên thân.\n- Nhà thờ Trái Tim Vô Nhiễm Đức Mẹ (thường gọi là Nhà thờ Đá Nhỏ): Công trình dài 15,3 m, rộng 8,5 m làm hoàn toàn bằng đá xanh từ nền, tường, cột, chấn song cho đến bàn thờ, được chạm khắc hoa văn tùng, cúc, trúc, mai, sen và rồng phượng tinh xảo.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "phat-diem-43",
+      "title": "Nhà thờ đá Phát Diệm",
+      "heading": "Quần thể kiến trúc Phát Diệm",
+      "text": "Nhà thờ đá Phát Diệm – Quần thể kiến trúc Phát Diệm: - Quần thể rộng khoảng 22 ha gồm: Ao hồ trung tâm có tượng Chúa Giêsu Vua, Phương Đình, Nhà thờ lớn, 5 nhà thờ nhỏ bằng đá, 3 hang đá nhân tạo (Hang đá Lộ Đức, Hang đá Bê-lem, Hang đá Núi Sọ) và tháp chuông.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "phat-diem-44",
+      "title": "Nhà thờ đá Phát Diệm",
+      "heading": "Kinh nghiệm tham quan Nhà thờ đá Phát Diệm",
+      "text": "Nhà thờ đá Phát Diệm – Kinh nghiệm tham quan Nhà thờ đá Phát Diệm: - Vé vào cửa: Tham quan hoàn toàn miễn phí (không thu vé).\n- Giờ mở cửa: Mở cửa đón khách tất cả các ngày trong tuần. Du khách nên tránh các khung giờ cử hành thánh lễ nghiêm trang nếu muốn đi lại chụp ảnh chi tiết.\n- Trang phục: Ăn mặc lịch sự, kín đáo phù hợp chốn tôn nghiêm tôn giáo (không mặc áo ba lỗ, váy ngắn trên gối).\n- Kết hợp ẩm thực: Khi về Kim Sơn tham quan nhà thờ đá, du khách không nên bỏ lỡ đặc sản rượu nếp Kim Sơn men lá trứ danh và gỏi cá nhệch Kim Sơn.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tam-coc-bich-dong-45",
+      "title": "Tam Cốc – Bích Động",
+      "heading": "Giới thiệu Tam Cốc – Bích Động",
+      "text": "Tam Cốc – Bích Động – Giới thiệu Tam Cốc – Bích Động: Tam Cốc – Bích Động nằm tại xã Ninh Hải, huyện Hoa Lư, tỉnh Ninh Bình, cách thành phố Ninh Bình chừng 7 km. Tam Cốc có nghĩa là \"ba hang\", gồm Hang Cả, Hang Hai và Hang Ba, được tạo thành do dòng sông Ngô Đồng thơ mộng uốn lượn bào mòn vách núi đá vôi qua hàng triệu năm. Nơi đây thường được du khách ví von là \"Vịnh Hạ Long trên cạn\" hay \"Nam thiên đệ nhị động\" (Bích Động).",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tam-coc-bich-dong-46",
+      "title": "Tam Cốc – Bích Động",
+      "heading": "Hành trình thuyền nan xuôi dòng Ngô Đồng tại Tam Cốc",
+      "text": "Tam Cốc – Bích Động – Hành trình thuyền nan xuôi dòng Ngô Đồng tại Tam Cốc: - Du khách lên thuyền nan tại bến đò Văn Lâm, xuôi dòng sông Ngô Đồng lượn quanh các thảm lúa nước và chân núi đá.\n- Hang Cả: Dài 127 m, trần hang cao khoảng 5 m, có nhiều nhũ đá rủ xuống lấp lánh như muôn vàn hình khối kỳ lạ.\n- Hang Hai: Cách Hang Cả khoảng 1 km, dài 60 m, với vòm đá rủ các hạt nước róc rách trong veo mát rượi.\n- Hang Ba: Dài 50 m, trần hang thấp hơn hai hang trước, vòm hang đá vôi uốn cong độc đáo.\n- Thời gian đi thuyền nan cả đi lẫn về trên sông Ngô Đồng khoảng 1,5 đến 2 giờ đồng hồ.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tam-coc-bich-dong-47",
+      "title": "Tam Cốc – Bích Động",
+      "heading": "Chùa Bích Động – Nam thiên đệ nhị động",
+      "text": "Tam Cốc – Bích Động – Chùa Bích Động – Nam thiên đệ nhị động: - Chùa Bích Động cách bến thuyền Tam Cốc khoảng 2 km về phía Tây Nam, xây dựng tựa vào vách núi đá rêu phong cổ kính từ thời Hậu Lê (năm 1428).\n- Tên gọi \"Bích Động\" có nghĩa là \"Động Xanh\", do Tể tướng Nguyễn Nghiễm (thân phụ đại thi hào Nguyễn Du) đặt vào năm 1773 khi chiêm ngưỡng cảnh non nước xanh biếc nơi này.\n- Chùa có kết cấu tam cấp chia làm 3 ngôi: Chùa Hạ dưới chân núi, Chùa Trung lưng chừng sườn núi và Chùa Thượng ngự trên đỉnh cao nhất.\n- Điểm đặc sắc là đường xuyên qua Động Tối (Xuyên Thủy Động) dài 350 m, có cây cầu đá rêu phong nổi tiếng bắc qua hồ sen trước cổng chùa.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tam-coc-bich-dong-48",
+      "title": "Tam Cốc – Bích Động",
+      "heading": "Mùa lúa chín vàng Tam Cốc và lễ hội sắc vàng",
+      "text": "Tam Cốc – Bích Động – Mùa lúa chín vàng Tam Cốc và lễ hội sắc vàng: - Thời điểm đẹp nhất để ngắm Tam Cốc là cuối tháng 5 đến đầu tháng 6 hàng năm, khi những cánh đồng lúa hai bên bờ sông Ngô Đồng chín vàng rực rỡ, tương phản tuyệt mỹ với vách núi đá sẫm màu.\n- Tuần lễ du lịch Ninh Bình \"Sắc vàng Tam Cốc – Tràng An\" thường tổ chức vào dịp này với bức tranh khổng lồ khắc họa trên ruộng lúa (như bức tranh Lý ngư vọng nguyệt hay Mục đồng thổi sáo).\n- Mùa thu tháng 9 – 10 cũng có vụ mùa lúa thứ hai mát mẻ và thanh bình.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tam-coc-bich-dong-49",
+      "title": "Tam Cốc – Bích Động",
+      "heading": "Giá vé và kinh nghiệm du lịch Tam Cốc – Bích Động",
+      "text": "Tam Cốc – Bích Động – Giá vé và kinh nghiệm du lịch Tam Cốc – Bích Động: - Giá vé tham quan tham khảo: Vé thắng cảnh 120.000 VNĐ / người lớn; Vé đò 150.000 VNĐ / thuyền (chở 2 người lớn đối với khách trong nước). Trẻ em dưới 1,4m: vé thắng cảnh 60.000 VNĐ.\n- Tham quan Chùa Bích Động và Đền Thái Vi không thu vé vào cửa (vào cửa tự do).\n- Trải nghiệm nên thử: Thuê xe đạp ngắm cảnh làng quê thanh bình theo cung đường Bến đò Văn Lâm – Đền Thái Vi – Bích Động (khoảng 50.000 – 80.000 VNĐ / xe / ngày).\n- Lưu ý: Thông tin chi phí chỉ mang tính tham khảo và có thể thay đổi tùy theo quy định của ban quản lý.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "thung-nham-50",
+      "title": "Vườn Chim Thung Nham",
+      "heading": "Giới thiệu Vườn Chim Thung Nham",
+      "text": "Vườn Chim Thung Nham – Giới thiệu Vườn Chim Thung Nham: Khu du lịch sinh thái Vườn Chim Thung Nham tọa lạc tại xã Ninh Hải, huyện Hoa Lư, tỉnh Ninh Bình, nằm sâu trong vùng lõi quần thể danh thắng Tràng An và cách bến đò Tam Cốc khoảng 6 km. Thung Nham trải rộng trên diện tích hơn 334 ha, được bao bọc bởi những cánh rừng ngập nước nguyên sinh, thung lũng đá vôi và hệ thống hang động tự nhiên phong phú.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "thung-nham-51",
+      "title": "Vườn Chim Thung Nham",
+      "heading": "Đảo chim tự nhiên và thời khắc hoàng hôn Thung Nham",
+      "text": "Vườn Chim Thung Nham – Đảo chim tự nhiên và thời khắc hoàng hôn Thung Nham: - Vườn Chim Thung Nham là nơi cư trú, kiếm ăn và làm tổ của hơn 40 loài chim với khoảng 50.000 cá thể, bao gồm cò, vạc, diệc, le le, chích chòe lửa, cùng các loài chim quý hiếm được ghi tên trong Sách Đỏ như hồng hạc, hằng hạc, phượng hoàng đất.\n- Thời khắc hoàng hôn (khoảng 16:30 – 18:00) là trải nghiệm tuyệt vời nhất tại Thung Nham: từng đàn chim trắng bay lượn rợp trời chao nghiêng về tổ trên các ngọn cây ngập nước, tạo nên khung cảnh thiên nhiên thanh bình và sống động.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "thung-nham-52",
+      "title": "Vườn Chim Thung Nham",
+      "heading": "Các điểm tham quan hang động tại Thung Nham",
+      "text": "Vườn Chim Thung Nham – Các điểm tham quan hang động tại Thung Nham: - Động Vái Giời: Nằm trên đỉnh núi cao với 439 bậc đá, tương truyền là nơi người xưa lập đàn tế trời cầu mưa thuận gió hòa. Động rộng 5.000 m2 với 3 tầng biểu trưng cho Trần Gian, Địa Ngục và Thiên Đường.\n- Hang Bụt: Hang đá tự nhiên ngập nước dài gần 500 m, nơi có khối thạch nhũ tự nhiên mang hình dáng ông Bụt ngồi câu cá bên dòng sông ngầm. Thuyền nan chở khách lướt trong ánh đèn lung linh huyền ảo.\n- Động Tiên Cá: Hang ướt dài hơn 1.500 m có hệ thống cầu tre uốn lượn men theo lòng hang chiêm ngưỡng các dải nhũ đá rủ như tiên nữ giáng trần.\n- Cây đa di chuyển nghìn năm tuổi và vườn cây ăn trái phong phú.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "thung-nham-53",
+      "title": "Vườn Chim Thung Nham",
+      "heading": "Giá vé và kinh nghiệm tham quan Thung Nham",
+      "text": "Vườn Chim Thung Nham – Giá vé và kinh nghiệm tham quan Thung Nham: - Giá vé vào cổng tham khảo: 150.000 VNĐ / người lớn; 100.000 VNĐ / trẻ em từ 1m – 1m3; miễn phí cho trẻ em dưới 1m.\n- Giá vé đã bao gồm vé thắng cảnh, thuyền nan tham quan Hang Bụt và thuyền nan tham quan Đảo Chim lúc chiều tà.\n- Thời lượng chuyến đi: Khoảng nửa ngày (3 đến 4 giờ đồng hồ). Nếu muốn chụp ảnh chim bay về tổ đẹp nhất, nên sắp xếp ghé thăm đảo chim từ 16:00 đến 17:30.\n- Lưu ý: Thông tin chi phí chỉ mang tính tham khảo và có thể thay đổi tùy theo quy định của ban quản lý.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "trang-an-54",
+      "title": "Quần thể danh thắng Tràng An",
+      "heading": "Giới thiệu Tràng An",
+      "text": "Quần thể danh thắng Tràng An – Giới thiệu Tràng An: Quần thể danh thắng Tràng An tọa lạc tại huyện Hoa Lư, tỉnh Ninh Bình, cách Hà Nội khoảng 93 km về phía Nam. Năm 2014, Tràng An vinh dự được UNESCO công nhận là Di sản Thế giới kép (văn hóa và thiên nhiên hỗn hợp) đầu tiên của Việt Nam và Đông Nam Á, thỏa mãn các tiêu chí V, VII và VIII. Nơi đây là vùng núi đá vôi karst nhiệt đới ngập nước hàng triệu năm tuổi xen lẫn các thung lũng đầm nước trong vắt và hệ thống hang động xuyên thủy kỳ ảo.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "trang-an-55",
+      "title": "Quần thể danh thắng Tràng An",
+      "heading": "Con số ấn tượng tại Tràng An",
+      "text": "Quần thể danh thắng Tràng An – Con số ấn tượng tại Tràng An: - Quần thể Tràng An sở hữu 31 đầm nước nối thông bởi 48 hang động xuyên thủy.\n- Vùng lõi di sản thế giới có diện tích rộng hơn 6.226 ha.\n- Nhiều hang động ngập nước dài hàng trăm mét đến cả cây số như Hang Địa Linh (1.500 m), Hang Nấu Rượu, Hang Ba Giọt, Hang Hang Sáng, Hang Tối.\n- Hệ thống tham quan gồm 3 tuyến thuyền nan truyền thống phục vụ du khách và 1 tuyến đường bộ sinh thái dài 1,6 km.\n- Đã được ghi nhận là Di sản kép thế giới từ năm 2014.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "trang-an-56",
+      "title": "Quần thể danh thắng Tràng An",
+      "heading": "Các tuyến tham quan thuyền nan Tràng An",
+      "text": "Quần thể danh thắng Tràng An – Các tuyến tham quan thuyền nan Tràng An: - Tuyến 1: Đi qua 9 hang động ngập nước và 3 điểm tâm linh (Đền Trình, Đền Trần, Phủ Khống). Tuyến này dài nhất (khoảng 3 giờ – 3,5 giờ), rất thích hợp với du khách yêu thích mạo hiểm ngắm thạch nhũ trong hang đá vôi.\n- Tuyến 2: Đi qua 4 hang động (Hang Lấm, Hang Vạng, Hang Thánh Trượt, Hang Đại) và 3 điểm tâm linh (Đền Suối Tiên, Hành Cung Vũ Lâm). Thời gian khoảng 2,5 giờ – 3 giờ, cân bằng giữa ngắm hang và vãn cảnh sông nước thoáng đãng.\n- Tuyến 3: Đi qua Hang Mây (hang xuyên thủy dài hơn 1.000 m), Hang Vân và thăm Hành Cung Vũ Lâm lịch sử thời Trần. Cảnh sắc mở rộng, bến thuyền đi một chiều qua các thung nước ngọc bích không cần quay đầu.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "trang-an-57",
+      "title": "Quần thể danh thắng Tràng An",
+      "heading": "Điểm nhấn tâm linh và lịch sử tại Tràng An",
+      "text": "Quần thể danh thắng Tràng An – Điểm nhấn tâm linh và lịch sử tại Tràng An: - Đền Trình: Nơi thờ 4 vị tướng trung thần thời nhà Đinh có công dẹp loạn 12 sứ quân.\n- Đền Trần: Nơi thờ thần Quý Minh Đại Vương, vị tướng trấn ải cửa Nam Hoa Lư tứ trấn thời vua Hùng thứ 18.\n- Hành Cung Vũ Lâm: Căn cứ quân sự chiến lược thời vua Trần Nhân Tông và Trần Thái Tông trong kháng chiến chống quân Nguyên Mông lần thứ hai (1285), nơi Phật hoàng Trần Nhân Tông xuất gia tu hành.\n- Phủ Khống: Tọa lạc trên một dải đất tựa lưng vào núi đá, thờ 7 vị quan trung thần nhà Đinh. Phía trước có cây thị cổ thụ ngàn năm tuổi.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "trang-an-58",
+      "title": "Quần thể danh thắng Tràng An",
+      "heading": "Trải nghiệm và mẹo hữu ích khi đi Tràng An",
+      "text": "Quần thể danh thắng Tràng An – Trải nghiệm và mẹo hữu ích khi đi Tràng An: - Ngồi trên thuyền nan do người dân địa phương chèo, mỗi thuyền chở 4 người lớn (hoặc 5 người gồm trẻ nhỏ).\n- Thời điểm đẹp nhất: Sáng sớm (07:30 – 09:00) hoặc chiều mát (14:30 – 16:30) để tránh nắng gắt và chụp ảnh nước phản chiếu bóng núi đẹp nhất.\n- Mùa đẹp trong năm: Tháng 5 đến đầu tháng 6 (mùa lúa chín vàng óng đôi bờ) hoặc mùa thu mát mẻ tháng 9 đến tháng 11.\n- Nên mang theo nón lá hoặc ô che nắng, kính râm, nước uống và áo khoác mỏng vì nhiệt độ trong các hang xuyên thủy rất mát lạnh.\n- Có thể thuê thuyền kayak tự chèo nếu thích trải nghiệm vận động tự do trên làn nước trong thấy đáy rong rêu.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "trang-an-59",
+      "title": "Quần thể danh thắng Tràng An",
+      "heading": "Thông tin vé và thời lượng tham quan Tràng An",
+      "text": "Quần thể danh thắng Tràng An – Thông tin vé và thời lượng tham quan Tràng An: - Giá vé tham quan tham khảo: 250.000 VNĐ / người lớn; 120.000 VNĐ / trẻ em cao từ 1m – 1m3; miễn phí cho trẻ em dưới 1m.\n- Giá vé trên đã bao gồm vé thắng cảnh và chi phí thuyền nan đưa đón trọn gói.\n- Thời lượng chuyến đi: Khoảng 2,5 đến 3,5 giờ đồng hồ tùy thuộc vào tuyến thuyền lựa chọn.\n- Lưu ý: Thông tin giá vé chỉ mang tính chất tham khảo tại thời điểm cập nhật và có thể điều chỉnh theo ban quản lý khu du lịch.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tuyet-tinh-coc-60",
+      "title": "Tuyệt Tình Cốc (Động Am Tiên)",
+      "heading": "Giới thiệu Tuyệt Tình Cốc – Động Am Tiên",
+      "text": "Tuyệt Tình Cốc (Động Am Tiên) – Giới thiệu Tuyệt Tình Cốc – Động Am Tiên: Tuyệt Tình Cốc (tên gốc lịch sử là Động Am Tiên) nằm trong quần thể di tích Cố Đô Hoa Lư thuộc xã Trường Yên, huyện Hoa Lư, tỉnh Ninh Bình, cách đền vua Đinh chỉ khoảng 1,8 km. Đây là một thung lũng ngập nước nằm lọt thỏm giữa bốn bề núi đá vôi dựng đứng sừng sững, mặt hồ xanh ngắt như ngọc bích quanh năm phẳng lặng, mang vẻ đẹp hoang sơ và kỳ bí.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tuyet-tinh-coc-61",
+      "title": "Tuyệt Tình Cốc (Động Am Tiên)",
+      "heading": "Lịch sử giam giữ và tu hành thời Đinh – Lý tại Am Tiên",
+      "text": "Tuyệt Tình Cốc (Động Am Tiên) – Lịch sử giam giữ và tu hành thời Đinh – Lý tại Am Tiên: - Vào thế kỷ thứ 10 dưới thời Đinh Tiên Hoàng, thung lũng Am Tiên từng được sử dụng làm pháp trường trừng phạt phạm nhân và nuôi thú dữ (hổ báo) để răn đe kẻ gian ác. Dưới hồ nước từng nuôi cá sấu khổng lồ.\n- Đến thời Lý, Thái hậu Dương Vân Nga đã chọn hang đá trên cao này làm nơi xuất gia tu hành những năm tháng cuối đời.\n- Thiền sư Nguyễn Minh Không thời Lý cũng từng đến đây tu hành, đặt tên hang động và lập chùa thờ Phật.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tuyet-tinh-coc-62",
+      "title": "Tuyệt Tình Cốc (Động Am Tiên)",
+      "heading": "Kiến trúc cổng thành đá và hồ nước ngọc bích Am Tiên",
+      "text": "Tuyệt Tình Cốc (Động Am Tiên) – Kiến trúc cổng thành đá và hồ nước ngọc bích Am Tiên: - Cổng thành đá Am Tiên cổ kính rêu phong bắc qua hầm xuyên núi, gợi cảm giác như cánh cổng bước vào thế giới kiếm hiệp cổ trang.\n- Hồ Nước Giải nằm ở trung tâm thung lũng có làn nước trong vắt màu xanh lục bích soi bóng vách đá tai mèo và bóng cây hoa râm mát.\n- Du khách leo hơn 200 bậc đá quanh sườn núi để lên Chùa Am Tiên trong lòng hang, nơi có chuông đồng cổ và tầm nhìn bao quát toàn bộ thung lũng phía dưới.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "tuyet-tinh-coc-63",
+      "title": "Tuyệt Tình Cốc (Động Am Tiên)",
+      "heading": "Kinh nghiệm tham quan Tuyệt Tình Cốc",
+      "text": "Tuyệt Tình Cốc (Động Am Tiên) – Kinh nghiệm tham quan Tuyệt Tình Cốc: - Giá vé vào cổng tham khảo: 50.000 VNĐ / người lớn (đã bao gồm gửi xe và đi bộ trong khu di tích).\n- Có dịch vụ xe đạp hoặc xe điện đưa đón du khách qua đường hầm xuyên núi vào lòng thung lũng nếu không muốn đi bộ.\n- Thời điểm đẹp nhất: Buổi sáng sớm hoặc chiều tà khi ánh nắng xiên qua khe núi chiếu xuống mặt hồ xanh trong vắt.\n- Lưu ý: Thông tin giá vé chỉ mang tính tham khảo và có thể thay đổi theo ban quản lý khu di tích.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "van-long-64",
+      "title": "Khu bảo tồn thiên nhiên Đầm Vân Long",
+      "heading": "Giới thiệu Đầm Vân Long",
+      "text": "Khu bảo tồn thiên nhiên Đầm Vân Long – Giới thiệu Đầm Vân Long: Khu bảo tồn thiên nhiên đất ngập nước Đầm Vân Long nằm tại huyện Gia Viễn, tỉnh Ninh Bình, cách thành phố Ninh Bình khoảng 17 km về phía Bắc. Với diện tích hơn 3.500 ha, Vân Long là khu bảo tồn thiên nhiên đất ngập nước nội địa lớn nhất vùng đồng bằng Bắc Bộ, được công nhận là khu Ramsar thứ 9 của Việt Nam và thứ 2.360 của thế giới vào năm 2019.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "van-long-65",
+      "title": "Khu bảo tồn thiên nhiên Đầm Vân Long",
+      "heading": "\"Vịnh không sóng\" và cảnh sắc kỳ vĩ Vân Long",
+      "text": "Khu bảo tồn thiên nhiên Đầm Vân Long – \"Vịnh không sóng\" và cảnh sắc kỳ vĩ Vân Long: - Đầm Vân Long được mệnh danh là \"vịnh không sóng\" vì mặt nước ở đây phẳng lặng như một tấm gương khổng lồ trong suốt, phản chiếu trọn vẹn từng áng mây trắng và vách đá vôi sừng sững xuống đáy nước.\n- Dưới làn nước trong veo là thảm rong đuôi chồn và các loài thủy sinh đung đưa uốn lượn nhìn rõ từng chi tiết.\n- Nơi đây từng được đoàn làm phim Hollywood lựa chọn làm bối cảnh chính cho ngôi làng thủy chiến quê hương của khỉ đột khổng lồ trong bộ phim bom tấn \"Kong: Skull Island\" (2017).",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "van-long-66",
+      "title": "Khu bảo tồn thiên nhiên Đầm Vân Long",
+      "heading": "Thiên đường của loài voọc mông trắng quý hiếm",
+      "text": "Khu bảo tồn thiên nhiên Đầm Vân Long – Thiên đường của loài voọc mông trắng quý hiếm: - Đầm Vân Long là nơi sinh sống của quần thể Voọc mông trắng (Delacour's langur) tự nhiên lớn nhất thế giới với hơn 100 cá thể. Đây là loài linh trưởng đặc hữu cực kỳ quý hiếm có nguy cơ tuyệt chủng cao nằm trong Sách Đỏ quốc tế.\n- Khi ngồi trên thuyền nan len lỏi qua các rặng lau sậy vào sáng sớm hoặc chiều mát, du khách rất dễ dàng bắt gặp những đàn voọc nhảy nhót, chuyền cành hoặc ngồi sưởi nắng trên vách đá Mèo Cào.\n- Ngoài ra, đầm nước còn là nơi trú ngụ của hàng vạn cá thể cò trắng, cà cuống, cá bống gai và các loài chim di cư mùa đông.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "van-long-67",
+      "title": "Khu bảo tồn thiên nhiên Đầm Vân Long",
+      "heading": "Trải nghiệm thuyền nan và hang động Vân Long",
+      "text": "Khu bảo tồn thiên nhiên Đầm Vân Long – Trải nghiệm thuyền nan và hang động Vân Long: - Du khách ngồi thuyền nan mộc mạc do người dân địa phương chèo bằng tay trong khoảng 1,5 đến 2 giờ đồng hồ.\n- Hang Cá: Hang xuyên thủy dài 250 m dưới chân núi Hoàng Quyển, trần hang cao rủ xuống nhiều nhũ đá tuyệt đẹp.\n- Hang Bóng, Hang Rùa, Núi Nghiên, Núi Hòm Sách, Núi Mèo Cào gắn liền với các tích chuyện dân gian truyền đời.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "van-long-68",
+      "title": "Khu bảo tồn thiên nhiên Đầm Vân Long",
+      "heading": "Giá vé và kinh nghiệm du lịch Đầm Vân Long",
+      "text": "Khu bảo tồn thiên nhiên Đầm Vân Long – Giá vé và kinh nghiệm du lịch Đầm Vân Long: - Giá vé tham khảo: 100.000 VNĐ / người lớn (gồm vé thắng cảnh 50.000 VNĐ + vé đò 50.000 VNĐ cho thuyền 2 người).\n- Thời điểm lý tưởng: Buổi chiều từ 15:30 đến 17:30 ngắm hoàng hôn buông xuống mặt đầm phẳng lặng và đàn chim trắng bay về tổ. Mùa sen nở tháng 5 đến tháng 7 tạo nên bức tranh thiên nhiên tuyệt sắc.\n- Lưu ý: Giữ trật tự yên tĩnh khi đi thuyền để không làm hoảng sợ các đàn voọc mông trắng và chim nước. Thông tin giá vé chỉ mang tính tham khảo và có thể thay đổi.",
+      "type": "dia-danh",
+      "url": "/#diem-den",
+      "verified": true
+    },
+    {
+      "id": "lang-nghe-69",
+      "title": "Làng nghề truyền thống Ninh Bình",
+      "heading": "Làng thêu ren Văn Lâm – Hoa Lư",
+      "text": "Làng nghề truyền thống Ninh Bình – Làng thêu ren Văn Lâm – Hoa Lư: - Làng nghề thêu ren Văn Lâm tọa lạc tại xã Ninh Hải, huyện Hoa Lư, nằm ngay cạnh bến thuyền Tam Cốc.\n- Làng nghề có lịch sử hơn 700 năm, tương truyền do bà Trần Thị Dung (vợ Thái sư Trần Thủ Độ) truyền dạy cho dân làng từ thời nhà Trần.\n- Bằng những đường kim mũi chỉ tài hoa khéo léo, các nghệ nhân Văn Lâm sáng tạo nên những tác phẩm tranh thêu phong cảnh, khăn trải bàn, áo dài, ga gối ren tinh xảo xuất khẩu sang nhiều nước châu Âu và Nhật Bản. Du khách có thể ghé thăm các xưởng thêu quanh bến thuyền Tam Cốc để tận mắt xem nghệ nhân trình diễn nghệ thuật thêu tay truyền thống.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "lang-nghe-70",
+      "title": "Làng nghề truyền thống Ninh Bình",
+      "heading": "Làng nghề chế tác đá mỹ nghệ Ninh Vân – Hoa Lư",
+      "text": "Làng nghề truyền thống Ninh Bình – Làng nghề chế tác đá mỹ nghệ Ninh Vân – Hoa Lư: - Làng đá mỹ nghệ Ninh Vân nằm tại xã Ninh Vân, huyện Hoa Lư, dưới chân các dãy núi đá vôi bạt ngàn.\n- Nghề đục đẽo và chạm khắc đá ở đây đã có bề dày lịch sử trên 400 năm. Từ những khối đá xanh, đá trắng thô ráp khai thác từ núi, bàn tay người thợ tài hoa đã biến thành những tác phẩm nghệ thuật đồ sộ: tượng rồng, lăng mộ đá, cuốn thư, cột đồng trụ, lan can cầu đá và các pho tượng Phật uy nghiêm cho các đền chùa khắp cả nước.\n- Nhiều công trình bằng đá tại Cố Đô Hoa Lư, Nhà thờ đá Phát Diệm hay Chùa Bái Đính đều có bàn tay đóng góp của các nghệ nhân làng Ninh Vân.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "lang-nghe-71",
+      "title": "Làng nghề truyền thống Ninh Bình",
+      "heading": "Làng gốm Bồ Bát – Yên Mô (Cái nôi gốm Bát Tràng)",
+      "text": "Làng nghề truyền thống Ninh Bình – Làng gốm Bồ Bát – Yên Mô (Cái nôi gốm Bát Tràng): - Làng gốm cổ Bồ Bát thuộc xã Yên Thành, huyện Yên Mô, là làng gốm cổ nghìn năm tuổi từng sản xuất gạch ngói, đồ gốm tinh xảo phục vụ triều đình nhà Đinh và nhà Tiền Lê xây dựng kinh đô Hoa Lư.\n- Khi vua Lý Thái Tổ dời đô từ Hoa Lư về Thăng Long năm 1010, nhiều nghệ nhân gốm tài hoa của Bồ Bát đã theo triều đình ra bờ sông Hồng lập nên làng gốm Bát Tràng nổi tiếng ngày nay. Hiện nay, nghề gốm Bồ Bát đã được các thế hệ nghệ nhân phục dựng thành công với các dòng men tro, men ngọc độc đáo.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "lang-nghe-72",
+      "title": "Làng nghề truyền thống Ninh Bình",
+      "heading": "Làng nghề cói mỹ nghệ Kim Sơn",
+      "text": "Làng nghề truyền thống Ninh Bình – Làng nghề cói mỹ nghệ Kim Sơn: - Huyện Kim Sơn là vùng bãi bồi phù sa trù phú ven biển, nổi tiếng khắp cả nước với nghề trồng cói và dệt chiếu cói, đan lát đồ thủ công mỹ nghệ.\n- Các sản phẩm chiếu hoa Kim Sơn, giỏ cói, mũ cói, thảm cói bền đẹp, thân thiện môi trường được xuất khẩu rộng rãi đi khắp năm châu.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "le-hoi-73",
+      "title": "Lễ hội truyền thống đặc sắc Ninh Bình",
+      "heading": "Lễ hội Cố Đô Hoa Lư (Hội Trường Yên)",
+      "text": "Lễ hội truyền thống đặc sắc Ninh Bình – Lễ hội Cố Đô Hoa Lư (Hội Trường Yên): - Thời gian tổ chức: Diễn ra thường niên từ ngày 8 đến ngày 10 tháng 3 âm lịch tại Khu di tích lịch sử Cố Đô Hoa Lư (xã Trường Yên, huyện Hoa Lư).\n- Ý nghĩa: Tưởng nhớ công đức vua Đinh Tiên Hoàng (người có công dẹp loạn 12 sứ quân, lập nên nước Đại Cồ Việt năm 968) và vua Lê Đại Hành (người kế tục phá Tống bình Chiêm giữ vững giang sơn).\n- Phần lễ trang trọng: Nghi thức Rước nước thiêng từ sông Hoàng Long về đền, lễ mộc dục, lễ dâng hương tưởng niệm các bậc tiền nhân.\n- Phần hội sôi nổi: Trò diễn tập trận cờ lau gợi nhớ thuở thiếu thời Đinh Bộ Lĩnh, cờ người, múa rồng lân, hát chèo, hội vật truyền thống.\n- Lưu ý: Ngày tổ chức tính theo âm lịch nên ngày dương lịch sẽ thay đổi hàng năm, du khách nên kiểm tra lại trước chuyến đi.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "le-hoi-74",
+      "title": "Lễ hội truyền thống đặc sắc Ninh Bình",
+      "heading": "Lễ hội Chùa Bái Đính mùa xuân",
+      "text": "Lễ hội truyền thống đặc sắc Ninh Bình – Lễ hội Chùa Bái Đính mùa xuân: - Thời gian tổ chức: Khai mạc vào ngày mùng 6 tháng Giêng âm lịch và kéo dài liên tục suốt mùa xuân đến hết tháng 3 âm lịch tại Quần thể Chùa Bái Đính (xã Gia Sinh, huyện Gia Viễn).\n- Ý nghĩa: Cầu cho quốc thái dân an, mưa thuận gió hòa, người người mạnh khỏe, vạn sự hanh thông đầu năm mới.\n- Hoạt động: Lễ dâng hương, rước kiệu bài vị Thánh Nguyễn Minh Không, rước kiệu Thần Cao Sơn, lễ cầu nguyện an lạc.\n- Lưu ý: Dịp đầu năm du khách hành hương đổ về rất đông đúc, nên sắp xếp đi vào ngày thường hoặc sáng sớm để tránh ùn tắc.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "le-hoi-75",
+      "title": "Lễ hội truyền thống đặc sắc Ninh Bình",
+      "heading": "Lễ hội Tràng An (Lễ hội Thánh Quý Minh Đại Vương)",
+      "text": "Lễ hội truyền thống đặc sắc Ninh Bình – Lễ hội Tràng An (Lễ hội Thánh Quý Minh Đại Vương): - Thời gian tổ chức: Thường diễn ra vào ngày 17 và 18 tháng 3 âm lịch hàng năm tại Khu danh thắng Tràng An.\n- Điểm đặc sắc nhất: Đoàn thuyền rồng rước kiệu nước nối đuôi nhau lướt trên làn nước xanh biếc xuyên qua các thung lũng đá vôi ngập nước kỳ vĩ, cùng các chương trình biểu diễn nghệ thuật dân gian truyền thống (hát then, ca trù, nhã nhạc cung đình) ngay trên các chòi nổi giữa mặt hồ Tràng An.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "le-hoi-76",
+      "title": "Lễ hội truyền thống đặc sắc Ninh Bình",
+      "heading": "Lễ hội Đền Thái Vi",
+      "text": "Lễ hội truyền thống đặc sắc Ninh Bình – Lễ hội Đền Thái Vi: - Thời gian tổ chức: Từ ngày 14 đến ngày 17 tháng 3 âm lịch tại Đền Thái Vi (thôn Văn Lâm, xã Ninh Hải, huyện Hoa Lư).\n- Ý nghĩa: Tưởng nhớ các vị vua triều Trần (vua Trần Thái Tông, Trần Thánh Tông, Trần Nhân Tông) đã có công lãnh đạo quân dân Đại Việt đánh tan quân Nguyên Mông và lập nên Hành Cung Vũ Lâm.\n- Hoạt động: Rước kiệu quanh các đầm sen Tam Cốc, dâng hương, đấu vật dân tộc, chọi gà, bơi chèo thuyền nan trên sông Ngô Đồng.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "le-hoi-77",
+      "title": "Lễ hội truyền thống đặc sắc Ninh Bình",
+      "heading": "Tuần lễ Du lịch Ninh Bình \"Sắc vàng Tam Cốc – Tràng An\"",
+      "text": "Lễ hội truyền thống đặc sắc Ninh Bình – Tuần lễ Du lịch Ninh Bình \"Sắc vàng Tam Cốc – Tràng An\": - Thời gian tổ chức: Thường vào cuối tháng 5 hoặc đầu tháng 6 dương lịch, trùng khớp thời điểm mùa lúa chín vàng rộ nhất dọc dòng sông Ngô Đồng.\n- Hoạt động: Khai mạc lễ hội trên cánh đồng lúa tạo hình nghệ thuật (tranh Đông Hồ Mục đồng thổi sáo, Lý ngư vọng nguyệt), lễ diễu hành thuyền hoa, biểu diễn hát xẩm, hát chèo trên sông, phố đi bộ ẩm thực đặc sản.\n- Lưu ý: Thông tin thời gian các lễ hội chỉ mang tính tham khảo và có thể thay đổi theo thông báo chính thức của Ban tổ chức hàng năm.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-78",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Ước tính chi phí du lịch Ninh Bình (Tham khảo)",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Ước tính chi phí du lịch Ninh Bình (Tham khảo): - Lưu ý bắt buộc: Thông tin, giá vé, chi phí và khoảng cách được tổng hợp từ các nguồn tham khảo trên Internet, chỉ mang tính chất ước tính và không phải báo giá chính thức. Ứng dụng NinhBinhTravel là cẩm nang tham khảo, tuyệt đối không kinh doanh, không bán tour, không nhận đặt cọc hay đặt phòng.\n- Dự toán ngân sách 1 ngày tự túc (Đi trong ngày từ Hà Nội): Khoảng 600.000 – 1.000.000 VNĐ / người (bao gồm vé xe khứ hồi ~300.000đ, vé thắng cảnh Tràng An 250.000đ, ăn trưa đặc sản ~150.000 – 200.000đ, nước uống).\n- Dự toán ngân sách 2 ngày 1 đêm tự túc (2 người):\n  - Phân khúc tiết kiệm (Homestay + xe máy/xe khách + ăn uống bình dân): Khoảng 1.200.000 – 1.600.000 VNĐ / người (tổng khoảng 2.400.000 – 3.200.000 VNĐ cho 2 người).\n  - Phân khúc tiêu chuẩn (Khách sạn 3 sao + Limousine đưa đón + đặc sản dê núi cơm cháy): Khoảng 1.800.000 – 2.400.000 VNĐ / người (tổng khoảng 3.600.000 – 4.800.000 VNĐ cho 2 người).\n  - Phân khúc nghỉ dưỡng cao cấp (Resort sinh thái + ẩm thực view núi + xe riêng):",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-79",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Ước tính chi phí du lịch Ninh Bình (Tham khảo)",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Ước tính chi phí du lịch Ninh Bình (Tham khảo): 0 VNĐ / người (tổng khoảng 3.600.000 – 4.800.000 VNĐ cho 2 người).\n  - Phân khúc nghỉ dưỡng cao cấp (Resort sinh thái + ẩm thực view núi + xe riêng): Khoảng 3.200.000 – 4.500.000 VNĐ / người.",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-80",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Bảng giá vé các điểm tham quan chính tại Ninh Bình (Tham khảo)",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Bảng giá vé các điểm tham quan chính tại Ninh Bình (Tham khảo): - Quần thể Tràng An: 250.000 VNĐ / người lớn (đã bao gồm thuyền nan 3 tuyến), 120.000 VNĐ / trẻ em (1m – 1m3).\n- Tam Cốc – Bích Động: 120.000 VNĐ vé thắng cảnh / người lớn + 150.000 VNĐ vé đò / thuyền (chở 2 người).\n- Hang Múa – Đỉnh Ngọa Long: 100.000 VNĐ / người lớn (gồm leo 486 bậc thang đá và cầu gỗ hồ sen).\n- Cố Đô Hoa Lư: 20.000 VNĐ / người lớn (thăm đền vua Đinh - vua Lê).\n- Chùa Bái Đính: Miễn phí vào cửa khuôn viên chùa; xe điện 30.000 VNĐ / lượt (60.000 VNĐ khứ hồi); vé thang máy bảo tháp 50.000 VNĐ.\n- Tuyệt Tình Cốc (Động Am Tiên): 50.000 VNĐ / người lớn.\n- Vườn Chim Thung Nham: 150.000 VNĐ / người lớn (đã gồm thuyền nan xem chim và hang Bụt).\n- Khu bảo tồn Đầm Vân Long: 100.000 VNĐ / người lớn (50.000 VNĐ vé cảnh + 50.000 VNĐ vé đò).\n- Vườn Quốc Gia Cúc Phương: 60.000 VNĐ / người lớn; 20.000 VNĐ / sinh viên; 10.000 VNĐ / trẻ em.\n- Chùa Bích Động, Nhà thờ đá Phát Diệm, Đan viện Châu Sơn, Đền Thái Vi, Chùa Duyên Ninh: Miễn phí vào cửa.",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-81",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Phương tiện di chuyển từ Hà Nội đến Ninh Bình",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Phương tiện di chuyển từ Hà Nội đến Ninh Bình: - Khoảng cách: Khoảng 93 – 100 km về phía Nam.\n- Ô tô riêng / Taxi: Chạy theo cao tốc Pháp Vân – Cầu Giẽ – Cao Bồ chỉ mất khoảng 80 – 90 phút (1 giờ 20 phút đến 1 giờ 30 phút). Chi phí xăng xe và cầu đường khoảng 180.000 – 250.000 VNĐ / người khi đi nhóm.\n- Xe Limousine cao cấp: Thời gian chạy khoảng 1,5 giờ, đưa đón tận nơi từ các quận nội thành Hà Nội về tận khách sạn/homestay tại Ninh Bình. Giá vé tham khảo: 150.000 – 180.000 VNĐ / vé một chiều (khoảng 300.000 – 360.000 VNĐ khứ hồi).\n- Tàu hỏa: Khởi hành từ ga Hà Nội đến ga Ninh Bình (nằm ngay trung tâm thành phố), thời gian chạy khoảng 2 giờ 15 phút. Giá vé tham khảo từ 90.000 – 150.000 VNĐ / lượt tùy ghế ngồi mềm hoặc giường nằm.\n- Xe máy: Chạy theo Quốc lộ 1A cũ qua Hà Nam đến Ninh Bình, mất khoảng 2 – 2,5 giờ đồng hồ, chi phí xăng xe khoảng 100.000 – 150.000 VNĐ.",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-82",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Phương tiện đi lại nội tỉnh Ninh Bình",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Phương tiện đi lại nội tỉnh Ninh Bình: - Thuê xe máy: Khoảng 120.000 – 150.000 VNĐ / xe / ngày (xăng tự đổ). Là lựa chọn linh hoạt và thuận tiện nhất để dạo quanh các cung đường đồng quê chân núi.\n- Thuê xe đạp: Khoảng 50.000 – 80.000 VNĐ / xe / ngày. Rất thích hợp đạp quanh khu Tam Cốc, Bích Động, Đền Thái Vi và Hang Múa.\n- Taxi / Xe điện: Thích hợp cho gia đình có người cao tuổi hoặc trẻ nhỏ.",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-83",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Các cụm địa điểm gần nhau thuận tiện ghép tuyến",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Các cụm địa điểm gần nhau thuận tiện ghép tuyến: - Cụm 1 (Tràng An – Cố Đô Hoa Lư – Tuyệt Tình Cốc – Chùa Duyên Ninh): Bán kính di chuyển chỉ 3 – 5 km (khoảng 6 – 10 phút đi xe).\n- Cụm 2 (Tam Cốc – Hang Múa – Chùa Bích Động – Đền Thái Vi – Thung Nham): Bán kính di chuyển 2 – 6 km (khoảng 5 – 12 phút đi xe).\n- Cụm 3 (Chùa Bái Đính – Đầm Vân Long – Suối khoáng Kênh Gà): Bán kính di chuyển 12 – 16 km (khoảng 15 – 22 phút).\n- Cụm 4 (Vườn Quốc Gia Cúc Phương – Đan viện Châu Sơn – Hồ Đồng Chương): Khu vực Nho Quan phía Tây, cách trung tâm khoảng 35 – 45 km.",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-84",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Khoảng cách thực tế giữa các điểm tham quan chính",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Khoảng cách thực tế giữa các điểm tham quan chính: - Tràng An đến Hang Múa: 4.5 km (khoảng 8 – 10 phút).\n- Tràng An đến Cố Đô Hoa Lư: 3.5 km (khoảng 6 – 8 phút).\n- Tràng An đến Tam Cốc: 7.0 km (khoảng 12 – 15 phút).\n- Tràng An đến Chùa Bái Đính: 12.0 km (khoảng 18 – 20 phút).\n- Tràng An đến Đầm Vân Long: 18.0 km (khoảng 25 – 30 phút).\n- Tam Cốc đến Hang Múa: 4.8 km (khoảng 10 – 12 phút).\n- Tam Cốc đến Chùa Bích Động: 2.5 km (khoảng 5 phút đạp xe).\n- Tam Cốc đến Vườn Chim Thung Nham: 6.0 km (khoảng 10 – 12 phút).\n- Cố Đô Hoa Lư đến Tuyệt Tình Cốc: 1.8 km (khoảng 4 phút).\n- Cố Đô Hoa Lư đến Chùa Bái Đính: 11.0 km (khoảng 15 – 18 phút).\n- Trung tâm TP Ninh Bình đến Tràng An: 7.0 km (khoảng 12 – 15 phút).\n- Bái Đính / Hoa Lư đến Vườn Quốc Gia Cúc Phương: khoảng 36 km (khoảng 45 – 50 phút).",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "len-ke-hoach-chi-phi-85",
+      "title": "Lập kế hoạch chi phí và di chuyển Ninh Bình",
+      "heading": "Gợi ý khu vực lưu trú tại Ninh Bình",
+      "text": "Lập kế hoạch chi phí và di chuyển Ninh Bình – Gợi ý khu vực lưu trú tại Ninh Bình: - Khu vực Tam Cốc – Bích Động: Tập trung nhiều homestay phong cảnh đẹp, khách sạn boutique, quán cà phê và dịch vụ sôi động, thuận tiện đạp xe ngắm lúa.\n- Khu vực Tràng An: Nhiều homestay sinh thái nép mình dưới chân vách đá và hồ nước yên bình, không khí mát mẻ thanh tịnh.\n- Khu vực trung tâm thành phố Ninh Bình: Gần ga tàu hỏa, bến xe, nhiều khách sạn tiện nghi hiện đại và chợ ẩm thực đêm phong phú.\n- Khu vực ven núi Gia Viễn / Nho Quan: Nơi tập trung các resort nghỉ dưỡng khoáng nóng và sinh thái biệt lập cao cấp.\n- Lưu ý: Khách sạn hay homestay nên xem đánh giá và đặt trước qua các nền tảng trực tuyến uy tín hoặc liên hệ trực tiếp nơi lưu trú; ứng dụng này không nhận đặt phòng.",
+      "type": "cam-nang",
+      "url": "/#len-ke-hoach",
+      "verified": true
+    },
+    {
+      "id": "lich-su-86",
+      "title": "Dấu ấn lịch sử Cố đô Hoa Lư và vùng đất Ninh Bình",
+      "heading": "Cố đô Hoa Lư – Kinh đô đầu tiên của nước Đại Cồ Việt (968 – 1010)",
+      "text": "Dấu ấn lịch sử Cố đô Hoa Lư và vùng đất Ninh Bình – Cố đô Hoa Lư – Kinh đô đầu tiên của nước Đại Cồ Việt (968 – 1010): - Năm 968: Sau khi dẹp yên loạn 12 sứ quân, thống nhất non sông, Đinh Bộ Lĩnh lên ngôi Hoàng đế, lấy hiệu là Đinh Tiên Hoàng, đặt quốc hiệu là Đại Cồ Việt và chọn Hoa Lư làm kinh đô.\n- Vua Đinh xây dựng triều đình phong kiến tập quyền, định niên hiệu Thái Bình, đúc đồng tiền đầu tiên của Việt Nam (tiền Thái Bình Hưng Bảo), khẳng định chủ quyền độc lập của dân tộc sánh vai cùng các đế chế phương Bắc.\n- Kinh đô Hoa Lư tồn tại 42 năm qua 3 triều đại:\n  1. Nhà Đinh (968 – 980): Vua Đinh Tiên Hoàng, Đinh Phế Đế.\n  2. Nhà Tiền Lê (980 – 1009): Vua Lê Đại Hành (Lê Hoàn), Lê Trung Tông, Lê Long Đĩnh.\n  3. Thời kỳ đầu Nhà Lý (1009 – 1010): Vua Lý Thái Tổ (Lý Công Uẩn).\n- Đến mùa thu năm Canh Tuất 1010, vua Lý Thái Tổ ban Chiếu dời đô từ Hoa Lư về thành Đại La (Thăng Long – Hà Nội ngày nay), mở ra thời kỳ hưng thịnh rực rỡ của đất nước. Hoa Lư trở thành Cố Đô lịch sử ngàn năm.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "lich-su-87",
+      "title": "Dấu ấn lịch sử Cố đô Hoa Lư và vùng đất Ninh Bình",
+      "heading": "Dấu tích Hành Cung Vũ Lâm và nhà Trần chống Nguyên Mông",
+      "text": "Dấu ấn lịch sử Cố đô Hoa Lư và vùng đất Ninh Bình – Dấu tích Hành Cung Vũ Lâm và nhà Trần chống Nguyên Mông: - Vào thế kỷ 13, trong cuộc kháng chiến chống quân xâm lược Nguyên Mông lần thứ hai (năm 1285), vua Trần Thái Tông và Thượng hoàng Trần Thánh Tông cùng tướng quân Trần Hưng Đạo đã chọn vùng núi non hiểm trở Tràng An – Ninh Hải để lập nên căn cứ chiến lược Hành Cung Vũ Lâm.\n- Địa hình thung lũng khép kín, hang động xuyên thủy và núi đá vôi vây bọc biến nơi đây thành pháo đài tự nhiên hoàn hảo để cất giấu thuyền chiến, tích trữ lương thảo, củng cố lực lượng trước khi mở cuộc tổng phản công giải phóng kinh thành Thăng Long.\n- Sau khi đánh tan giặc ngoại xâm, vua Trần Nhân Tông đã về Hành Cung Vũ Lâm xuất gia tu hành tại chùa Khai Phúc trước khi lên đỉnh Yên Tử sáng lập Thiền phái Trúc Lâm Yên Tử lừng danh.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "lich-su-88",
+      "title": "Dấu ấn lịch sử Cố đô Hoa Lư và vùng đất Ninh Bình",
+      "heading": "Vùng đất địa linh nhân kiệt Ninh Bình",
+      "text": "Dấu ấn lịch sử Cố đô Hoa Lư và vùng đất Ninh Bình – Vùng đất địa linh nhân kiệt Ninh Bình: - Ninh Bình là nơi sinh ra và gắn liền với nhiều danh nhân kiệt xuất của dân tộc:\n  - Vua Đinh Tiên Hoàng (Đinh Bộ Lĩnh): Người anh hùng cờ lau dẹp loạn 12 sứ quân.\n  - Vua Lê Đại Hành (Lê Hoàn): Vị vua anh minh đánh tan quân Tống trên sông Bạch Đằng (981) và bình Chiêm giữ vững biên cương.\n  - Thái hậu Dương Vân Nga: Người phụ nữ hai lần làm hoàng hậu, vì đại nghĩa dân tộc đã trao long bào cho tướng quân Lê Hoàn để đánh giặc cứu nước.\n  - Quốc sư Lý Triều Nguyễn Minh Không: Danh y, thiền sư đắc đạo thời Lý, người chữa bệnh hóa hổ cho vua Lý Thần Tông và sáng lập Bái Đính Cổ Tự.\n  - Trương Hán Siêu: Danh sĩ thời Trần, tác giả bài \"Bạch Đằng giang phú\" bất hủ và người khắc bia Dục Thúy Sơn trên núi Non Nước.",
+      "type": "van-hoa",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "lich-trinh-89",
+      "title": "Gợi ý lịch trình du lịch Ninh Bình",
+      "heading": "Lịch trình 1 ngày: Du ngoạn tinh hoa Di sản Ninh Bình",
+      "text": "Gợi ý lịch trình du lịch Ninh Bình – Lịch trình 1 ngày: Du ngoạn tinh hoa Di sản Ninh Bình: - Đối tượng: Du khách xuất phát từ Hà Nội đi về trong ngày cuối tuần hoặc eo hẹp thời gian.\n- Sáng (07:30 – 11:30): Xuất phát từ Hà Nội theo cao tốc Pháp Vân – Cầu Giẽ (khoảng 80 – 90 phút). Đến Quần thể danh thắng Tràng An mua vé ngồi thuyền nan Tuyến 2 hoặc Tuyến 3 (khoảng 2,5 – 3 giờ) xuyên qua các hang xuyên thủy và vãn cảnh Hành Cung Vũ Lâm thời Trần.\n- Trưa (11:30 – 13:30): Ăn trưa tại nhà hàng khu vực Tràng An hoặc Trường Yên, thưởng thức đặc sản thịt dê núi tái chanh, cơm cháy sốt dê và cá chuối nướng trui.\n- Chiều (13:30 – 15:30): Di chuyển sang Khu di tích lịch sử Cố Đô Hoa Lư (cách Tràng An 3,5 km), dâng hương đền vua Đinh Tiên Hoàng và đền vua Lê Đại Hành; ghé thăm Tuyệt Tình Cốc (Động Am Tiên cách 1,8 km) ngắm hồ nước ngọc bích.\n- Chiều muộn (15:30 – 17:30): Đến Hang Múa chinh phục 486 bậc thang đá vôi ngắm hoàng hôn ráng vàng trên đỉnh Ngọa Long và chụp ảnh hồ sen.\n- Tối (17:30 – 19:30): Lên xe trở về Hà Nội, kết thúc chuyến đi trọn vẹn và an toàn.",
+      "type": "lich-trinh",
+      "url": "/#lich-trinh",
+      "verified": true
+    },
+    {
+      "id": "lich-trinh-90",
+      "title": "Gợi ý lịch trình du lịch Ninh Bình",
+      "heading": "Lịch trình 2 ngày 1 đêm: Hành trình Di sản & Thiên nhiên cố đô (Khuyên dùng)",
+      "text": "Gợi ý lịch trình du lịch Ninh Bình – Lịch trình 2 ngày 1 đêm: Hành trình Di sản & Thiên nhiên cố đô (Khuyên dùng): - Đây là lịch trình phổ biến và được du khách yêu thích nhất khi đến Ninh Bình, vừa vặn giữa khám phá di sản, check-in và nghỉ dưỡng.\n- Ngày 1: Cố Đô Hoa Lư – Quần thể Tràng An – Hang Múa đón hoàng hôn\n  - Sáng: Di chuyển từ Hà Nội tới Ninh Bình (khoảng 9:00 tới nơi). Thăm Cố Đô Hoa Lư và Tuyệt Tình Cốc.\n  - Trưa: Nhận phòng homestay tại khu vực Tràng An hoặc Tam Cốc. Nghỉ ngơi và ăn trưa đặc sản dê núi.\n  - Chiều (13:30 – 16:00): Ngồi thuyền nan khám phá Quần thể Tràng An (Tuyến 2 hoặc 1).\n  - Chiều muộn (16:00 – 18:00): Chinh phục đỉnh Ngọa Long Hang Múa ngắm hoàng hôn buông xuống thung lũng Tam Cốc.\n  - Tối: Thưởng thức bữa tối ẩm thực địa phương, dạo phố cổ Hoa Lư hoặc cà phê ngắm cảnh đêm lung linh.\n- Ngày 2: Tam Cốc sông Ngô Đồng – Chùa Bích Động – Đầm Vân Long\n  - Sáng sớm: Đạp xe ngắm cảnh đồng quê Tam Cốc, chiêm bái Chùa Bích Động rêu phong và Đền Thái Vi.\n  - Giữa sáng: Ngồi thuyền nan Tam Cốc lướt trên dòng sông Ngô Đồng qua Hang Cả, Hang Hai, Hang Ba giữa hai vách núi đá vô",
+      "type": "lich-trinh",
+      "url": "/#lich-trinh",
+      "verified": true
+    },
+    {
+      "id": "lich-trinh-91",
+      "title": "Gợi ý lịch trình du lịch Ninh Bình",
+      "heading": "Lịch trình 2 ngày 1 đêm: Hành trình Di sản & Thiên nhiên cố đô (Khuyên dùng)",
+      "text": "Gợi ý lịch trình du lịch Ninh Bình – Lịch trình 2 ngày 1 đêm: Hành trình Di sản & Thiên nhiên cố đô (Khuyên dùng): g rêu phong và Đền Thái Vi.\n  - Giữa sáng: Ngồi thuyền nan Tam Cốc lướt trên dòng sông Ngô Đồng qua Hang Cả, Hang Hai, Hang Ba giữa hai vách núi đá vôi.\n  - Trưa: Thưởng thức bữa trưa cơm cháy, ốc núi xào me và trả phòng homestay.\n  - Chiều (14:30 – 16:30): Ghé Đầm Vân Long ngồi thuyền nan ngắm vịnh không sóng và săn ngắm loài voọc mông trắng quý hiếm trên vách đá.\n  - Chiều muộn: Khởi hành về lại Hà Nội.",
+      "type": "lich-trinh",
+      "url": "/#lich-trinh",
+      "verified": true
+    },
+    {
+      "id": "lich-trinh-92",
+      "title": "Gợi ý lịch trình du lịch Ninh Bình",
+      "heading": "Lịch trình 3 ngày 2 đêm: Trọn vẹn non nước & Rừng nguyên sinh Cúc Phương",
+      "text": "Gợi ý lịch trình du lịch Ninh Bình – Lịch trình 3 ngày 2 đêm: Trọn vẹn non nước & Rừng nguyên sinh Cúc Phương: - Dành cho du khách muốn trải nghiệm sâu sắc văn hóa, tâm linh và hòa mình vào thiên nhiên hoang dã.\n- Ngày 1: Hà Nội – Cố Đô Hoa Lư – Tràng An – Hang Múa.\n- Ngày 2: Bái Đính Cổ Tự & Chùa Mới – Đầm Vân Long – Vườn chim Thung Nham (ngắm đàn chim trắng bay về tổ hoàng hôn).\n- Ngày 3: Vườn Quốc Gia Cúc Phương (khám phá cây chò ngàn năm, trung tâm cứu hộ linh trưởng, mùa bướm rừng) – Ghé Đan viện Châu Sơn trước khi về lại Hà Nội.",
+      "type": "lich-trinh",
+      "url": "/#lich-trinh",
+      "verified": true
+    },
+    {
+      "id": "lich-trinh-93",
+      "title": "Gợi ý lịch trình du lịch Ninh Bình",
+      "heading": "Mẹo sắp xếp lịch trình tối ưu",
+      "text": "Gợi ý lịch trình du lịch Ninh Bình – Mẹo sắp xếp lịch trình tối ưu: - Tránh đi thuyền Tràng An hay leo Hang Múa vào buổi trưa nắng gắt (11:30 – 14:00) vì dễ mất sức và hình chụp bị ngược sáng.\n- Luôn gom các điểm cùng một cụm di chuyển gần nhau trong cùng một buổi để tiết kiệm thời gian và chi phí xăng xe.",
+      "type": "lich-trinh",
+      "url": "/#lich-trinh",
+      "verified": true
+    },
+    {
+      "id": "meo-du-lich-94",
+      "title": "Cẩm nang và mẹo du lịch Ninh Bình an toàn",
+      "heading": "Thời điểm du lịch Ninh Bình đẹp nhất trong năm",
+      "text": "Cẩm nang và mẹo du lịch Ninh Bình an toàn – Thời điểm du lịch Ninh Bình đẹp nhất trong năm: - Mùa xuân (Tháng 1 đến tháng 3 âm lịch): Tiết trời mát mẻ, cây cối đâm chồi nảy lộc. Đây là mùa trẩy hội chùa chiền và di tích lịch sử lớn nhất: Lễ hội Chùa Bái Đính đầu năm, Lễ hội Cố Đô Hoa Lư, Lễ hội Tràng An.\n- Mùa hè – Mùa lúa chín vàng và mùa sen (Tháng 5 đến tháng 7 dương lịch):\n  - Cuối tháng 5 đến đầu tháng 6: Mùa lúa chín rực rỡ nhất dọc hai bờ sông Ngô Đồng (Tam Cốc) và chân núi đá Tràng An. Khung cảnh như dải lụa vàng uốn lượn ngoạn mục.\n  - Tháng 5 đến tháng 7: Mùa sen và súng nở hồng rực rỡ quanh chân cầu gỗ Hang Múa và các đầm nước Tràng An, Tam Cốc.\n  - Tháng 4 đến tháng 5: Mùa bướm rừng bay rợp trời tại Vườn Quốc Gia Cúc Phương.\n- Mùa thu (Tháng 9 đến tháng 11): Tiết trời hanh khô, se lạnh dễ chịu, nắng nhẹ vàng ươm, nước các đầm Tràng An và Vân Long trong xanh thấy đáy rong rêu.\n- Mùa đông (Tháng 12 đến tháng 1): Thời tiết se lạnh, sương sớm mờ ảo lãng đãng quanh các đỉnh núi đá vôi tạo nên vẻ đẹp trầm mặc cổ kính.",
+      "type": "cam-nang",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "meo-du-lich-95",
+      "title": "Cẩm nang và mẹo du lịch Ninh Bình an toàn",
+      "heading": "Mẹo chuẩn bị trang phục và đồ dùng cá nhân",
+      "text": "Cẩm nang và mẹo du lịch Ninh Bình an toàn – Mẹo chuẩn bị trang phục và đồ dùng cá nhân: - Giày dép: Nên mang giày thể thao hoặc sandal quai hậu có độ bám ma sát tốt. Tránh mang giày cao gót hoặc dép lê trơn trượt khi leo 486 bậc Hang Múa hay đi bộ trong hang động Tràng An ẩm ướt.\n- Trang phục:\n  - Khi tham quan các điểm tâm linh như Chùa Bái Đính, Đền vua Đinh - vua Lê, Nhà thờ đá Phát Diệm, Đan viện Châu Sơn: Cần mặc trang phục kín đáo, lịch sự (quần dài hoặc váy qua gối, áo có tay).\n  - Khi đi thuyền Tràng An, Tam Cốc: Mặc trang phục màu sắc nổi bật (trắng, vàng, đỏ, be) để chụp ảnh nổi bật giữa nền xanh của núi non sông nước.\n- Đồ dùng cần thiết: Nón lá, mũ rộng vành, ô dù che nắng mưa, kính râm, kem chống nắng, quạt tay mini và nước lọc bổ sung điện giải.\n- Mang theo thuốc xịt chống muỗi và côn trùng khi đi Vườn Quốc Gia Cúc Phương hay Vườn chim Thung Nham.",
+      "type": "cam-nang",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "meo-du-lich-96",
+      "title": "Cẩm nang và mẹo du lịch Ninh Bình an toàn",
+      "heading": "Quy tắc an toàn khi đi thuyền và leo núi tại Ninh Bình",
+      "text": "Cẩm nang và mẹo du lịch Ninh Bình an toàn – Quy tắc an toàn khi đi thuyền và leo núi tại Ninh Bình: - An toàn khi đi thuyền nan: Luôn mặc áo phao cứu sinh đúng quy định trong suốt hành trình ngồi thuyền. Ngồi cân bằng giữa thuyền, không đùa nghịch, nghiêng ngả hoặc đứng dậy đột ngột. Tuân thủ hướng dẫn của người chèo thuyền.\n- Giữ gìn vệ sinh và cảnh quan: Tuyệt đối không vứt rác, vỏ chai nhựa hay tàn thuốc xuống lòng sông, hồ hay hang động. Giữ gìn sự trong lành cho Di sản thiên nhiên thế giới.\n- Ứng xử văn minh: Nói năng hòa nhã, tôn trọng tín ngưỡng địa phương, xin phép trước khi chụp ảnh người dân bản địa đang lao động.",
+      "type": "cam-nang",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "ninh-binh-moi-97",
+      "title": "Khám phá Ninh Bình mở rộng và vùng phụ cận",
+      "heading": "Phủ Dầy ở đâu và có gì đặc sắc?",
+      "text": "Khám phá Ninh Bình mở rộng và vùng phụ cận – Phủ Dầy ở đâu và có gì đặc sắc?: - Vị trí địa lý: Phủ Dầy không thuộc địa phận tỉnh Ninh Bình, mà tọa lạc tại xã Kim Thái, huyện Vụ Bản, tỉnh Nam Định. Tuy nhiên, vì Vụ Bản nằm giáp ranh ngay sát thành phố Ninh Bình và huyện Ý Yên (khoảng cách chỉ chừng 15 – 20 km từ Ninh Bình), nên du khách khi du lịch Ninh Bình thường kết hợp ghé thăm Phủ Dầy rất thuận tiện trên cùng cung đường.\n- Ý nghĩa tâm linh: Quần thể Phủ Dầy là trung tâm tín ngưỡng thờ Mẫu Tam phủ của người Việt, nơi tôn vinh Thánh Mẫu Liễu Hạnh – một trong Tứ bất tử của tín ngưỡng dân gian Việt Nam.\n- Quần thể di tích: Gồm Phủ Tiên Hương (phủ chính), Phủ Vân Cát, Lăng Mẫu Liễu Hạnh, cùng hệ thống đền, chùa cổ kính bao quanh.\n- Lễ hội Phủ Dầy: Diễn ra vào tháng 3 âm lịch hàng năm (chính hội ngày mùng 3 tháng 3 âm lịch) với các nghi lễ rước Mẫu uy nghiêm, hát văn hầu đồng đặc sắc và hội kéo chữ (Hoa trượng hội) độc đáo thu hút đông đảo tín đồ khắp mọi miền đất nước.",
+      "type": "cam-nang",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "ninh-binh-moi-98",
+      "title": "Khám phá Ninh Bình mở rộng và vùng phụ cận",
+      "heading": "Các điểm di tích lân cận kết hợp mở rộng",
+      "text": "Khám phá Ninh Bình mở rộng và vùng phụ cận – Các điểm di tích lân cận kết hợp mở rộng: - Đền Trần Nam Định: Nằm tại phường Lộc Vượng, TP Nam Định (cách Ninh Bình khoảng 30 km), nơi phát tích và thờ 14 vị vua triều Trần cùng các tướng lĩnh có công đánh giặc Nguyên Mông. Lễ hội khai ấn Đền Trần diễn ra vào đêm 14 tháng Giêng thu hút hàng vạn du khách.\n- Chùa Keo Nam Định / Thái Bình: Công trình kiến trúc chùa gỗ cổ tuyệt mỹ lưu giữ tháp chuông bằng gỗ lim 3 tầng nguyên vẹn từ thế kỷ 17.",
+      "type": "cam-nang",
+      "url": "/#cam-nang",
+      "verified": true
+    },
+    {
+      "id": "ninh-binh-moi-99",
+      "title": "Khám phá Ninh Bình mở rộng và vùng phụ cận",
+      "heading": "Tinh thần du lịch kết nối vùng Cố Đô và Đồng bằng Sông Hồng",
+      "text": "Khám phá Ninh Bình mở rộng và vùng phụ cận – Tinh thần du lịch kết nối vùng Cố Đô và Đồng bằng Sông Hồng: - Khu vực Ninh Bình nằm ở điểm giao thoa giữa vùng kinh đô xưa (Hoa Lư) và văn hóa tâm linh đồng bằng châu thổ sông Hồng (Nam Định, Hà Nam).\n- Việc kết hợp lịch trình 3N2Đ hoặc 4N3Đ giữa Quần thể Di sản Tràng An – Bái Đính (Ninh Bình) và Quần thể Phủ Dầy – Đền Trần (Nam Định) tạo nên hành trình văn hóa tâm linh trọn vẹn và sâu sắc.",
+      "type": "cam-nang",
+      "url": "/#cam-nang",
+      "verified": true
+    }
+  ]
+}

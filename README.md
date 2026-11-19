@@ -110,16 +110,33 @@ cp .env.example .env
 
 Nội dung cấu hình trong `.env`:
 ```env
-# 1. Khóa Google Maps API (hiển thị bản đồ vệ tinh & 3D)
+# 1. Chatbot RAG "Hướng dẫn viên Ninh Bình" (Server-side ONLY - Không tiền tố VITE_)
+SHOPAIKEY_API_KEY=your_shopaikey_key_here
+SHOPAIKEY_BASE_URL=https://api.shopaikey.com
+CHAT_MODEL=gpt-4o-mini
+EMBED_MODEL=text-embedding-3-small
+RAG_MIN_SCORE=0.25
+DAILY_REQUEST_CAP=300
+
+# 2. Khóa Google Maps API (hiển thị bản đồ vệ tinh & 3D, Client-side)
 VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
 
-# 2. Preset triển khai Nitro
+# 3. Preset triển khai Nitro (tùy chọn: vercel, node-server, cloudflare-module)
 NITRO_PRESET=vercel
 ```
 
-*(Lưu ý: Nếu chưa có Google Maps API key, ứng dụng vẫn hoạt động trơn tru với chế độ bản đồ dự phòng OpenStreetMap).*
+*(Lưu ý: Nếu chưa có Google Maps API key, ứng dụng vẫn hoạt động trơn tru với chế độ bản đồ dự phòng OpenStreetMap. Nếu chưa có model embedding, hệ thống RAG tự động chuyển sang chế độ tìm kiếm theo từ khóa dự phòng).*
 
-### 4. Khởi chạy máy chủ phát triển (Dev Server)
+### 4. Tạo chỉ mục tri thức RAG (Build RAG Index)
+Mỗi khi cập nhật hoặc chỉnh sửa các tài liệu trong thư mục `knowledge/`, bạn có thể tạo lại chỉ mục vector bằng lệnh:
+```bash
+npm run build:rag
+# hoặc
+node --env-file=.env scripts/build-index.mjs
+```
+Chỉ mục kết quả sẽ được ghi vào `src/server/rag/index.json`.
+
+### 5. Khởi chạy máy chủ phát triển (Dev Server)
 ```bash
 # Khởi chạy máy chủ dev tại cổng 3000
 bun run dev -- --port 3000
@@ -157,9 +174,35 @@ Dự án đã được cấu hình tối ưu sẵn sàng cho nền tảng **Verc
    - **Install Command**: `bun install` (hoặc `npm install`).
    - **Output Directory**: `.vercel/output` (Nitro sẽ tự động xuất định dạng Vercel Serverless Function).
 4. Thêm các biến môi trường trong phần **Environment Variables**:
+   - `SHOPAIKEY_API_KEY`: Khóa API ShopAIKey (server-side, bảo vệ số dư).
+   - `SHOPAIKEY_BASE_URL`: `https://api.shopaikey.com`
+   - `CHAT_MODEL`: Model trò chuyện (vd: `gpt-4o-mini`).
+   - `EMBED_MODEL`: Model embedding (vd: `text-embedding-3-small`).
+   - `DAILY_REQUEST_CAP`: `300` (hoặc số lượng tùy chỉnh).
    - `VITE_GOOGLE_MAPS_API_KEY`: Khóa API Google Maps của bạn.
    - `NITRO_PRESET`: `vercel`
 5. Nhấn **Deploy** và trải nghiệm sản phẩm trực tiếp!
+
+---
+
+## 🐳 Triển Khai Chạy Ổn Định Bằng Docker / VPS / Node Server
+
+Dự án có sẵn `Dockerfile` đa tầng (multi-stage) tối ưu:
+```bash
+# Xây dựng Docker image
+docker build -t ninhbinh-travel .
+
+# Chạy container liên tục (tự khởi động lại khi crash)
+docker run -d \
+  --name ninhbinh \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  --env-file .env \
+  ninhbinh-travel
+```
+
+- **Health check URL**: `http://localhost:3000/api/health` trả `{ "ok": true }` giúp UptimeRobot / Docker giám sát tình trạng sống liên tục mà không làm hao phí token AI.
+- **Trang Hướng dẫn viên chuyên biệt**: Có thể truy cập trực tiếp tại `/hdv` hoặc qua nút nổi ở mọi trang.
 
 ---
 

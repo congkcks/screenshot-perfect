@@ -469,18 +469,19 @@ export function InteractiveMapSection({
     }
 
     // If Leaflet OSM is active
-    if (leafletMapRef.current) {
+    const leafletMap = leafletMapRef.current;
+    if (leafletMap) {
       destinations.forEach((dest) => {
         const marker = leafletMarkersRef.current[dest.id];
         const isMatch = activeCategory === "Tất cả" || dest.category === activeCategory;
         if (marker) {
           if (isMatch) {
-            if (!leafletMapRef.current.hasLayer(marker)) {
-              leafletMapRef.current.addLayer(marker);
+            if (!leafletMap.hasLayer(marker)) {
+              leafletMap.addLayer(marker);
             }
           } else {
-            if (leafletMapRef.current.hasLayer(marker)) {
-              leafletMapRef.current.removeLayer(marker);
+            if (leafletMap.hasLayer(marker)) {
+              leafletMap.removeLayer(marker);
             }
           }
         }
