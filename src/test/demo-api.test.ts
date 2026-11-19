@@ -1,15 +1,28 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { isDemoConfigured, callDemoApi } from "@/lib/demo-api";
 import { DEMO_CONFIG } from "@/config/demo";
 
 describe("Demo API Client (ShopAIKey Zero-Logging)", () => {
+  let savedKey: string;
+
   beforeEach(() => {
     vi.restoreAllMocks();
+    savedKey = DEMO_CONFIG.apiKey;
+  });
+
+  afterEach(() => {
+    DEMO_CONFIG.apiKey = savedKey;
   });
 
   it("checks whether demo key is configured", () => {
-    // Ban đầu key là PASTE_DEMO_KEY_HERE -> false
+    DEMO_CONFIG.apiKey = "PASTE_DEMO_KEY_HERE";
     expect(isDemoConfigured()).toBe(false);
+
+    DEMO_CONFIG.apiKey = "";
+    expect(isDemoConfigured()).toBe(false);
+
+    DEMO_CONFIG.apiKey = "sk-valid-key";
+    expect(isDemoConfigured()).toBe(true);
   });
 
   it("throws validation error when message is empty", async () => {
@@ -22,14 +35,13 @@ describe("Demo API Client (ShopAIKey Zero-Logging)", () => {
   });
 
   it("throws clear instructions when key is not configured", async () => {
+    DEMO_CONFIG.apiKey = "PASTE_DEMO_KEY_HERE";
     await expect(callDemoApi("Tràng An có gì đẹp?")).rejects.toThrow(
       "src/config/demo.ts"
     );
   });
 
   it("handles successful response and detects sources when key is set", async () => {
-    // Giả lập key được điền
-    const origKey = DEMO_CONFIG.apiKey;
     DEMO_CONFIG.apiKey = "sk-test-demo-key";
 
     const fakeResponse = {
@@ -52,13 +64,9 @@ describe("Demo API Client (ShopAIKey Zero-Logging)", () => {
     expect(result.answer).toContain("Tràng An là quần thể danh thắng");
     expect(result.sources.length).toBeGreaterThan(0);
     expect(result.sources.some((s) => s.url.includes("diem-den") || s.url.includes("trang-an"))).toBe(true);
-
-    // Khôi phục lại key
-    DEMO_CONFIG.apiKey = origKey;
   });
 
   it("handles 401 unauthorized gracefully without echoing key", async () => {
-    const origKey = DEMO_CONFIG.apiKey;
     DEMO_CONFIG.apiKey = "sk-invalid-key";
 
     globalThis.fetch = vi.fn().mockResolvedValue({
@@ -70,12 +78,9 @@ describe("Demo API Client (ShopAIKey Zero-Logging)", () => {
     await expect(callDemoApi("Ninh Bình ăn gì ngon?")).rejects.toThrow(
       "Khóa API không hợp lệ hoặc đã hết hạn"
     );
-
-    DEMO_CONFIG.apiKey = origKey;
   });
 
   it("handles 429 quota exhaustion gracefully", async () => {
-    const origKey = DEMO_CONFIG.apiKey;
     DEMO_CONFIG.apiKey = "sk-valid-key";
 
     globalThis.fetch = vi.fn().mockResolvedValue({
@@ -87,7 +92,5 @@ describe("Demo API Client (ShopAIKey Zero-Logging)", () => {
     await expect(callDemoApi("Đi Bái Đính thế nào?")).rejects.toThrow(
       "hết hạn mức hoặc vượt tần suất"
     );
-
-    DEMO_CONFIG.apiKey = origKey;
   });
 });

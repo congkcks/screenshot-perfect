@@ -5,7 +5,6 @@ import {
   Heart,
   Menu,
   Volume2,
-  VolumeX,
   X,
   Sparkles,
   ArrowRight,
@@ -179,49 +178,59 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
           </div>
 
           {/* Actions: Sound, Wishlist, CTA, Mobile Hamburger */}
-          <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0">
-            {/* Nature Audio Toggle */}
-            <button
-              onClick={handleAudioToggle}
-              className={`p-2 rounded-full backdrop-blur-md transition-all text-xs flex items-center gap-1.5 border ${
-                isPlayingAudio
-                  ? "bg-[#D6AD72]/20 border-[#D6AD72] text-[#D6AD72] animate-pulse-subtle"
-                  : "bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20"
-              }`}
-              title={isPlayingAudio ? "Tắt âm thanh thiên nhiên" : "Bật âm thanh suối rừng Ninh Bình"}
-              aria-label="Âm thanh thiên nhiên"
-            >
-              {isPlayingAudio ? (
-                <>
-                  <Volume2 className="w-4 h-4 text-[#D6AD72]" />
-                  <span className="hidden xl:inline text-[11px] font-sans pr-1">Âm thanh Tràng An</span>
-                  <span className="flex gap-0.5 items-end h-3">
-                    <span className="w-0.5 h-3 bg-[#D6AD72] animate-bounce" />
-                    <span className="w-0.5 h-2 bg-[#D6AD72] animate-bounce delay-75" />
-                    <span className="w-0.5 h-3.5 bg-[#D6AD72] animate-bounce delay-150" />
+          <div className="flex items-center gap-2.5 sm:gap-3 lg:gap-3.5 shrink-0">
+            {/* Nature Audio Toggle (Icon-only hình tròn, đặt giữa Tạp Chí và Yêu Thích) */}
+            <div className="relative group/sound">
+              <button
+                onClick={handleAudioToggle}
+                className={`relative p-2 rounded-full backdrop-blur-md transition-all text-xs flex items-center justify-center border ${
+                  isPlayingAudio
+                    ? "bg-[#D6AD72]/20 border-[#D6AD72] text-[#D6AD72] shadow-sm shadow-[#D6AD72]/30"
+                    : "bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20"
+                }`}
+                title={isPlayingAudio ? "Tắt âm thanh Tràng An" : "Âm thanh Tràng An"}
+                aria-label="Âm thanh Tràng An"
+              >
+                <Volume2 className="w-4 h-4" />
+                {isPlayingAudio && (
+                  <span className="absolute -top-0.5 -right-0.5 flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D6AD72] opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D6AD72]" />
                   </span>
-                </>
-              ) : (
-                <>
-                  <VolumeX className="w-4 h-4" />
-                  <span className="hidden xl:inline text-[11px] font-sans pr-1">Âm thanh Tràng An</span>
-                </>
-              )}
-            </button>
+                )}
+              </button>
+
+              {/* Tooltip Âm thanh Tràng An khi hover */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover/sound:block pointer-events-none z-50 whitespace-nowrap animate-in fade-in zoom-in-95 duration-150">
+                <div className="px-2.5 py-1 rounded-md bg-[#173428]/95 backdrop-blur-md border border-[#D6AD72]/40 text-[#D6AD72] text-[11px] font-sans shadow-lg">
+                  {isPlayingAudio ? "Tắt âm thanh Tràng An" : "Âm thanh Tràng An"}
+                </div>
+              </div>
+            </div>
 
             {/* Wishlist Button */}
-            <button
-              onClick={onOpenWishlist}
-              className="relative p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all"
-              aria-label="Xem điểm đến đã lưu"
-            >
-              <Heart className="w-4 h-4" />
-              {savedCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#D6AD72] text-[#173428] font-bold text-[10px] flex items-center justify-center shadow-sm">
-                  {savedCount}
-                </span>
-              )}
-            </button>
+            <div className="relative group/wishlist">
+              <button
+                onClick={onOpenWishlist}
+                className="relative p-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white transition-all flex items-center justify-center"
+                aria-label="Xem điểm đến đã lưu"
+                title="Điểm đến đã lưu"
+              >
+                <Heart className="w-4 h-4" />
+                {savedCount > 0 && (
+                  <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#D6AD72] text-[#173428] font-bold text-[10px] flex items-center justify-center shadow-sm">
+                    {savedCount}
+                  </span>
+                )}
+              </button>
+
+              {/* Tooltip khi hover */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 hidden group-hover/wishlist:block pointer-events-none z-50 whitespace-nowrap animate-in fade-in zoom-in-95 duration-150">
+                <div className="px-2.5 py-1 rounded-md bg-[#173428]/95 backdrop-blur-md border border-[#D6AD72]/40 text-[#D6AD72] text-[11px] font-sans shadow-lg">
+                  Điểm đến đã lưu ({savedCount})
+                </div>
+              </div>
+            </div>
 
             {/* CTA Button */}
             <Button
