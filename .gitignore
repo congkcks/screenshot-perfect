@@ -36,3 +36,7 @@ Ninh_Binh_Landing_Page_Images_REVISED/
 # Vercel & Env
 .vercel/
 .env
+
+# Demo Config (chứa API key tạm thời – không bao giờ commit vào Git)
+src/config/demo.ts
+

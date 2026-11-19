@@ -12,6 +12,7 @@ import {
   ShieldAlert,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { callDemoApi, isDemoConfigured } from "@/lib/demo-api";
 
 export type ChatMessage = {
   id: string;
@@ -145,6 +146,20 @@ export function ChatWidget({
           content: m.content.slice(0, 800),
         }));
 
+      // 1. Nếu đã cấu hình key trong src/config/demo.ts -> ưu tiên gọi trực tiếp client demo (zero-logging, không lưu server)
+      if (isDemoConfigured()) {
+        const demoResult = await callDemoApi(text, historyPayload);
+        const botMsg: ChatMessage = {
+          id: "bot-" + Date.now(),
+          role: "assistant",
+          content: demoResult.answer,
+          sources: demoResult.sources,
+        };
+        setMessages((prev) => [...prev, botMsg]);
+        return;
+      }
+
+      // 2. Fallback gọi server /api/chat nếu đang chạy fullstack
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: {
