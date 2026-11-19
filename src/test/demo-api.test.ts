@@ -80,9 +80,9 @@ describe("Demo API Client (ShopAIKey Zero-Logging & Short Context)", () => {
   });
 
   it("throws clear instructions when key is not configured for non-preset question", async () => {
-    DEMO_CONFIG.apiKey = "PASTE_DEMO_KEY_HERE";
+    DEMO_CONFIG.apiKey = "";
     await expect(callDemoApi("Ninh Bình cách Hà Nội bao xa?")).rejects.toThrow(
-      "src/config/demo.ts"
+      "Chưa có API Key"
     );
   });
 

@@ -188,7 +188,7 @@ export async function callDemoApi(
 
   if (!isDemoConfigured()) {
     throw new Error(
-      "Chưa cấu hình API Key. Bạn vui lòng mở file src/config/demo.ts và dán key của ShopAIKey vào nhé!"
+      "Chưa có API Key. Bạn có thể cài đặt biến môi trường VITE_SHOPAIKEY_API_KEY trên Vercel, hoặc bấm biểu tượng chìa khóa ở góc trên khung chat để nhập key demo trực tiếp nhé!"
     );
   }
 
