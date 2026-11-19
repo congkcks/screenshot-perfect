@@ -109,27 +109,38 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6">
-            {navLinks.map((item) => (
-              <a
-                key={item.href}
-                href={resolveHref(item.href)}
-                className="text-xs uppercase tracking-wider text-white/90 hover:text-[#D6AD72] transition-colors font-medium relative group py-1"
-              >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#D6AD72] transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6">
+            {/* Nhóm menu điều hướng chính */}
+            <nav className="flex items-center gap-2 lg:gap-3 xl:gap-5" aria-label="Điều hướng chính">
+              {navLinks.map((item) => (
+                <a
+                  key={item.href}
+                  href={resolveHref(item.href)}
+                  className="text-[11px] lg:text-xs uppercase tracking-wider text-white/90 hover:text-[#D6AD72] transition-colors font-medium relative group py-1 whitespace-nowrap"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#D6AD72] transition-all duration-300 group-hover:w-full" />
+                </a>
+              ))}
+            </nav>
 
-            {/* Dropdown Menu Tạp Chí Blog */}
+            {/* Đường phân cách dọc ngăn cách Tạp Chí */}
             <div
-              className="relative group py-1"
+              className="h-4.5 w-[1px] bg-white/20"
+              aria-hidden="true"
+            />
+
+            {/* Khu vực độc lập: Dropdown Menu Tạp Chí Blog */}
+            <div
+              className="relative group py-1 shrink-0"
               onMouseEnter={() => setIsBlogDropdownOpen(true)}
               onMouseLeave={() => setIsBlogDropdownOpen(false)}
             >
               <Link
                 to="/blog"
-                className="text-xs uppercase tracking-wider text-[#D6AD72] hover:text-[#E7C99B] font-bold flex items-center gap-1 transition-colors px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-[#D6AD72]/40"
+                className="text-[11px] lg:text-xs uppercase tracking-wider text-[#D6AD72] hover:text-[#E7C99B] font-semibold flex items-center gap-1.5 transition-all px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-[#D6AD72]/40 shadow-xs"
+                aria-haspopup="true"
+                aria-expanded={isBlogDropdownOpen}
               >
                 <BookOpen className="w-3.5 h-3.5" />
                 <span>Tạp Chí</span>
@@ -138,7 +149,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
 
               {/* Dropdown Content */}
               {isBlogDropdownOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-50 animate-in fade-in zoom-in-95">
+                <div className="absolute top-full right-0 lg:left-1/2 lg:-translate-x-1/2 pt-2 w-64 z-50 animate-in fade-in zoom-in-95">
                   <div className="bg-[#173428]/95 backdrop-blur-xl border border-[#D6AD72]/30 rounded-2xl p-2.5 shadow-2xl space-y-1">
                     <div className="px-3 py-1.5 border-b border-white/10 text-[10px] font-bold uppercase tracking-wider text-[#D6AD72]">
                       5 Trụ Cột Kể Chuyện
@@ -165,10 +176,10 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
                 </div>
               )}
             </div>
-          </nav>
+          </div>
 
           {/* Actions: Sound, Wishlist, CTA, Mobile Hamburger */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-2 sm:gap-2.5 lg:gap-3 shrink-0">
             {/* Nature Audio Toggle */}
             <button
               onClick={handleAudioToggle}
@@ -183,7 +194,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
               {isPlayingAudio ? (
                 <>
                   <Volume2 className="w-4 h-4 text-[#D6AD72]" />
-                  <span className="hidden lg:inline text-[11px] font-sans pr-1">Âm thanh Tràng An</span>
+                  <span className="hidden xl:inline text-[11px] font-sans pr-1">Âm thanh Tràng An</span>
                   <span className="flex gap-0.5 items-end h-3">
                     <span className="w-0.5 h-3 bg-[#D6AD72] animate-bounce" />
                     <span className="w-0.5 h-2 bg-[#D6AD72] animate-bounce delay-75" />
@@ -193,7 +204,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
               ) : (
                 <>
                   <VolumeX className="w-4 h-4" />
-                  <span className="hidden lg:inline text-[11px] font-sans pr-1">Âm thanh Tràng An</span>
+                  <span className="hidden xl:inline text-[11px] font-sans pr-1">Âm thanh Tràng An</span>
                 </>
               )}
             </button>
@@ -216,7 +227,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
             <Button
               asChild
               size="sm"
-              className="hidden sm:inline-flex bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-xs tracking-wide px-4 rounded-full shadow-lg shadow-[#D6AD72]/20 transition-all hover:scale-105"
+              className="hidden sm:inline-flex bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-xs tracking-wide px-3.5 lg:px-4 rounded-full shadow-lg shadow-[#D6AD72]/20 transition-all hover:scale-105"
             >
               <a href="#diem-den">
                 Khám Phá Ngay
@@ -251,7 +262,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
                     key={item.href}
                     href={resolveHref(item.href)}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-3.5 text-base font-serif text-white hover:text-[#D6AD72] transition-colors"
+                    className="flex items-center justify-between py-3 text-base font-serif text-white hover:text-[#D6AD72] transition-colors"
                   >
                     <span className="flex items-center gap-3">
                       <Icon className="w-4 h-4 text-[#D6AD72]" />
@@ -261,19 +272,32 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
                   </a>
                 );
               })}
+            </div>
 
-              {/* Tạp Chí Blog Link trên Mobile */}
-              <Link
-                to="/blog"
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-3.5 text-base font-serif text-[#D6AD72] hover:text-white transition-colors"
-              >
-                <span className="flex items-center gap-3">
-                  <BookOpen className="w-4 h-4 text-[#D6AD72]" />
-                  Tạp Chí & Kể Chuyện (20 Bài)
-                </span>
-                <ArrowRight className="w-4 h-4 text-[#D6AD72]" />
-              </Link>
+            {/* Khu vực độc lập Tạp Chí trên Mobile */}
+            <div className="pt-3">
+              <div className="p-3.5 rounded-2xl bg-white/5 border border-[#D6AD72]/30 space-y-1.5">
+                <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#D6AD72]">
+                  <span>Chuyên Mục Độc Lập</span>
+                  <span className="px-2 py-0.5 rounded-full bg-[#D6AD72]/20 text-[#D6AD72] text-[9px]">
+                    20 Bài Viết
+                  </span>
+                </div>
+                <Link
+                  to="/blog"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between py-1 text-base font-serif text-white hover:text-[#D6AD72] transition-colors"
+                >
+                  <span className="flex items-center gap-2.5">
+                    <BookOpen className="w-4 h-4 text-[#D6AD72]" />
+                    Tạp Chí & Kể Chuyện Di Sản
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-[#D6AD72]" />
+                </Link>
+                <p className="text-xs text-stone-300 font-sans">
+                  5 trụ cột di sản, lễ hội cổ truyền, mỹ vị dê núi và cẩm nang khám phá bốn mùa.
+                </p>
+              </div>
             </div>
           </div>
 
