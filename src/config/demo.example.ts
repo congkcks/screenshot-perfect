@@ -9,6 +9,6 @@ export const DEMO_CONFIG = {
   // Base URL của dịch vụ (ShopAIKey: https://api.shopaikey.com/v1)
   baseUrl: "https://api.shopaikey.com/v1",
 
-  // Tên model bạn muốn dùng (ví dụ: gpt-4o-mini, gpt-3.5-turbo, v.v.)
-  model: "gpt-4o-mini",
+  // Tên model sử dụng (ví dụ: gemini-3.5-flash-lite, gemini-2.5-flash, v.v.)
+  model: "gemini-3.5-flash-lite",
 };

@@ -228,7 +228,7 @@ export async function callDemoApi(
             Authorization: `Bearer ${DEMO_CONFIG.apiKey.trim()}`,
           },
           body: JSON.stringify({
-            model: DEMO_CONFIG.model || "gpt-4o-mini",
+            model: DEMO_CONFIG.model || "gemini-3.5-flash-lite",
             messages: payloadMessages,
             temperature: 0.5,
             max_tokens: MAX_RESPONSE_TOKENS,
@@ -252,6 +252,15 @@ export async function callDemoApi(
           // Lưu cache cho lần hỏi sau
           RESPONSE_CACHE.set(cacheKey, result);
           return result;
+        }
+
+        // Nếu gặp 503 (Kênh quá tải): thử lại
+        if (res.status === 503) {
+          if (attempt < MAX_ATTEMPTS - 1) {
+            await sleep(1200 + Math.random() * 400);
+            continue;
+          }
+          throw new Error("Kênh AI của nhà cung cấp đang tạm thời quá tải (HTTP 503). Vui lòng thử lại sau giây lát!");
         }
 
         // Nếu gặp 429 (Rate Limit / Quota TPM/RPM): Thử lại có chờ tăng dần
