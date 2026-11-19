@@ -5,21 +5,23 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans:
+    "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   --font-serif: "Playfair Display", Georgia, Cambria, "Times New Roman", Times, serif;
   --font-display: "Playfair Display", Georgia, serif;
 
-  --color-forest: #244B3B;
+  --color-forest: #244b3b;
   --color-forest-dark: #173428;
-  --color-forest-deep: #0F231B;
+  --color-forest-deep: #0f231b;
   --color-nature: #769477;
-  --color-nature-light: #9AB49B;
-  --color-cream: #F5F1E8;
-  --color-cream-light: #FAF8F4;
-  --color-cream-dark: #E7E0D2;
-  --color-gold: #D6AD72;
-  --color-gold-light: #E7C99B;
-  --color-gold-dark: #B88E52;
+  --color-nature-light: #9ab49b;
+  --color-cream: #f5f1e8;
+  --color-cream-light: #faf8f4;
+  --color-cream-dark: #e7e0d2;
+  --color-gold: #d6ad72;
+  --color-gold-light: #e7c99b;
+  --color-gold-dark: #b88e52;
 }
 
 @theme inline {
@@ -53,31 +55,31 @@
 
 :root {
   --radius: 0.5rem;
-  --background: #F5F1E8;
-  --foreground: #1A3429;
-  --card: #FFFFFF;
-  --card-foreground: #1A3429;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A3429;
-  --primary: #244B3B;
-  --primary-foreground: #FFFFFF;
-  --secondary: #EAE3D5;
-  --secondary-foreground: #244B3B;
-  --muted: #E6DFD0;
-  --muted-foreground: #5A6D63;
-  --accent: #D6AD72;
+  --background: #f5f1e8;
+  --foreground: #1a3429;
+  --card: #ffffff;
+  --card-foreground: #1a3429;
+  --popover: #ffffff;
+  --popover-foreground: #1a3429;
+  --primary: #244b3b;
+  --primary-foreground: #ffffff;
+  --secondary: #eae3d5;
+  --secondary-foreground: #244b3b;
+  --muted: #e6dfd0;
+  --muted-foreground: #5a6d63;
+  --accent: #d6ad72;
   --accent-foreground: #173428;
-  --destructive: #A33A38;
-  --destructive-foreground: #FFFFFF;
-  --border: #DFD7C7;
-  --input: #DFD7C7;
-  --ring: #244B3B;
+  --destructive: #a33a38;
+  --destructive-foreground: #ffffff;
+  --border: #dfd7c7;
+  --input: #dfd7c7;
+  --ring: #244b3b;
 
-  --forest-green: #244B3B;
+  --forest-green: #244b3b;
   --nature-green: #769477;
-  --warm-cream: #F5F1E8;
-  --champagne-gold: #D6AD72;
-  --pure-white: #FFFFFF;
+  --warm-cream: #f5f1e8;
+  --champagne-gold: #d6ad72;
+  --pure-white: #ffffff;
 }
 
 @layer base {
@@ -99,7 +101,7 @@
   }
 
   ::selection {
-    background: #D6AD72;
+    background: #d6ad72;
     color: #173428;
   }
 
@@ -109,14 +111,14 @@
     height: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #F5F1E8;
+    background: #f5f1e8;
   }
   ::-webkit-scrollbar-thumb {
     background: #769477;
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #244B3B;
+    background: #244b3b;
   }
 }
 
@@ -126,12 +128,23 @@
   height: 100%;
   border-radius: 16px;
   font-family: var(--font-sans);
-  background-color: #F5F1E8 !important;
+  background-color: #f5f1e8 !important;
+  isolation: isolate;
+  z-index: 0 !important;
+  position: relative;
+}
+
+/* Ensure all Leaflet panes remain strictly bounded within the map canvas container */
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom,
+.leaflet-control-container {
+  max-width: 100%;
 }
 
 .leaflet-popup-content-wrapper {
   background: #173428 !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   border-radius: 12px !important;
   padding: 4px !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35) !important;
@@ -160,25 +173,27 @@
   width: 32px;
   height: 32px;
   border-radius: 50% 50% 50% 0;
-  background: #244B3B;
+  background: #244b3b;
   position: absolute;
   transform: rotate(-45deg);
   left: 50%;
   top: 50%;
   margin: -16px 0 0 -16px;
-  border: 2px solid #D6AD72;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  border: 2px solid #d6ad72;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
 }
 
 .marker-pin::after {
-  content: '';
+  content: "";
   width: 12px;
   height: 12px;
-  background: #D6AD72;
+  background: #d6ad72;
   position: absolute;
   border-radius: 50%;
 }
@@ -203,15 +218,27 @@
 }
 
 @keyframes marker-pulse-anim {
-  0% { transform: scale(0.6); opacity: 1; }
-  100% { transform: scale(2.4); opacity: 0; }
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
 }
 
 /* Animations */
 @keyframes kenburns {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .animate-kenburns {
@@ -219,8 +246,13 @@
 }
 
 @keyframes float-gentle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 .animate-float {
@@ -228,8 +260,15 @@
 }
 
 @keyframes pulse-subtle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.85; transform: scale(1.03); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
 }
 
 .animate-pulse-subtle {
@@ -243,7 +282,7 @@
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, #FAF8F4 0%, #D6AD72 50%, #FAF8F4 100%);
+  background: linear-gradient(135deg, #faf8f4 0%, #d6ad72 50%, #faf8f4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -251,7 +290,7 @@
 .gold-gradient-badge {
   background: linear-gradient(135deg, rgba(214, 173, 114, 0.2) 0%, rgba(36, 75, 59, 0.4) 100%);
   border: 1px solid rgba(214, 173, 114, 0.5);
-  color: #D6AD72;
+  color: #d6ad72;
 }
 
 .gold-glass-panel {
@@ -263,8 +302,8 @@
 }
 
 .cream-card {
-  background: #FFFFFF;
-  border: 1px solid #DFD7C7;
+  background: #ffffff;
+  border: 1px solid #dfd7c7;
   box-shadow: 0 10px 30px rgba(36, 75, 59, 0.04);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -272,7 +311,7 @@
 .cream-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 18px 40px rgba(36, 75, 59, 0.1);
-  border-color: #D6AD72;
+  border-color: #d6ad72;
 }
 
 /* Asymmetric Editorial Grid */

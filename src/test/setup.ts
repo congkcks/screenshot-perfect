@@ -5,6 +5,10 @@ Object.defineProperty(window, "scrollTo", {
   value: () => {},
 });
 
+if (typeof window.HTMLElement !== "undefined") {
+  window.HTMLElement.prototype.scrollIntoView = () => {};
+}
+
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query: string) => ({

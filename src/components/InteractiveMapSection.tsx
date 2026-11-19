@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from "react";
+import type { Map as LeafletMap, Marker as LeafletMarker } from "leaflet";
 import {
   ExternalLink,
   Layers,
@@ -11,11 +12,12 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  destinations,
-  type Destination,
-  type DestinationCategory,
-} from "@/data/ninh-binh";
+import { destinations, type Destination, type DestinationCategory } from "@/data/ninh-binh";
+
+interface CustomWindow {
+  google?: typeof google;
+  gm_authFailure?: () => void;
+}
 
 // Google Maps luxury styling matching #244B3B, #F5F1E8, and #D6AD72
 const googleMapLuxuryStyles: google.maps.MapTypeStyle[] = [
@@ -97,20 +99,17 @@ export function InteractiveMapSection({
   const googleInfoWindowRef = useRef<google.maps.InfoWindow | null>(null);
 
   // References for Leaflet Fallback (OpenStreetMap standard tiles, NO CARTO)
-  const leafletMapRef = useRef<any>(null);
-  const leafletMarkersRef = useRef<{ [id: string]: any }>({});
+  const leafletMapRef = useRef<LeafletMap | null>(null);
+  const leafletMarkersRef = useRef<{ [id: string]: LeafletMarker }>({});
 
   const apiKey = (import.meta.env["VITE_GOOGLE_MAPS_API_KEY"] as string | undefined)?.trim();
 
   // Filtered destinations by active category
   const filteredList = useMemo(() => {
-    return destinations.filter(
-      (d) => activeCategory === "Tất cả" || d.category === activeCategory
-    );
+    return destinations.filter((d) => activeCategory === "Tất cả" || d.category === activeCategory);
   }, [activeCategory]);
 
-  const currentActiveDest =
-    destinations.find((d) => d.id === activeLocationId) || destinations[0]!;
+  const currentActiveDest = destinations.find((d) => d.id === activeLocationId) || destinations[0]!;
 
   // -------------------------------------------------------------
   // 1. Initialize Map: Either Google Maps or Clean OpenStreetMap
@@ -149,6 +148,7 @@ export function InteractiveMapSection({
         leafletMapRef.current.remove();
         leafletMapRef.current = null;
       }
+      leafletMarkersRef.current = {};
       // Clean up Google Maps markers
       Object.values(googleMarkersRef.current).forEach((m) => m.setMap(null));
       googleMarkersRef.current = {};
@@ -160,7 +160,8 @@ export function InteractiveMapSection({
   // -------------------------------------------------------------
   function loadGoogleMapsScript(key: string): Promise<void> {
     return new Promise((resolve, reject) => {
-      if (typeof window !== "undefined" && (window as any).google?.maps) {
+      const win = typeof window !== "undefined" ? (window as CustomWindow) : undefined;
+      if (win?.google?.maps) {
         resolve();
         return;
       }
@@ -173,16 +174,18 @@ export function InteractiveMapSection({
       }
 
       // Handle auth failure callback
-      (window as any).gm_authFailure = () => {
-        console.warn("Google Maps authentication failure. Falling back to OSM.");
-        initLeafletOSMMap();
-        setMapEngine("osm");
-      };
+      if (win) {
+        win.gm_authFailure = () => {
+          console.warn("Google Maps authentication failure. Falling back to OSM.");
+          initLeafletOSMMap();
+          setMapEngine("osm");
+        };
+      }
 
       const script = document.createElement("script");
       script.id = "google-maps-script";
       script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(
-        key
+        key,
       )}&libraries=places,geometry&v=weekly`;
       script.async = true;
       script.defer = true;
@@ -196,7 +199,8 @@ export function InteractiveMapSection({
   // Initialize Google Maps instance
   // -------------------------------------------------------------
   function initGoogleMap() {
-    if (!mapContainerRef.current || !(window as any).google?.maps) return;
+    const win = typeof window !== "undefined" ? (window as CustomWindow) : undefined;
+    if (!mapContainerRef.current || !win?.google?.maps) return;
 
     // Ninh Binh center: Tràng An – Hoa Lư
     const center = { lat: 20.2562, lng: 105.9038 };
@@ -332,6 +336,12 @@ export function InteractiveMapSection({
       const L = (await import("leaflet")).default;
 
       if (!leafletMapRef.current && mapContainerRef.current) {
+        // Clear any orphaned leaflet id to prevent "Map container is already initialized"
+        const el = mapContainerRef.current as HTMLElement & { _leaflet_id?: number };
+        if (el._leaflet_id) {
+          delete el._leaflet_id;
+        }
+
         // Centered at Ninh Binh: Tràng An – Hoa Lư
         const map = L.map(mapContainerRef.current, {
           center: [20.2562, 105.9038],
@@ -348,6 +358,16 @@ export function InteractiveMapSection({
 
         leafletMapRef.current = map;
 
+        // Automatically recalculate map dimensions if container resizes
+        if (typeof ResizeObserver !== "undefined" && mapContainerRef.current) {
+          const ro = new ResizeObserver(() => {
+            if (leafletMapRef.current) {
+              leafletMapRef.current.invalidateSize();
+            }
+          });
+          ro.observe(mapContainerRef.current);
+        }
+
         // Custom Leaflet DivIcon
         destinations.forEach((dest) => {
           const customIcon = L.divIcon({
@@ -362,24 +382,28 @@ export function InteractiveMapSection({
           });
 
           const popupContent = `
-            <div style="min-width: 210px; max-width: 250px; padding: 2px; font-family: 'Plus Jakarta Sans', sans-serif;">
-              <div style="position: relative; border-radius: 6px; overflow: hidden; margin-bottom: 6px; height: 95px;">
+            <div style="min-width: 220px; max-width: 260px; padding: 2px; font-family: 'Plus Jakarta Sans', sans-serif;">
+              <div style="position: relative; border-radius: 8px; overflow: hidden; margin-bottom: 8px; height: 110px; background: #e5decb;">
                 <img src="${dest.image}" alt="${dest.name}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='${dest.fallbackImage}'" />
-                <span style="position: absolute; top: 4px; left: 4px; background: #244B3B; color: #D6AD72; font-size: 8px; font-weight: 700; text-transform: uppercase; padding: 2px 5px; border-radius: 3px;">
+                <span style="position: absolute; top: 6px; left: 6px; background: rgba(36, 75, 59, 0.9); color: #D6AD72; font-size: 9px; font-weight: 700; text-transform: uppercase; padding: 2px 6px; border-radius: 4px;">
                   ${dest.category}
                 </span>
               </div>
-              <h4 style="color: #173428; font-size: 13px; font-family: 'Playfair Display', serif; margin: 0 0 2px; font-weight: 700;">
+              <h4 style="font-family: 'Playfair Display', Georgia, serif; font-size: 14px; font-weight: 700; color: #FAF8F4; margin: 0 0 4px; line-height: 1.3;">
                 ${dest.name}
               </h4>
-              <p style="color: #5A6D63; font-size: 11px; margin: 0 0 6px; line-height: 1.3;">
-                📍 ${dest.area} · <strong style="color: #b45309;">★ ${dest.rating}</strong>
-              </p>
-              <div style="display: flex; gap: 4px; margin-top: 4px;">
+              <div style="font-size: 11px; color: #FAF8F4; opacity: 0.9; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+                <span>📍 ${dest.area}</span>
+                <span style="color: #D6AD72; font-weight: 700;">★ ${dest.rating}</span>
+              </div>
+              <div style="display: flex; gap: 6px;">
+                <button id="leaflet-modal-btn-${dest.id}" style="flex: 1; background: #D6AD72; color: #173428; font-size: 11px; font-weight: 700; padding: 7px 10px; border-radius: 6px; border: none; cursor: pointer; text-align: center; transition: opacity 0.2s;">
+                  Xem Chi Tiết
+                </button>
                 <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  dest.mapQuery
-                )}" target="_blank" rel="noopener noreferrer" style="flex: 1; text-align: center; background: #244B3B; color: #D6AD72; font-size: 10px; font-weight: 700; padding: 5px 8px; border-radius: 4px; text-decoration: none;">
-                  Google Maps ↗
+                  dest.mapQuery,
+                )}" target="_blank" rel="noopener noreferrer" style="background: rgba(245, 241, 232, 0.15); color: #FAF8F4; font-size: 11px; font-weight: 600; padding: 7px 10px; border-radius: 6px; border: 1px solid rgba(223, 215, 199, 0.4); text-decoration: none; text-align: center;">
+                  Chỉ Đường ↗
                 </a>
               </div>
             </div>
@@ -391,6 +415,15 @@ export function InteractiveMapSection({
 
           marker.on("click", () => {
             handleSelectLocation(dest);
+          });
+
+          marker.on("popupopen", () => {
+            const btn = document.getElementById(`leaflet-modal-btn-${dest.id}`);
+            if (btn) {
+              btn.onclick = () => {
+                onSelectDestination(dest);
+              };
+            }
           });
 
           leafletMarkersRef.current[dest.id] = marker;
@@ -406,14 +439,14 @@ export function InteractiveMapSection({
   // -------------------------------------------------------------
   useEffect(() => {
     // If Google Maps is active
-    if (googleMapInstanceRef.current && (window as any).google?.maps) {
+    const win = typeof window !== "undefined" ? (window as CustomWindow) : undefined;
+    if (googleMapInstanceRef.current && win?.google?.maps) {
       const bounds = new google.maps.LatLngBounds();
       let hasVisible = false;
 
       destinations.forEach((dest) => {
         const marker = googleMarkersRef.current[dest.id];
-        const isMatch =
-          activeCategory === "Tất cả" || dest.category === activeCategory;
+        const isMatch = activeCategory === "Tất cả" || dest.category === activeCategory;
         if (marker) {
           if (isMatch) {
             marker.setMap(googleMapInstanceRef.current);
@@ -439,8 +472,7 @@ export function InteractiveMapSection({
     if (leafletMapRef.current) {
       destinations.forEach((dest) => {
         const marker = leafletMarkersRef.current[dest.id];
-        const isMatch =
-          activeCategory === "Tất cả" || dest.category === activeCategory;
+        const isMatch = activeCategory === "Tất cả" || dest.category === activeCategory;
         if (marker) {
           if (isMatch) {
             if (!leafletMapRef.current.hasLayer(marker)) {
@@ -464,12 +496,13 @@ export function InteractiveMapSection({
 
     // Scroll left list item into view smoothly
     const listItemEl = document.getElementById(`map-list-item-${dest.id}`);
-    if (listItemEl) {
+    if (listItemEl && typeof listItemEl.scrollIntoView === "function") {
       listItemEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 
     // 1. Pan Google Map
-    if (googleMapInstanceRef.current && (window as any).google?.maps) {
+    const win = typeof window !== "undefined" ? (window as CustomWindow) : undefined;
+    if (googleMapInstanceRef.current && win?.google?.maps) {
       googleMapInstanceRef.current.panTo({ lat: dest.lat, lng: dest.lng });
       googleMapInstanceRef.current.setZoom(14);
 
@@ -511,12 +544,11 @@ export function InteractiveMapSection({
               className="text-4xl sm:text-5xl font-editorial-heading text-[#1A3429]"
             >
               Ninh Bình,{" "}
-              <span className="italic font-serif text-[#244B3B] font-normal">
-                Trong Tầm Tay.
-              </span>
+              <span className="italic font-serif text-[#244B3B] font-normal">Trong Tầm Tay.</span>
             </h2>
             <p className="mt-2 text-sm sm:text-base text-[#5A6D63] max-w-2xl font-light">
-              Tương tác trực quan trên bản đồ địa lý thực tế Ninh Bình với 20 danh thắng tiêu biểu. Chọn điểm đến để định vị tọa độ, xem đánh giá và mở lộ trình Google Maps tối ưu.
+              Tương tác trực quan trên bản đồ địa lý thực tế Ninh Bình với 20 danh thắng tiêu biểu.
+              Chọn điểm đến để định vị tọa độ, xem đánh giá và mở lộ trình Google Maps tối ưu.
             </p>
           </div>
 
@@ -541,21 +573,19 @@ export function InteractiveMapSection({
 
         {/* Category Filter Pills for Map */}
         <div className="flex flex-wrap items-center gap-2 mb-6">
-          {["Tất cả", "Thiên nhiên", "Check-in", "Văn hóa", "Tâm linh", "Sinh thái"].map(
-            (cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  activeCategory === cat
-                    ? "bg-[#244B3B] text-white shadow-sm font-semibold"
-                    : "bg-white text-[#1A3429] hover:bg-[#EAE3D5] border border-[#DFD7C7]"
-                }`}
-              >
-                {cat}
-              </button>
-            )
-          )}
+          {["Tất cả", "Thiên nhiên", "Check-in", "Văn hóa", "Tâm linh", "Sinh thái"].map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
+                activeCategory === cat
+                  ? "bg-[#244B3B] text-white shadow-sm font-semibold"
+                  : "bg-white text-[#1A3429] hover:bg-[#EAE3D5] border border-[#DFD7C7]"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
           <span className="text-xs text-[#769477] ml-auto font-medium hidden sm:inline">
             Hiển thị {filteredList.length} / {destinations.length} danh thắng
           </span>
@@ -567,7 +597,8 @@ export function InteractiveMapSection({
           <div className="lg:col-span-4 flex flex-col h-[540px]">
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-[#DFD7C7]">
               <span className="text-xs font-bold uppercase tracking-wider text-[#769477] flex items-center gap-1.5">
-                <MapPin className="w-4 h-4 text-[#244B3B]" /> Danh Sách Điểm Đến ({filteredList.length})
+                <MapPin className="w-4 h-4 text-[#244B3B]" /> Danh Sách Điểm Đến (
+                {filteredList.length})
               </span>
               <span className="text-[10px] text-[#5A6D63]">Chạm để định vị</span>
             </div>
@@ -612,9 +643,7 @@ export function InteractiveMapSection({
                           ★ {dest.rating}
                         </span>
                       </div>
-                      <h4 className="text-xs font-semibold truncate leading-snug">
-                        {dest.name}
-                      </h4>
+                      <h4 className="text-xs font-semibold truncate leading-snug">{dest.name}</h4>
                       <p
                         className={`text-[11px] truncate ${
                           isSelected ? "text-white/80" : "text-[#5A6D63]"
@@ -631,9 +660,7 @@ export function InteractiveMapSection({
             {/* Active Destination Quick Card */}
             <div className="pt-3 mt-3 border-t border-[#DFD7C7] flex items-center justify-between">
               <div>
-                <p className="text-[10px] uppercase font-bold text-[#769477]">
-                  Đang chọn
-                </p>
+                <p className="text-[10px] uppercase font-bold text-[#769477]">Đang chọn</p>
                 <p className="text-xs font-bold text-[#244B3B] truncate max-w-[190px]">
                   {currentActiveDest.name}
                 </p>
@@ -649,16 +676,17 @@ export function InteractiveMapSection({
           </div>
 
           {/* Right Map Canvas (8 cols) */}
-          <div className="lg:col-span-8 relative rounded-2xl overflow-hidden border border-[#DFD7C7] min-h-[420px] lg:h-[540px]">
+          <div className="lg:col-span-8 relative rounded-2xl overflow-hidden border border-[#DFD7C7] min-h-[420px] lg:h-[540px] isolate z-0">
             {/* Map Canvas Element */}
-            <div ref={mapContainerRef} className="w-full h-full bg-[#F5F1E8]" />
+            <div
+              ref={mapContainerRef}
+              className="w-full h-full bg-[#F5F1E8] relative isolate z-0"
+            />
 
             {/* Map Indicator Badge (Top Left Overlay) */}
             <div className="absolute top-3 left-3 z-[10] bg-white/95 backdrop-blur-md py-1.5 px-3 rounded-full border border-[#DFD7C7] shadow-sm flex items-center gap-2 text-[11px] text-[#1A3429]">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="font-semibold text-[#244B3B]">
-                Bản Đồ Du Lịch Ninh Bình
-              </span>
+              <span className="font-semibold text-[#244B3B]">Bản Đồ Du Lịch Ninh Bình</span>
             </div>
 
             {/* Map Legend (Bottom Right Overlay) */}
@@ -668,9 +696,7 @@ export function InteractiveMapSection({
                 <span className="font-medium text-[#1A3429]">Danh thắng (20 điểm)</span>
               </span>
               <span className="text-gray-300">|</span>
-              <span className="text-[#769477] text-[10px]">
-                Chạm marker để mở thông tin
-              </span>
+              <span className="text-[#769477] text-[10px]">Chạm marker để mở thông tin</span>
             </div>
           </div>
         </div>
