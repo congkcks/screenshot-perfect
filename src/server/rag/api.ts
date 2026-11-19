@@ -1,4 +1,7 @@
-const BASE = process.env["SHOPAIKEY_BASE_URL"] ?? "https://api.shopaikey.com";
+const BASE =
+  process.env["SHOPAIKEY_BASE_URL"] ||
+  process.env["VITE_SHOPAIKEY_BASE_URL"] ||
+  "https://api.shopaikey.com";
 
 export async function callApi<T>(
   path: string,
@@ -6,7 +9,9 @@ export async function callApi<T>(
   timeoutMs = 30000,
   retries = 1,
 ): Promise<T> {
-  const key = process.env["SHOPAIKEY_API_KEY"];
+  const key =
+    process.env["SHOPAIKEY_API_KEY"] ||
+    process.env["VITE_SHOPAIKEY_API_KEY"];
   if (!key) {
     throw new Error("MISSING_KEY");
   }

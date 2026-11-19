@@ -18,7 +18,10 @@ export async function answer(
 ): Promise<AnswerResult> {
   const ctx = await retrieve(question, 5);
 
-  const model = process.env["CHAT_MODEL"] || "gpt-4o-mini";
+  const model =
+    process.env["CHAT_MODEL"] ||
+    process.env["VITE_CHAT_MODEL"] ||
+    "gemini-3.5-flash-lite";
 
   const response = await callApi<{
     choices?: { message?: { content?: string } }[];
