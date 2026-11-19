@@ -115,12 +115,21 @@ export function ChatWidget({
     }
   };
 
+  const lastSendTimeRef = useRef<number>(0);
+
   const handleSendMessage = async (textToSend?: string) => {
     const text = (textToSend ?? input).trim();
     if (!text || isLoading) return;
 
+    // Chống bấm liên tục (khoảng nghỉ tối thiểu 1.5 giây giữa 2 lần gửi)
+    const now = Date.now();
+    if (now - lastSendTimeRef.current < 1500) {
+      return;
+    }
+    lastSendTimeRef.current = now;
+
     if (text.length > 500) {
-      setErrorMessage("Câu hỏi không được vượt quá 500 ký tự.");
+      setErrorMessage("Câu hỏi quá dài (vui lòng dưới 500 ký tự để tiết kiệm tài nguyên).");
       return;
     }
 
@@ -137,16 +146,16 @@ export function ChatWidget({
     setIsLoading(true);
 
     try {
-      // Chuẩn bị lịch sử 6 tin nhắn gần nhất (chỉ gồm user & assistant, loại bỏ greeting và error)
+      // Chuẩn bị lịch sử siêu ngắn (chỉ 2 lượt gần nhất, cắt ngắn để tiết kiệm token)
       const historyPayload = newMessages
         .filter((m) => m.id !== "greeting" && !m.isError)
-        .slice(-6)
+        .slice(-2)
         .map((m) => ({
           role: m.role,
-          content: m.content.slice(0, 800),
+          content: m.content.slice(0, 200),
         }));
 
-      // 1. Nếu đã cấu hình key trong src/config/demo.ts -> ưu tiên gọi trực tiếp client demo (zero-logging, không lưu server)
+      // 1. Nếu đã cấu hình key trong src/config/demo.ts -> ưu tiên gọi trực tiếp client demo (zero-logging, cache, chống 429)
       if (isDemoConfigured()) {
         const demoResult = await callDemoApi(text, historyPayload);
         const botMsg: ChatMessage = {
@@ -189,10 +198,20 @@ export function ChatWidget({
     } catch (err: unknown) {
       const errText =
         err instanceof Error ? err.message : "Không thể kết nối đến máy chủ.";
+      
+      const isRateLimitOrCooldown =
+        errText.includes("hạn mức") ||
+        errText.includes("cooldown") ||
+        errText.includes("làm mát") ||
+        errText.includes("đợi") ||
+        errText.includes("429");
+
       const errorMsg: ChatMessage = {
         id: "err-" + Date.now(),
         role: "assistant",
-        content: `Rất tiếc, đã xảy ra sự cố kết nối: ${errText}. Bạn có thể bấm "Thử lại" bên dưới nhé.`,
+        content: isRateLimitOrCooldown
+          ? `⏳ ${errText}`
+          : `Rất tiếc, đã xảy ra sự cố kết nối: ${errText}. Bạn có thể bấm "Thử lại" bên dưới nhé.`,
         isError: true,
       };
       setMessages((prev) => [...prev, errorMsg]);
