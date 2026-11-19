@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   Compass,
   Heart,
@@ -13,10 +14,13 @@ import {
   Calendar,
   Layers,
   Calculator,
+  BookOpen,
+  ChevronDown,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toggleNatureAudio, isNatureAudioPlaying } from "@/lib/nature-audio";
 import { toast } from "sonner";
+import { BLOG_PILLARS } from "@/data/blog";
 
 interface NavbarProps {
   savedCount: number;
@@ -53,6 +57,17 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
     }
   };
 
+  const [isBlogDropdownOpen, setIsBlogDropdownOpen] = useState(false);
+
+  const resolveHref = (href: string) => {
+    if (href.startsWith("#")) {
+      if (typeof window !== "undefined" && window.location.pathname !== "/") {
+        return `/${href}`;
+      }
+    }
+    return href;
+  };
+
   const navLinks = [
     { label: "Điểm Đến", href: "#diem-den", icon: MapPin },
     { label: "Theo Vùng", href: "#vung-mien", icon: Layers },
@@ -75,7 +90,7 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <a
-            href="#trang-chu"
+            href={resolveHref("#trang-chu")}
             className="flex items-center gap-2.5 group text-white text-decoration-none"
           >
             <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#244B3B] to-[#D6AD72] p-0.5 shadow-md flex items-center justify-center transition-transform duration-300 group-hover:rotate-12">
@@ -94,17 +109,62 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-3.5 lg:gap-5 xl:gap-7">
+          <nav className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6">
             {navLinks.map((item) => (
               <a
                 key={item.href}
-                href={item.href}
+                href={resolveHref(item.href)}
                 className="text-xs uppercase tracking-wider text-white/90 hover:text-[#D6AD72] transition-colors font-medium relative group py-1"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#D6AD72] transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
+
+            {/* Dropdown Menu Tạp Chí Blog */}
+            <div
+              className="relative group py-1"
+              onMouseEnter={() => setIsBlogDropdownOpen(true)}
+              onMouseLeave={() => setIsBlogDropdownOpen(false)}
+            >
+              <Link
+                to="/blog"
+                className="text-xs uppercase tracking-wider text-[#D6AD72] hover:text-[#E7C99B] font-bold flex items-center gap-1 transition-colors px-2.5 py-1 rounded-full bg-white/10 hover:bg-white/20 border border-[#D6AD72]/40"
+              >
+                <BookOpen className="w-3.5 h-3.5" />
+                <span>Tạp Chí</span>
+                <ChevronDown className="w-3 h-3 transition-transform group-hover:rotate-180" />
+              </Link>
+
+              {/* Dropdown Content */}
+              {isBlogDropdownOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-50 animate-in fade-in zoom-in-95">
+                  <div className="bg-[#173428]/95 backdrop-blur-xl border border-[#D6AD72]/30 rounded-2xl p-2.5 shadow-2xl space-y-1">
+                    <div className="px-3 py-1.5 border-b border-white/10 text-[10px] font-bold uppercase tracking-wider text-[#D6AD72]">
+                      5 Trụ Cột Kể Chuyện
+                    </div>
+                    {Object.values(BLOG_PILLARS).map((pillar) => (
+                      <Link
+                        key={pillar.id}
+                        to="/blog"
+                        className="block px-3 py-1.5 rounded-lg text-xs text-white/90 hover:text-[#D6AD72] hover:bg-white/10 transition-colors"
+                      >
+                        {pillar.name}
+                      </Link>
+                    ))}
+                    <div className="pt-1.5 border-t border-white/10">
+                      <Link
+                        to="/blog"
+                        className="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-bold text-[#D6AD72] hover:bg-white/10 transition-colors"
+                      >
+                        <span>Trọn bộ 20 bài viết</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
           {/* Actions: Sound, Wishlist, CTA, Mobile Hamburger */}
@@ -189,9 +249,9 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
                 return (
                   <a
                     key={item.href}
-                    href={item.href}
+                    href={resolveHref(item.href)}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="flex items-center justify-between py-4 text-base font-serif text-white hover:text-[#D6AD72] transition-colors"
+                    className="flex items-center justify-between py-3.5 text-base font-serif text-white hover:text-[#D6AD72] transition-colors"
                   >
                     <span className="flex items-center gap-3">
                       <Icon className="w-4 h-4 text-[#D6AD72]" />
@@ -201,6 +261,19 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
                   </a>
                 );
               })}
+
+              {/* Tạp Chí Blog Link trên Mobile */}
+              <Link
+                to="/blog"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-between py-3.5 text-base font-serif text-[#D6AD72] hover:text-white transition-colors"
+              >
+                <span className="flex items-center gap-3">
+                  <BookOpen className="w-4 h-4 text-[#D6AD72]" />
+                  Tạp Chí & Kể Chuyện (20 Bài)
+                </span>
+                <ArrowRight className="w-4 h-4 text-[#D6AD72]" />
+              </Link>
             </div>
           </div>
 
