@@ -185,14 +185,33 @@ describe("Message Validation Edge Cases", () => {
 });
 
 describe("ChatWidget UI Component", () => {
-  it("renders embedded ChatWidget with header and initial greeting", async () => {
+  it("renders embedded ChatWidget with header, friendly guide persona and initial greeting", async () => {
     const { render, screen } = await import("@testing-library/react");
     const { ChatWidget } = await import("../components/ChatWidget");
 
     render(<ChatWidget embedded={true} />);
 
+    // Tên và mô tả
     expect(screen.getByText("Hướng dẫn viên Ninh Bình")).toBeDefined();
-    expect(screen.getByText(/Xin chào! Mình là Hướng dẫn viên Ninh Bình/)).toBeDefined();
+    expect(screen.getByText("Cẩm nang khám phá danh thắng & ẩm thực Cố đô")).toBeDefined();
+
+    // Không để lộ nhãn kỹ thuật
+    expect(screen.queryByText("AI RAG")).toBeNull();
+    expect(screen.queryByText("AI Assistant")).toBeNull();
+    expect(screen.queryByText("RAG")).toBeNull();
+
+    // Lời chào hướng dẫn viên thân thiện
+    expect(
+      screen.getByText(
+        "Xin chào! Mình là Hướng dẫn viên Ninh Bình 🌿. Mình có thể giúp bạn khám phá các danh lam thắng cảnh, tìm hiểu đặc sản địa phương, gợi ý địa điểm ăn uống, lưu trú và lên lịch trình tham quan Ninh Bình."
+      )
+    ).toBeDefined();
+
+    // Gợi ý câu hỏi nhanh
+    expect(screen.getByText("Tràng An có gì đặc biệt?")).toBeDefined();
+
+    // Ô nhập tin nhắn và nút gửi
     expect(screen.getByPlaceholderText(/Hỏi về địa danh, ẩm thực, lịch trình/)).toBeDefined();
+    expect(screen.getByLabelText("Gửi tin nhắn")).toBeDefined();
   });
 });

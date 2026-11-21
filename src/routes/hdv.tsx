@@ -5,11 +5,11 @@ import { Compass, ArrowLeft, Shield, Sparkles, BookOpen } from "lucide-react";
 export const Route = createFileRoute("/hdv")({
   head: () => ({
     meta: [
-      { title: "Hướng dẫn viên Ninh Bình AI | NinhBinhTravel" },
+      { title: "Hướng dẫn viên Ninh Bình | NinhBinhTravel" },
       {
         name: "description",
         content:
-          "Trò chuyện trực tiếp cùng Hướng dẫn viên Ninh Bình AI: giải đáp thông tin di sản Tràng An, Tam Cốc, ẩm thực dê núi cơm cháy và gợi ý lịch trình du lịch thông minh.",
+          "Trò chuyện trực tiếp cùng Hướng dẫn viên Ninh Bình: giải đáp thông tin danh thắng Tràng An, Tam Cốc, ẩm thực đặc sản và gợi ý lịch trình du lịch Cố đô.",
       },
     ],
   }),
@@ -49,13 +49,13 @@ function HdvPage() {
             <div className="space-y-3">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#244B3B]/10 text-[#244B3B]">
                 <Sparkles className="h-3.5 w-3.5 text-[#D6AD72]" />
-                Trợ lý AI Cố Đô Ninh Bình
+                Bạn đồng hành Cố Đô Ninh Bình
               </span>
               <h1 className="text-3xl sm:text-4xl font-serif font-bold text-[#244B3B] tracking-tight">
                 Hướng dẫn viên Ninh Bình
               </h1>
               <p className="text-gray-600 text-sm leading-relaxed">
-                Được xây dựng trên kiến trúc RAG (Retrieval-Augmented Generation) kết hợp cùng kho tri thức cẩm nang du lịch bản địa, sẵn sàng đồng hành cùng bạn trên mọi nẻo đường khám phá di sản non nước Ninh Bình.
+                Cẩm nang khám phá danh thắng & ẩm thực Cố đô, luôn sẵn sàng đồng hành cùng bạn trên mọi nẻo đường khám phá di sản non nước Ninh Bình.
               </p>
             </div>
 

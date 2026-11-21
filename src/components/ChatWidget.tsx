@@ -35,7 +35,7 @@ const INITIAL_GREETING: ChatMessage = {
   id: "greeting",
   role: "assistant",
   content:
-    "Xin chào! Mình là Hướng dẫn viên Ninh Bình 🌿. Bạn muốn tìm hiểu về địa danh danh thắng, món ăn đặc sản, cẩm nang di chuyển hay gợi ý lịch trình khám phá cố đô?",
+    "Xin chào! Mình là Hướng dẫn viên Ninh Bình 🌿. Mình có thể giúp bạn khám phá các danh lam thắng cảnh, tìm hiểu đặc sản địa phương, gợi ý địa điểm ăn uống, lưu trú và lên lịch trình tham quan Ninh Bình.",
 };
 
 const STORAGE_KEY = "ninhbinh_chat_history";
@@ -56,7 +56,12 @@ export function ChatWidget({
       const saved = sessionStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          if (parsed.length === 1 && parsed[0]?.id === "greeting") {
+            return [INITIAL_GREETING];
+          }
+          return parsed;
+        }
       }
     } catch {
       // Bỏ qua lỗi parse
@@ -263,7 +268,7 @@ export function ChatWidget({
           {!isOpen && (
             <button
               onClick={() => setIsOpen(true)}
-              aria-label="Mở Hướng dẫn viên Ninh Bình AI"
+              aria-label="Mở Hướng dẫn viên Ninh Bình"
               className="group relative flex items-center gap-2.5 rounded-full bg-[#D6AD72] px-4 py-3 text-[#244B3B] font-medium shadow-xl hover:bg-[#c99f60] transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-3 focus:ring-[#D6AD72]/50 border border-white/20"
             >
               <div className="relative">
@@ -300,16 +305,11 @@ export function ChatWidget({
                 <Compass className="h-5 w-5" />
               </div>
               <div>
-                <div className="flex items-center gap-1.5">
-                  <h2 className="text-sm font-bold tracking-wide font-serif">
-                    Hướng dẫn viên Ninh Bình
-                  </h2>
-                  <span className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-semibold bg-[#D6AD72]/20 text-[#D6AD72] border border-[#D6AD72]/30">
-                    AI RAG
-                  </span>
-                </div>
+                <h2 className="text-sm font-bold tracking-wide font-serif">
+                  Hướng dẫn viên Ninh Bình
+                </h2>
                 <p className="text-[11px] text-white/70">
-                  Cẩm nang khám phá di sản & ẩm thực cố đô
+                  Cẩm nang khám phá danh thắng & ẩm thực Cố đô
                 </p>
               </div>
             </div>
