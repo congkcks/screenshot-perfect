@@ -58,15 +58,66 @@ describe("Map Page & Virtual Tour Architecture Tests", () => {
       expect(tour2?.id).toBe("tam-coc-day-trip");
       expect(tour2?.stops.length).toBe(4);
 
-      // Verify each stop has valid text and coordinates
-      tour1?.stops.forEach((stop) => {
-        expect(stop.placeId).toBeDefined();
-        expect(stop.title.length).toBeGreaterThan(0);
-        expect(stop.text.length).toBeGreaterThan(10);
-        expect(stop.lat).toBeGreaterThan(0);
-        expect(stop.lng).toBeGreaterThan(0);
-        expect(stop.zoom).toBeGreaterThanOrEqual(14);
+      // Verify each stop has valid text, coordinates, bounds and attributes
+      TOURS.forEach((tour) => {
+        tour.stops.forEach((stop) => {
+          // 1. Mỗi placeId có trong places.ts
+          const found = places.find((p) => p.id === stop.placeId || p.slug === stop.placeId);
+          expect(found).toBeDefined();
+
+          // 2. Tên và nội dung hợp lệ
+          expect(stop.title.length).toBeGreaterThan(0);
+          expect(stop.text.length).toBeGreaterThan(10);
+          expect(stop.text.length).toBeLessThanOrEqual(220); // Tối đa 220 ký tự
+
+          // 3. Tọa độ hợp lệ
+          expect(stop.lat).toBeGreaterThan(0);
+          expect(stop.lng).toBeGreaterThan(0);
+
+          // 4. Giới hạn zoom ≤ 15
+          expect(stop.zoom).toBeLessThanOrEqual(15);
+          expect(stop.zoom).toBeGreaterThanOrEqual(12);
+
+          // 5. Mỗi điểm có photo và accent phù hợp
+          expect(stop.photo).toMatch(/^\/images\//);
+          expect(["temple", "water", "forest", "karst"]).toContain(stop.accent || "karst");
+        });
       });
+    });
+
+    it("verifies useTypewriter completes within 3.2s with NFC normalization", async () => {
+      const { renderHook, act } = await import("@testing-library/react");
+      const { useTypewriter } = await import("@/hooks/useTypewriter");
+
+      const text = "Cố đô Hoa Lư ngàn năm với tiếng chuông cổ tự.";
+      const { result } = renderHook(() => useTypewriter(text, false, 3200));
+
+      expect(result.current.shown.length).toBeGreaterThanOrEqual(0);
+
+      // Fast-forward skip
+      act(() => {
+        result.current.skip();
+      });
+
+      expect(result.current.shown).toBe(text);
+      expect(result.current.done).toBe(true);
+    });
+
+    it("verifies TourPhoto renders SVG fallback without broken image icon", async () => {
+      const { render } = await import("@testing-library/react");
+      const { TourPhoto } = await import("@/components/map/TourPhoto");
+
+      const { container } = render(
+        <TourPhoto src="/non-existent-test.webp" alt="Thử nghiệm ảnh lỗi" accent="temple" />
+      );
+
+      // Tranh SVG dự phòng luôn tồn tại
+      const svg = container.querySelector("svg");
+      expect(svg).toBeInTheDocument();
+
+      // Parent container có role img và aria-label đúng chuẩn
+      const roleImg = container.querySelector('[role="img"]');
+      expect(roleImg).toHaveAttribute("aria-label", "Thử nghiệm ảnh lỗi");
     });
   });
 

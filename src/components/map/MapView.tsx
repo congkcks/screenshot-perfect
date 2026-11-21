@@ -50,6 +50,38 @@ function createPinIcon(layer: Layer, active = false, debug = false, name = "") {
   });
 }
 
+// Guided Tour Pin divIcon
+function createTourPinIcon(
+  index: number,
+  total: number,
+  state: "current" | "passed" | "future",
+  title: string
+) {
+  const pulseHtml = state === "current" ? `<span class="nb-tour-pulse"></span>` : "";
+  const labelHtml =
+    state === "current"
+      ? `<div class="nb-tour-label">
+           <span style="color: #D6AD72; font-weight: 800;">${index + 1}.</span>
+           <span>${title}</span>
+         </div>`
+      : "";
+
+  return L.divIcon({
+    className: "nb-tour-marker-wrapper",
+    html: `
+      <div class="nb-tour-pin-container">
+        ${pulseHtml}
+        <div class="nb-tour-pin is-${state}">
+          ${index + 1}
+        </div>
+        ${labelHtml}
+      </div>
+    `,
+    iconSize: state === "current" ? [40, 40] : [32, 32],
+    iconAnchor: state === "current" ? [20, 20] : [16, 16],
+  });
+}
+
 // User location pulse icon
 const userLocationIcon = L.divIcon({
   className: "nb-user-pin",
@@ -128,28 +160,41 @@ function MapController({
     );
   }, [map]);
 
-  // Guided Tour Polyline points
+  // Guided Tour Polyline points & active stop index
+  const [tourCurrentIdx, setTourCurrentIdx] = useState(0);
+
+  useEffect(() => {
+    setTourCurrentIdx(0);
+  }, [activeTourId]);
+
   const tour = useMemo(
     () => TOURS.find((t) => t.id === activeTourId),
     [activeTourId]
   );
-  const tourPolyline = useMemo(() => {
+
+  const tourPolylinePassed = useMemo(() => {
     if (!tour) return [];
-    return tour.stops.map((s) => [s.lat, s.lng] as [number, number]);
-  }, [tour]);
+    return tour.stops.slice(0, tourCurrentIdx + 1).map((s) => [s.lat, s.lng] as [number, number]);
+  }, [tour, tourCurrentIdx]);
+
+  const tourPolylineFuture = useMemo(() => {
+    if (!tour || tourCurrentIdx >= tour.stops.length - 1) return [];
+    return tour.stops.slice(tourCurrentIdx).map((s) => [s.lat, s.lng] as [number, number]);
+  }, [tour, tourCurrentIdx]);
 
   return (
     <>
-      {/* Floating Control Toolbar */}
-      <div className="absolute top-4 left-4 z-[999] flex flex-wrap items-center gap-2">
+      {/* Floating Control Toolbar (Responsive, không bị tràn viền ở 375px) */}
+      <div className="absolute top-3.5 left-3.5 z-[999] flex flex-wrap items-center gap-1.5 max-w-[calc(100%-1rem)] sm:max-w-none">
         <Button
           type="button"
           size="sm"
           onClick={handleResetCore}
-          className="bg-[#244B3B] hover:bg-[#173428] text-white text-xs font-semibold px-3 py-1.5 h-8 rounded-full shadow-lg shadow-black/25 gap-1.5 cursor-pointer"
+          className="bg-[#244B3B] hover:bg-[#173428] text-white text-xs font-semibold px-2.5 sm:px-3 py-1.5 h-8 rounded-full shadow-lg shadow-black/25 gap-1 cursor-pointer shrink-0"
         >
           <Compass className="w-3.5 h-3.5 text-[#D6AD72]" />
-          <span>Vùng Lõi Cố Đô</span>
+          <span className="hidden sm:inline">Vùng Lõi Cố Đô</span>
+          <span className="sm:hidden">Vùng Lõi</span>
         </Button>
 
         <Button
@@ -157,10 +202,11 @@ function MapController({
           size="sm"
           variant="outline"
           onClick={handleFitAll}
-          className="bg-white/95 hover:bg-white text-[#244B3B] border-[#DFD7C7] text-xs font-semibold px-3 py-1.5 h-8 rounded-full shadow-md gap-1.5 cursor-pointer"
+          className="bg-white/95 hover:bg-white text-[#244B3B] border-[#DFD7C7] text-xs font-semibold px-2.5 sm:px-3 py-1.5 h-8 rounded-full shadow-md gap-1 cursor-pointer shrink-0"
         >
           <Maximize2 className="w-3.5 h-3.5 text-[#D6AD72]" />
-          <span>Mở rộng: Ninh Bình mới</span>
+          <span className="hidden sm:inline">Mở rộng: Ninh Bình mới</span>
+          <span className="sm:hidden">Toàn cảnh</span>
         </Button>
 
         <Button
@@ -169,11 +215,11 @@ function MapController({
           variant="outline"
           onClick={handleLocateMe}
           disabled={isLocating}
-          className="bg-white/95 hover:bg-white text-[#244B3B] border-[#DFD7C7] text-xs font-semibold px-3 py-1.5 h-8 rounded-full shadow-md gap-1.5 cursor-pointer"
+          className="bg-white/95 hover:bg-white text-[#244B3B] border-[#DFD7C7] text-xs font-semibold px-2.5 sm:px-3 py-1.5 h-8 rounded-full shadow-md gap-1 cursor-pointer shrink-0"
           title="Định vị vị trí hiện tại của bạn"
         >
           <Crosshair className={`w-3.5 h-3.5 text-[#244B3B] ${isLocating ? "animate-spin" : ""}`} />
-          <span className="hidden sm:inline">Quanh Tôi</span>
+          <span className="text-xs">Quanh Tôi</span>
         </Button>
       </div>
 
@@ -192,18 +238,74 @@ function MapController({
         />
       )}
 
-      {/* Tour Polyline */}
-      {tourPolyline.length > 0 && (
-        <Polyline
-          positions={tourPolyline}
-          pathOptions={{
-            color: "#D6AD72",
-            weight: 4,
-            opacity: 0.85,
-            dashArray: "6, 8",
-          }}
-        />
+      {/* Tour Polyline 2 lớp: Nổi bật trên nền bản đồ OSM */}
+      {tourPolylinePassed.length > 1 && (
+        <>
+          {/* Lớp nền xanh rừng dày 7px */}
+          <Polyline
+            positions={tourPolylinePassed}
+            pathOptions={{
+              color: "#244B3B",
+              weight: 7,
+              opacity: 0.95,
+              lineCap: "round",
+              lineJoin: "round",
+            }}
+          />
+          {/* Lớp trên vàng champagne dày 4px */}
+          <Polyline
+            positions={tourPolylinePassed}
+            pathOptions={{
+              color: "#D6AD72",
+              weight: 4,
+              opacity: 1,
+              lineCap: "round",
+              lineJoin: "round",
+            }}
+          />
+        </>
       )}
+
+      {/* Tuyến tương lai nét đứt */}
+      {tourPolylineFuture.length > 1 && (
+        <>
+          <Polyline
+            positions={tourPolylineFuture}
+            pathOptions={{
+              color: "#244B3B",
+              weight: 5,
+              opacity: 0.5,
+              dashArray: "6, 8",
+            }}
+          />
+          <Polyline
+            positions={tourPolylineFuture}
+            pathOptions={{
+              color: "#D6AD72",
+              weight: 2.5,
+              opacity: 0.7,
+              dashArray: "6, 8",
+            }}
+          />
+        </>
+      )}
+
+      {/* Tour Stop Markers với số thứ tự, hiệu ứng nhịp và nhãn cố định */}
+      {tour &&
+        tour.stops.map((stop, sIdx) => {
+          let state: "current" | "passed" | "future" = "future";
+          if (sIdx === tourCurrentIdx) state = "current";
+          else if (sIdx < tourCurrentIdx) state = "passed";
+
+          return (
+            <Marker
+              key={`tour-stop-${stop.placeId}-${sIdx}`}
+              position={[stop.lat, stop.lng]}
+              icon={createTourPinIcon(sIdx, tour.stops.length, state, stop.title)}
+              zIndexOffset={state === "current" ? 2000 : 800}
+            />
+          );
+        })}
 
       {/* User Location Marker */}
       {userPos && (
@@ -241,6 +343,7 @@ function MapController({
           map={map}
           tourId={activeTourId}
           onClose={() => onCloseTour?.()}
+          onStopChange={(idx) => setTourCurrentIdx(idx)}
           onSelectPlace={(id) => {
             const found = places.find((p) => p.id === id);
             if (found) onSelectPlace(found);

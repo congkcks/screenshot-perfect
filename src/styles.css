@@ -402,3 +402,115 @@
   background: #7c3aed;
   border-color: #a78bfa;
 }
+
+/* ==========================================================================
+   Tour Pin Styles (Chuyến tham quan có hướng dẫn)
+   ========================================================================== */
+.nb-tour-pin-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nb-tour-pin {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 13px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  user-select: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+}
+
+.nb-tour-pin.is-current {
+  width: 40px;
+  height: 40px;
+  background: #d6ad72 !important;
+  color: #173428 !important;
+  border: 3px solid #244b3b !important;
+  font-size: 16px;
+  font-weight: 800;
+  box-shadow: 0 0 0 4px rgba(214, 173, 114, 0.4), 0 8px 24px rgba(0, 0, 0, 0.5);
+  z-index: 100 !important;
+}
+
+.nb-tour-pin.is-passed {
+  background: #769477;
+  color: #faf8f4;
+  border: 2px solid #ffffff;
+  opacity: 0.95;
+}
+
+.nb-tour-pin.is-future {
+  background: #244b3b;
+  color: #d6ad72;
+  border: 1.5px solid rgba(214, 173, 114, 0.6);
+  opacity: 0.5;
+}
+
+/* Vòng nhịp (pulse ring) cho ghim hiện tại */
+.nb-tour-pulse {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #d6ad72;
+  opacity: 0.8;
+  animation: nbTourPulse 2s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes nbTourPulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Nhãn cố định cho điểm dừng hiện tại */
+.nb-tour-label {
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(23, 52, 40, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid #d6ad72;
+  color: #faf8f4;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nb-tour-pulse {
+    display: none !important;
+    animation: none !important;
+  }
+  .nb-tour-pin {
+    transition: none !important;
+  }
+}
+

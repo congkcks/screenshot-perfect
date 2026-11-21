@@ -9,6 +9,7 @@
     "build:rag": "node --env-file-if-exists=.env scripts/build-index.mjs",
     "build:dev": "vite build --mode development",
     "check:places": "node --experimental-strip-types scripts/check-places.mjs",
+    "check:tour": "node scripts/check-tour-assets.mjs",
     "fetch:coords": "node --experimental-strip-types scripts/fetch-coords.mjs",
     "generate:narration": "node --experimental-strip-types --env-file-if-exists=.env scripts/make-narration.mjs",
     "preview": "vite preview",

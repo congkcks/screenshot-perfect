@@ -72,6 +72,19 @@ export function ChatWidget({
   const [showKeyModal, setShowKeyModal] = useState(false);
   const [tempKey, setTempKey] = useState("");
   const [keySavedNotice, setKeySavedNotice] = useState(false);
+  const [isTourActive, setIsTourActive] = useState(false);
+
+  // Lắng nghe trạng thái tham quan ảo (data-tour-active) để tự thu nhỏ nút nổi tránh đè bảng điều khiển
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const updateTourState = () => {
+      setIsTourActive(document.body.dataset.tourActive === "true");
+    };
+    updateTourState();
+    const observer = new MutationObserver(updateTourState);
+    observer.observe(document.body, { attributes: true, attributeFilter: ["data-tour-active"] });
+    return () => observer.disconnect();
+  }, []);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -264,12 +277,23 @@ export function ChatWidget({
     <>
       {/* Nút nổi (Floating Action Button) - Chỉ hiển thị khi không phải chế độ nhúng (embedded) */}
       {!embedded && (
-        <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end print:hidden">
+        <div
+          className={`fixed z-40 flex flex-col print:hidden transition-all duration-300 ${
+            isTourActive
+              ? "bottom-4 left-4 sm:bottom-6 sm:left-6 items-start"
+              : "bottom-5 right-5 items-end"
+          }`}
+        >
           {!isOpen && (
             <button
               onClick={() => setIsOpen(true)}
               aria-label="Mở Hướng dẫn viên Ninh Bình"
-              className="group relative flex items-center gap-2.5 rounded-full bg-[#D6AD72] px-4 py-3 text-[#244B3B] font-medium shadow-xl hover:bg-[#c99f60] transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-3 focus:ring-[#D6AD72]/50 border border-white/20"
+              title="Hướng dẫn viên Ninh Bình"
+              className={`group relative flex items-center rounded-full bg-[#D6AD72] text-[#244B3B] font-medium shadow-xl hover:bg-[#c99f60] transition-all duration-300 hover:scale-105 active:scale-95 focus:outline-none focus:ring-3 focus:ring-[#D6AD72]/50 border border-white/20 cursor-pointer ${
+                isTourActive
+                  ? "p-2.5 w-11 h-11 justify-center"
+                  : "px-4 py-3 gap-2.5"
+              }`}
             >
               <div className="relative">
                 <Compass className="h-5 w-5 animate-[spin_10s_linear_infinite]" />
@@ -278,9 +302,11 @@ export function ChatWidget({
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
               </div>
-              <span className="text-sm font-semibold tracking-wide">
-                Hướng dẫn viên Ninh Bình
-              </span>
+              {!isTourActive && (
+                <span className="text-sm font-semibold tracking-wide">
+                  Hướng dẫn viên Ninh Bình
+                </span>
+              )}
             </button>
           )}
         </div>

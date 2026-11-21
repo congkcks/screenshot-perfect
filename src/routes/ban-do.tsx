@@ -281,7 +281,7 @@ function MapPage() {
             className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-xs px-3 sm:px-4 h-8 rounded-full shadow-md gap-1.5 cursor-pointer hidden md:flex"
           >
             <Headphones className="w-3.5 h-3.5" />
-            <span>Tham Quan Ảo 360°</span>
+            <span>Tham Quan Ảo</span>
           </Button>
 
           {/* Mobile View Toggle */}
