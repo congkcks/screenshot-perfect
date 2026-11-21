@@ -399,12 +399,12 @@ function MapPage() {
               </div>
             </div>
 
-            {/* Region Filter */}
-            <div className="flex items-center gap-1.5 text-xs text-[#5A6D63]">
-              <span className="text-[10px] uppercase font-bold text-[#5A6D63]">Vùng:</span>
+            {/* Region Filter (Cuộn ngang êm ái trên màn hình nhỏ) */}
+            <div className="flex items-center gap-1.5 text-xs text-[#5A6D63] overflow-x-auto pb-0.5 scrollbar-none">
+              <span className="text-[10px] uppercase font-bold text-[#5A6D63] shrink-0">Vùng:</span>
               <button
                 onClick={() => setActiveRegion("all")}
-                className={`text-[11px] px-2 py-0.5 rounded-md cursor-pointer ${
+                className={`text-[11px] px-2.5 py-0.5 rounded-full whitespace-nowrap cursor-pointer transition-all ${
                   activeRegion === "all"
                     ? "bg-[#244B3B]/10 text-[#244B3B] font-bold"
                     : "hover:text-[#244B3B]"
@@ -416,7 +416,7 @@ function MapPage() {
                 <button
                   key={r.id}
                   onClick={() => setActiveRegion(r.id)}
-                  className={`text-[11px] px-2 py-0.5 rounded-md cursor-pointer ${
+                  className={`text-[11px] px-2.5 py-0.5 rounded-full whitespace-nowrap cursor-pointer transition-all ${
                     activeRegion === r.id
                       ? "bg-[#244B3B]/10 text-[#244B3B] font-bold"
                       : "hover:text-[#244B3B]"
@@ -433,18 +433,6 @@ function MapPage() {
             {/* If a place is selected, show detail card */}
             {selectedPlace && (
               <div className="mb-4">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#244B3B] flex items-center gap-1">
-                    <Sparkles className="w-3.5 h-3.5 text-[#D6AD72]" />
-                    Đang xem chi tiết
-                  </span>
-                  <button
-                    onClick={handleClosePlaceCard}
-                    className="text-xs text-[#5A6D63] hover:text-[#244B3B] font-medium cursor-pointer"
-                  >
-                    Đóng xem danh sách
-                  </button>
-                </div>
                 <PlaceCard
                   place={selectedPlace}
                   onClose={handleClosePlaceCard}
@@ -461,7 +449,6 @@ function MapPage() {
             <div className="space-y-2 pt-2">
               <div className="text-[10px] font-bold uppercase tracking-wider text-[#5A6D63] flex items-center justify-between">
                 <span>Danh sách kết quả ({filteredPlaces.length})</span>
-                {isDebug && <span className="text-amber-600 font-mono">DEBUG_MODE_ON</span>}
               </div>
 
               {filteredPlaces.length === 0 ? (

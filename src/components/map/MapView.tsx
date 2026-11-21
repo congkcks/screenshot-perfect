@@ -20,6 +20,8 @@ import { type Place, type Layer } from "@/data/places";
 import { TOURS } from "@/data/tours";
 import { TourPlayer } from "./TourPlayer";
 
+import { flyWithOffset } from "@/lib/flyWithOffset";
+
 const LAYER_ICONS: Record<Layer, string> = {
   "thien-nhien": "🌿",
   "tam-linh-lich-su": "🛕",
@@ -30,11 +32,11 @@ const LAYER_ICONS: Record<Layer, string> = {
 };
 
 // Tạo divIcon HTML + CSS sang trọng, không phụ thuộc ảnh gốc Leaflet (tránh 404 trên Vite)
-function createPinIcon(layer: Layer, active = false, debug = false, name = "") {
+function createPinIcon(layer: Layer, active = false, name = "") {
   const icon = LAYER_ICONS[layer] || "📍";
   const activeClass = active ? "is-active" : "";
-  const debugHtml = debug
-    ? `<div style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,0.85); color: #FFFFFF; font-size: 9px; font-family: monospace; white-space: nowrap; pointer-events: none; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">${name}</div>`
+  const activeLabelHtml = active
+    ? `<div style="position: absolute; bottom: calc(100% + 6px); left: 50%; transform: translateX(-50%); padding: 4px 10px; border-radius: 9999px; background: rgba(23, 52, 40, 0.95); backdrop-filter: blur(8px); border: 1.5px solid #D6AD72; color: #FAF8F4; font-size: 11px; font-weight: 700; white-space: nowrap; pointer-events: none; z-index: 1000; box-shadow: 0 4px 14px rgba(0,0,0,0.45);">${name}</div>`
     : "";
 
   return L.divIcon({
@@ -42,7 +44,7 @@ function createPinIcon(layer: Layer, active = false, debug = false, name = "") {
     html: `
       <div style="position: relative; display: flex; align-items: center; justify-content: center;">
         <span class="nb-pin__dot ${activeClass}" data-layer="${layer}">${icon}</span>
-        ${debugHtml}
+        ${activeLabelHtml}
       </div>
     `,
     iconSize: [36, 36],
@@ -120,10 +122,22 @@ function MapController({
   const [userPos, setUserPos] = useState<[number, number] | null>(null);
   const [isLocating, setIsLocating] = useState(false);
 
-  // Pan to selected place
+  // Đảm bảo Leaflet tính toán chuẩn kích thước viewport, tránh màn hình trắng hoặc thiếu tile khi chuyển tab/tải lại
+  useEffect(() => {
+    if (!map) return;
+    map.invalidateSize();
+    const timer = setTimeout(() => {
+      map.invalidateSize();
+    }, 250);
+    return () => clearTimeout(timer);
+  }, [map]);
+
+  // Pan to selected place với bù trừ lệch tâm trên điện thoại để không bị bottom sheet che khuất
   useEffect(() => {
     if (!map || !selectedPlace) return;
-    map.flyTo([selectedPlace.lat, selectedPlace.lng], Math.max(map.getZoom(), 13), {
+    const isDesktop = typeof window !== "undefined" && window.innerWidth >= 1024;
+    const offset = isDesktop ? { x: 0, y: 0 } : { x: 0, y: 110 };
+    flyWithOffset(map, [selectedPlace.lat, selectedPlace.lng], Math.max(map.getZoom(), 14), offset, {
       duration: 1.2,
     });
   }, [map, selectedPlace]);
@@ -319,7 +333,7 @@ function MapController({
       {/* Markers for all places */}
       {places.map((place) => {
         const isSelected = selectedPlace?.id === place.id;
-        const icon = createPinIcon(place.layer, isSelected, debug, place.name);
+        const icon = createPinIcon(place.layer, isSelected, place.name);
 
         return (
           <Marker
@@ -329,7 +343,7 @@ function MapController({
             title={place.name}
             alt={place.name}
             keyboard
-            zIndexOffset={isSelected ? 1000 : 1}
+            zIndexOffset={isSelected ? 1500 : 1}
             eventHandlers={{
               click: () => onSelectPlace(place),
             }}

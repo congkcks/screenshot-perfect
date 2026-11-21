@@ -119,6 +119,34 @@ describe("Map Page & Virtual Tour Architecture Tests", () => {
       const roleImg = container.querySelector('[role="img"]');
       expect(roleImg).toHaveAttribute("aria-label", "Thử nghiệm ảnh lỗi");
     });
+
+    it("verifies PlaceCard renders banner, title, description and fallback cleanly", async () => {
+      const { render, screen, fireEvent } = await import("@testing-library/react");
+      const { PlaceCard } = await import("@/components/map/PlaceCard");
+
+      const testPlace = places.find((p) => p.id === "trang-an")!;
+      const onCloseMock = vi.fn();
+      const onSelectMock = vi.fn();
+
+      const { container } = render(
+        <PlaceCard
+          place={testPlace}
+          onClose={onCloseMock}
+          onSelectPlace={onSelectMock}
+        />
+      );
+
+      // Tên địa danh hiển thị rõ ràng
+      expect(screen.getByText("Quần thể danh thắng Tràng An")).toBeInTheDocument();
+      // Tagline hiển thị
+      expect(screen.getByText(new RegExp(testPlace.tagline, "i"))).toBeInTheDocument();
+      // SVG Fallback nền có sẵn
+      expect(container.querySelector("svg")).toBeInTheDocument();
+      // Nút đóng hoạt động
+      const closeBtn = screen.getByLabelText("Đóng thẻ thông tin địa danh");
+      fireEvent.click(closeBtn);
+      expect(onCloseMock).toHaveBeenCalledTimes(1);
+    });
   });
 
   describe("3. MapFallback Component", () => {

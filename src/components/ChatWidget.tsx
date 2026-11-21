@@ -342,19 +342,6 @@ export function ChatWidget({
 
             <div className="flex items-center gap-1">
               <button
-                onClick={() => setShowKeyModal(!showKeyModal)}
-                title="Cài đặt khóa API demo"
-                aria-label="Cài đặt khóa API demo"
-                className={`rounded-lg p-1.5 transition-colors focus:outline-none focus:ring-2 focus:ring-[#D6AD72] ${
-                  isDemoConfigured()
-                    ? "text-[#D6AD72] hover:bg-white/10"
-                    : "text-white/60 hover:text-white hover:bg-white/10"
-                }`}
-              >
-                <Key className="h-4 w-4" />
-              </button>
-
-              <button
                 onClick={handleClearChat}
                 title="Làm mới cuộc trò chuyện"
                 aria-label="Làm mới cuộc trò chuyện"
@@ -375,49 +362,6 @@ export function ChatWidget({
               )}
             </div>
           </div>
-
-          {/* Panel nhập Key Demo tạm thời trong trình duyệt */}
-          {showKeyModal && (
-            <div className="p-3 bg-[#173428] border-b border-[#D6AD72]/30 text-white text-xs space-y-2 animate-in fade-in duration-150">
-              <div className="flex items-center justify-between">
-                <span className="font-semibold text-[#D6AD72] flex items-center gap-1.5">
-                  <Key className="w-3.5 h-3.5" /> Khóa API Demo (ShopAIKey)
-                </span>
-                <button
-                  onClick={() => setShowKeyModal(false)}
-                  className="text-white/60 hover:text-white"
-                >
-                  <X className="w-3.5 h-3.5" />
-                </button>
-              </div>
-              <p className="text-[11px] text-white/70">
-                Key chỉ lưu tạm trong phiên duyệt web (sessionStorage) để bạn demo, không lưu lên server hay GitHub.
-              </p>
-              <div className="flex items-center gap-1.5">
-                <input
-                  type="password"
-                  value={tempKey}
-                  onChange={(e) => setTempKey(e.target.value)}
-                  placeholder="Dán key sk-... vào đây"
-                  className="flex-1 bg-black/30 border border-white/20 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-white/40 focus:outline-none focus:border-[#D6AD72]"
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    saveClientDemoKey(tempKey);
-                    setKeySavedNotice(true);
-                    setTimeout(() => {
-                      setKeySavedNotice(false);
-                      setShowKeyModal(false);
-                    }, 1200);
-                  }}
-                  className="px-3 py-1.5 bg-[#D6AD72] text-[#244B3B] font-bold rounded-lg hover:bg-[#e7c99b] transition-colors shrink-0"
-                >
-                  {keySavedNotice ? "Đã lưu!" : "Lưu key"}
-                </button>
-              </div>
-            </div>
-          )}
 
           {/* Vùng tin nhắn */}
           <div
