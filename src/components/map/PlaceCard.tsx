@@ -1,8 +1,9 @@
-import { useMemo } from "react";
+import { useState, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import {
   Compass,
   ExternalLink,
+  Eye,
   Headphones,
   Heart,
   HelpCircle,
@@ -16,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { places, type Place } from "@/data/places";
 import { useFavorites } from "@/hooks/useFavorites";
-import { StreetViewPanel } from "./StreetViewPanel";
+import { directionsUrl, streetViewUrl, searchUrl } from "@/lib/mapLinks";
 import { SeasonSlider } from "./SeasonSlider";
 
 // Haversine formula
@@ -51,6 +52,8 @@ export function PlaceCard({
 }: PlaceCardProps) {
   const { isSaved, toggleSave } = useFavorites();
   const saved = isSaved(place.id);
+  const [osmFoodLoading, setOsmFoodLoading] = useState(false);
+  const [osmFoodList, setOsmFoodList] = useState<{ id: number; name: string }[] | null>(null);
 
   // Tìm các điểm lân cận trong bán kính 10 km
   const nearbyPlaces = useMemo(() => {
@@ -65,9 +68,33 @@ export function PlaceCard({
       .slice(0, 4);
   }, [place]);
 
-  const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    place.mapQuery
-  )}`;
+  const dirUrl = directionsUrl(place.lat, place.lng);
+  const svUrl = streetViewUrl(place.lat, place.lng);
+  const foodSearchUrl = searchUrl(place.mapQuery);
+
+  // Tùy chọn tra cứu quán ăn OSM qua Overpass API
+  const handleFetchOsmFood = async () => {
+    if (osmFoodList) return;
+    setOsmFoodLoading(true);
+    try {
+      const qry = `[out:json][timeout:10];(node["amenity"~"restaurant|cafe"](around:3000,${place.lat},${place.lng}););out 5;`;
+      const res = await fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(qry)}`);
+      if (res.ok) {
+        const data = await res.json();
+        const items = (data.elements || [])
+          .filter((el: { tags?: { name?: string } }) => el.tags?.name)
+          .map((el: { id: number; tags: { name: string } }) => ({ id: el.id, name: el.tags.name }))
+          .slice(0, 4);
+        setOsmFoodList(items);
+      } else {
+        setOsmFoodList([]);
+      }
+    } catch {
+      setOsmFoodList([]);
+    } finally {
+      setOsmFoodLoading(false);
+    }
+  };
 
   return (
     <div className="bg-white rounded-3xl border border-[#DFD7C7] shadow-xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 flex flex-col max-h-[82vh] overflow-y-auto">
@@ -195,10 +222,27 @@ export function PlaceCard({
 
         {/* Primary Action Buttons */}
         <div className="space-y-2 pt-1">
-          {/* Street View if covered */}
           <div className="flex flex-wrap items-center gap-2">
-            <StreetViewPanel lat={place.lat} lng={place.lng} placeName={place.name} />
+            {/* Street View Link button */}
+            <Button
+              asChild
+              type="button"
+              size="sm"
+              variant="outline"
+              className="border-[#D6AD72] text-[#244B3B] hover:bg-[#D6AD72]/15 text-xs gap-1.5 rounded-xl font-medium cursor-pointer"
+            >
+              <a
+                href={svUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Mở Street View thực tế trên Google Maps (nếu khu vực có dữ liệu)"
+              >
+                <Eye className="w-3.5 h-3.5 text-[#D6AD72]" />
+                Thử xem Street View ↗
+              </a>
+            </Button>
 
+            {/* Tour Button */}
             {place.tourStops && place.tourStops.length > 0 && onStartTour && (
               <Button
                 type="button"
@@ -220,7 +264,7 @@ export function PlaceCard({
                 size="sm"
                 className="w-full bg-[#DC2626] hover:bg-[#B91C1C] text-white text-xs font-semibold gap-1.5 rounded-xl shadow-sm cursor-pointer col-span-2"
               >
-                <a href={gmapsUrl} target="_blank" rel="noopener noreferrer">
+                <a href={foodSearchUrl} target="_blank" rel="noopener noreferrer">
                   <UtensilsCrossed className="w-3.5 h-3.5" />
                   Tìm Quán Gần Đây (Google Maps)
                   <ExternalLink className="w-3 h-3 ml-auto opacity-70" />
@@ -232,7 +276,7 @@ export function PlaceCard({
                 size="sm"
                 className="w-full bg-[#244B3B] hover:bg-[#173428] text-white text-xs font-semibold gap-1.5 rounded-xl shadow-sm cursor-pointer"
               >
-                <a href={gmapsUrl} target="_blank" rel="noopener noreferrer">
+                <a href={dirUrl} target="_blank" rel="noopener noreferrer">
                   <Navigation className="w-3.5 h-3.5 text-[#D6AD72]" />
                   Chỉ Đường
                   <ExternalLink className="w-3 h-3 ml-auto opacity-70" />
@@ -256,20 +300,6 @@ export function PlaceCard({
               {saved ? "Đã Lưu" : "Yêu Thích"}
             </Button>
 
-            {/* Detail Modal button */}
-            {place.slug && onOpenDetailModal && (
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                onClick={() => onOpenDetailModal(place.slug!)}
-                className="w-full border-[#244B3B]/40 text-[#244B3B] hover:bg-[#244B3B]/10 text-xs font-semibold rounded-xl cursor-pointer"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-[#D6AD72]" />
-                Xem Chi Tiết
-              </Button>
-            )}
-
             {/* AI Guide Link */}
             <Button
               asChild
@@ -284,6 +314,41 @@ export function PlaceCard({
             </Button>
           </div>
         </div>
+
+        {/* Optional OpenStreetMap food query */}
+        {place.layer === "am-thuc" && (
+          <div className="pt-2 border-t border-[#DFD7C7]/50">
+            <button
+              onClick={handleFetchOsmFood}
+              disabled={osmFoodLoading}
+              className="text-[11px] text-[#244B3B] font-semibold underline flex items-center gap-1 cursor-pointer"
+            >
+              <UtensilsCrossed className="w-3 h-3 text-[#DC2626]" />
+              {osmFoodLoading ? "Đang tra cứu từ OpenStreetMap..." : "Tra cứu quán vẽ trên bản đồ OpenStreetMap"}
+            </button>
+
+            {osmFoodList && osmFoodList.length > 0 && (
+              <div className="mt-2 p-2.5 rounded-xl bg-[#FAF8F4] border border-[#DFD7C7] text-xs space-y-1">
+                <div className="font-bold text-[10px] text-[#5A6D63]">
+                  Quán ghi nhận trên OpenStreetMap (bán kính 3 km):
+                </div>
+                {osmFoodList.map((item) => (
+                  <div key={item.id} className="text-[#1A3429] flex items-center gap-1">
+                    <span>• {item.name}</span>
+                  </div>
+                ))}
+                <div className="text-[9px] text-[#5A6D63] italic pt-1 border-t border-[#DFD7C7]/40">
+                  Dữ liệu © OpenStreetMap contributors (có thể chưa đầy đủ so với thực tế).
+                </div>
+              </div>
+            )}
+            {osmFoodList && osmFoodList.length === 0 && (
+              <div className="text-[10px] text-[#5A6D63] italic mt-1">
+                Chưa có quán nào được cộng đồng đánh dấu tại tọa độ này trên OSM. Vui lòng bấm &ldquo;Tìm Quán Gần Đây&rdquo; phía trên để xem kết quả đầy đủ từ Google.
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Nearby Places within 10km */}
         {nearbyPlaces.length > 0 && (

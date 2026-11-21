@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import type { Map as LeafletMap } from "leaflet";
 import {
   ChevronLeft,
   ChevronRight,
@@ -17,57 +18,8 @@ import { TOURS, type Tour, type TourStop } from "@/data/tours";
 import { useAmbience } from "@/hooks/useAmbience";
 import { addTourStamp } from "./PassportStampDrawer";
 
-// Camera flight interpolation with easing
-export function flyTo(
-  map: google.maps.Map,
-  to: google.maps.LatLngLiteral,
-  targetZoom: number,
-  durationMs = 1800
-) {
-  if (typeof window === "undefined") return;
-
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (prefersReducedMotion) {
-    map.moveCamera({ center: to, zoom: targetZoom });
-    return;
-  }
-
-  const center = map.getCenter();
-  if (!center) {
-    map.moveCamera({ center: to, zoom: targetZoom });
-    return;
-  }
-
-  const from = center.toJSON();
-  const z0 = map.getZoom() ?? 12;
-  const t0 = performance.now();
-
-  const ease = (t: number) =>
-    t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
-
-  const step = (now: number) => {
-    const elapsed = now - t0;
-    const progress = Math.min(1, elapsed / durationMs);
-    const k = ease(progress);
-
-    map.moveCamera({
-      center: {
-        lat: from.lat + (to.lat - from.lat) * k,
-        lng: from.lng + (to.lng - from.lng) * k,
-      },
-      zoom: z0 + (targetZoom - z0) * k,
-    });
-
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    }
-  };
-
-  requestAnimationFrame(step);
-}
-
 interface TourPlayerProps {
-  map: google.maps.Map | null;
+  map: LeafletMap | null;
   tourId?: string;
   onClose: () => void;
   onSelectPlace?: (placeId: string) => void;
@@ -86,9 +38,8 @@ export function TourPlayer({
   const [dwellProgress, setDwellProgress] = useState(0);
   const [isSpeechEnabled, setIsSpeechEnabled] = useState(true);
 
-  const { play: playAmbience, setTheme } = useAmbience();
+  const { setTheme } = useAmbience();
   const currentStop = tour.stops[currentIdx]!;
-  const polylineRef = useRef<google.maps.Polyline | null>(null);
 
   // Typewriter effect
   useEffect(() => {
@@ -104,7 +55,7 @@ export function TourPlayer({
     return () => clearInterval(interval);
   }, [currentStop]);
 
-  // Read narration via speech synthesis or audio
+  // Read narration via browser Speech Synthesis
   const speakCurrentStop = useCallback(() => {
     if (!isSpeechEnabled || typeof window === "undefined") return;
 
@@ -120,51 +71,37 @@ export function TourPlayer({
     }
   }, [currentStop, isSpeechEnabled]);
 
-  // Handle stop transition
+  // Handle stop transition & Leaflet flyTo
   useEffect(() => {
     if (!map) return;
 
-    // Fly camera to stop
-    flyTo(
-      map,
-      { lat: currentStop.lat, lng: currentStop.lng },
-      currentStop.zoom,
-      1800
-    );
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Update ambient sound theme
+    // Di chuyển camera Leaflet
+    if (prefersReducedMotion) {
+      map.setView([currentStop.lat, currentStop.lng], currentStop.zoom, { animate: false });
+    } else {
+      map.flyTo([currentStop.lat, currentStop.lng], currentStop.zoom, { duration: 1.8 });
+    }
+
+    // Cập nhật âm thanh môi trường
     if (currentStop.ambience) {
       setTheme(currentStop.ambience);
     }
 
-    // Voice narration
+    // Thuyết minh giọng nói
     speakCurrentStop();
 
-    // Award passport stamp
+    // Tặng tem hộ chiếu du lịch
     addTourStamp(currentStop.placeId);
 
-    // Notify parent
+    // Báo cho component cha biết
     onSelectPlace?.(currentStop.placeId);
+  }, [currentIdx, currentStop, map, speakCurrentStop, onSelectPlace, setTheme]);
 
-    // Update Polyline
-    if (window.google?.maps?.Polyline) {
-      if (!polylineRef.current) {
-        polylineRef.current = new google.maps.Polyline({
-          map,
-          path: [],
-          strokeColor: "#D6AD72",
-          strokeWeight: 4,
-          strokeOpacity: 0.85,
-        });
-      }
-      const traveledStops = tour.stops
-        .slice(0, currentIdx + 1)
-        .map((s) => ({ lat: s.lat, lng: s.lng }));
-      polylineRef.current.setPath(traveledStops);
-    }
-  }, [currentIdx, currentStop, map, speakCurrentStop, tour.stops, onSelectPlace, setTheme]);
-
-  // Auto advancement timer
+  // Bộ đếm thời gian tự động chuyển điểm
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -190,20 +127,16 @@ export function TourPlayer({
     return () => clearInterval(timer);
   }, [isPlaying, currentIdx, currentStop, tour.stops.length]);
 
-  // Cleanup polyline and speech when unmounted
+  // Dọn dẹp giọng nói khi unmount
   useEffect(() => {
     return () => {
-      if (polylineRef.current) {
-        polylineRef.current.setMap(null);
-        polylineRef.current = null;
-      }
       if (typeof window !== "undefined" && "speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
     };
   }, []);
 
-  // Keyboard navigation
+  // Phím tắt điều hướng (←, →, Space, Esc)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -243,7 +176,7 @@ export function TourPlayer({
   };
 
   return (
-    <div className="absolute top-4 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-40 bg-[#173428]/95 backdrop-blur-xl border border-[#D6AD72]/40 rounded-3xl p-4 sm:p-5 text-white shadow-2xl animate-in slide-in-from-top-4 duration-300">
+    <div className="absolute top-4 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-[1000] bg-[#173428]/95 backdrop-blur-xl border border-[#D6AD72]/40 rounded-3xl p-4 sm:p-5 text-white shadow-2xl animate-in slide-in-from-top-4 duration-300">
       {/* Top Bar */}
       <div className="flex items-center justify-between pb-3 border-b border-white/10">
         <div className="flex items-center gap-2">
@@ -252,7 +185,7 @@ export function TourPlayer({
           </span>
           <div>
             <div className="text-[10px] uppercase font-bold tracking-widest text-[#D6AD72]">
-              Tham Quan Ảo 360°
+              Tham Quan Ảo 360° (Leaflet + OSM)
             </div>
             <div className="text-xs font-semibold text-white/90 truncate max-w-[190px]">
               {tour.title}

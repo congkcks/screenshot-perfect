@@ -1,0 +1,642 @@
+[
+  {
+    "id": "trang-an",
+    "name": "Quần thể danh thắng Tràng An",
+    "lat": 20.2562,
+    "lng": 105.9038,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Di sản Văn hóa & Thiên nhiên Thế giới UNESCO — Thuyền nan xuyên hang ngọc bích"
+  },
+  {
+    "id": "tam-coc",
+    "name": "Tam Cốc (Bến thuyền sông Ngô Đồng)",
+    "lat": 20.2198,
+    "lng": 105.9392,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Vịnh Hạ Long trên cạn — Dòng sông lúa vàng óng ả qua ba hang nước tự nhiên"
+  },
+  {
+    "id": "hang-mua",
+    "name": "Hang Múa & Đỉnh Ngọa Long Sơn",
+    "lat": 20.2312,
+    "lng": 105.9419,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Chinh phục 486 bậc đá lên đỉnh rồng ngắm trọn vẹn thung lũng Tam Cốc 360°"
+  },
+  {
+    "id": "thung-nham",
+    "name": "Vườn chim Thung Nham",
+    "lat": 20.1986,
+    "lng": 105.9228,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Thánh địa sinh thái với hàng vạn cánh cò, hạc bay về tổ lúc hoàng hôn"
+  },
+  {
+    "id": "thung-nang",
+    "name": "Thung Nắng",
+    "lat": 20.2115,
+    "lng": 105.952,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Thung lũng hoang sơ đón ánh nắng vàng óng ả phản chiếu mặt nước êm đềm"
+  },
+  {
+    "id": "linh-coc-hai-nham",
+    "name": "Linh Cốc – Hải Nham",
+    "lat": 20.1975,
+    "lng": 105.932,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Động tiên thanh tịnh nép mình bên dãy núi đá vôi phía sau Tam Cốc"
+  },
+  {
+    "id": "van-long",
+    "name": "Khu bảo tồn ngập nước Vân Long",
+    "lat": 20.3547,
+    "lng": 105.8654,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Vịnh không sóng — Vương quốc voọc mông trắng quý hiếm trên vách đá Mèo Cào"
+  },
+  {
+    "id": "kenh-ga",
+    "name": "Suối khoáng nóng Kênh Gà",
+    "lat": 20.3571,
+    "lng": 105.8087,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Dòng suối nước ấm 53°C giàu khoáng chất giữa làng nổi ven sông Hoàng Long"
+  },
+  {
+    "id": "cuc-phuong",
+    "name": "Vườn quốc gia Cúc Phương",
+    "lat": 20.3167,
+    "lng": 105.6083,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Vườn quốc gia đầu tiên của Việt Nam — Rừng mưa nhiệt đới cổ thụ nghìn năm tuổi"
+  },
+  {
+    "id": "dong-thien-ha",
+    "name": "Động Thiên Hà",
+    "lat": 20.2281,
+    "lng": 105.8824,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Dải ngân hà lấp lánh trong lòng núi đá vôi vùng đệm Tràng An"
+  },
+  {
+    "id": "dong-van-trinh",
+    "name": "Động Vân Trình",
+    "lat": 20.3512,
+    "lng": 105.7954,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Hang động nhũ đá đồ sộ hàng đầu Ninh Bình bên tả ngạn sông Hoàng Long"
+  },
+  {
+    "id": "ho-yen-quang",
+    "name": "Hồ Yên Quang (Hồ Thác Hàn)",
+    "lat": 20.3021,
+    "lng": 105.6548,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Hồ nước ngọt vùng đệm Cúc Phương bình yên bên chân thác nước mát lạnh"
+  },
+  {
+    "id": "ho-yen-thang",
+    "name": "Hồ Yên Thắng",
+    "lat": 20.1835,
+    "lng": 105.9351,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Mặt hồ phẳng lặng uốn lượn bên sân golf Hoàng Gia 54 lỗ đẳng cấp"
+  },
+  {
+    "id": "ho-dong-thai",
+    "name": "Hồ Đồng Thái",
+    "lat": 20.1265,
+    "lng": 105.9621,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Hồ nước bán sơn địa rộng 380 ha uốn lượn quanh các bán đảo rợp bóng cây"
+  },
+  {
+    "id": "dong-ma-tien",
+    "name": "Động Mã Tiên",
+    "lat": 20.1652,
+    "lng": 105.9125,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Hang động trên núi Ngọc cao, lưu dấu tích đàn ngựa ngọc của tiên giáng trần"
+  },
+  {
+    "id": "doi-dua-dong-giao",
+    "name": "Đồi dứa Đồng Giao (Nông trường Tam Điệp)",
+    "lat": 20.1485,
+    "lng": 105.892,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Cánh đồng dứa xanh bạt ngàn trải tít tắp, góc chụp ảnh ngoại cảnh tuyệt đẹp"
+  },
+  {
+    "id": "bai-ngang-con-noi",
+    "name": "Bãi Ngang – Cồn Nổi Kim Sơn",
+    "lat": 19.9124,
+    "lng": 106.052,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Khu dự trữ sinh quyển châu thổ sông Hồng nơi cửa biển vươn mình đón sóng vỗ"
+  },
+  {
+    "id": "vqg-xuan-thuy",
+    "name": "Vườn quốc gia Xuân Thủy",
+    "lat": 20.245,
+    "lng": 106.518,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Khu Ramsar đầu tiên của Đông Nam Á — Ga đỗ của hàng trăm ngàn loài chim di trú"
+  },
+  {
+    "id": "nui-ky-lan",
+    "name": "Núi Kỳ Lân",
+    "lat": 20.2575,
+    "lng": 105.9754,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Hòn non bộ khổng lồ trấn ngự cửa ngõ phía tây thành phố Ninh Bình"
+  },
+  {
+    "id": "nui-non-nuoc",
+    "name": "Núi Non Nước (Dục Thúy Sơn)",
+    "lat": 20.2605,
+    "lng": 105.9862,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Ngọn núi thi ca ngã ba sông Đáy và sông Vân, lưu giữ hơn 40 bài thơ khắc đá cổ"
+  },
+  {
+    "id": "bai-dinh",
+    "name": "Quần thể Chùa Bái Đính mới",
+    "lat": 20.2683,
+    "lng": 105.8572,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Trung tâm Phật giáo giữ kỷ lục tượng Phật dát vàng và hành lang 500 vị La Hán"
+  },
+  {
+    "id": "bai-dinh-co",
+    "name": "Chùa Bái Đính Cổ",
+    "lat": 20.2708,
+    "lng": 105.8502,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Cổ tự ngàn năm của Thiền sư Nguyễn Minh Không trên đỉnh núi Đính tĩnh lặng"
+  },
+  {
+    "id": "hoa-lu",
+    "name": "Cố đô Hoa Lư (Đền vua Đinh & Đền vua Lê)",
+    "lat": 20.2833,
+    "lng": 105.9042,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Kinh đô đầu tiên của nhà nước phong kiến trung ương tập quyền Đại Cồ Việt thế kỷ X"
+  },
+  {
+    "id": "tuyet-tinh-coc",
+    "name": "Tuyệt Tình Cốc (Động Am Tiên)",
+    "lat": 20.2797,
+    "lng": 105.9189,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Thung lũng đá khép kín ôm trọn hồ nước xanh ngọc bích và chùa Am Tiên cổ kính"
+  },
+  {
+    "id": "chua-duyen-ninh",
+    "name": "Chùa Duyên Ninh (Chùa Cầu Duyên)",
+    "lat": 20.2755,
+    "lng": 105.8895,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Ngôi chùa cầu duyên đệ nhất cố đô khởi dựng từ thời vua Đinh Tiên Hoàng"
+  },
+  {
+    "id": "chua-bich-dong",
+    "name": "Chùa Bích Động (Nam thiên đệ nhị động)",
+    "lat": 20.2185,
+    "lng": 105.9182,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Cổ tự ba tầng nép mình trong vách núi rêu phong bên đầm sen ngát hương"
+  },
+  {
+    "id": "den-thai-vi",
+    "name": "Đền Thái Vi (Hành cung Vũ Lâm)",
+    "lat": 20.2248,
+    "lng": 105.9312,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Ngôi đền đá xanh nguyên khối thờ các vị vua anh minh thời đầu nhà Trần"
+  },
+  {
+    "id": "chua-vang",
+    "name": "Chùa Vàng hồ Kỳ Lân",
+    "lat": 20.2582,
+    "lng": 105.9745,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Ngôi chùa nổi bằng gỗ lim son thiếp lấp lánh giữa mặt nước hồ Kỳ Lân thơ mộng"
+  },
+  {
+    "id": "quang-truong-dinh-tien-hoang",
+    "name": "Quảng trường Đinh Tiên Hoàng Đế",
+    "lat": 20.252,
+    "lng": 105.9785,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Quảng trường trung tâm với tượng đài Hoàng đế Đinh Tiên Hoàng đúc đồng nặng 100 tấn"
+  },
+  {
+    "id": "phong-tuyen-tam-diep",
+    "name": "Phòng tuyến Tam Điệp – Biện Sơn",
+    "lat": 20.1585,
+    "lng": 105.8742,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Căn cứ địa chiến lược của nghĩa quân Tây Sơn Nguyễn Huệ trước đại phá quân Thanh"
+  },
+  {
+    "id": "den-dau",
+    "name": "Đền Dâu Tam Điệp",
+    "lat": 20.1472,
+    "lng": 105.8795,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Cổ tự linh thiêng thờ Liễu Hạnh Công chúa bên chân đèo Tam Điệp huyền thoại"
+  },
+  {
+    "id": "chua-dau",
+    "name": "Chùa Dầu Yên Khánh",
+    "lat": 20.1762,
+    "lng": 105.985,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Ngôi chùa cổ thời Lý bảo lưu cây tháp đất nung độc nhất vô nhị vùng đồng bằng"
+  },
+  {
+    "id": "phat-diem",
+    "name": "Nhà thờ đá Phát Diệm",
+    "lat": 20.0928,
+    "lng": 106.0792,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Kiệt tác giao thoa độc nhất vô nhị giữa kiến trúc đình chùa Á Đông và thánh đường Công giáo"
+  },
+  {
+    "id": "cau-ngoi-kim-son",
+    "name": "Cầu ngói Phát Diệm (Kim Sơn)",
+    "lat": 20.0935,
+    "lng": 106.0825,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Cây cầu ngói cổ 'thượng gia hạ kiều' duyên dáng bắc qua dòng sông Ân lịch sử"
+  },
+  {
+    "id": "chua-dong-dac",
+    "name": "Chùa Đồng Đắc",
+    "lat": 20.0882,
+    "lng": 106.0754,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Cổ tự thanh tịnh lưu giữ dấu ấn khai hoang lấn biển của Doanh điền sứ Nguyễn Công Trứ"
+  },
+  {
+    "id": "chua-tam-chuc",
+    "name": "Quần thể Chùa Tam Chúc",
+    "lat": 20.5732,
+    "lng": 105.845,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Ngôi chùa tựa lưng vào dãy Thất Tinh, mặt hướng hồ Lục Nhạc rộng 600 ha kỳ vĩ"
+  },
+  {
+    "id": "phu-day",
+    "name": "Quần thể Di tích Phủ Dầy",
+    "lat": 20.3925,
+    "lng": 106.0965,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Trung tâm tín ngưỡng thờ Mẫu Tam phủ tôn vinh Thánh Mẫu Liễu Hạnh đệ nhất Thần nữ"
+  },
+  {
+    "id": "den-tran",
+    "name": "Khu di tích Đền Trần Nam Định",
+    "lat": 20.4448,
+    "lng": 106.1685,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Nơi phát tích vương triều Trần rực rỡ chiến công ba lần đại thắng Nguyên Mông"
+  },
+  {
+    "id": "pho-di-bo-ninh-binh",
+    "name": "Phố cổ Hoa Lư & Phố đi bộ Kỳ Lân",
+    "lat": 20.2572,
+    "lng": 105.9748,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Không gian tái hiện kiến trúc Đại Cồ Việt rực rỡ ánh đèn hoa đăng về đêm"
+  },
+  {
+    "id": "ho-dong-chuong",
+    "name": "Khu du lịch sinh thái Hồ Đồng Chương",
+    "lat": 20.2753,
+    "lng": 105.7335,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "'Đà Lạt thu nhỏ' giữa Nho Quan với đồi thông soi bóng mặt hồ xanh trong"
+  },
+  {
+    "id": "theu-ren-van-lam",
+    "name": "Làng thêu ren truyền thống Văn Lâm",
+    "lat": 20.2205,
+    "lng": 105.9385,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Làng nghề thêu ren hơn 800 năm tuổi gắn liền với bến đò Tam Cốc lịch sử"
+  },
+  {
+    "id": "da-my-nghe-ninh-van",
+    "name": "Làng đá mỹ nghệ Ninh Vân",
+    "lat": 20.2155,
+    "lng": 105.962,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Thủ phủ chế tác đá xanh truyền thống nổi tiếng cả nước với những tác phẩm trường tồn"
+  },
+  {
+    "id": "nem-chua-yen-mac",
+    "name": "Làng nghề nem chua Yên Mạc",
+    "lat": 20.1345,
+    "lng": 106.022,
+    "coordStatus": "verified",
+    "coordSource": "wikidata",
+    "verified": true,
+    "tagline": "Đặc sản tiến vua lưu giữ bí quyết chế biến nem chua thái tay cuộn lá ổi"
+  },
+  {
+    "id": "mon-de-nui",
+    "name": "Dê núi chạy bộ (Tái chanh, xào lăn, nướng tảng)",
+    "lat": 20.245,
+    "lng": 105.925,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Thịt dê núi đá vôi ăn lá thảo mộc săn chắc, ngọt mềm chấm tương bần truyền thống"
+  },
+  {
+    "id": "mon-com-chay",
+    "name": "Cơm cháy Ninh Bình (Sốt tim cật & chà bông)",
+    "lat": 20.261,
+    "lng": 105.882,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Hạt gạo nếp hương chiên giòn tan ngập trong nước sốt dê đậm đà nóng hổi"
+  },
+  {
+    "id": "mon-ca-chuoi-nuong",
+    "name": "Cá chuối nướng rơm đầm nước",
+    "lat": 20.238,
+    "lng": 105.928,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Cá chuối bắt từ các khe đầm ngập nước vùi rơm nếp nướng thơm nức mũi"
+  },
+  {
+    "id": "mon-bun-moc-kim-son",
+    "name": "Bún mọc Tố Như Kim Sơn",
+    "lat": 20.093,
+    "lng": 106.079,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Từng viên mọc thịt tươi giòn sần sật trong nước dùng xương hầm thanh trong"
+  },
+  {
+    "id": "mon-goi-nhech",
+    "name": "Gỏi cá nhệch Kim Sơn",
+    "lat": 20.091,
+    "lng": 106.085,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Đỉnh cao ẩm thực miền biển — Cá nhệch trộn thính gạo rang cuộn lá rừng chấm chẻo ấm nồng"
+  },
+  {
+    "id": "mon-ruou-nep-kim-son",
+    "name": "Rượu nếp Kim Sơn ủ men ta",
+    "lat": 20.089,
+    "lng": 106.081,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Danh tửu đất phù sa chưng cất từ gạo nếp cái hoa vàng và men thuốc bắc gia truyền"
+  },
+  {
+    "id": "mon-xoi-trung-kien",
+    "name": "Xôi trứng kiến Nho Quan",
+    "lat": 20.315,
+    "lng": 105.748,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Hạt trứng kiến nâu bóng béo ngậy phi hành hoa dẻo thơm trên chõ xôi nếp nương"
+  },
+  {
+    "id": "mon-nem-chua-yen-mac",
+    "name": "Nem chua Yên Mạc (Đặc sản tiến vua)",
+    "lat": 20.1362,
+    "lng": 106.0195,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Nem thịt nạc mông thái chỉ tang giòn cuộn lá ổi thơm chát chấm mắm ớt cay"
+  },
+  {
+    "id": "mon-mam-tep-gia-vien",
+    "name": "Mắm tép Gia Viễn",
+    "lat": 20.345,
+    "lng": 105.892,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Tép riu tươi rói sông Hoàng Long lên men thính gạo đỏ au chưng thịt ba chỉ"
+  },
+  {
+    "id": "mon-dua-dong-giao",
+    "name": "Dứa Đồng Giao ngọt đậm",
+    "lat": 20.149,
+    "lng": 105.895,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Thương hiệu dứa Cayen quả to mọng nước, thơm lừng ngọt sắc của vùng đất đỏ"
+  },
+  {
+    "id": "mon-che-trai-quang-soi",
+    "name": "Chè Trại Quang Sỏi",
+    "lat": 20.155,
+    "lng": 105.885,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Búp chè xanh đồi sỏi Tam Điệp nước sánh vàng, tiền chát hậu ngọt sâu"
+  },
+  {
+    "id": "mon-pho-bo-nam-dinh",
+    "name": "Phở bò gia truyền Nam Định",
+    "lat": 20.4285,
+    "lng": 106.168,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Bánh phở mỏng mềm, nước dùng ninh xương bò thơm lừng quế hồi thảo quả và gừng nướng"
+  },
+  {
+    "id": "mon-banh-xiu-pao",
+    "name": "Bánh xíu páo Nam Định",
+    "lat": 20.431,
+    "lng": 106.172,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Vỏ bánh vàng ươm nhiều lớp xếp nếp, nhân thịt xá xíu mộc nhĩ trứng cút béo ngậy thơm nức"
+  },
+  {
+    "id": "mon-nem-nam-giao-thuy",
+    "name": "Nem nắm Giao Thủy",
+    "lat": 20.258,
+    "lng": 106.465,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Bì lợn thái mỏng tang trộn thịt nạc nếp và thính gạo rang thơm lừng gói lá sung chát ngọt"
+  },
+  {
+    "id": "mon-ngao-giao-thuy",
+    "name": "Ngao Giao Thủy bãi triều",
+    "lat": 20.248,
+    "lng": 106.512,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Ngao biển vùng nước lợ cửa sông béo múp, trắng muốt nấu canh rau muống hoặc hấp sả ớt"
+  },
+  {
+    "id": "mon-chuoi-ngu-dai-hoang",
+    "name": "Chuối ngự Đại Hoàng tiến vua",
+    "lat": 20.528,
+    "lng": 106.052,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Quả chuối nhỏ xinh vỏ mỏng vàng óng, thịt thơm nức ngọt đậm từng dùng dâng lên hoàng đế"
+  },
+  {
+    "id": "mon-banh-cuon-phu-ly",
+    "name": "Bánh cuốn chả Phủ Lý",
+    "lat": 20.542,
+    "lng": 105.918,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Bánh cuốn tráng mỏng không nhân rắc hành phi thơm nức ăn kèm chả thịt nướng than hoa"
+  },
+  {
+    "id": "luu-tru-tam-coc",
+    "name": "Khu lưu trú Tam Cốc – Hang Múa",
+    "lat": 20.2235,
+    "lng": 105.938,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Khu vực homestay đồng lúa, ecolodge bình yên và quán cà phê chill giữa thung lũng đá"
+  },
+  {
+    "id": "luu-tru-trang-an",
+    "name": "Khu nghỉ dưỡng Tràng An – Hoa Lư",
+    "lat": 20.262,
+    "lng": 105.908,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Resort và bungalow sinh thái nép mình dưới chân vách núi đá vôi di sản thanh tịnh"
+  },
+  {
+    "id": "luu-tru-tp-ninh-binh",
+    "name": "Khách sạn trung tâm TP Ninh Bình",
+    "lat": 20.253,
+    "lng": 105.975,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Khách sạn 3–5 sao tiện nghi, gần ga tàu xe, phố đi bộ Kỳ Lân và phố cổ về đêm"
+  },
+  {
+    "id": "luu-tru-van-long",
+    "name": "Khu nghỉ dưỡng sinh thái Vân Long – Cúc Phương",
+    "lat": 20.352,
+    "lng": 105.858,
+    "coordStatus": "area",
+    "coordSource": "manual",
+    "verified": true,
+    "tagline": "Khu nghỉ dưỡng suối khoáng nước nóng và retreat sinh thái tách biệt hoàn toàn khói bụi"
+  }
+]

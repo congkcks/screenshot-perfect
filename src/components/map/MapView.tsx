@@ -1,95 +1,67 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-  Pin,
+  MapContainer,
+  TileLayer,
+  Marker,
   Circle,
+  Polyline,
   useMap,
-  useApiIsLoaded,
-} from "@vis.gl/react-google-maps";
-import { MarkerClusterer } from "@googlemaps/markerclusterer";
+} from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 import {
   Compass,
   Crosshair,
-  Layers,
-  MapPin,
   Maximize2,
-  Minimize2,
-  Navigation,
   Sparkles,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { type Place, LAYERS } from "@/data/places";
-import { MapFallback } from "./MapFallback";
+import { type Place, type Layer } from "@/data/places";
+import { TOURS } from "@/data/tours";
 import { TourPlayer } from "./TourPlayer";
 
-// Bảng màu tạo kiểu bản đồ sang trọng (Luxury Editorial)
-const luxuryMapStyles: google.maps.MapTypeStyle[] = [
-  {
-    featureType: "all",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#244B3B" }],
-  },
-  {
-    featureType: "all",
-    elementType: "labels.text.stroke",
-    stylers: [{ color: "#FAF8F4" }, { weight: 3 }],
-  },
-  {
-    featureType: "landscape",
-    elementType: "geometry",
-    stylers: [{ color: "#F5F1E8" }],
-  },
-  {
-    featureType: "landscape.natural.terrain",
-    elementType: "geometry",
-    stylers: [{ color: "#EBE5D8" }],
-  },
-  {
-    featureType: "poi",
-    elementType: "geometry",
-    stylers: [{ color: "#E2DDD0" }],
-  },
-  {
-    featureType: "poi.park",
-    elementType: "geometry.fill",
-    stylers: [{ color: "#D5E2D7" }],
-  },
-  {
-    featureType: "road",
-    elementType: "geometry.fill",
-    stylers: [{ color: "#FFFFFF" }],
-  },
-  {
-    featureType: "road",
-    elementType: "geometry.stroke",
-    stylers: [{ color: "#DFD7C7" }],
-  },
-  {
-    featureType: "road.highway",
-    elementType: "geometry.fill",
-    stylers: [{ color: "#EADBCA" }],
-  },
-  {
-    featureType: "road.highway",
-    elementType: "geometry.stroke",
-    stylers: [{ color: "#D6AD72" }, { lightness: 20 }],
-  },
-  {
-    featureType: "water",
-    elementType: "geometry.fill",
-    stylers: [{ color: "#A8CEBE" }],
-  },
-  {
-    featureType: "water",
-    elementType: "labels.text.fill",
-    stylers: [{ color: "#173428" }],
-  },
-];
+const LAYER_ICONS: Record<Layer, string> = {
+  "thien-nhien": "🌿",
+  "tam-linh-lich-su": "🛕",
+  "vui-choi": "🎡",
+  "am-thuc": "🍽️",
+  "luu-tru": "🏡",
+  "lang-nghe": "🧵",
+};
 
-const CORE_CENTER = { lat: 20.2562, lng: 105.92 }; // Tràng An - Hoa Lư - Tam Cốc
-const CORE_ZOOM = 12;
+// Tạo divIcon HTML + CSS sang trọng, không phụ thuộc ảnh gốc Leaflet (tránh 404 trên Vite)
+function createPinIcon(layer: Layer, active = false, debug = false, name = "") {
+  const icon = LAYER_ICONS[layer] || "📍";
+  const activeClass = active ? "is-active" : "";
+  const debugHtml = debug
+    ? `<div style="position: absolute; top: 100%; left: 50%; transform: translateX(-50%); margin-top: 4px; padding: 2px 6px; border-radius: 4px; background: rgba(0,0,0,0.85); color: #FFFFFF; font-size: 9px; font-family: monospace; white-space: nowrap; pointer-events: none; z-index: 1000; box-shadow: 0 2px 6px rgba(0,0,0,0.4);">${name}</div>`
+    : "";
+
+  return L.divIcon({
+    className: "nb-pin",
+    html: `
+      <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+        <span class="nb-pin__dot ${activeClass}" data-layer="${layer}">${icon}</span>
+        ${debugHtml}
+      </div>
+    `,
+    iconSize: [36, 36],
+    iconAnchor: [18, 18],
+  });
+}
+
+// User location pulse icon
+const userLocationIcon = L.divIcon({
+  className: "nb-user-pin",
+  html: `
+    <div style="position: relative; display: flex; align-items: center; justify-content: center; width: 24px; height: 24px;">
+      <span style="position: absolute; width: 24px; height: 24px; border-radius: 50%; background: #3b82f6; opacity: 0.5; animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;"></span>
+      <span style="position: relative; width: 14px; height: 14px; border-radius: 50%; background: #2563eb; border: 2.5px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.3);"></span>
+    </div>
+  `,
+  iconSize: [24, 24],
+  iconAnchor: [12, 12],
+});
 
 interface MapViewProps {
   places: Place[];
@@ -100,27 +72,10 @@ interface MapViewProps {
   debug?: boolean;
 }
 
-// Marker Pin Colors mapping
-function getMarkerColors(place: Place) {
-  switch (place.layer) {
-    case "thien-nhien":
-      return { bg: "#244B3B", border: "#769477", glyph: "#FAF8F4" };
-    case "tam-linh-lich-su":
-      return { bg: "#B88E52", border: "#D6AD72", glyph: "#FAF8F4" };
-    case "vui-choi":
-      return { bg: "#D97706", border: "#F59E0B", glyph: "#FAF8F4" };
-    case "am-thuc":
-      return { bg: "#DC2626", border: "#F87171", glyph: "#FFFFFF" };
-    case "luu-tru":
-      return { bg: "#2563EB", border: "#60A5FA", glyph: "#FFFFFF" };
-    case "lang-nghe":
-      return { bg: "#7C3AED", border: "#A78BFA", glyph: "#FFFFFF" };
-    default:
-      return { bg: "#244B3B", border: "#D6AD72", glyph: "#FAF8F4" };
-  }
-}
+const CORE_CENTER: [number, number] = [20.2562, 105.92]; // Tràng An – Hoa Lư – Tam Cốc
+const CORE_ZOOM = 12;
 
-// Sub-component to access google map instance via useMap hook
+// Bộ điều khiển bản đồ Leaflet thông qua hook useMap
 function MapController({
   places,
   selectedPlace,
@@ -130,33 +85,28 @@ function MapController({
   debug,
 }: MapViewProps) {
   const map = useMap();
-  const [userPos, setUserPos] = useState<google.maps.LatLngLiteral | null>(null);
+  const [userPos, setUserPos] = useState<[number, number] | null>(null);
   const [isLocating, setIsLocating] = useState(false);
-  const markersRef = useRef<{ [id: string]: google.maps.marker.AdvancedMarkerElement }>({});
-  const clustererRef = useRef<MarkerClusterer | null>(null);
 
   // Pan to selected place
   useEffect(() => {
     if (!map || !selectedPlace) return;
-    map.panTo({ lat: selectedPlace.lat, lng: selectedPlace.lng });
-    if ((map.getZoom() ?? 0) < 13) {
-      map.setZoom(14);
-    }
+    map.flyTo([selectedPlace.lat, selectedPlace.lng], Math.max(map.getZoom(), 13), {
+      duration: 1.2,
+    });
   }, [map, selectedPlace]);
 
-  // Fit bounds to all places (Expanded view)
+  // Fit bounds to all places
   const handleFitAll = useCallback(() => {
     if (!map || places.length === 0) return;
-    const bounds = new google.maps.LatLngBounds();
-    places.forEach((p) => bounds.extend({ lat: p.lat, lng: p.lng }));
-    map.fitBounds(bounds, { top: 60, bottom: 60, left: 60, right: 60 });
+    const bounds = L.latLngBounds(places.map((p) => [p.lat, p.lng]));
+    map.fitBounds(bounds, { padding: [40, 40] });
   }, [map, places]);
 
-  // Reset to Core view (Vùng lõi Cố đô)
+  // Reset to Core view
   const handleResetCore = useCallback(() => {
     if (!map) return;
-    map.panTo(CORE_CENTER);
-    map.setZoom(CORE_ZOOM);
+    map.flyTo(CORE_CENTER, CORE_ZOOM, { duration: 1.2 });
   }, [map]);
 
   // Geolocation "Quanh tôi"
@@ -165,13 +115,9 @@ function MapController({
     setIsLocating(true);
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        const coords = {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude,
-        };
+        const coords: [number, number] = [pos.coords.latitude, pos.coords.longitude];
         setUserPos(coords);
-        map.panTo(coords);
-        map.setZoom(14);
+        map.flyTo(coords, 14, { duration: 1.2 });
         setIsLocating(false);
       },
       (err) => {
@@ -182,29 +128,25 @@ function MapController({
     );
   }, [map]);
 
-  // Clusterer initialization
-  useEffect(() => {
-    if (!map) return;
-    if (!clustererRef.current) {
-      clustererRef.current = new MarkerClusterer({ map });
-    }
-    return () => {
-      if (clustererRef.current) {
-        clustererRef.current.clearMarkers();
-        clustererRef.current = null;
-      }
-    };
-  }, [map]);
+  // Guided Tour Polyline points
+  const tour = useMemo(
+    () => TOURS.find((t) => t.id === activeTourId),
+    [activeTourId]
+  );
+  const tourPolyline = useMemo(() => {
+    if (!tour) return [];
+    return tour.stops.map((s) => [s.lat, s.lng] as [number, number]);
+  }, [tour]);
 
   return (
     <>
       {/* Floating Control Toolbar */}
-      <div className="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
+      <div className="absolute top-4 left-4 z-[999] flex flex-wrap items-center gap-2">
         <Button
           type="button"
           size="sm"
           onClick={handleResetCore}
-          className="bg-[#244B3B] hover:bg-[#173428] text-white text-xs font-semibold px-3 py-1.5 h-8 rounded-full shadow-lg shadow-black/20 gap-1.5 cursor-pointer"
+          className="bg-[#244B3B] hover:bg-[#173428] text-white text-xs font-semibold px-3 py-1.5 h-8 rounded-full shadow-lg shadow-black/25 gap-1.5 cursor-pointer"
         >
           <Compass className="w-3.5 h-3.5 text-[#D6AD72]" />
           <span>Vùng Lõi Cố Đô</span>
@@ -235,62 +177,65 @@ function MapController({
         </Button>
       </div>
 
-      {/* 10 km Radius Circle when a place is selected */}
+      {/* 10 km Radius Circle when place is selected */}
       {selectedPlace && (
         <Circle
-          center={{ lat: selectedPlace.lat, lng: selectedPlace.lng }}
+          center={[selectedPlace.lat, selectedPlace.lng]}
           radius={10000}
-          strokeColor="#D6AD72"
-          strokeOpacity={0.65}
-          strokeWeight={1.5}
-          fillColor="#244B3B"
-          fillOpacity={0.05}
+          pathOptions={{
+            color: "#D6AD72",
+            fillColor: "#244B3B",
+            fillOpacity: 0.06,
+            weight: 1.5,
+            dashArray: "4, 6",
+          }}
         />
       )}
 
-      {/* User Geolocation Marker */}
-      {userPos && (
-        <AdvancedMarker position={userPos} title="Vị trí của bạn">
-          <div className="relative flex items-center justify-center">
-            <span className="animate-ping absolute inline-flex h-6 w-6 rounded-full bg-blue-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-blue-600 border-2 border-white shadow-md" />
-          </div>
-        </AdvancedMarker>
+      {/* Tour Polyline */}
+      {tourPolyline.length > 0 && (
+        <Polyline
+          positions={tourPolyline}
+          pathOptions={{
+            color: "#D6AD72",
+            weight: 4,
+            opacity: 0.85,
+            dashArray: "6, 8",
+          }}
+        />
       )}
 
-      {/* Place Markers */}
+      {/* User Location Marker */}
+      {userPos && (
+        <Marker
+          position={userPos}
+          icon={userLocationIcon}
+          title="Vị trí của bạn"
+        />
+      )}
+
+      {/* Markers for all places */}
       {places.map((place) => {
         const isSelected = selectedPlace?.id === place.id;
-        const colors = getMarkerColors(place);
+        const icon = createPinIcon(place.layer, isSelected, debug, place.name);
 
         return (
-          <AdvancedMarker
+          <Marker
             key={place.id}
-            position={{ lat: place.lat, lng: place.lng }}
-            onClick={() => onSelectPlace(place)}
+            position={[place.lat, place.lng]}
+            icon={icon}
             title={place.name}
-            zIndex={isSelected ? 999 : 1}
-          >
-            <div className="group relative cursor-pointer transition-transform duration-200 hover:scale-110">
-              <Pin
-                background={colors.bg}
-                borderColor={isSelected ? "#FAF8F4" : colors.border}
-                glyphColor={colors.glyph}
-                scale={isSelected ? 1.25 : 1.0}
-              />
-
-              {/* Debug Name Label */}
-              {debug && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 px-1.5 py-0.5 rounded bg-black/85 text-white text-[9px] font-mono whitespace-nowrap shadow-md pointer-events-none">
-                  {place.name} ({place.coordStatus})
-                </div>
-              )}
-            </div>
-          </AdvancedMarker>
+            alt={place.name}
+            keyboard
+            zIndexOffset={isSelected ? 1000 : 1}
+            eventHandlers={{
+              click: () => onSelectPlace(place),
+            }}
+          />
         );
       })}
 
-      {/* Guided Tour Player Component */}
+      {/* Tour Player Overlay */}
       {activeTourId && (
         <TourPlayer
           map={map}
@@ -306,7 +251,7 @@ function MapController({
   );
 }
 
-export function MapView({
+export default function MapView({
   places,
   selectedPlace,
   onSelectPlace,
@@ -314,49 +259,38 @@ export function MapView({
   onCloseTour,
   debug,
 }: MapViewProps) {
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "";
-  const mapId = import.meta.env.VITE_GOOGLE_MAP_ID || "NINHBINH_EDITORIAL_MAP";
-
-  // Fallback if API Key is missing or invalid
-  if (!apiKey || apiKey.trim() === "") {
-    return (
-      <MapFallback
-        reason="missing-key"
-        onSelectPlace={onSelectPlace}
-      />
-    );
-  }
+  const tileUrl =
+    import.meta.env.VITE_TILE_URL || "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 
   return (
     <div className="relative w-full h-full min-h-[500px] overflow-hidden bg-[#F5F1E8]">
-      <APIProvider apiKey={apiKey} language="vi" region="VN">
-        <Map
-          mapId={mapId}
-          defaultCenter={CORE_CENTER}
-          defaultZoom={CORE_ZOOM}
-          gestureHandling="greedy"
-          styles={luxuryMapStyles}
-          restriction={{
-            latLngBounds: {
-              north: 20.9,
-              south: 19.8,
-              east: 106.7,
-              west: 105.4,
-            },
-            strictBounds: false,
-          }}
-          className="w-full h-full"
-        >
-          <MapController
-            places={places}
-            selectedPlace={selectedPlace}
-            onSelectPlace={onSelectPlace}
-            activeTourId={activeTourId}
-            onCloseTour={onCloseTour}
-            debug={debug}
-          />
-        </Map>
-      </APIProvider>
+      <MapContainer
+        center={CORE_CENTER}
+        zoom={CORE_ZOOM}
+        minZoom={8}
+        maxBounds={[
+          [19.6, 105.2],
+          [21.1, 106.9],
+        ]}
+        maxBoundsViscosity={0.8}
+        style={{ height: "100%", width: "100%" }}
+        className="z-0"
+      >
+        <TileLayer
+          url={tileUrl}
+          maxZoom={19}
+          referrerPolicy="strict-origin-when-cross-origin"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'
+        />
+        <MapController
+          places={places}
+          selectedPlace={selectedPlace}
+          onSelectPlace={onSelectPlace}
+          activeTourId={activeTourId}
+          onCloseTour={onCloseTour}
+          debug={debug}
+        />
+      </MapContainer>
     </div>
   );
 }

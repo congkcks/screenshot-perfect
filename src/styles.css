@@ -335,3 +335,70 @@
     gap: 16px;
   }
 }
+
+/* ==========================================================================
+   Leaflet Luxury Editorial Marker Styles (#244B3B, #D6AD72, #F5F1E8)
+   ========================================================================== */
+.nb-pin {
+  background: transparent !important;
+  border: none !important;
+}
+
+.nb-pin__dot {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #244b3b;
+  border: 2px solid #d6ad72;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  font-size: 17px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.nb-pin__dot:hover {
+  transform: scale(1.18);
+  border-color: #faf8f4;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+}
+
+.nb-pin__dot.is-active {
+  transform: scale(1.28);
+  background: #d6ad72 !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 0 4px rgba(214, 173, 114, 0.4), 0 8px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000 !important;
+}
+
+.nb-pin__dot[data-layer="thien-nhien"] {
+  background: #244b3b;
+  border-color: #769477;
+}
+
+.nb-pin__dot[data-layer="tam-linh-lich-su"] {
+  background: #b88e52;
+  border-color: #d6ad72;
+}
+
+.nb-pin__dot[data-layer="vui-choi"] {
+  background: #d97706;
+  border-color: #f59e0b;
+}
+
+.nb-pin__dot[data-layer="am-thuc"] {
+  background: #dc2626;
+  border-color: #f87171;
+}
+
+.nb-pin__dot[data-layer="luu-tru"] {
+  background: #2563eb;
+  border-color: #60a5fa;
+}
+
+.nb-pin__dot[data-layer="lang-nghe"] {
+  background: #7c3aed;
+  border-color: #a78bfa;
+}

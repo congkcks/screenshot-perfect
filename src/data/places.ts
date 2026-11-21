@@ -25,6 +25,7 @@ export type Place = {
   lat: number;
   lng: number;
   coordStatus: "verified" | "area"; // "area": điểm đại diện cho một vùng
+  coordSource?: "wikidata" | "osm" | "manual";
   tagline: string;
   image?: string;
   mapQuery: string; // dùng cho link "Mở trong Google Maps"

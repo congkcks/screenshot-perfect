@@ -24,7 +24,7 @@ import { places, LAYERS, REGIONS, unpinnedDishes, type Place, type Layer, type R
 import { TOURS } from "@/data/tours";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useAmbience } from "@/hooks/useAmbience";
-import { MapView } from "@/components/map/MapView";
+import { MapClient } from "@/components/map/MapClient";
 import { PlaceCard } from "@/components/map/PlaceCard";
 import { OfficialTourCard } from "@/components/map/OfficialTourCard";
 import { PassportStampDrawer } from "@/components/map/PassportStampDrawer";
@@ -561,7 +561,7 @@ function MapPage() {
             mobileView === "map" ? "flex" : "hidden lg:flex"
           }`}
         >
-          <MapView
+          <MapClient
             places={filteredPlaces}
             selectedPlace={selectedPlace}
             onSelectPlace={handleSelectPlace}
