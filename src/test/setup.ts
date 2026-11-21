@@ -9,6 +9,11 @@ if (typeof window.HTMLElement !== "undefined") {
   window.HTMLElement.prototype.scrollIntoView = () => {};
 }
 
+if (typeof window.HTMLMediaElement !== "undefined") {
+  window.HTMLMediaElement.prototype.play = () => Promise.resolve();
+  window.HTMLMediaElement.prototype.pause = () => {};
+}
+
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query: string) => ({

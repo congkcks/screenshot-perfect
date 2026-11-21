@@ -143,7 +143,7 @@ export function FooterSection() {
               className="inline-flex items-center gap-1.5 text-white/80 hover:text-[#D6AD72] underline transition-colors cursor-pointer"
             >
               <Camera className="w-3.5 h-3.5 text-[#D6AD72]" />
-              <span>Ghi công bản quyền ảnh (Credits)</span>
+              <span>Ghi công bản quyền ảnh & video (Credits)</span>
             </button>
             <span className="hidden md:inline">Thiết kế theo chuẩn Luxury Editorial Travel</span>
             <button

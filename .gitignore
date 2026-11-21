@@ -37,4 +37,8 @@ Ninh_Binh_Landing_Page_Images_REVISED/
 .vercel/
 .env
 
+# Temporary assets
+.tmp/
+.tmp-videos/
+
 

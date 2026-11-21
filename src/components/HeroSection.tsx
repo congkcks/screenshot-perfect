@@ -12,6 +12,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { VideoBackdrop } from "@/components/VideoBackdrop";
 import trangAnImage from "@/assets/ninh-binh-trang-an.jpg";
 import muaCaveImage from "@/assets/mua-cave-view.jpg";
 
@@ -88,33 +89,20 @@ export function HeroSection({
       aria-label="Khám phá Ninh Bình"
       className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#0F231B] text-white pt-20 pb-16 scroll-mt-24"
     >
-      {/* Cinematic Background Images with Crossfade */}
-      {heroSlides.map((slide, idx) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === activeSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
-          }`}
-        >
-          <img
-            src={slideImages[idx]}
-            alt={slide.caption}
-            className="w-full h-full object-cover object-center animate-kenburns"
-            fetchPriority={idx === 0 ? "high" : "auto"}
-            onError={() => {
-              setSlideImages((prev) => {
-                const next = [...prev];
-                next[idx] = slide.fallback;
-                return next;
-              });
-            }}
-          />
-        </div>
-      ))}
+      {/* Cinematic Video Background (Pexels V01 Tràng An 1080p/720p) */}
+      <VideoBackdrop
+        src1080="/videos/hero/hero-trang-an-1080.mp4"
+        src720="/videos/hero/hero-trang-an-720.mp4"
+        poster="/videos/hero/hero-trang-an-poster.webp"
+        fallbackImage={trangAnImage}
+        priority={true}
+        className="absolute inset-0 z-0"
+        overlayClassName="bg-gradient-to-t from-[#0F231B] via-[#0F231B]/50 to-[#0F231B]/75"
+        ariaLabel="Video nền danh thắng Tràng An Ninh Bình"
+      />
 
-      {/* Luxury Vignette & Gradient Overlays */}
-      <div className="absolute inset-0 z-20 bg-gradient-to-t from-[#0F231B] via-[#0F231B]/45 to-[#0F231B]/70" />
-      <div className="absolute inset-0 z-20 bg-radial-vignette opacity-60" />
+      {/* Luxury Vignette Overlay */}
+      <div className="absolute inset-0 z-10 bg-radial-vignette opacity-60 pointer-events-none" />
 
       {/* Main Content Hero Container */}
       <div className="relative z-30 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center my-auto">

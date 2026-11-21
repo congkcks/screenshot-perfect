@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import type { TourStopVideo } from "@/data/tours";
 
 export type TourPhotoAccent = "temple" | "water" | "forest" | "karst";
 
 interface TourPhotoProps {
   src: string;
   alt: string;
+  video?: TourStopVideo;
   accent?: TourPhotoAccent;
   paused?: boolean;
   className?: string;
@@ -133,6 +135,7 @@ export function SceneFallback({ accent = "karst" }: { accent?: TourPhotoAccent }
 export function TourPhoto({
   src,
   alt,
+  video,
   accent = "karst",
   paused = false,
   className = "",
@@ -140,14 +143,20 @@ export function TourPhoto({
 }: TourPhotoProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const [hasVideoError, setHasVideoError] = useState(false);
 
-  // Reset trạng thái mỗi khi src thay đổi
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Reset trạng thái mỗi khi src hoặc video thay đổi
   useEffect(() => {
     setIsLoaded(false);
     setHasError(false);
-  }, [src]);
+    setIsVideoLoaded(false);
+    setHasVideoError(false);
+  }, [src, video?.src1080]);
 
-  // Kiểm tra giảm chuyển động (prefers-reduced-motion)
+  // Kiểm tra giảm chuyển động (prefers-reduced-motion) và chế độ tiết kiệm dữ liệu
   const [reducedMotion, setReducedMotion] = useState(false);
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -155,9 +164,36 @@ export function TourPhoto({
       setReducedMotion(media.matches);
       const listener = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
       media.addEventListener("change", listener);
+
+      const navConn = (navigator as unknown as { connection?: { saveData?: boolean } }).connection;
+      if (navConn?.saveData) {
+        setReducedMotion(true);
+      }
+
       return () => media.removeEventListener("change", listener);
     }
   }, []);
+
+  // Điều khiển video phát/dừng và tốc độ playbackRate
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!v || !video || reducedMotion || hasVideoError) return;
+
+    if (video.playbackRate) {
+      v.playbackRate = video.playbackRate;
+    }
+
+    if (paused) {
+      v.pause();
+    } else {
+      const p = v.play();
+      if (p && typeof p.catch === "function") {
+        p.catch(() => {});
+      }
+    }
+  }, [paused, video, reducedMotion, hasVideoError]);
+
+  const showVideo = !!video && !reducedMotion && !hasVideoError;
 
   return (
     <div
@@ -188,15 +224,38 @@ export function TourPhoto({
           className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-out ${
             isLoaded ? "opacity-100" : "opacity-0"
           } ${
-            !reducedMotion && !paused && isLoaded ? "animate-kenburns" : ""
+            !reducedMotion && !paused && isLoaded && !showVideo ? "animate-kenburns" : ""
           }`}
         />
       )}
 
-      {/* 3. Lớp gradient phủ tăng tương phản cho chữ */}
+      {/* 3. Lớp Video thật (nếu điểm dừng có video) */}
+      {showVideo && (
+        <video
+          ref={videoRef}
+          key={video.src1080}
+          muted
+          loop
+          playsInline
+          poster={video.poster}
+          onLoadedData={() => setIsVideoLoaded(true)}
+          onError={() => {
+            setHasVideoError(true);
+            setIsVideoLoaded(false);
+          }}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+            isVideoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        >
+          {video.src720 && <source src={video.src720} type="video/mp4" media="(max-width: 767px)" />}
+          <source src={video.src1080} type="video/mp4" />
+        </video>
+      )}
+
+      {/* 4. Lớp gradient phủ tăng tương phản cho chữ */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-      {/* 4. Nội dung chồng lên (Nhãn, Tiêu đề, Số điểm 3/6) */}
+      {/* 5. Nội dung chồng lên (Nhãn, Tiêu đề, Số điểm 3/6) */}
       {children && <div className="relative z-10 w-full h-full pointer-events-none">{children}</div>}
     </div>
   );

@@ -458,11 +458,12 @@ export function TourPlayer({
             </div>
           ) : (
             <>
-              {/* Khung ảnh có tranh đồ họa dự phòng (TourPhoto) */}
+              {/* Khung ảnh có tranh đồ họa dự phòng (TourPhoto) & video nền mượt mà */}
               <div className="my-1.5">
                 <TourPhoto
                   src={currentStop.photo}
                   alt={`Cảnh ${currentStop.title}`}
+                  video={currentStop.video}
                   accent={currentStop.accent || "karst"}
                   paused={!isPlaying}
                   className="w-full h-40 sm:h-44 border border-white/15"

@@ -3,11 +3,19 @@
  * Tọa độ, độ cao zoom, lời thuyết minh văn hóa và âm thanh môi trường tương ứng.
  */
 
+export type TourStopVideo = {
+  src1080: string;
+  src720: string;
+  poster: string;
+  playbackRate?: number;
+};
+
 export type TourStop = {
   placeId: string;
   title: string;
   text: string; // Lời thuyết minh truyền cảm hứng (≤ 220 ký tự)
   photo: string;
+  video?: TourStopVideo;
   accent?: "temple" | "water" | "forest" | "karst";
   narration?: string; // Đường dẫn file mp3 hoặc giọng đọc
   ambience?: "water-chime" | "temple-bell" | "bird-forest" | "mountain-breeze";
@@ -56,6 +64,11 @@ export const TOURS: Tour[] = [
         title: "Quần thể danh thắng Tràng An",
         text: "Camera hạ cánh xuống bến thuyền nan Tràng An. Mái chèo khẽ khua làn nước trong vắt, lướt qua hang Địa Linh, Nấu Rượu và Hành cung Vũ Lâm cổ kính giữa thung lũng đá ngọc bích.",
         photo: "/images/02-trang-an/trang-an-01-thuyen-xuyen-hang.webp",
+        video: {
+          src1080: "/videos/trang-an/trang-an-aerial-1080.mp4",
+          src720: "/videos/trang-an/trang-an-aerial-720.mp4",
+          poster: "/videos/trang-an/trang-an-aerial-poster.webp",
+        },
         accent: "water",
         ambience: "water-chime",
         zoom: 13.5,
@@ -98,6 +111,12 @@ export const TOURS: Tour[] = [
         title: "Đỉnh Ngọa Long Sơn – Hang Múa",
         text: "Chinh phục 486 bậc thang đá trắng tựa Vạn Lý Trường Thành thu nhỏ. Tượng rồng đá sừng sững trên đỉnh núi đón hoàng hôn rực rỡ, thu trọn sông Ngô Đồng vào tầm mắt 360 độ.",
         photo: "/images/04-hang-mua/hang-mua-01-tuong-rong-dinh-nui.webp",
+        video: {
+          src1080: "/videos/hang-mua/hang-mua-viewpoint-1080.mp4",
+          src720: "/videos/hang-mua/hang-mua-viewpoint-720.mp4",
+          poster: "/videos/hang-mua/hang-mua-viewpoint-poster.webp",
+          playbackRate: 0.8,
+        },
         accent: "karst",
         ambience: "mountain-breeze",
         zoom: 15,
@@ -175,6 +194,12 @@ export const TOURS: Tour[] = [
         title: "Hang Múa & Đầm sen",
         text: "Kết thúc ngày dài bằng bước chân leo đỉnh núi Ngọa Long đón ráng chiều buông xuống thung lũng đá Tam Cốc huyền hoặc.",
         photo: "/images/04-hang-mua/hang-mua-01-tuong-rong-dinh-nui.webp",
+        video: {
+          src1080: "/videos/hang-mua/hang-mua-viewpoint-1080.mp4",
+          src720: "/videos/hang-mua/hang-mua-viewpoint-720.mp4",
+          poster: "/videos/hang-mua/hang-mua-viewpoint-poster.webp",
+          playbackRate: 0.8,
+        },
         accent: "karst",
         ambience: "mountain-breeze",
         zoom: 15,
