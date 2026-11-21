@@ -8,6 +8,8 @@
     "build": "vite build",
     "build:rag": "node --env-file-if-exists=.env scripts/build-index.mjs",
     "build:dev": "vite build --mode development",
+    "check:places": "node --experimental-strip-types scripts/check-places.mjs",
+    "generate:narration": "node --experimental-strip-types --env-file-if-exists=.env scripts/make-narration.mjs",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
@@ -18,6 +20,7 @@
     "rolldown": "1.2.1"
   },
   "dependencies": {
+    "@googlemaps/markerclusterer": "^2.6.2",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
     "@radix-ui/react-alert-dialog": "^1.1.15",
@@ -51,6 +54,7 @@
     "@tanstack/react-start": "1.168.60",
     "@tanstack/router-plugin": "1.168.42",
     "@types/leaflet": "^1.9.22",
+    "@vis.gl/react-google-maps": "^1.10.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",

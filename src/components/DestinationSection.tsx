@@ -1,8 +1,10 @@
 import { useState, useMemo } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Compass,
   Heart,
+  Map,
   MapPin,
   Search,
   Sparkles,
@@ -273,19 +275,28 @@ export function DestinationSection({
                         <ArrowRight className="w-3.5 h-3.5" />
                       </span>
 
-                      <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                          dest.mapQuery
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="p-1.5 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] transition-colors text-white"
-                        title="Xem trên Google Maps"
-                        aria-label="Xem trên Google Maps"
-                      >
-                        <ExternalLink className="w-3.5 h-3.5" />
-                      </a>
+                      <div className="flex items-center gap-1.5" onClick={(e) => e.stopPropagation()}>
+                        <a
+                          href={`/ban-do?diem=${encodeURIComponent(dest.id)}`}
+                          className="p-1.5 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] transition-colors text-white"
+                          title="Xem trên Bản Đồ Số"
+                          aria-label="Xem trên Bản Đồ Số"
+                        >
+                          <Map className="w-3.5 h-3.5" />
+                        </a>
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                            dest.mapQuery
+                          )}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-1.5 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] transition-colors text-white"
+                          title="Mở trong Google Maps"
+                          aria-label="Mở trong Google Maps"
+                        >
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>

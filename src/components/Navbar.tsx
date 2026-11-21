@@ -15,9 +15,10 @@ import {
   Calculator,
   BookOpen,
   ChevronDown,
+  Map,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toggleNatureAudio, isNatureAudioPlaying } from "@/lib/nature-audio";
+import { useAmbience } from "@/hooks/useAmbience";
 import { toast } from "sonner";
 import { BLOG_PILLARS } from "@/data/blog";
 
@@ -29,7 +30,7 @@ interface NavbarProps {
 export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+  const { isPlaying: isPlayingAudio, toggle: toggleAudio } = useAmbience();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,12 +46,14 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
   }, []);
 
   const handleAudioToggle = () => {
-    const active = toggleNatureAudio();
-    setIsPlayingAudio(active);
+    const active = toggleAudio();
     if (active) {
-      toast.success("Đang phát âm thanh thiên nhiên Ninh Bình (tiếng suối Tràng An & chuông gió thanh tịnh)", {
-        duration: 3500,
-      });
+      toast.success(
+        "Đang phát âm thanh thiên nhiên Ninh Bình (tiếng suối Tràng An & chuông gió thanh tịnh)",
+        {
+          duration: 3500,
+        }
+      );
     } else {
       toast.info("Đã tắt âm thanh thiên nhiên");
     }
@@ -67,14 +70,13 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
     return href;
   };
 
-  const navLinks = [
+  const navLinks: { label: string; href: string; icon: typeof MapPin; isRoute?: boolean }[] = [
     { label: "Điểm Đến", href: "#diem-den", icon: MapPin },
-    { label: "Theo Vùng", href: "#vung-mien", icon: Layers },
+    { label: "Bản Đồ", href: "/ban-do", icon: Map, isRoute: true },
     { label: "Ẩm Thực", href: "#am-thuc", icon: UtensilsCrossed },
     { label: "Lịch Trình", href: "#lich-trinh", icon: Calendar },
     { label: "Lên Kế Hoạch", href: "#len-ke-hoach", icon: Calculator },
     { label: "Cẩm Nang", href: "#cam-nang", icon: Sparkles },
-    { label: "Khám Phá", href: "#kham-pha", icon: Compass },
   ];
 
   return (
@@ -111,16 +113,27 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
           <div className="hidden md:flex items-center gap-3 lg:gap-4 xl:gap-6">
             {/* Nhóm menu điều hướng chính */}
             <nav className="flex items-center gap-2 lg:gap-3 xl:gap-5" aria-label="Điều hướng chính">
-              {navLinks.map((item) => (
-                <a
-                  key={item.href}
-                  href={resolveHref(item.href)}
-                  className="text-[11px] lg:text-xs uppercase tracking-wider text-white/90 hover:text-[#D6AD72] transition-colors font-medium relative group py-1 whitespace-nowrap"
-                >
-                  {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#D6AD72] transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
+              {navLinks.map((item) =>
+                item.isRoute ? (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className="text-[11px] lg:text-xs uppercase tracking-wider text-white/90 hover:text-[#D6AD72] transition-colors font-medium relative group py-1 whitespace-nowrap"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#D6AD72] transition-all duration-300 group-hover:w-full" />
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={resolveHref(item.href)}
+                    className="text-[11px] lg:text-xs uppercase tracking-wider text-white/90 hover:text-[#D6AD72] transition-colors font-medium relative group py-1 whitespace-nowrap"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#D6AD72] transition-all duration-300 group-hover:w-full" />
+                  </a>
+                )
+              )}
             </nav>
 
             {/* Đường phân cách dọc ngăn cách Tạp Chí */}
@@ -162,10 +175,20 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
                         {pillar.name}
                       </Link>
                     ))}
-                    <div className="pt-1.5 border-t border-white/10">
+                    <div className="pt-1.5 border-t border-white/10 space-y-1">
+                      <Link
+                        to="/ban-do"
+                        className="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-semibold text-[#D6AD72] hover:bg-white/10 transition-colors"
+                      >
+                        <span className="flex items-center gap-1.5">
+                          <Map className="w-3.5 h-3.5" />
+                          Bản Đồ Số & Tham Quan Ảo
+                        </span>
+                        <ArrowRight className="w-3 h-3" />
+                      </Link>
                       <Link
                         to="/blog"
-                        className="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-bold text-[#D6AD72] hover:bg-white/10 transition-colors"
+                        className="flex items-center justify-between px-3 py-1.5 rounded-lg text-xs font-bold text-white/90 hover:text-[#D6AD72] hover:bg-white/10 transition-colors"
                       >
                         <span>Trọn bộ 20 bài viết</span>
                         <ArrowRight className="w-3 h-3" />
@@ -266,7 +289,20 @@ export function Navbar({ savedCount, onOpenWishlist }: NavbarProps) {
             <div className="divide-y divide-white/10">
               {navLinks.map((item) => {
                 const Icon = item.icon;
-                return (
+                return item.isRoute ? (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-between py-3 text-base font-serif text-white hover:text-[#D6AD72] transition-colors"
+                  >
+                    <span className="flex items-center gap-3">
+                      <Icon className="w-4 h-4 text-[#D6AD72]" />
+                      {item.label}
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-white/40" />
+                  </Link>
+                ) : (
                   <a
                     key={item.href}
                     href={resolveHref(item.href)}

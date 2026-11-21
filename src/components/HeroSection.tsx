@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowDown,
   ArrowRight,
   Compass,
+  Headphones,
   MapPin,
   Search,
   Sparkles,
@@ -84,7 +86,7 @@ export function HeroSection({
     <section
       id="trang-chu"
       aria-label="Khám phá Ninh Bình"
-      className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#0F231B] text-white pt-20 pb-16"
+      className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#0F231B] text-white pt-20 pb-16 scroll-mt-24"
     >
       {/* Cinematic Background Images with Crossfade */}
       {heroSlides.map((slide, idx) => (
@@ -148,7 +150,7 @@ export function HeroSection({
         <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs text-white/90 mb-8 bg-black/30 backdrop-blur-md py-1.5 px-4 rounded-full border border-white/15">
           <span className="flex items-center gap-1.5 text-[#D6AD72] font-medium">
             <SunMedium className="w-4 h-4 text-amber-300" />
-            Ninh Bình 24°C • Nắng nhẹ
+            Ninh Bình 24°C • Nắng nhẹ (dữ liệu mẫu)
           </span>
           <span className="text-white/30 hidden sm:inline">|</span>
           <span className="hidden sm:inline">Mùa đẹp nhất: Tháng 5 - Tháng 6 (Lúa vàng) & Tháng 1 - 3 (Lễ hội)</span>
@@ -157,7 +159,14 @@ export function HeroSection({
         {/* Luxury Search Bar */}
         <div className="w-full max-w-2xl mb-6">
           <form
-            onSubmit={onSearchSubmit}
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (searchQuery.trim()) {
+                window.location.href = `/ban-do?q=${encodeURIComponent(searchQuery.trim())}`;
+              } else {
+                onSearchSubmit(e);
+              }
+            }}
             className="relative flex items-center p-2 rounded-2xl bg-[#173428]/85 backdrop-blur-xl border border-[#D6AD72]/40 shadow-2xl shadow-black/40 group focus-within:border-[#D6AD72] transition-all"
           >
             <div className="pl-3 sm:pl-4 pr-2 text-[#D6AD72]">
@@ -172,14 +181,14 @@ export function HeroSection({
             />
             <Button
               type="submit"
-              className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shadow-md flex-shrink-0"
+              className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all shadow-md flex-shrink-0 cursor-pointer"
             >
               Tìm Kiếm
               <ArrowRight className="w-4 h-4 ml-1.5" />
             </Button>
           </form>
 
-          {/* Popular Searches */}
+          {/* Popular Searches: direct link to /ban-do?q=... */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs text-white/80">
             <span className="text-white/50 flex items-center gap-1">
               <TrendingUp className="w-3 h-3 text-[#D6AD72]" />
@@ -187,14 +196,14 @@ export function HeroSection({
             </span>
             {["Tràng An", "Hang Múa", "Tam Cốc", "Dê núi", "Cơm cháy", "Bái Đính", "Cúc Phương"].map(
               (term) => (
-                <button
+                <Link
                   key={term}
-                  type="button"
-                  onClick={() => onQuickFilter(term)}
-                  className="px-3 py-1 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] border border-white/15 text-white/90 text-[11px] transition-all"
+                  to="/ban-do"
+                  search={{ q: term }}
+                  className="px-3 py-1 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] border border-white/15 text-white/90 text-[11px] transition-all inline-block"
                 >
                   {term}
-                </button>
+                </Link>
               )
             )}
           </div>
@@ -237,20 +246,30 @@ export function HeroSection({
         </div>
       </div>
 
-      {/* Cinematic Slide Selector Tabs (Bottom Left) */}
-      <div className="absolute bottom-6 left-4 sm:left-8 z-30 hidden md:flex items-center gap-2 bg-black/40 backdrop-blur-md p-1.5 rounded-full border border-white/15">
+      {/* Cinematic Slide Selector Tabs (Bottom Left) — Khắc phục mép cắt và tạo lối vào Tham Quan Ảo */}
+      <div className="absolute bottom-6 left-4 sm:left-8 z-30 hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-2 rounded-full border border-white/20 shadow-2xl max-w-[calc(100vw-5rem)] overflow-x-auto">
+        <span className="text-[10px] uppercase font-bold tracking-wider text-[#D6AD72] pl-1 pr-1 shrink-0 flex items-center gap-1">
+          <Headphones className="w-3 h-3 text-[#D6AD72]" />
+          Tour ảo:
+        </span>
         {heroSlides.map((slide, idx) => (
-          <button
-            key={slide.id}
-            onClick={() => setActiveSlide(idx)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all ${
-              idx === activeSlide
-                ? "bg-[#D6AD72] text-[#173428] font-semibold shadow-md"
-                : "text-white/70 hover:text-white hover:bg-white/10"
-            }`}
-          >
-            0{idx + 1}. {slide.title}
-          </button>
+          <div key={slide.id} className="flex items-center shrink-0">
+            <Link
+              to="/ban-do"
+              search={{ diem: slide.id, tour: "1" }}
+              title={`Khám phá tham quan ảo 360° ${slide.title}`}
+              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 ${
+                idx === activeSlide
+                  ? "bg-[#D6AD72] text-[#173428] font-bold shadow-md"
+                  : "text-white/80 hover:text-white hover:bg-white/15"
+              }`}
+            >
+              <span>
+                0{idx + 1}. {slide.title}
+              </span>
+              <Headphones className="w-2.5 h-2.5 opacity-80" />
+            </Link>
+          </div>
         ))}
       </div>
 

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import {
   Dialog,
   DialogContent,
@@ -13,6 +14,7 @@ import {
   Heart,
   HelpCircle,
   Lightbulb,
+  Map,
   MapPin,
   Navigation,
   Quote,
@@ -271,6 +273,17 @@ export function DestinationModal({
                 className="border-[#DFD7C7] hover:bg-[#F5F1E8] text-xs"
               >
                 Đóng
+              </Button>
+              <Button
+                asChild
+                size="sm"
+                variant="outline"
+                className="border-[#244B3B]/40 text-[#244B3B] hover:bg-[#244B3B]/10 text-xs gap-1.5"
+              >
+                <a href={`/ban-do?diem=${encodeURIComponent(destination.id)}`}>
+                  <Map className="w-3.5 h-3.5 text-[#244B3B]" />
+                  Xem Trên Bản Đồ
+                </a>
               </Button>
               <Button
                 asChild

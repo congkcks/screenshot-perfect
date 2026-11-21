@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BanDoRouteImport } from './routes/ban-do'
 import { Route as HdvRouteImport } from './routes/hdv'
 import { Route as ApiChatRouteImport } from './routes/api.chat'
 import { Route as ApiHealthRouteImport } from './routes/api.health'
@@ -19,6 +20,11 @@ import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BanDoRoute = BanDoRouteImport.update({
+  id: '/ban-do',
+  path: '/ban-do',
   getParentRoute: () => rootRouteImport,
 } as any)
 const HdvRoute = HdvRouteImport.update({
@@ -49,6 +55,7 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ban-do': typeof BanDoRoute
   '/hdv': typeof HdvRoute
   '/api/chat': typeof ApiChatRoute
   '/api/health': typeof ApiHealthRoute
@@ -57,6 +64,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ban-do': typeof BanDoRoute
   '/hdv': typeof HdvRoute
   '/api/chat': typeof ApiChatRoute
   '/api/health': typeof ApiHealthRoute
@@ -66,6 +74,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ban-do': typeof BanDoRoute
   '/hdv': typeof HdvRoute
   '/api/chat': typeof ApiChatRoute
   '/api/health': typeof ApiHealthRoute
@@ -75,12 +84,26 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/hdv' | '/api/chat' | '/api/health' | '/blog/$slug' | '/blog/'
+    | '/'
+    | '/ban-do'
+    | '/hdv'
+    | '/api/chat'
+    | '/api/health'
+    | '/blog/$slug'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/hdv' | '/api/chat' | '/api/health' | '/blog/$slug' | '/blog'
+  to:
+    | '/'
+    | '/ban-do'
+    | '/hdv'
+    | '/api/chat'
+    | '/api/health'
+    | '/blog/$slug'
+    | '/blog'
   id:
     | '__root__'
     | '/'
+    | '/ban-do'
     | '/hdv'
     | '/api/chat'
     | '/api/health'
@@ -90,6 +113,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BanDoRoute: typeof BanDoRoute
   HdvRoute: typeof HdvRoute
   ApiChatRoute: typeof ApiChatRoute
   ApiHealthRoute: typeof ApiHealthRoute
@@ -104,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ban-do': {
+      id: '/ban-do'
+      path: '/ban-do'
+      fullPath: '/ban-do'
+      preLoaderRoute: typeof BanDoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/hdv': {
@@ -146,6 +177,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BanDoRoute: BanDoRoute,
   HdvRoute: HdvRoute,
   ApiChatRoute: ApiChatRoute,
   ApiHealthRoute: ApiHealthRoute,
