@@ -1497,6 +1497,8 @@ export type Experience = {
   bestTime: string;
   tips: string[];
   image: string;
+  fallbackImage?: string;
+  objectPosition?: string;
   location: string;
 };
 
@@ -1515,7 +1517,9 @@ export const experiences: Experience[] = [
       "Chọn Tuyến 2 hoặc Tuyến 3 ở Tràng An để khám phá hang dài nhất",
       "Chuẩn bị tiền boa nhỏ cảm ơn người chèo đò bản địa"
     ],
-    image: "https://images.unsplash.com/photo-1528127269322-539801943592?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/experiences/trai-nghiem-du-thuyen.webp",
+    fallbackImage: "/images/02-trang-an/trang-an-01-thuyen-xuyen-hang.webp",
+    objectPosition: "center",
     location: "Tràng An, Tam Cốc, Thung Nắng, Vân Long",
   },
   {
@@ -1532,7 +1536,9 @@ export const experiences: Experience[] = [
       "Mang theo nước uống và máy ảnh sạc đầy pin",
       "Cẩn thận các bậc đá dốc đứng gần đỉnh tháp"
     ],
-    image: "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/experiences/trai-nghiem-leo-nui.webp",
+    fallbackImage: "/images/04-hang-mua/hang-mua-02-bac-da-van-ly-truong-thanh.webp",
+    objectPosition: "center 40%",
     location: "Hang Múa, Núi Non Nước, Núi Kỳ Lân",
   },
   {
@@ -1549,7 +1555,9 @@ export const experiences: Experience[] = [
       "Ghé đầm sen Hang Múa và cổng Chùa Bích Động check-in",
       "Tấp vào quán ven đường uống nước dừa xiêm mát lạnh"
     ],
-    image: "https://images.unsplash.com/photo-1508873696983-2df5293cb32f?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/experiences/trai-nghiem-dap-xe.webp",
+    fallbackImage: "/assets/experiences/trai-nghiem-dap-xe-lang-que.webp",
+    objectPosition: "center 60%",
     location: "Tam Cốc, Bích Động & Rừng Cúc Phương",
   },
   {
@@ -1566,7 +1574,9 @@ export const experiences: Experience[] = [
       "Tại đồi dứa nên mặc quần dài tránh lá dứa cứa chân",
       "Tôn trọng bà con nông dân, không bẻ dứa hay dẫm nát luống hoa"
     ],
-    image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/experiences/trai-nghiem-san-anh.webp",
+    fallbackImage: "/images/06-co-do-hoa-lu/hoa-lu-01-den-vua-dinh.webp",
+    objectPosition: "center 45%",
     location: "Đồi dứa Đồng Giao, Tuyệt Tình Cốc, Đầm sen",
   },
   {
@@ -1583,7 +1593,9 @@ export const experiences: Experience[] = [
       "Giữ trật tự yên lặng tuyệt đối khi thuyền tiếp cận khu vực chim/voọc",
       "Mặc áo khoác nhẹ khi trời về chiều muộn"
     ],
-    image: "https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/experiences/trai-nghiem-ngam-chim.webp",
+    fallbackImage: "/images/07-thung-nham-van-long/van-long-01-thuyen-hoang-hon.webp",
+    objectPosition: "center 45%",
     location: "Thung Nham & Đầm Vân Long",
   },
   {
@@ -1600,7 +1612,9 @@ export const experiences: Experience[] = [
       "Không nên ngâm khoáng nóng ngay sau khi vừa ăn no",
       "Uống bổ sung nước lọc ấm sau khi tắm khoáng"
     ],
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+    image: "/assets/experiences/trai-nghiem-khoang-nong.webp",
+    fallbackImage: "/images/07-thung-nham-van-long/van-long-01-thuyen-hoang-hon.webp",
+    objectPosition: "center",
     location: "Khu du lịch Suối khoáng nóng Kênh Gà, Gia Viễn",
   },
 ];

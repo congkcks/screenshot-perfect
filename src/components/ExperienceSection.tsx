@@ -14,8 +14,18 @@ import { experiences, type Experience } from "@/data/ninh-binh";
 
 export function ExperienceSection() {
   const [selectedExp, setSelectedExp] = useState<number>(0);
+  const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
   const current = experiences[selectedExp] ?? experiences[0]!;
+
+  const handleImageError = (id: string) => {
+    setFailedImages((prev) => ({ ...prev, [id]: true }));
+  };
+
+  const isFailed = !!failedImages[current.id];
+  const displayImage = isFailed
+    ? current.fallbackImage || "/assets/experiences/trai-nghiem-fallback.webp"
+    : current.image;
 
   return (
     <section
@@ -65,13 +75,17 @@ export function ExperienceSection() {
       {/* Visual Storytelling Showcase */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FAF8F4] rounded-3xl p-6 sm:p-10 border border-[#DFD7C7] shadow-xl shadow-black/5">
         {/* Photographic Story Card (7 cols) */}
-        <div className="lg:col-span-7 relative h-[420px] sm:h-[500px] rounded-2xl overflow-hidden shadow-lg group">
+        <div className="lg:col-span-7 relative h-[420px] sm:h-[500px] w-full rounded-2xl overflow-hidden shadow-lg group bg-[#173428]">
           <img
-            src={current.image}
-            alt={current.title}
+            key={displayImage}
+            src={displayImage}
+            alt=""
+            aria-label={current.title}
+            onError={() => handleImageError(current.id)}
+            style={{ objectPosition: current.objectPosition || "center" }}
             className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0F231B] via-[#0F231B]/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0F231B] via-[#0F231B]/30 to-transparent pointer-events-none" />
 
           {/* Badges */}
           <div className="absolute top-4 left-4 flex flex-wrap gap-2">

@@ -21,4 +21,9 @@ Dự án tuân thủ nghiêm ngặt các tiêu chuẩn bản quyền, dữ liệ
   `https://artsandculture.google.com/story/trang-an-vietnam/YwWRAoT5FkF9Lg`
 
 ### 5. Hình ảnh
-- Các hình ảnh danh thắng được cấp phép theo Creative Commons (CC BY 4.0, CC BY-SA 4.0) từ cộng đồng Wikimedia Commons và tư liệu truyền thông du lịch Ninh Bình, ghi công cụ thể trong dữ liệu chi tiết của từng điểm đến.
+- Các hình ảnh danh thắng được cấp phép theo Creative Commons (CC BY 4.0, CC BY-SA 4.0, CC BY 2.0, Unsplash License) từ cộng đồng Wikimedia Commons, Unsplash và tư liệu truyền thông du lịch Ninh Bình, ghi công cụ thể trong dữ liệu chi tiết của từng điểm đến và bộ sưu tập trải nghiệm.
+  - Trải nghiệm leo núi Hang Múa: Rod Waddington / Shyamal (Wikimedia Commons, CC BY-SA).
+  - Trải nghiệm đạp xe Tam Cốc: Bernd Dittrich (Unsplash) & nhiếp ảnh tư liệu du lịch Tam Cốc.
+  - Trải nghiệm săn ảnh Tuyệt Tình Cốc: Hòa Nguyễn (Wikimedia Commons / Flickr, CC BY 2.0).
+  - Trải nghiệm chim & Voọc mông trắng Vân Long: Tuấn Mai (Wikimedia Commons, CC BY 2.0).
+  - Trải nghiệm du thuyền Tràng An & khoáng nóng Gia Viễn: Wikimedia Commons (CC BY-SA 4.0).
