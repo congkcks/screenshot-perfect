@@ -29,13 +29,18 @@ import { PlaceCard } from "@/components/map/PlaceCard";
 import { OfficialTourCard } from "@/components/map/OfficialTourCard";
 import { PassportStampDrawer } from "@/components/map/PassportStampDrawer";
 
-// Zod Schema for URL Query Params validation
+// Zod Schema for URL Query Params validation (coerces numbers to strings for safety)
+const stringOrNumberParam = z
+  .union([z.string(), z.number()])
+  .optional()
+  .transform((v) => (v !== undefined ? String(v) : undefined));
+
 const mapSearchSchema = z.object({
-  diem: z.string().optional(),
-  lop: z.string().optional(),
-  q: z.string().optional(),
-  tour: z.string().optional(),
-  debug: z.union([z.string(), z.number()]).optional(),
+  diem: stringOrNumberParam,
+  lop: stringOrNumberParam,
+  q: stringOrNumberParam,
+  tour: stringOrNumberParam,
+  debug: stringOrNumberParam,
 });
 
 export const Route = createFileRoute("/ban-do")({
@@ -52,7 +57,7 @@ export const Route = createFileRoute("/ban-do")({
       {
         property: "og:description",
         content:
-          "Bản đồ Google Maps trực quan với các lớp Thiên nhiên, Tâm linh, Ẩm thực, Lưu trú và âm thanh môi trường sống động.",
+          "Bản đồ số du lịch trực quan với các lớp Thiên nhiên, Tâm linh, Ẩm thực, Lưu trú và âm thanh môi trường sống động.",
       },
     ],
   }),
