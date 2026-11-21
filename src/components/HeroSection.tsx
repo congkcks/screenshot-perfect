@@ -86,7 +86,7 @@ export function HeroSection({
     <section
       id="trang-chu"
       aria-label="Khám phá Ninh Bình"
-      className="relative min-h-[100svh] w-full flex items-center justify-center overflow-hidden bg-[#0F231B] text-white pt-20 pb-16 scroll-mt-24"
+      className="relative min-h-[100svh] w-full max-w-full flex flex-col items-center justify-center overflow-hidden bg-[#0F231B] text-white pt-20 pb-20 scroll-mt-24"
     >
       {/* Cinematic Background Images with Crossfade */}
       {heroSlides.map((slide, idx) => (
@@ -189,8 +189,8 @@ export function HeroSection({
           </form>
 
           {/* Popular Searches: direct link to /ban-do?q=... */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs text-white/80">
-            <span className="text-white/50 flex items-center gap-1">
+          <div className="flex flex-wrap items-center justify-center gap-2 mt-3.5 text-xs text-white/80 w-full max-w-full px-2">
+            <span className="text-white/60 flex items-center gap-1.5 shrink-0 text-xs font-medium">
               <TrendingUp className="w-3 h-3 text-[#D6AD72]" />
               Tìm kiếm phổ biến:
             </span>
@@ -200,7 +200,7 @@ export function HeroSection({
                   key={term}
                   to="/ban-do"
                   search={{ q: term }}
-                  className="px-3 py-1 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] border border-white/15 text-white/90 text-[11px] transition-all inline-block"
+                  className="px-3 py-1 rounded-full bg-white/10 hover:bg-[#D6AD72] hover:text-[#173428] border border-white/15 text-white/90 text-[11px] transition-all inline-flex items-center shrink-0 cursor-pointer"
                 >
                   {term}
                 </Link>
@@ -210,11 +210,11 @@ export function HeroSection({
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-3.5 mt-2">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-3.5 mt-2 w-full max-w-full">
           <Button
             asChild
             size="lg"
-            className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm px-7 py-6 rounded-full shadow-xl shadow-[#D6AD72]/30 transition-all hover:scale-105"
+            className="bg-[#D6AD72] hover:bg-[#E7C99B] text-[#173428] font-bold text-sm px-7 py-6 rounded-full shadow-xl shadow-[#D6AD72]/30 transition-all hover:scale-105 cursor-pointer"
           >
             <a href="#diem-den">
               Khám Phá Các Địa Danh
@@ -225,7 +225,7 @@ export function HeroSection({
             asChild
             variant="outline"
             size="lg"
-            className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-semibold text-sm px-6 py-6 rounded-full transition-all"
+            className="border-white/40 text-white bg-white/10 hover:bg-white/20 backdrop-blur-md font-semibold text-sm px-6 py-6 rounded-full transition-all cursor-pointer"
           >
             <a href="#lich-trinh">
               Xem Lịch Trình Gợi Ý
@@ -236,7 +236,7 @@ export function HeroSection({
             asChild
             variant="ghost"
             size="lg"
-            className="text-white/80 hover:text-white hover:bg-white/10 text-sm px-5 py-6 rounded-full transition-all"
+            className="text-white/80 hover:text-white hover:bg-white/10 text-sm px-5 py-6 rounded-full transition-all cursor-pointer"
           >
             <a href="#kham-pha">
               Về Vùng Đất Cố Đô
@@ -246,44 +246,49 @@ export function HeroSection({
         </div>
       </div>
 
-      {/* Cinematic Slide Selector Tabs (Bottom Left) — Khắc phục mép cắt và tạo lối vào Tham Quan Ảo */}
-      <div className="absolute bottom-6 left-4 sm:left-8 z-30 hidden md:flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-2 rounded-full border border-white/20 shadow-2xl max-w-[calc(100vw-5rem)] overflow-x-auto">
-        <span className="text-[10px] uppercase font-bold tracking-wider text-[#D6AD72] pl-1 pr-1 shrink-0 flex items-center gap-1">
-          <Headphones className="w-3 h-3 text-[#D6AD72]" />
-          Tour ảo:
-        </span>
-        {heroSlides.map((slide, idx) => (
-          <div key={slide.id} className="flex items-center shrink-0">
-            <Link
-              to="/ban-do"
-              search={{ diem: slide.id, tour: "1" }}
-              title={`Khám phá tham quan ảo 360° ${slide.title}`}
-              className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 ${
-                idx === activeSlide
-                  ? "bg-[#D6AD72] text-[#173428] font-bold shadow-md"
-                  : "text-white/80 hover:text-white hover:bg-white/15"
-              }`}
-            >
-              <span>
-                0{idx + 1}. {slide.title}
-              </span>
-              <Headphones className="w-2.5 h-2.5 opacity-80" />
-            </Link>
+      {/* Hero Bottom Bar — Căn chỉnh theo Hero container (max-w-7xl) thay vì left/right cố định */}
+      <div className="absolute bottom-6 inset-x-0 z-30 pointer-events-none">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between gap-4">
+          {/* Virtual Tour Bar */}
+          <div className="pointer-events-auto flex items-center gap-2 bg-black/50 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/20 shadow-2xl max-w-full overflow-x-auto">
+            <span className="text-[10px] sm:text-[11px] uppercase font-bold tracking-wider text-[#D6AD72] pl-1 pr-1 shrink-0 flex items-center gap-1">
+              <Headphones className="w-3.5 h-3.5 text-[#D6AD72]" />
+              Tour ảo:
+            </span>
+            {heroSlides.map((slide, idx) => (
+              <div key={slide.id} className="flex items-center shrink-0">
+                <Link
+                  to="/ban-do"
+                  search={{ diem: slide.id, tour: "1" }}
+                  title={`Khám phá tham quan ảo 360° ${slide.title}`}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all flex items-center gap-1.5 shrink-0 ${
+                    idx === activeSlide
+                      ? "bg-[#D6AD72] text-[#173428] font-bold shadow-md"
+                      : "text-white/80 hover:text-white hover:bg-white/15"
+                  }`}
+                >
+                  <span>
+                    0{idx + 1}. {slide.title}
+                  </span>
+                  <Headphones className="w-2.5 h-2.5 opacity-80" />
+                </Link>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      {/* Scroll Down Cue (Bottom Center/Right) */}
-      <a
-        href="#diem-den"
-        aria-label="Cuộn xuống khám phá"
-        className="absolute bottom-6 right-4 sm:right-8 z-30 flex items-center gap-3 text-xs uppercase tracking-widest text-white/70 hover:text-[#D6AD72] transition-colors group"
-      >
-        <span className="hidden sm:inline font-light">Cuộn để khám phá</span>
-        <div className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center group-hover:border-[#D6AD72] group-hover:bg-[#D6AD72]/10 transition-all">
-          <ArrowDown className="w-4 h-4 animate-bounce text-[#D6AD72]" />
+          {/* Scroll Down Cue */}
+          <a
+            href="#diem-den"
+            aria-label="Cuộn xuống khám phá"
+            className="pointer-events-auto hidden md:flex items-center gap-3 text-xs uppercase tracking-widest text-white/70 hover:text-[#D6AD72] transition-colors group shrink-0"
+          >
+            <span className="hidden lg:inline font-light">Cuộn để khám phá</span>
+            <div className="w-9 h-9 rounded-full border border-white/30 flex items-center justify-center group-hover:border-[#D6AD72] group-hover:bg-[#D6AD72]/10 transition-all">
+              <ArrowDown className="w-4 h-4 animate-bounce text-[#D6AD72]" />
+            </div>
+          </a>
         </div>
-      </a>
+      </div>
     </section>
   );
 }
